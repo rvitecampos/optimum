@@ -1,7 +1,7 @@
 ﻿Public Class FrmCambiarContraseña
 
     Private Sub FrmCambiarContraseña_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        txtLogin.Text = FrmUsuarios.txtLogin.Text
     End Sub
 
     'Private Sub txtConfirmar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtConfirmar.KeyPress
@@ -17,6 +17,7 @@
         txtLogin.Text = ""
         txtContraseña.Text = ""
         txtConfirmar.Text = ""
+        txtLogin.Text = ""
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click

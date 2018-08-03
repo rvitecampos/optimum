@@ -42,6 +42,7 @@ Partial Class FrmCambiarContraseña
         Me.txtLogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLogin.Location = New System.Drawing.Point(320, 46)
         Me.txtLogin.Name = "txtLogin"
+        Me.txtLogin.ReadOnly = True
         Me.txtLogin.Size = New System.Drawing.Size(249, 30)
         Me.txtLogin.TabIndex = 0
         '

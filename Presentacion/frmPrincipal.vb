@@ -151,6 +151,12 @@ Public Class frmPrincipal
         LblUsuario.Text = datalistado.SelectedCells.Item(1).Value
         LblNombre.Text = datalistado.SelectedCells.Item(2).Value
         LblApellido.Text = datalistado.SelectedCells.Item(3).Value
+        LblCategoria.Text = datalistado.SelectedCells.Item(5).Value
+        If LblCategoria.Text = "A" Then
+            LblCategoria.Text = "Administrador"
+        Else
+            LblCategoria.Text = "Operador"
+        End If
         imagen.BackgroundImage = Nothing
         Dim b() As Byte = datalistado.SelectedCells.Item(4).Value
         Dim ms As New IO.MemoryStream(b)

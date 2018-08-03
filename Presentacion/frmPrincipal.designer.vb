@@ -67,6 +67,7 @@ Partial Class frmPrincipal
         Me.BtnProducto = New System.Windows.Forms.Button()
         Me.BtnCliente = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.LblCategoria = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -355,6 +356,7 @@ Partial Class frmPrincipal
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.LblCategoria)
         Me.GroupBox1.Controls.Add(Me.LblApellido)
         Me.GroupBox1.Controls.Add(Me.LblUsuario)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -363,7 +365,7 @@ Partial Class frmPrincipal
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(1019, 41)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(395, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(395, 169)
         Me.GroupBox1.TabIndex = 55
         Me.GroupBox1.TabStop = False
         '
@@ -372,7 +374,7 @@ Partial Class frmPrincipal
         Me.imagen.Image = Global.SISVENTAS.My.Resources.Resources.AVATAR1
         Me.imagen.Location = New System.Drawing.Point(23, 28)
         Me.imagen.Name = "imagen"
-        Me.imagen.Size = New System.Drawing.Size(114, 100)
+        Me.imagen.Size = New System.Drawing.Size(114, 128)
         Me.imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.imagen.TabIndex = 51
         Me.imagen.TabStop = False
@@ -509,6 +511,17 @@ Partial Class frmPrincipal
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
+        'LblCategoria
+        '
+        Me.LblCategoria.AutoSize = True
+        Me.LblCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCategoria.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.LblCategoria.Location = New System.Drawing.Point(143, 136)
+        Me.LblCategoria.Name = "LblCategoria"
+        Me.LblCategoria.Size = New System.Drawing.Size(20, 20)
+        Me.LblCategoria.TabIndex = 56
+        Me.LblCategoria.Text = "A"
+        '
         'frmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -590,5 +603,6 @@ Partial Class frmPrincipal
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents LblApellido As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents LblCategoria As System.Windows.Forms.Label
 
 End Class

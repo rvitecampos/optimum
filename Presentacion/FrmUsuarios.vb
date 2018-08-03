@@ -165,6 +165,7 @@
     End Sub
 
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
+        desbloquear()
         txtPassword.Enabled = False
         TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
         txtApellidos.Text = datalistado.SelectedCells.Item(3).Value
@@ -172,6 +173,13 @@
         TxtDireccion.Text = datalistado.SelectedCells.Item(5).Value
         TxtTelefono.Text = datalistado.SelectedCells.Item(6).Value
         txtLogin.Text = datalistado.SelectedCells.Item(7).Value
+        cbCategoria.Text = datalistado.SelectedCells.Item(10).Value
+        If cbCategoria.Text = "A" Then
+            cbCategoria.Text = "Administrador"
+        Else
+            cbCategoria.Text = "Operador"
+        End If
+
         imagen.BackgroundImage = Nothing
         Dim b() As Byte = datalistado.SelectedCells.Item(11).Value
         Dim ms As New IO.MemoryStream(b)
