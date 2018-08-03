@@ -6,7 +6,184 @@ SISVENTAS
 </name>
 </assembly>
 <members>
-<member name="T:SISVENTAS.DespensaDataSet.CajaDataTable">
+<member name="P:SISVENTAS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.AgregarImagen">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.AVATAR1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.BUSCAR">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.CAMBIAR_CONTRASEÑA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.CLIENTE">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.CLIENTES">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.clientes1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.clientes2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.COMPRA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.CONTRA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.CUADRO_AVATAR">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.default_icon">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLE_COMPRA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLE_VENTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLECOMPRA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLEVENTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.FONDO_PRINCIPAL3">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.GUARANIES">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.Image1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.LOGIN">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.LOGIN_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.LOGO_Escena_1">
+	<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.LOGOS">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.NOIMAGEN">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.optimum">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.optimum1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.OPTIMUM2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.PRODUCTO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.PRODUCTOS">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.PRODUCTOS1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.proveedor">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.PROVEEDORES">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.PROVEEDORES1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.PROVEEDORES11">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.QuitarImagen">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_COMPRA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_COMPRA1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_COMPRA2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_VENTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.USUARIOS">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.VENTA">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:SISVENTAS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.CajaDataTable">
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -605,171 +782,6 @@ Used to sort self-referenced table's rows
 </member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.TableAdapterManager">
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.AgregarImagen">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.AVATAR1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.BUSCAR">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.CAMBIAR_CONTRASEÑA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.CLIENTE">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.CLIENTES">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.clientes1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.clientes2">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.COMPRA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.CONTRA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.CUADRO_AVATAR">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.default_icon">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLE_COMPRA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLE_VENTA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLECOMPRA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.DETALLEVENTA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.FONDO_PRINCIPAL3">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.GUARANIES">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.Image1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.LOGIN">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.LOGIN_2">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.LOGO_Escena_1">
-	<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.LOGOS">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.NOIMAGEN">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.PRODUCTO">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.PRODUCTOS">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.PRODUCTOS1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.proveedor">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.PROVEEDORES">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.PROVEEDORES1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.PROVEEDORES11">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.QuitarImagen">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_COMPRA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_COMPRA1">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_COMPRA2">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_VENTA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.USUARIOS">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="P:SISVENTAS.My.Resources.Resources.VENTA">
-	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:SISVENTAS.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
 </members>

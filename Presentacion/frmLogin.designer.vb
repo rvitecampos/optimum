@@ -23,7 +23,6 @@ Partial Class frmLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.BtnIngresar = New System.Windows.Forms.Button()
@@ -33,9 +32,9 @@ Partial Class frmLogin
         Me.txtLogin = New System.Windows.Forms.TextBox()
         Me.lblHora = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        'Me.AxShockwaveFlash1 = New AxShockwaveFlashObjects.AxShockwaveFlash()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
-        'CType(Me.AxShockwaveFlash1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -46,9 +45,9 @@ Partial Class frmLogin
         Me.GroupBox1.Controls.Add(Me.txtPassword)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtLogin)
-        Me.GroupBox1.Location = New System.Drawing.Point(238, 27)
+        Me.GroupBox1.Location = New System.Drawing.Point(374, 21)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(395, 180)
+        Me.GroupBox1.Size = New System.Drawing.Size(270, 180)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ACCESO AL SISTEMA"
@@ -56,7 +55,7 @@ Partial Class frmLogin
         'BtnSalir
         '
         Me.BtnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnSalir.Location = New System.Drawing.Point(283, 139)
+        Me.BtnSalir.Location = New System.Drawing.Point(174, 139)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(75, 35)
         Me.BtnSalir.TabIndex = 4
@@ -67,7 +66,7 @@ Partial Class frmLogin
         '
         Me.BtnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.BtnIngresar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.BtnIngresar.Location = New System.Drawing.Point(202, 139)
+        Me.BtnIngresar.Location = New System.Drawing.Point(28, 139)
         Me.BtnIngresar.Name = "BtnIngresar"
         Me.BtnIngresar.Size = New System.Drawing.Size(75, 35)
         Me.BtnIngresar.TabIndex = 3
@@ -92,7 +91,7 @@ Partial Class frmLogin
         Me.txtPassword.Location = New System.Drawing.Point(28, 104)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(330, 29)
+        Me.txtPassword.Size = New System.Drawing.Size(221, 29)
         Me.txtPassword.TabIndex = 2
         '
         'Label1
@@ -112,7 +111,7 @@ Partial Class frmLogin
         Me.txtLogin.Font = New System.Drawing.Font("Microsoft Tai Le", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLogin.Location = New System.Drawing.Point(28, 43)
         Me.txtLogin.Name = "txtLogin"
-        Me.txtLogin.Size = New System.Drawing.Size(330, 31)
+        Me.txtLogin.Size = New System.Drawing.Size(221, 31)
         Me.txtLogin.TabIndex = 1
         '
         'lblHora
@@ -132,14 +131,15 @@ Partial Class frmLogin
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'AxShockwaveFlash1
+        'PictureBox1
         '
-        ' Me.AxShockwaveFlash1.Enabled = True
-        ' Me.AxShockwaveFlash1.Location = New System.Drawing.Point(19, 15)
-        ' Me.AxShockwaveFlash1.Name = "AxShockwaveFlash1"
-        ' Me.AxShockwaveFlash1.OcxState = CType(resources.GetObject("AxShockwaveFlash1.OcxState"), System.Windows.Forms.AxHost.State)
-        ' Me.AxShockwaveFlash1.Size = New System.Drawing.Size(192, 192)
-        ' Me.AxShockwaveFlash1.TabIndex = 1
+        Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.optimum
+        Me.PictureBox1.Location = New System.Drawing.Point(50, 44)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(283, 110)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
         '
         'frmLogin
         '
@@ -147,16 +147,16 @@ Partial Class frmLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(665, 228)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblHora)
-        ' Me.Controls.Add(Me.AxShockwaveFlash1)
         Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LOGIN"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        '  CType(Me.AxShockwaveFlash1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -170,5 +170,6 @@ Partial Class frmLogin
     Friend WithEvents BtnSalir As System.Windows.Forms.Button
     Friend WithEvents lblHora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     'Friend WithEvents AxShockwaveFlash1 As AxShockwaveFlashObjects.AxShockwaveFlash
 End Class

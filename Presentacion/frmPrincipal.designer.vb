@@ -501,10 +501,11 @@ Partial Class frmPrincipal
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.FONDO_PRINCIPAL3
+        Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.OPTIMUM2
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(1362, 704)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '

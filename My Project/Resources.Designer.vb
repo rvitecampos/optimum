@@ -303,6 +303,36 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property optimum() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("optimum", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property optimum1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("optimum1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property OPTIMUM2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("OPTIMUM2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property PRODUCTO() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("PRODUCTO", resourceCulture)
