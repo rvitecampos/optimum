@@ -73,7 +73,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub AcercaDeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AcercaDeToolStripMenuItem.Click
-        MessageBox.Show("Cualquier problema de SISVENTAS, Consultas al 0985283056", "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Cualquier problema de SisOptimum, Consultas al 920523590", "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub ExistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaToolStripMenuItem.Click
