@@ -10,6 +10,11 @@ Public Class Cliente
 
 
     End Sub
+    Private Shared Function EmailValido(strEmail As String) As Boolean
+        ' Retorna verdadero si strEmail es un formato de E-mail valido.
+        Return System.Text.RegularExpressions.Regex.IsMatch(strEmail, "^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" & "(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$")
+    End Function
+
     Function Fg_SoloNumeros(ByVal Digito As String, ByVal Texto As String) As Boolean
         Dim Dt_Entero As Integer = CInt(Asc(Digito))
         If Dt_Entero = 8 Then
@@ -31,6 +36,13 @@ Public Class Cliente
     Public Sub TxtTelefono__KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtTelefono.KeyPress
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtTelefono.Text & CChar(eventArgs.KeyChar))
     End Sub
+    Public Sub TxtDNI_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtDNI.KeyPress
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtCelular.Text & CChar(eventArgs.KeyChar))
+    End Sub
+    Public Sub TxtRUC__KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtRUC.KeyPress
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtTelefono.Text & CChar(eventArgs.KeyChar))
+    End Sub
+
 
     Private Sub mostrar()
         Try
@@ -85,58 +97,67 @@ Public Class Cliente
         datalistado.Columns(1).Visible = False
 
     End Sub
-
-
-
-
-   
-
     Public Sub limpiar()
         BtnGuardar.Enabled = False
         BtnEditar.Enabled = False
+        TxtIdCliente.Text = ""
+        TxtCliente.Text = ""
+        TxtRUC.Text = ""
         TxtNombre.Text = ""
-        txtApellidos.Text = ""
+        TxtApellidos.Text = ""
+        TxtDNI.Text = ""
         TxtDireccion.Text = ""
         TxtTelefono.Text = ""
         TxtCelular.Text = ""
-        TxtCliente.Text = ""
+        TxtCorreo.Text = ""
+        cbeliminar.Checked = False
     End Sub
     Public Sub bloquear()
+        TxtCliente.Enabled = False
+        TxtRUC.Enabled = False
         TxtNombre.Enabled = False
-        txtApellidos.Enabled = False
-        TxtCelular.Enabled = False
-
+        TxtApellidos.Enabled = False
+        TxtDNI.Enabled = False
         TxtDireccion.Enabled = False
         TxtTelefono.Enabled = False
-
-
+        TxtCelular.Enabled = False
+        TxtCorreo.Enabled = False
     End Sub
     Public Sub desbloquear()
+        TxtCliente.Enabled = True
+        TxtRUC.Enabled = True
         TxtNombre.Enabled = True
-        txtApellidos.Enabled = True
-        TxtCelular.Enabled = True
-
+        TxtApellidos.Enabled = True
+        TxtDNI.Enabled = True
         TxtDireccion.Enabled = True
         TxtTelefono.Enabled = True
+        TxtCelular.Enabled = True
+        TxtCorreo.Enabled = True
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         limpiar()
         desbloquear()
+        TxtCliente.Focus()
         BtnGuardar.Enabled = True
         BtnNuevo.Enabled = False
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        If Me.ValidateChildren = True And TxtNombre.Text <> "" And txtApellidos.Text <> "" Then
+        If Me.ValidateChildren = True And TxtCliente.Text <> "" And TxtRUC.Text <> "" Then
+
             Try
                 Dim dts As New vcliente
                 Dim func As New fCliente
+                dts.gcliente = TxtCliente.Text
+                dts.gruc = TxtRUC.Text
                 dts.gnombre = TxtNombre.Text
-                dts.gapellido = txtApellidos.Text
+                dts.gapellido = TxtApellidos.Text
+                dts.gdni = TxtDNI.Text
                 dts.gdireccion = TxtDireccion.Text
                 dts.gtelefono = TxtTelefono.Text
                 dts.gcelular = TxtCelular.Text
+                dts.gcorreo = TxtCorreo.Text
 
                 If func.insertar(dts) Then
                     MessageBox.Show("Cliente registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -160,18 +181,23 @@ Public Class Cliente
         Else
             MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-      
+
 
     End Sub
 
     Private Sub datalistado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistado.CellClick
         desbloquear()
-        TxtCliente.Text = datalistado.SelectedCells.Item(1).Value
-        TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
-        txtApellidos.Text = datalistado.SelectedCells.Item(3).Value
-        TxtDireccion.Text = datalistado.SelectedCells.Item(4).Value
-        TxtTelefono.Text = datalistado.SelectedCells.Item(5).Value
-        TxtCelular.Text = datalistado.SelectedCells.Item(6).Value
+        TxtIdCliente.Text = datalistado.SelectedCells.Item(1).Value
+        TxtCliente.Text = datalistado.SelectedCells.Item(2).Value
+        TxtRUC.Text = datalistado.SelectedCells.Item(3).Value
+        TxtNombre.Text = datalistado.SelectedCells.Item(4).Value
+        TxtApellidos.Text = datalistado.SelectedCells.Item(5).Value
+        TxtDNI.Text = datalistado.SelectedCells.Item(6).Value
+        TxtDireccion.Text = datalistado.SelectedCells.Item(7).Value
+        TxtTelefono.Text = datalistado.SelectedCells.Item(8).Value
+        TxtCelular.Text = datalistado.SelectedCells.Item(9).Value
+        TxtCorreo.Text = datalistado.SelectedCells.Item(10).Value
+        TxtCliente.Focus()
         BtnEditar.Enabled = True
         BtnGuardar.Enabled = False
 
@@ -185,17 +211,21 @@ Public Class Cliente
             If FrmBloqueo.txtPermiso.Text = "1" Then
 
 
-                If Me.ValidateChildren = True And TxtNombre.Text <> "" And txtApellidos.Text <> "" And TxtCliente.Text <> "" Then
+                If Me.ValidateChildren = True And TxtNombre.Text <> "" And TxtApellidos.Text <> "" And TxtIdCliente.Text <> "" Then
                     Try
                         Dim dts As New vcliente
                         Dim func As New fCliente
 
-                        dts.gidcliente = TxtCliente.Text
+                        dts.gidcliente = TxtIdCliente.Text
+                        dts.gcliente = TxtCliente.Text
+                        dts.gruc = TxtRUC.Text
                         dts.gnombre = TxtNombre.Text
-                        dts.gapellido = txtApellidos.Text
+                        dts.gapellido = TxtApellidos.Text
+                        dts.gdni = TxtDNI.Text
                         dts.gdireccion = TxtDireccion.Text
                         dts.gtelefono = TxtTelefono.Text
                         dts.gcelular = TxtCelular.Text
+                        dts.gcorreo = TxtCorreo.Text
 
                         If func.editar(dts) Then
                             MessageBox.Show("Cliente editado correctamente", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -229,8 +259,10 @@ Public Class Cliente
     Private Sub cbeliminar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbeliminar.CheckedChanged
         If cbeliminar.CheckState = CheckState.Checked Then
             datalistado.Columns.Item("eliminar").Visible = True
+            BtnEliminar.Enabled = True
         Else
             datalistado.Columns.Item("eliminar").Visible = False
+            BtnEliminar.Enabled = False
         End If
     End Sub
 
@@ -297,5 +329,10 @@ Public Class Cliente
         buscar()
     End Sub
 
-
+ 
+    Private Sub TxtCorreo_LostFocus(sender As Object, e As EventArgs) Handles TxtCorreo.LostFocus
+        If (EmailValido(TxtCorreo.Text) = False) Then
+            MsgBox("Correo no válido")
+        End If
+    End Sub
 End Class

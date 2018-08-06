@@ -7,7 +7,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SalirToolStripMenuItem.Click
-        If MsgBox("Desea Salir de SISVENTAS", MsgBoxStyle.Question + vbYesNo, "¿Salir?") = vbYes Then
+        If MsgBox("Desea Salir de SisOptimum", MsgBoxStyle.Question + vbYesNo, "¿Salir?") = vbYes Then
             End
         Else
 
@@ -34,11 +34,6 @@ Public Class frmPrincipal
 
     Private Sub BtnCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCliente.Click
         Cliente.ShowDialog()
-
-
-
-
-
     End Sub
 
     Private Sub BtnProveedor_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnProveedor.Click

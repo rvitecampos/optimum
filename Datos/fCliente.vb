@@ -36,11 +36,15 @@ Public Class fCliente
             cmd.Connection = cnn
 
             cmd.Parameters.AddWithValue("@Cod_Cliente", dts.gidcliente)
+            cmd.Parameters.AddWithValue("@cliente", dts.gcliente)
+            cmd.Parameters.AddWithValue("@ruc", dts.gruc)
             cmd.Parameters.AddWithValue("@nombre", dts.gnombre)
             cmd.Parameters.AddWithValue("@apellido", dts.gapellido)
+            cmd.Parameters.AddWithValue("@dni", dts.gdni)
             cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
             cmd.Parameters.AddWithValue("@telefono", dts.gtelefono)
             cmd.Parameters.AddWithValue("@celular", dts.gcelular)
+            cmd.Parameters.AddWithValue("@correo", dts.gcorreo)
 
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -65,11 +69,15 @@ Public Class fCliente
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
+            cmd.Parameters.AddWithValue("@cliente", dts.gcliente)
+            cmd.Parameters.AddWithValue("@ruc", dts.gruc)
             cmd.Parameters.AddWithValue("@nombre", dts.gnombre)
             cmd.Parameters.AddWithValue("@apellido", dts.gapellido)
+            cmd.Parameters.AddWithValue("@dni", dts.gdni)
             cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
             cmd.Parameters.AddWithValue("@telefono", dts.gtelefono)
             cmd.Parameters.AddWithValue("@celular", dts.gcelular)
+            cmd.Parameters.AddWithValue("@correo", dts.gcorreo)
 
             If cmd.ExecuteNonQuery Then
                 Return True

@@ -131,6 +131,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DespensaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DespensaDataSet.vb">
+      <DependentUpon>DespensaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
