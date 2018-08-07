@@ -1,6 +1,10 @@
 ﻿
 Public Class frmPrincipal
     Dim dt As New DataTable
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        lblHora.Text = TimeOfDay
+    End Sub
     Private Sub NuevoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClienteToolStripMenuItem.Click
         Cliente.ShowDialog()
         'Muestra el Formulario
@@ -142,6 +146,7 @@ Public Class frmPrincipal
 
 
     Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblHora.Text = TimeOfDay
         mostrar()
         LblUsuario.Text = datalistado.SelectedCells.Item(1).Value
         LblNombre.Text = datalistado.SelectedCells.Item(2).Value
@@ -192,4 +197,5 @@ Public Class frmPrincipal
             FrmUsuarios.ShowDialog()
         End If
     End Sub
+
 End Class

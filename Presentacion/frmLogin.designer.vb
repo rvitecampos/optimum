@@ -23,6 +23,7 @@ Partial Class frmLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BtnSalir = New System.Windows.Forms.Button()
         Me.BtnIngresar = New System.Windows.Forms.Button()
@@ -151,6 +152,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblHora)
         Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LOGIN"

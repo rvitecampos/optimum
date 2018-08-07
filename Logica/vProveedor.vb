@@ -1,6 +1,6 @@
 ﻿Public Class vProveedor
     Dim cood_proveedor As Integer
-    Dim proveedor, telefono, direccion As String
+    Dim proveedor, telefono, direccion, correo As String
 
 
     Public Property gcood_Proveedor
@@ -35,19 +35,26 @@
             direccion = value
         End Set
     End Property
-
+    Public Property gcorreo
+        Get
+            Return correo
+        End Get
+        Set(ByVal value)
+            correo = value
+        End Set
+    End Property
 
 
     Public Sub New()
 
     End Sub
 
-    Public Sub New(ByVal cood_Proveedor As Integer, ByVal proveedor As String, ByVal telefono As String, ByVal direccion As String)
+    Public Sub New(ByVal cood_Proveedor As Integer, ByVal proveedor As String, ByVal telefono As String, ByVal direccion As String, ByVal correo As String)
         gcood_Proveedor = cood_Proveedor
         gProveedor = proveedor
         gTelefono = telefono
         gdireccion = direccion
-
+        gcorreo = correo
 
     End Sub
 End Class

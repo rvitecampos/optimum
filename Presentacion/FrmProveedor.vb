@@ -7,10 +7,16 @@
         bloquear()
 
     End Sub
+    Private Shared Function EmailValido(strEmail As String) As Boolean
+        ' Retorna verdadero si strEmail es un formato de E-mail valido.
+        Return System.Text.RegularExpressions.Regex.IsMatch(strEmail, "^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" & "(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$")
+    End Function
+
     Public Sub bloquear()
         TxtProveedor.Enabled = False
         TxtDireccion.Enabled = False
         TxtTelefono.Enabled = False
+        TxtCorreo.Enabled = False
         BtnEditar.Enabled = False
         BtnGuardar.Enabled = False
 
@@ -56,13 +62,12 @@
         End If
 
 
-            BtnNuevo.Enabled = True
-            BtnEditar.Enabled = False
         Catch ex As Exception
             MsgBox(ex.Message)
 
         End Try
-
+        BtnNuevo.Enabled = True
+        BtnEditar.Enabled = False
 
     End Sub
 
@@ -87,6 +92,7 @@
                 End If
             Else
                 mostrar()
+                bloquear()
 
             End If
 
@@ -127,21 +133,21 @@
    
 
     Public Sub limpiar()
-        BtnGuardar.Enabled = True
+        BtnGuardar.Enabled = False
         BtnEditar.Enabled = False
         TxtCodProveedor.Text = "0"
         TxtProveedor.Text = ""
         TxtDireccion.Text = ""
         TxtTelefono.Text = ""
-      
-
-       
+        TxtCorreo.Text = ""
+        cbeliminar.Checked = False
 
     End Sub
     Public Sub desbloquear()
         TxtProveedor.Enabled = True
         TxtDireccion.Enabled = True
         TxtTelefono.Enabled = True
+        TxtCorreo.Enabled = True
         BtnEditar.Enabled = False
         BtnGuardar.Enabled = True
     End Sub
@@ -151,6 +157,7 @@
         mostrar()
         desbloquear()
         BtnNuevo.Enabled = False
+        TxtProveedor.Focus()
 
     End Sub
 
@@ -163,6 +170,7 @@
             dts.gProveedor = TxtProveedor.Text
             dts.gdireccion = TxtDireccion.Text
             dts.gTelefono = TxtTelefono.Text
+            dts.gcorreo = TxtCorreo.Text
 
 
 
@@ -189,11 +197,12 @@
     End Sub
 
     Private Sub datalistado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistadoProveedor.CellClick
-        TxtCodProveedor.Text = datalistadoProveedor.SelectedCells.Item(1).Value
-        TxtProveedor.Text = datalistadoProveedor.SelectedCells.Item(2).Value
-        TxtDireccion.Text = datalistadoProveedor.SelectedCells.Item(3).Value
-        TxtTelefono.Text = datalistadoProveedor.SelectedCells.Item(4).Value
-
+        desbloquear()
+        TxtCodProveedor.Text = Trim(datalistadoProveedor.SelectedCells.Item(1).Value)
+        TxtProveedor.Text = Trim(datalistadoProveedor.SelectedCells.Item(2).Value)
+        TxtDireccion.Text = Trim(datalistadoProveedor.SelectedCells.Item(3).Value)
+        TxtTelefono.Text = Trim(datalistadoProveedor.SelectedCells.Item(4).Value)
+        TxtCorreo.Text = Trim(datalistadoProveedor.SelectedCells.Item(5).Value)
 
 
         BtnEditar.Enabled = True
@@ -217,18 +226,19 @@
                         dts.gProveedor = TxtProveedor.Text
                         dts.gTelefono = TxtTelefono.Text
                         dts.gdireccion = TxtDireccion.Text
-
+                        dts.gcorreo = TxtCorreo.Text
 
 
                         If func.editar(dts) Then
                             MessageBox.Show("Producto editado correctamente", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            mostrar()
-                            limpiar()
+                            '      mostrar()
+                            '      limpiar()
+                            '      bloquear()
                         Else
                             MessageBox.Show("Producto no fue modificado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            mostrar()
-                            limpiar()
-
+                            '     mostrar()
+                            '     limpiar()
+                            '     bloquear()
                         End If
                     Catch ex As Exception
                         MsgBox(ex.Message)
@@ -241,14 +251,24 @@
             Else
 
             End If
+            mostrar()
+            limpiar()
+            bloquear()
+
         End If
+        BtnGuardar.Enabled = False
+        BtnEditar.Enabled = False
+        BtnNuevo.Enabled = True
+
     End Sub
 
     Private Sub cbeliminar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbeliminar.CheckedChanged
         If cbeliminar.CheckState = CheckState.Checked Then
             datalistadoProveedor.Columns.Item("eliminar").Visible = True
+            btneliminar2.Enabled = True
         Else
             datalistadoProveedor.Columns.Item("eliminar").Visible = False
+            btneliminar2.Enabled = False
         End If
     End Sub
 
@@ -278,6 +298,8 @@
 
                             If func.eliminar(vdb) Then
                                 MessageBox.Show("Proveedor eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                bloquear()
+                                limpiar()
                             End If
                         End If
                     Next
@@ -318,4 +340,11 @@
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         buscar()
     End Sub
+
+    Private Sub TxtCorreo_LostFocus(sender As Object, e As EventArgs) Handles TxtCorreo.LostFocus
+        If (EmailValido(TxtCorreo.Text) = False) Then
+            MsgBox("Correo no válido")
+        End If
+    End Sub
+
 End Class

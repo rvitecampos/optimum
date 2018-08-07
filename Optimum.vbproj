@@ -584,6 +584,24 @@
   <ItemGroup>
     <None Include="Resources\OPTIMUM2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CLIENTESNEW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes1NEW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICONO.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userpassword_deusuari_787.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cslogin_104358.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_84308.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

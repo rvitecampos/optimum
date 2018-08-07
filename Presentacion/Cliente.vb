@@ -68,7 +68,7 @@ Public Class Cliente
         BtnNuevo.Enabled = True
         BtnEditar.Enabled = False
 
-        buscar()
+        ' buscar()
     End Sub
 
     Private Sub buscar()
@@ -91,6 +91,12 @@ Public Class Cliente
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        If Txtbuscar.Text = "" Then
+            mostrar()
+            bloquear()
+        End If
+
+
     End Sub
 
     Private Sub ocultar_columnas()
@@ -187,16 +193,16 @@ Public Class Cliente
 
     Private Sub datalistado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistado.CellClick
         desbloquear()
-        TxtIdCliente.Text = datalistado.SelectedCells.Item(1).Value
-        TxtCliente.Text = datalistado.SelectedCells.Item(2).Value
-        TxtRUC.Text = datalistado.SelectedCells.Item(3).Value
-        TxtNombre.Text = datalistado.SelectedCells.Item(4).Value
-        TxtApellidos.Text = datalistado.SelectedCells.Item(5).Value
-        TxtDNI.Text = datalistado.SelectedCells.Item(6).Value
-        TxtDireccion.Text = datalistado.SelectedCells.Item(7).Value
-        TxtTelefono.Text = datalistado.SelectedCells.Item(8).Value
-        TxtCelular.Text = datalistado.SelectedCells.Item(9).Value
-        TxtCorreo.Text = datalistado.SelectedCells.Item(10).Value
+        TxtIdCliente.Text = Trim(datalistado.SelectedCells.Item(1).Value)
+        TxtCliente.Text = Trim(datalistado.SelectedCells.Item(2).Value)
+        TxtRUC.Text = Trim(datalistado.SelectedCells.Item(3).Value)
+        TxtNombre.Text = Trim(datalistado.SelectedCells.Item(4).Value)
+        TxtApellidos.Text = Trim(datalistado.SelectedCells.Item(5).Value)
+        TxtDNI.Text = Trim(datalistado.SelectedCells.Item(6).Value)
+        TxtDireccion.Text = Trim(datalistado.SelectedCells.Item(7).Value)
+        TxtTelefono.Text = Trim(datalistado.SelectedCells.Item(8).Value)
+        TxtCelular.Text = Trim(datalistado.SelectedCells.Item(9).Value)
+        TxtCorreo.Text = Trim(datalistado.SelectedCells.Item(10).Value)
         TxtCliente.Focus()
         BtnEditar.Enabled = True
         BtnGuardar.Enabled = False
@@ -229,14 +235,14 @@ Public Class Cliente
 
                         If func.editar(dts) Then
                             MessageBox.Show("Cliente editado correctamente", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            mostrar()
-                            limpiar()
-                            bloquear()
+                            '        mostrar()
+                            '        limpiar()
+                            '        bloquear()
                         Else
                             MessageBox.Show("Cliente no modificado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            mostrar()
-                            limpiar()
-                            bloquear()
+                            '       mostrar()
+                            '       limpiar()
+                            '       bloquear()
                         End If
                     Catch ex As Exception
                         MsgBox(ex.Message)
@@ -249,6 +255,13 @@ Public Class Cliente
             Else
 
             End If
+
+            mostrar()
+            limpiar()
+            bloquear()
+
+
+
         End If
         BtnGuardar.Enabled = False
         BtnEditar.Enabled = False

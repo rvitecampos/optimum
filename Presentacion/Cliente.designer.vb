@@ -22,6 +22,7 @@ Partial Class Cliente
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Cliente))
         Me.BtnGuardar = New System.Windows.Forms.Button()
         Me.BtnBuscar = New System.Windows.Forms.Button()
         Me.BtnEliminar = New System.Windows.Forms.Button()
@@ -84,6 +85,9 @@ Partial Class Cliente
         'BtnEliminar
         '
         Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnEliminar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.BtnEliminar.Location = New System.Drawing.Point(107, 63)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
@@ -376,12 +380,12 @@ Partial Class Cliente
         'cbocampos
         '
         Me.cbocampos.FormattingEnabled = True
-        Me.cbocampos.Items.AddRange(New Object() {"Nombre", "Apellido", "Telefono"})
+        Me.cbocampos.Items.AddRange(New Object() {"Cliente", "RUC", "Nombre", "Apellido", "DNI"})
         Me.cbocampos.Location = New System.Drawing.Point(29, 33)
         Me.cbocampos.Name = "cbocampos"
         Me.cbocampos.Size = New System.Drawing.Size(121, 21)
         Me.cbocampos.TabIndex = 1
-        Me.cbocampos.Text = "Nombre"
+        Me.cbocampos.Text = "Cliente"
         '
         'datalistado
         '
@@ -404,6 +408,7 @@ Partial Class Cliente
         '
         'PictureBox1
         '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.clientes1
         Me.PictureBox1.Location = New System.Drawing.Point(259, 12)
         Me.PictureBox1.Name = "PictureBox1"
@@ -421,11 +426,12 @@ Partial Class Cliente
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Cliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Listado de Clientes"
+        Me.Text = "Clientes"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

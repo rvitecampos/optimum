@@ -35,14 +35,16 @@ Partial Class FrmProveedor
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TxtCorreo = New System.Windows.Forms.TextBox()
+        Me.BtnNuevo = New System.Windows.Forms.Button()
+        Me.BtnEditar = New System.Windows.Forms.Button()
         Me.TxtProveedor = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.BtnGuardar = New System.Windows.Forms.Button()
         Me.TxtTelefono = New System.Windows.Forms.TextBox()
         Me.TxtDireccion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.BtnNuevo = New System.Windows.Forms.Button()
-        Me.BtnGuardar = New System.Windows.Forms.Button()
         Me.txtflag = New System.Windows.Forms.TextBox()
         Me.datalistadoProveedores = New System.Windows.Forms.DataGridView()
         Me.TxtCliente = New System.Windows.Forms.TextBox()
@@ -69,25 +71,26 @@ Partial Class FrmProveedor
         Me.Txtbuscar.Location = New System.Drawing.Point(200, 26)
         Me.Txtbuscar.Name = "Txtbuscar"
         Me.Txtbuscar.Size = New System.Drawing.Size(349, 29)
-        Me.Txtbuscar.TabIndex = 29
+        Me.Txtbuscar.TabIndex = 10
         '
         'cbocampos
         '
         Me.cbocampos.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbocampos.FormattingEnabled = True
-        Me.cbocampos.Items.AddRange(New Object() {"Nombre_Proveedor", "telefono", "Cod_Proveedor"})
+        Me.cbocampos.Items.AddRange(New Object() {"Cod_Proveedor", "Nombre_Proveedor", "telefono"})
         Me.cbocampos.Location = New System.Drawing.Point(18, 25)
         Me.cbocampos.Name = "cbocampos"
         Me.cbocampos.Size = New System.Drawing.Size(176, 32)
-        Me.cbocampos.TabIndex = 1
+        Me.cbocampos.TabIndex = 9
         Me.cbocampos.Text = "Cod_Proveedor"
         '
         'btneliminar2
         '
+        Me.btneliminar2.Enabled = False
         Me.btneliminar2.Location = New System.Drawing.Point(86, 60)
         Me.btneliminar2.Name = "btneliminar2"
         Me.btneliminar2.Size = New System.Drawing.Size(85, 35)
-        Me.btneliminar2.TabIndex = 37
+        Me.btneliminar2.TabIndex = 11
         Me.btneliminar2.Text = "&Eliminar"
         Me.btneliminar2.UseVisualStyleBackColor = True
         '
@@ -141,7 +144,7 @@ Partial Class FrmProveedor
         Me.Button1.Location = New System.Drawing.Point(438, 60)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(111, 35)
-        Me.Button1.TabIndex = 39
+        Me.Button1.TabIndex = 12
         Me.Button1.Text = "BUSCAR"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -152,7 +155,7 @@ Partial Class FrmProveedor
         Me.TxtCodProveedor.Location = New System.Drawing.Point(118, 49)
         Me.TxtCodProveedor.Name = "TxtCodProveedor"
         Me.TxtCodProveedor.Size = New System.Drawing.Size(259, 29)
-        Me.TxtCodProveedor.TabIndex = 29
+        Me.TxtCodProveedor.TabIndex = 1
         '
         'Label1
         '
@@ -174,6 +177,8 @@ Partial Class FrmProveedor
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.TxtCorreo)
         Me.GroupBox1.Controls.Add(Me.TxtCodProveedor)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -187,18 +192,55 @@ Partial Class FrmProveedor
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(32, 181)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(408, 313)
+        Me.GroupBox1.Size = New System.Drawing.Size(408, 353)
         Me.GroupBox1.TabIndex = 48
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registro de Proveedor"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(68, 230)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(41, 13)
+        Me.Label3.TabIndex = 49
+        Me.Label3.Text = "Correo:"
+        '
+        'TxtCorreo
+        '
+        Me.TxtCorreo.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCorreo.Location = New System.Drawing.Point(118, 219)
+        Me.TxtCorreo.MaxLength = 30
+        Me.TxtCorreo.Name = "TxtCorreo"
+        Me.TxtCorreo.Size = New System.Drawing.Size(259, 29)
+        Me.TxtCorreo.TabIndex = 5
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Location = New System.Drawing.Point(108, 289)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(85, 35)
+        Me.BtnNuevo.TabIndex = 6
+        Me.BtnNuevo.Text = "&Nuevo"
+        Me.BtnNuevo.UseVisualStyleBackColor = True
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.Location = New System.Drawing.Point(199, 289)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(85, 35)
+        Me.BtnEditar.TabIndex = 7
+        Me.BtnEditar.Text = "&Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = True
         '
         'TxtProveedor
         '
         Me.TxtProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtProveedor.Location = New System.Drawing.Point(118, 90)
+        Me.TxtProveedor.MaxLength = 30
         Me.TxtProveedor.Name = "TxtProveedor"
         Me.TxtProveedor.Size = New System.Drawing.Size(259, 29)
-        Me.TxtProveedor.TabIndex = 1
+        Me.TxtProveedor.TabIndex = 2
         '
         'Label7
         '
@@ -209,21 +251,32 @@ Partial Class FrmProveedor
         Me.Label7.TabIndex = 28
         Me.Label7.Text = "Direccion:"
         '
+        'BtnGuardar
+        '
+        Me.BtnGuardar.Location = New System.Drawing.Point(290, 289)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(85, 35)
+        Me.BtnGuardar.TabIndex = 8
+        Me.BtnGuardar.Text = "&Guardar"
+        Me.BtnGuardar.UseVisualStyleBackColor = True
+        '
         'TxtTelefono
         '
         Me.TxtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtTelefono.Location = New System.Drawing.Point(118, 174)
+        Me.TxtTelefono.MaxLength = 11
         Me.TxtTelefono.Name = "TxtTelefono"
         Me.TxtTelefono.Size = New System.Drawing.Size(259, 29)
-        Me.TxtTelefono.TabIndex = 3
+        Me.TxtTelefono.TabIndex = 4
         '
         'TxtDireccion
         '
         Me.TxtDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtDireccion.Location = New System.Drawing.Point(118, 132)
+        Me.TxtDireccion.MaxLength = 50
         Me.TxtDireccion.Name = "TxtDireccion"
         Me.TxtDireccion.Size = New System.Drawing.Size(259, 29)
-        Me.TxtDireccion.TabIndex = 2
+        Me.TxtDireccion.TabIndex = 3
         '
         'Label2
         '
@@ -233,33 +286,6 @@ Partial Class FrmProveedor
         Me.Label2.Size = New System.Drawing.Size(59, 13)
         Me.Label2.TabIndex = 24
         Me.Label2.Text = "Proveedor:"
-        '
-        'BtnEditar
-        '
-        Me.BtnEditar.Location = New System.Drawing.Point(201, 240)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(85, 35)
-        Me.BtnEditar.TabIndex = 43
-        Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
-        '
-        'BtnNuevo
-        '
-        Me.BtnNuevo.Location = New System.Drawing.Point(110, 240)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(85, 35)
-        Me.BtnNuevo.TabIndex = 42
-        Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.UseVisualStyleBackColor = True
-        '
-        'BtnGuardar
-        '
-        Me.BtnGuardar.Location = New System.Drawing.Point(292, 240)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(85, 35)
-        Me.BtnGuardar.TabIndex = 47
-        Me.BtnGuardar.Text = "&Guardar"
-        Me.BtnGuardar.UseVisualStyleBackColor = True
         '
         'txtflag
         '
@@ -308,7 +334,7 @@ Partial Class FrmProveedor
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FrmProveedor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PROVEEDOR"
+        Me.Text = "Proveedores"
         CType(Me.datalistadoProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -345,4 +371,6 @@ Partial Class FrmProveedor
     Friend WithEvents TxtCliente As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents TxtCorreo As System.Windows.Forms.TextBox
 End Class

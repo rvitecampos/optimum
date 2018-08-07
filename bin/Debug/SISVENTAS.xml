@@ -55,6 +55,10 @@ SISVENTAS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.cslogin_104358">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+</summary>
 </member><member name="P:SISVENTAS.My.Resources.Resources.CUADRO_AVATAR">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -86,6 +90,10 @@ SISVENTAS
 </member><member name="P:SISVENTAS.My.Resources.Resources.GUARANIES">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.ICONO">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
 </summary>
 </member><member name="P:SISVENTAS.My.Resources.Resources.Image1">
 	<summary>
@@ -170,6 +178,10 @@ SISVENTAS
 </member><member name="P:SISVENTAS.My.Resources.Resources.REGISTRO_VENTA">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.user_84308">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
 </summary>
 </member><member name="P:SISVENTAS.My.Resources.Resources.USUARIOS">
 	<summary>

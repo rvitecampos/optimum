@@ -40,7 +40,8 @@ Public Class fProveedor
             cmd.Parameters.AddWithValue("@nombre_Proveedor", dts.gProveedor)
             cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
             cmd.Parameters.AddWithValue("@telefono", dts.gTelefono)
-            
+            cmd.Parameters.AddWithValue("@correo", dts.gcorreo)
+
             If cmd.ExecuteNonQuery Then
                 Return True
 
@@ -67,6 +68,7 @@ Public Class fProveedor
             cmd.Parameters.AddWithValue("@nombre_Proveedor", dts.gProveedor)
             cmd.Parameters.AddWithValue("@direccion", dts.gdireccion)
             cmd.Parameters.AddWithValue("@telefono", dts.gTelefono)
+            cmd.Parameters.AddWithValue("@correo", dts.gcorreo)
 
             If cmd.ExecuteNonQuery Then
                 Return True
