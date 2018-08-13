@@ -284,7 +284,7 @@ Partial Class frmPrincipal
         Me.datalistado.Name = "datalistado"
         Me.datalistado.ReadOnly = True
         Me.datalistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.datalistado.Size = New System.Drawing.Size(19, 18)
+        Me.datalistado.Size = New System.Drawing.Size(10, 22)
         Me.datalistado.TabIndex = 13
         '
         'Eliminar

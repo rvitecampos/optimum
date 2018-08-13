@@ -2,9 +2,7 @@
     Private dt As New DataTable
 
     Private Sub Productos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        bloquear()
         limpiar()
-        BtnGuardar.Enabled = False
         mostrar()
 
     End Sub
@@ -29,9 +27,9 @@
             MsgBox(ex.Message)
         End Try
 
+        BtnNuevo.Enabled = True
+        BtnEditar.Enabled = False
 
-
-        buscar()
     End Sub
 
     Private Sub buscar()
@@ -65,12 +63,12 @@
 
 
     Private Sub TxtNombre_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles TxtNombreProducto.Validating
-        If DirectCast(sender, TextBox).Text.Length > 0 Then
-            Me.Erroricono.SetError(sender, "")
-        Else
-            Me.Erroricono.SetError(sender, "Ingrese nombre del cliente por favor")
-
-        End If
+        ' If DirectCast(sender, TextBox).Text.Length > 0 Then
+        ' Me.Erroricono.SetError(sender, "")
+        ' Else
+        ' Me.Erroricono.SetError(sender, "Ingrese nombre del cliente por favor")
+        '
+        '        End If
     End Sub
 
     Private Sub txtApellidos_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
@@ -85,12 +83,17 @@
     Public Sub desbloquear()
         btnBuscarProveedor.Enabled = True
         TxtCodProducto.Enabled = True
+        txtCantidad.Enabled = True
+        txtLimite.Enabled = True
         TxtNombreProducto.Enabled = True
         TxtPrecioUnitario.Enabled = True
         txtSPrecioUnitario.Enabled = True
-        txtLimite.Enabled = True
+        BtnEditar.Enabled = False
+        BtnGuardar.Enabled = True
     End Sub
     Public Sub bloquear()
+        BtnEditar.Enabled = False
+        BtnGuardar.Enabled = False
         BtnNuevo.Enabled = True
         btnBuscarProveedor.Enabled = False
         TxtCodProducto.Enabled = False
@@ -103,7 +106,7 @@
         txtLimite.Enabled = False
     End Sub
     Public Sub limpiar()
-        BtnGuardar.Enabled = True
+        BtnGuardar.Enabled = False
         BtnEditar.Enabled = False
         TxtCodProducto.Text = "0"
         TxtNombreProducto.Text = ""
@@ -113,8 +116,7 @@
         TxtPrecioUnitario.Text = "0"
         txtSPrecioUnitario.Text = "0"
         txtLimite.Text = "0"
-        BtnEditar.Enabled = False
-        BtnGuardar.Enabled = True
+        cbeliminar.Checked = False
 
         imagen.Image = Nothing
         imagen.BackgroundImage = My.Resources.NOIMAGEN
@@ -151,10 +153,11 @@
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtSPrecioUnitario.Text & CChar(eventArgs.KeyChar))
     End Sub
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        desbloquear()
         limpiar()
         mostrar()
+        desbloquear()
         BtnNuevo.Enabled = False
+        TxtCodProducto.Focus()
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
@@ -170,7 +173,7 @@
                 dts.gcod_Producto = TxtCodProducto.Text
                 dts.gNombre_Producto = TxtNombreProducto.Text
                 dts.gcood_Proveedor = TxtCodProveedor.Text
-                dts.gcantidad = "0"
+                dts.gcantidad = txtCantidad.Text
                 'dts.gPrecio_compra = "0"
 
                 dts.gPrecio_Unitario = TxtPrecioUnitario.Text
@@ -225,6 +228,7 @@
         txtSPrecioUnitario.Text = datalistadoProducto.SelectedCells.Item(5).Value
         TxtCodProveedor.Text = datalistadoProducto.SelectedCells.Item(6).Value
         txtLimite.Text = datalistadoProducto.SelectedCells.Item(8).Value
+        TxtProveedor.Text = datalistadoProducto.SelectedCells.Item(9).Value
         txtCantidad.Enabled = True
 
 
@@ -300,8 +304,10 @@
     Private Sub cbeliminar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbeliminar.CheckedChanged
         If cbeliminar.CheckState = CheckState.Checked Then
             datalistadoProducto.Columns.Item("eliminar").Visible = True
+            BtnEliminar.Enabled = True
         Else
             datalistadoProducto.Columns.Item("eliminar").Visible = False
+            BtnEliminar.Enabled = False
         End If
     End Sub
 
@@ -331,6 +337,9 @@
 
                             If func.eliminar(vdb) Then
                                 MessageBox.Show("Producto eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                bloquear()
+                                limpiar()
+
                             End If
                         End If
                     Next

@@ -66,52 +66,73 @@ Partial Class Cliente
         '
         'BtnGuardar
         '
+        Me.BtnGuardar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderSize = 3
+        Me.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGuardar.Location = New System.Drawing.Point(334, 457)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(108, 35)
         Me.BtnGuardar.TabIndex = 13
         Me.BtnGuardar.Text = "&Guardar"
-        Me.BtnGuardar.UseVisualStyleBackColor = True
+        Me.BtnGuardar.UseVisualStyleBackColor = False
         '
         'BtnBuscar
         '
+        Me.BtnBuscar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBuscar.Location = New System.Drawing.Point(475, 63)
         Me.BtnBuscar.Name = "BtnBuscar"
         Me.BtnBuscar.Size = New System.Drawing.Size(85, 35)
         Me.BtnBuscar.TabIndex = 38
         Me.BtnBuscar.Text = "&Buscar"
-        Me.BtnBuscar.UseVisualStyleBackColor = True
+        Me.BtnBuscar.UseVisualStyleBackColor = False
         '
         'BtnEliminar
         '
+        Me.BtnEliminar.BackColor = System.Drawing.Color.DarkGray
         Me.BtnEliminar.Enabled = False
-        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEliminar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.BtnEliminar.Location = New System.Drawing.Point(107, 63)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
         Me.BtnEliminar.TabIndex = 10
         Me.BtnEliminar.Text = "&Eliminar"
-        Me.BtnEliminar.UseVisualStyleBackColor = True
+        Me.BtnEliminar.UseVisualStyleBackColor = False
         '
         'BtnEditar
         '
+        Me.BtnEditar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderSize = 3
+        Me.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditar.Location = New System.Drawing.Point(170, 457)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(121, 35)
         Me.BtnEditar.TabIndex = 12
         Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
+        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'BtnNuevo
         '
+        Me.BtnNuevo.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.FlatAppearance.BorderSize = 3
+        Me.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNuevo.Location = New System.Drawing.Point(0, 457)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(125, 35)
         Me.BtnNuevo.TabIndex = 11
         Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.UseVisualStyleBackColor = True
+        Me.BtnNuevo.UseVisualStyleBackColor = False
         '
         'TxtApellidos
         '

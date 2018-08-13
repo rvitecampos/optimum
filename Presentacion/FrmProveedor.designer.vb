@@ -86,13 +86,17 @@ Partial Class FrmProveedor
         '
         'btneliminar2
         '
+        Me.btneliminar2.BackColor = System.Drawing.Color.DarkGray
         Me.btneliminar2.Enabled = False
+        Me.btneliminar2.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.btneliminar2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.btneliminar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btneliminar2.Location = New System.Drawing.Point(86, 60)
         Me.btneliminar2.Name = "btneliminar2"
         Me.btneliminar2.Size = New System.Drawing.Size(85, 35)
         Me.btneliminar2.TabIndex = 11
         Me.btneliminar2.Text = "&Eliminar"
-        Me.btneliminar2.UseVisualStyleBackColor = True
+        Me.btneliminar2.UseVisualStyleBackColor = False
         '
         'datalistadoProveedor
         '
@@ -141,18 +145,23 @@ Partial Class FrmProveedor
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(438, 60)
+        Me.Button1.BackColor = System.Drawing.Color.DarkGray
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(447, 60)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(111, 35)
+        Me.Button1.Size = New System.Drawing.Size(102, 35)
         Me.Button1.TabIndex = 12
         Me.Button1.Text = "BUSCAR"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'TxtCodProveedor
         '
         Me.TxtCodProveedor.Enabled = False
         Me.TxtCodProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtCodProveedor.Location = New System.Drawing.Point(118, 49)
+        Me.TxtCodProveedor.MaxLength = 10
         Me.TxtCodProveedor.Name = "TxtCodProveedor"
         Me.TxtCodProveedor.Size = New System.Drawing.Size(259, 29)
         Me.TxtCodProveedor.TabIndex = 1
@@ -217,21 +226,31 @@ Partial Class FrmProveedor
         '
         'BtnNuevo
         '
+        Me.BtnNuevo.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.FlatAppearance.BorderSize = 3
+        Me.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNuevo.Location = New System.Drawing.Point(108, 289)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(85, 35)
         Me.BtnNuevo.TabIndex = 6
         Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.UseVisualStyleBackColor = True
+        Me.BtnNuevo.UseVisualStyleBackColor = False
         '
         'BtnEditar
         '
+        Me.BtnEditar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderSize = 3
+        Me.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditar.Location = New System.Drawing.Point(199, 289)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(85, 35)
         Me.BtnEditar.TabIndex = 7
         Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
+        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'TxtProveedor
         '
@@ -253,12 +272,17 @@ Partial Class FrmProveedor
         '
         'BtnGuardar
         '
+        Me.BtnGuardar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderSize = 3
+        Me.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGuardar.Location = New System.Drawing.Point(290, 289)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(85, 35)
         Me.BtnGuardar.TabIndex = 8
         Me.BtnGuardar.Text = "&Guardar"
-        Me.BtnGuardar.UseVisualStyleBackColor = True
+        Me.BtnGuardar.UseVisualStyleBackColor = False
         '
         'TxtTelefono
         '

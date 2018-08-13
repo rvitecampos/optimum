@@ -4,7 +4,6 @@
     Private Sub FrmProveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         limpiar()
         mostrar()
-        bloquear()
 
     End Sub
     Private Shared Function EmailValido(strEmail As String) As Boolean
@@ -72,54 +71,58 @@
     End Sub
 
     Private Sub buscar()
-        Try
-            If Txtbuscar.Text <> "" Then
+        ' Try
+        If Txtbuscar.Text <> "" Then
 
 
-                Dim ds As New DataSet
-                ds.Tables.Add(dt.Copy)
-                Dim dv As New DataView(ds.Tables(0))
+            Dim ds As New DataSet
+            ds.Tables.Add(dt.Copy)
+            Dim dv As New DataView(ds.Tables(0))
 
-
+            If cbocampos.Text = "Cod_Proveedor" Then
+                dv.RowFilter = cbocampos.Text & " = " & Txtbuscar.Text 
+            Else
                 dv.RowFilter = cbocampos.Text & " like '" & Txtbuscar.Text & "%'"
-                If dv.Count <> 0 Then
-                    inexistente.Visible = False
-                    datalistadoProveedor.DataSource = dv
-
-                Else
-                    inexistente.Visible = True
-                    datalistadoProveedor.DataSource = Nothing
-                End If
-            Else
-                mostrar()
-                bloquear()
-
             End If
 
-        Catch ex As Exception
+            If dv.Count <> 0 Then
+                inexistente.Visible = False
+                datalistadoProveedor.DataSource = dv
 
-            If Txtbuscar.Text <> "" Then
-
-
-                Dim ds As New DataSet
-                ds.Tables.Add(dt.Copy)
-                Dim dv As New DataView(ds.Tables(0))
-
-
-                dv.RowFilter = cbocampos.Text & " = " & Txtbuscar.Text & ""
-                If dv.Count <> 0 Then
-                    inexistente.Visible = False
-                    datalistadoProveedor.DataSource = dv
-
-                Else
-                    inexistente.Visible = True
-                    datalistadoProveedor.DataSource = Nothing
-                End If
             Else
-                mostrar()
-
+                inexistente.Visible = True
+                datalistadoProveedor.DataSource = Nothing
             End If
-        End Try
+        Else
+            mostrar()
+            bloquear()
+
+        End If
+
+        'Catch ex As Exception
+
+        'If Txtbuscar.Text <> "" Then
+
+
+        'Dim ds As New DataSet
+        'ds.Tables.Add(dt.Copy)
+        'Dim dv As New DataView(ds.Tables(0))
+
+
+        'dv.RowFilter = cbocampos.Text & " = " & Txtbuscar.Text & ""
+        'If dv.Count <> 0 Then
+        ' inexistente.Visible = False
+        ' datalistadoProveedor.DataSource = dv
+
+        'Else
+        'inexistente.Visible = True
+        'datalistadoProveedor.DataSource = Nothing
+        'End If
+        'Else
+        'mostrar()
+
+        'End If
+        'End Try
     End Sub
 
     Private Sub ocultar_columnas()

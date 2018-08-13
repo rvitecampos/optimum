@@ -62,6 +62,8 @@ Partial Class Productos
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistadoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,7 +97,7 @@ Partial Class Productos
         Me.Txtbuscar.Location = New System.Drawing.Point(199, 26)
         Me.Txtbuscar.Name = "Txtbuscar"
         Me.Txtbuscar.Size = New System.Drawing.Size(361, 29)
-        Me.Txtbuscar.TabIndex = 29
+        Me.Txtbuscar.TabIndex = 13
         '
         'cbocampos
         '
@@ -133,7 +135,7 @@ Partial Class Productos
         Me.cbeliminar.Location = New System.Drawing.Point(29, 71)
         Me.cbeliminar.Name = "cbeliminar"
         Me.cbeliminar.Size = New System.Drawing.Size(62, 17)
-        Me.cbeliminar.TabIndex = 38
+        Me.cbeliminar.TabIndex = 14
         Me.cbeliminar.Text = "Eliminar"
         Me.cbeliminar.UseVisualStyleBackColor = True
         '
@@ -155,29 +157,40 @@ Partial Class Productos
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.DarkGray
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Location = New System.Drawing.Point(475, 61)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(85, 35)
-        Me.Button1.TabIndex = 47
+        Me.Button1.TabIndex = 16
         Me.Button1.Text = "&Buscar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'BtnEliminar
         '
+        Me.BtnEliminar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEliminar.Location = New System.Drawing.Point(108, 61)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
-        Me.BtnEliminar.TabIndex = 44
+        Me.BtnEliminar.TabIndex = 15
         Me.BtnEliminar.Text = "&Eliminar"
-        Me.BtnEliminar.UseVisualStyleBackColor = True
+        Me.BtnEliminar.UseVisualStyleBackColor = False
         '
         'TxtCodProducto
         '
+        Me.TxtCodProducto.Enabled = False
         Me.TxtCodProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtCodProducto.Location = New System.Drawing.Point(118, 26)
+        Me.TxtCodProducto.MaxLength = 13
         Me.TxtCodProducto.Name = "TxtCodProducto"
         Me.TxtCodProducto.Size = New System.Drawing.Size(486, 29)
-        Me.TxtCodProducto.TabIndex = 29
+        Me.TxtCodProducto.TabIndex = 1
         '
         'Label1
         '
@@ -226,37 +239,41 @@ Partial Class Productos
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(58, 112)
+        Me.Label3.Location = New System.Drawing.Point(26, 116)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(52, 13)
+        Me.Label3.Size = New System.Drawing.Size(82, 13)
         Me.Label3.TabIndex = 25
-        Me.Label3.Text = "Cantidad:"
+        Me.Label3.Text = "Cantidad Inicial:"
         '
         'TxtNombreProducto
         '
+        Me.TxtNombreProducto.Enabled = False
         Me.TxtNombreProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNombreProducto.Location = New System.Drawing.Point(118, 67)
+        Me.TxtNombreProducto.MaxLength = 20
         Me.TxtNombreProducto.Name = "TxtNombreProducto"
         Me.TxtNombreProducto.Size = New System.Drawing.Size(486, 29)
-        Me.TxtNombreProducto.TabIndex = 29
+        Me.TxtNombreProducto.TabIndex = 2
         '
         'txtLimite
         '
         Me.txtLimite.Enabled = False
         Me.txtLimite.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLimite.Location = New System.Drawing.Point(118, 148)
+        Me.txtLimite.MaxLength = 18
         Me.txtLimite.Name = "txtLimite"
         Me.txtLimite.Size = New System.Drawing.Size(141, 29)
-        Me.txtLimite.TabIndex = 30
+        Me.txtLimite.TabIndex = 4
         '
         'txtCantidad
         '
         Me.txtCantidad.Enabled = False
         Me.txtCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCantidad.Location = New System.Drawing.Point(118, 105)
+        Me.txtCantidad.MaxLength = 18
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(141, 29)
-        Me.txtCantidad.TabIndex = 30
+        Me.txtCantidad.TabIndex = 3
         '
         'Label2
         '
@@ -281,7 +298,7 @@ Partial Class Productos
         Me.btnBuscarProveedor.Location = New System.Drawing.Point(555, 19)
         Me.btnBuscarProveedor.Name = "btnBuscarProveedor"
         Me.btnBuscarProveedor.Size = New System.Drawing.Size(38, 29)
-        Me.btnBuscarProveedor.TabIndex = 43
+        Me.btnBuscarProveedor.TabIndex = 7
         Me.btnBuscarProveedor.Text = "..."
         Me.btnBuscarProveedor.UseVisualStyleBackColor = True
         '
@@ -308,61 +325,80 @@ Partial Class Productos
         Me.TxtProveedor.Enabled = False
         Me.TxtProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtProveedor.Location = New System.Drawing.Point(272, 19)
+        Me.TxtProveedor.MaxLength = 30
         Me.TxtProveedor.Name = "TxtProveedor"
         Me.TxtProveedor.Size = New System.Drawing.Size(277, 29)
-        Me.TxtProveedor.TabIndex = 30
+        Me.TxtProveedor.TabIndex = 6
         '
         'txtSPrecioUnitario
         '
         Me.txtSPrecioUnitario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSPrecioUnitario.Location = New System.Drawing.Point(390, 17)
+        Me.txtSPrecioUnitario.MaxLength = 18
         Me.txtSPrecioUnitario.Name = "txtSPrecioUnitario"
         Me.txtSPrecioUnitario.Size = New System.Drawing.Size(185, 29)
-        Me.txtSPrecioUnitario.TabIndex = 30
+        Me.txtSPrecioUnitario.TabIndex = 9
         '
         'TxtCodProveedor
         '
         Me.TxtCodProveedor.Enabled = False
         Me.TxtCodProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtCodProveedor.Location = New System.Drawing.Point(118, 19)
+        Me.TxtCodProveedor.MaxLength = 10
         Me.TxtCodProveedor.Name = "TxtCodProveedor"
         Me.TxtCodProveedor.Size = New System.Drawing.Size(74, 29)
-        Me.TxtCodProveedor.TabIndex = 30
+        Me.TxtCodProveedor.TabIndex = 5
         '
         'TxtPrecioUnitario
         '
         Me.TxtPrecioUnitario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPrecioUnitario.Location = New System.Drawing.Point(116, 18)
+        Me.TxtPrecioUnitario.MaxLength = 18
         Me.TxtPrecioUnitario.Name = "TxtPrecioUnitario"
         Me.TxtPrecioUnitario.Size = New System.Drawing.Size(171, 29)
-        Me.TxtPrecioUnitario.TabIndex = 30
+        Me.TxtPrecioUnitario.TabIndex = 8
         '
         'BtnEditar
         '
+        Me.BtnEditar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderSize = 3
+        Me.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEditar.Location = New System.Drawing.Point(510, 545)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(85, 46)
-        Me.BtnEditar.TabIndex = 43
+        Me.BtnEditar.TabIndex = 11
         Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = True
+        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'BtnNuevo
         '
+        Me.BtnNuevo.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.FlatAppearance.BorderSize = 3
+        Me.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNuevo.Location = New System.Drawing.Point(510, 488)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(85, 46)
-        Me.BtnNuevo.TabIndex = 42
+        Me.BtnNuevo.TabIndex = 10
         Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.UseVisualStyleBackColor = True
+        Me.BtnNuevo.UseVisualStyleBackColor = False
         '
         'BtnGuardar
         '
+        Me.BtnGuardar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderSize = 3
+        Me.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGuardar.Location = New System.Drawing.Point(510, 606)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(85, 45)
-        Me.BtnGuardar.TabIndex = 47
+        Me.BtnGuardar.TabIndex = 12
         Me.BtnGuardar.Text = "&Guardar"
-        Me.BtnGuardar.UseVisualStyleBackColor = True
+        Me.BtnGuardar.UseVisualStyleBackColor = False
         '
         'dlg
         '
@@ -435,6 +471,8 @@ Partial Class Productos
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Label10)
+        Me.GroupBox5.Controls.Add(Me.Label9)
         Me.GroupBox5.Controls.Add(Me.Label4)
         Me.GroupBox5.Controls.Add(Me.TxtPrecioUnitario)
         Me.GroupBox5.Controls.Add(Me.txtSPrecioUnitario)
@@ -445,6 +483,24 @@ Partial Class Productos
         Me.GroupBox5.TabIndex = 53
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Precios"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(295, 39)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(41, 13)
+        Me.Label10.TabIndex = 32
+        Me.Label10.Text = "(Venta)"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(18, 38)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(40, 13)
+        Me.Label9.TabIndex = 31
+        Me.Label9.Text = "(Costo)"
         '
         'PictureBox3
         '
@@ -535,4 +591,6 @@ Partial Class Productos
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtLimite As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
 End Class
