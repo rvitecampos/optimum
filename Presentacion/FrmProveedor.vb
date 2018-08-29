@@ -151,6 +151,7 @@
         TxtDireccion.Enabled = True
         TxtTelefono.Enabled = True
         TxtCorreo.Enabled = True
+        BtnNuevo.Enabled = True
         BtnEditar.Enabled = False
         BtnGuardar.Enabled = True
     End Sub

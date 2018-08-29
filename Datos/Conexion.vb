@@ -22,7 +22,7 @@ Public Class Conexion
             'Usuario
             'conexxion = "Data Source=LOCALHOST\BD;Initial Catalog=Despensa;User ID=" & login & ";Password=" & password & ""
 
-            cnn = New SqlConnection("Data Source=MDEV21\SQLEXPRESS;Initial Catalog=Despensa;Integrated Security=True")
+            cnn = New SqlConnection("Data Source=MCDEV22\SQLEXPRESS;Initial Catalog=Despensa;Integrated Security=True")
             cnn.Open()
             'server=JUNNIOR-PC\BD;database=Despensa; Integrated Security = True;User ID=Probar;Password=12345 
 

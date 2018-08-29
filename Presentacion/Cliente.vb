@@ -139,6 +139,10 @@ Public Class Cliente
         TxtTelefono.Enabled = True
         TxtCelular.Enabled = True
         TxtCorreo.Enabled = True
+        BtnGuardar.Enabled = True
+        BtnNuevo.Enabled = True
+
+
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click

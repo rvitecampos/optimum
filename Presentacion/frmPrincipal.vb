@@ -59,11 +59,11 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub ProductoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProductoToolStripMenuItem.Click
-        Productos.ShowDialog()
+        FrmProveedor.ShowDialog()
     End Sub
 
     Private Sub ProveedorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ProveedorToolStripMenuItem.Click
-        FrmProveedor.ShowDialog()
+        Productos.ShowDialog()
 
     End Sub
 

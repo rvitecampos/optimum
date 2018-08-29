@@ -57,7 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MDEV21\SQLEXPRESS;Initial Catalog=Despensa;Integrated Security=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MCDEV22\SQLEXPRESS;Initial Catalog=Despensa;Integrated Security=True")>  _
         Public ReadOnly Property DespensaConnectionString4() As String
             Get
                 Return CType(Me("DespensaConnectionString4"),String)
@@ -73,7 +73,7 @@ Namespace My
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Module MySettingsProperty
         
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
         Friend ReadOnly Property Settings() As Global.SISVENTAS.My.MySettings
             Get
                 Return Global.SISVENTAS.My.MySettings.Default

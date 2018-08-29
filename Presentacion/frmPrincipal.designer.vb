@@ -109,7 +109,7 @@ Partial Class frmPrincipal
         Me.ProductoToolStripMenuItem.Name = "ProductoToolStripMenuItem"
         Me.ProductoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
         Me.ProductoToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.ProductoToolStripMenuItem.Text = "&Productos"
+        Me.ProductoToolStripMenuItem.Text = "&Proveedores"
         '
         'ProveedorToolStripMenuItem
         '
@@ -118,7 +118,7 @@ Partial Class frmPrincipal
         Me.ProveedorToolStripMenuItem.Name = "ProveedorToolStripMenuItem"
         Me.ProveedorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.ProveedorToolStripMenuItem.Text = "&Proveedores"
+        Me.ProveedorToolStripMenuItem.Text = "P&roductos"
         '
         'VentaToolStripMenuItem
         '
@@ -448,9 +448,9 @@ Partial Class frmPrincipal
         Me.BtnProveedor.ForeColor = System.Drawing.Color.White
         Me.BtnProveedor.Image = Global.SISVENTAS.My.Resources.Resources.PROVEEDORES11
         Me.BtnProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnProveedor.Location = New System.Drawing.Point(932, 275)
+        Me.BtnProveedor.Location = New System.Drawing.Point(618, 275)
         Me.BtnProveedor.Name = "BtnProveedor"
-        Me.BtnProveedor.Size = New System.Drawing.Size(304, 104)
+        Me.BtnProveedor.Size = New System.Drawing.Size(287, 104)
         Me.BtnProveedor.TabIndex = 3
         Me.BtnProveedor.Text = "PROVEEDORES"
         Me.BtnProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -508,9 +508,9 @@ Partial Class frmPrincipal
         Me.BtnProducto.ForeColor = System.Drawing.Color.White
         Me.BtnProducto.Image = Global.SISVENTAS.My.Resources.Resources.PRODUCTOS
         Me.BtnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnProducto.Location = New System.Drawing.Point(618, 275)
+        Me.BtnProducto.Location = New System.Drawing.Point(932, 275)
         Me.BtnProducto.Name = "BtnProducto"
-        Me.BtnProducto.Size = New System.Drawing.Size(287, 104)
+        Me.BtnProducto.Size = New System.Drawing.Size(304, 104)
         Me.BtnProducto.TabIndex = 3
         Me.BtnProducto.Text = "PRODUCTOS"
         Me.BtnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

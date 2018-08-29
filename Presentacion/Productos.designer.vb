@@ -239,11 +239,11 @@ Partial Class Productos
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(26, 116)
+        Me.Label3.Location = New System.Drawing.Point(66, 116)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(82, 13)
+        Me.Label3.Size = New System.Drawing.Size(38, 13)
         Me.Label3.TabIndex = 25
-        Me.Label3.Text = "Cantidad Inicial:"
+        Me.Label3.Text = "Stock:"
         '
         'TxtNombreProducto
         '

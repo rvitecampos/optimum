@@ -83,12 +83,13 @@
     Public Sub desbloquear()
         btnBuscarProveedor.Enabled = True
         TxtCodProducto.Enabled = True
-        txtCantidad.Enabled = True
+        txtCantidad.Enabled = False
         txtLimite.Enabled = True
         TxtNombreProducto.Enabled = True
         TxtPrecioUnitario.Enabled = True
         txtSPrecioUnitario.Enabled = True
         BtnEditar.Enabled = False
+        BtnNuevo.Enabled = True
         BtnGuardar.Enabled = True
     End Sub
     Public Sub bloquear()
@@ -113,6 +114,7 @@
         TxtCodProveedor.Text = "0"
         TxtProveedor.Text = ""
         txtCantidad.Text = "0"
+        txtCantidad.Enabled = False
         TxtPrecioUnitario.Text = "0"
         txtSPrecioUnitario.Text = "0"
         txtLimite.Text = "0"
@@ -164,7 +166,7 @@
         Try
 
        
-            If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And TxtCodProducto.Text <> "" And TxtPrecioUnitario.Text <> "" Then
+            If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And TxtCodProducto.Text <> "" And TxtPrecioUnitario.Text <> "" And TxtCodProveedor.Text > 0 Then
 
                 Dim dts As New vProducto
                 Dim func As New fProductos
@@ -229,7 +231,7 @@
         TxtCodProveedor.Text = datalistadoProducto.SelectedCells.Item(6).Value
         txtLimite.Text = datalistadoProducto.SelectedCells.Item(8).Value
         TxtProveedor.Text = datalistadoProducto.SelectedCells.Item(9).Value
-        txtCantidad.Enabled = True
+        txtCantidad.Enabled = False
 
 
 

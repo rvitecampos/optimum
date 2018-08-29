@@ -194,17 +194,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jqxxydChfRvX71Z0lJZ62vVRXC/jtxExBpaxEcP/pS0=</dsig:DigestValue>
+        <dsig:DigestValue>lx+bIHr8l2jobXz+QgVxXZ7Y6t4zKXPtAY8rsf42Qos=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="SISVENTAS.exe.config" size="518">
+  <file name="SISVENTAS.exe.config" size="519">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>NzrmIjRvpxlXwPHvwDNTHdXe8NtUakNTwqkxIjMBo1k=</dsig:DigestValue>
+      <dsig:DigestValue>O1IgwWQLA5TUfcvob6rzJEvNaG1ciBnkqn6vTJIY2BM=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
