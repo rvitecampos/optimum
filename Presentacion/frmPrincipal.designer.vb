@@ -29,6 +29,8 @@ Partial Class frmPrincipal
         Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ServiciosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Stock_MovToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaDelDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -86,7 +88,7 @@ Partial Class frmPrincipal
         '
         'CapturaToolStripMenuItem
         '
-        Me.CapturaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClienteToolStripMenuItem, Me.ProductoToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.VentaToolStripMenuItem})
+        Me.CapturaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClienteToolStripMenuItem, Me.ProductoToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ServiciosToolStripMenuItem1, Me.Stock_MovToolStripMenuItem2, Me.VentaToolStripMenuItem})
         Me.CapturaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CapturaToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.CapturaToolStripMenuItem.Name = "CapturaToolStripMenuItem"
@@ -119,6 +121,24 @@ Partial Class frmPrincipal
         Me.ProveedorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
         Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.ProveedorToolStripMenuItem.Text = "P&roductos"
+        '
+        'ServiciosToolStripMenuItem1
+        '
+        Me.ServiciosToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.ServiciosToolStripMenuItem1.ForeColor = System.Drawing.Color.Maroon
+        Me.ServiciosToolStripMenuItem1.Name = "ServiciosToolStripMenuItem1"
+        Me.ServiciosToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.ServiciosToolStripMenuItem1.Size = New System.Drawing.Size(179, 22)
+        Me.ServiciosToolStripMenuItem1.Text = "&Servicios"
+        '
+        'Stock_MovToolStripMenuItem2
+        '
+        Me.Stock_MovToolStripMenuItem2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Stock_MovToolStripMenuItem2.ForeColor = System.Drawing.Color.Maroon
+        Me.Stock_MovToolStripMenuItem2.Name = "Stock_MovToolStripMenuItem2"
+        Me.Stock_MovToolStripMenuItem2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.K), System.Windows.Forms.Keys)
+        Me.Stock_MovToolStripMenuItem2.Size = New System.Drawing.Size(179, 22)
+        Me.Stock_MovToolStripMenuItem2.Text = "Stoc&k Mov"
         '
         'VentaToolStripMenuItem
         '
@@ -630,5 +650,7 @@ Partial Class frmPrincipal
     Friend WithEvents LblCategoria As System.Windows.Forms.Label
     Friend WithEvents lblHora As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents ServiciosToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Stock_MovToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

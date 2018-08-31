@@ -198,4 +198,17 @@ Public Class frmPrincipal
         End If
     End Sub
 
+    Private Sub ServiciosStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ServiciosToolStripMenuItem1.Click
+        FrmBloqueo.ShowDialog()
+        If FrmBloqueo.txtPermiso.Text = "1" Then
+            'Servicios.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub Stock_MovToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles Stock_MovToolStripMenuItem2.Click
+        FrmBloqueo.ShowDialog()
+        If FrmBloqueo.txtPermiso.Text = "1" Then
+            Stock_Movimiento.ShowDialog()
+        End If
+    End Sub
 End Class

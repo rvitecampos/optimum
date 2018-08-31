@@ -85,3 +85,4 @@ D:\optimum\optimum\obj\Debug\RdlCompile.compiled
 D:\optimum\optimum\obj\Debug\SISVENTAS.TrustInfo.xml
 D:\optimum\optimum\obj\Debug\SISVENTAS.exe.manifest
 D:\optimum\optimum\obj\Debug\SISVENTAS.application
+D:\optimum\optimum\obj\Debug\SISVENTAS.Stock_Movimiento.resources
