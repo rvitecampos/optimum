@@ -339,6 +339,10 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Stock_MovimientoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:SISVENTAS.DespensaDataSet.CajaRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -479,6 +483,10 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Stock_MovimientoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:SISVENTAS.DespensaDataSet.CajaRowChangeEvent">
 	<summary>
 Row event argument class
@@ -616,6 +624,10 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:SISVENTAS.DespensaDataSet.validar_usuarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Stock_MovimientoRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -760,6 +772,10 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.validar_usuarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.Stock_MovimientoTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

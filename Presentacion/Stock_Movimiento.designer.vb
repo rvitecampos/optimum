@@ -51,9 +51,7 @@ Partial Class Stock_Movimiento
         Me.txtSPrecioUnitario = New System.Windows.Forms.TextBox()
         Me.TxtCodProveedor = New System.Windows.Forms.TextBox()
         Me.TxtPrecioUnitario = New System.Windows.Forms.TextBox()
-        Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnNuevo = New System.Windows.Forms.Button()
-        Me.BtnGuardar = New System.Windows.Forms.Button()
         Me.dlg = New System.Windows.Forms.OpenFileDialog()
         Me.txtflag = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -65,6 +63,11 @@ Partial Class Stock_Movimiento
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.BtnGuardar = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtCtdad = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.txtDoc = New System.Windows.Forms.TextBox()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistadoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -138,6 +141,7 @@ Partial Class Stock_Movimiento
         Me.cbeliminar.TabIndex = 14
         Me.cbeliminar.Text = "Eliminar"
         Me.cbeliminar.UseVisualStyleBackColor = True
+        Me.cbeliminar.Visible = False
         '
         'GroupBox2
         '
@@ -181,6 +185,7 @@ Partial Class Stock_Movimiento
         Me.BtnEliminar.TabIndex = 15
         Me.BtnEliminar.Text = "&Eliminar"
         Me.BtnEliminar.UseVisualStyleBackColor = False
+        Me.BtnEliminar.Visible = False
         '
         'TxtCodProducto
         '
@@ -212,6 +217,10 @@ Partial Class Stock_Movimiento
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.txtDoc)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.txtCtdad)
         Me.GroupBox1.Controls.Add(Me.TxtCodProducto)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -225,7 +234,7 @@ Partial Class Stock_Movimiento
         Me.GroupBox1.Size = New System.Drawing.Size(625, 192)
         Me.GroupBox1.TabIndex = 48
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Registro de Producto"
+        Me.GroupBox1.Text = "Registro de Movimiento"
         '
         'Label5
         '
@@ -295,7 +304,7 @@ Partial Class Stock_Movimiento
         '
         'btnBuscarProveedor
         '
-        Me.btnBuscarProveedor.Location = New System.Drawing.Point(555, 19)
+        Me.btnBuscarProveedor.Location = New System.Drawing.Point(579, 524)
         Me.btnBuscarProveedor.Name = "btnBuscarProveedor"
         Me.btnBuscarProveedor.Size = New System.Drawing.Size(38, 29)
         Me.btnBuscarProveedor.TabIndex = 7
@@ -327,11 +336,12 @@ Partial Class Stock_Movimiento
         Me.TxtProveedor.Location = New System.Drawing.Point(272, 19)
         Me.TxtProveedor.MaxLength = 30
         Me.TxtProveedor.Name = "TxtProveedor"
-        Me.TxtProveedor.Size = New System.Drawing.Size(277, 29)
+        Me.TxtProveedor.Size = New System.Drawing.Size(332, 29)
         Me.TxtProveedor.TabIndex = 6
         '
         'txtSPrecioUnitario
         '
+        Me.txtSPrecioUnitario.Enabled = False
         Me.txtSPrecioUnitario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSPrecioUnitario.Location = New System.Drawing.Point(390, 17)
         Me.txtSPrecioUnitario.MaxLength = 18
@@ -351,6 +361,7 @@ Partial Class Stock_Movimiento
         '
         'TxtPrecioUnitario
         '
+        Me.TxtPrecioUnitario.Enabled = False
         Me.TxtPrecioUnitario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtPrecioUnitario.Location = New System.Drawing.Point(116, 18)
         Me.TxtPrecioUnitario.MaxLength = 18
@@ -358,47 +369,20 @@ Partial Class Stock_Movimiento
         Me.TxtPrecioUnitario.Size = New System.Drawing.Size(171, 29)
         Me.TxtPrecioUnitario.TabIndex = 8
         '
-        'BtnEditar
-        '
-        Me.BtnEditar.BackColor = System.Drawing.Color.DarkGray
-        Me.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.BtnEditar.FlatAppearance.BorderSize = 3
-        Me.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditar.Location = New System.Drawing.Point(510, 545)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(85, 46)
-        Me.BtnEditar.TabIndex = 11
-        Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.UseVisualStyleBackColor = False
-        '
         'BtnNuevo
         '
         Me.BtnNuevo.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnNuevo.Enabled = False
         Me.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
         Me.BtnNuevo.FlatAppearance.BorderSize = 3
         Me.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
         Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNuevo.Location = New System.Drawing.Point(510, 488)
+        Me.BtnNuevo.Location = New System.Drawing.Point(458, 482)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(85, 46)
         Me.BtnNuevo.TabIndex = 10
         Me.BtnNuevo.Text = "&Nuevo"
         Me.BtnNuevo.UseVisualStyleBackColor = False
-        '
-        'BtnGuardar
-        '
-        Me.BtnGuardar.BackColor = System.Drawing.Color.DarkGray
-        Me.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.BtnGuardar.FlatAppearance.BorderSize = 3
-        Me.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
-        Me.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnGuardar.Location = New System.Drawing.Point(510, 606)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(85, 45)
-        Me.BtnGuardar.TabIndex = 12
-        Me.BtnGuardar.Text = "&Guardar"
-        Me.BtnGuardar.UseVisualStyleBackColor = False
         '
         'dlg
         '
@@ -427,6 +411,7 @@ Partial Class Stock_Movimiento
         '
         'imagen
         '
+        Me.imagen.Enabled = False
         Me.imagen.Image = Global.SISVENTAS.My.Resources.Resources.NOIMAGEN
         Me.imagen.Location = New System.Drawing.Point(90, 29)
         Me.imagen.Name = "imagen"
@@ -437,6 +422,7 @@ Partial Class Stock_Movimiento
         '
         'PictureBox2
         '
+        Me.PictureBox2.Enabled = False
         Me.PictureBox2.Image = Global.SISVENTAS.My.Resources.Resources.QuitarImagen
         Me.PictureBox2.Location = New System.Drawing.Point(261, 94)
         Me.PictureBox2.Name = "PictureBox2"
@@ -447,6 +433,7 @@ Partial Class Stock_Movimiento
         '
         'PictureBox1
         '
+        Me.PictureBox1.Enabled = False
         Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.AgregarImagen
         Me.PictureBox1.Location = New System.Drawing.Point(261, 29)
         Me.PictureBox1.Name = "PictureBox1"
@@ -461,7 +448,6 @@ Partial Class Stock_Movimiento
         Me.GroupBox4.Controls.Add(Me.TxtCodProveedor)
         Me.GroupBox4.Controls.Add(Me.TxtProveedor)
         Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Controls.Add(Me.btnBuscarProveedor)
         Me.GroupBox4.Location = New System.Drawing.Point(28, 348)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(625, 60)
@@ -512,6 +498,59 @@ Partial Class Stock_Movimiento
         Me.PictureBox3.TabIndex = 113
         Me.PictureBox3.TabStop = False
         '
+        'BtnGuardar
+        '
+        Me.BtnGuardar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.Enabled = False
+        Me.BtnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnGuardar.FlatAppearance.BorderSize = 3
+        Me.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGuardar.Location = New System.Drawing.Point(458, 555)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(85, 45)
+        Me.BtnGuardar.TabIndex = 12
+        Me.BtnGuardar.Text = "&Guardar"
+        Me.BtnGuardar.UseVisualStyleBackColor = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(346, 116)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(38, 13)
+        Me.Label11.TabIndex = 27
+        Me.Label11.Text = "Ctdad:"
+        '
+        'txtCtdad
+        '
+        Me.txtCtdad.Enabled = False
+        Me.txtCtdad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCtdad.Location = New System.Drawing.Point(391, 105)
+        Me.txtCtdad.MaxLength = 18
+        Me.txtCtdad.Name = "txtCtdad"
+        Me.txtCtdad.Size = New System.Drawing.Size(141, 29)
+        Me.txtCtdad.TabIndex = 26
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(322, 151)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(65, 13)
+        Me.Label12.TabIndex = 29
+        Me.Label12.Text = "Documento:"
+        '
+        'txtDoc
+        '
+        Me.txtDoc.Enabled = False
+        Me.txtDoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDoc.Location = New System.Drawing.Point(391, 140)
+        Me.txtDoc.MaxLength = 18
+        Me.txtDoc.Name = "txtDoc"
+        Me.txtDoc.Size = New System.Drawing.Size(141, 29)
+        Me.txtDoc.TabIndex = 28
+        '
         'Stock_Movimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -522,15 +561,15 @@ Partial Class Stock_Movimiento
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.txtflag)
+        Me.Controls.Add(Me.btnBuscarProveedor)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnNuevo)
         Me.Controls.Add(Me.BtnGuardar)
         Me.Controls.Add(Me.GroupBox3)
         Me.Name = "Stock_Movimiento"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Productos"
+        Me.Text = "Stock Movimiento"
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.datalistadoProducto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
@@ -567,9 +606,7 @@ Partial Class Stock_Movimiento
     Friend WithEvents TxtPrecioUnitario As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents BtnEliminar As System.Windows.Forms.Button
-    Friend WithEvents BtnEditar As System.Windows.Forms.Button
     Friend WithEvents BtnNuevo As System.Windows.Forms.Button
-    Friend WithEvents BtnGuardar As System.Windows.Forms.Button
     Friend WithEvents btnBuscarProveedor As System.Windows.Forms.Button
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -593,4 +630,9 @@ Partial Class Stock_Movimiento
     Friend WithEvents txtLimite As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents BtnGuardar As System.Windows.Forms.Button
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents txtDoc As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents txtCtdad As System.Windows.Forms.TextBox
 End Class

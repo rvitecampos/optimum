@@ -4,7 +4,6 @@
     Private Sub Stock_Movimiento_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         limpiar()
         mostrar()
-
     End Sub
     Private Sub mostrar()
         Try
@@ -27,8 +26,9 @@
             MsgBox(ex.Message)
         End Try
 
-        BtnNuevo.Enabled = True
-        BtnEditar.Enabled = False
+        BtnNuevo.Enabled = False
+        BtnGuardar.Enabled = False
+        '  BtnEditar.Enabled = False
 
     End Sub
 
@@ -81,20 +81,22 @@
     End Sub
 
     Public Sub desbloquear()
-        btnBuscarProveedor.Enabled = True
-        TxtCodProducto.Enabled = True
-        txtCantidad.Enabled = False
-        txtLimite.Enabled = True
-        TxtNombreProducto.Enabled = True
-        TxtPrecioUnitario.Enabled = True
-        txtSPrecioUnitario.Enabled = True
-        BtnEditar.Enabled = False
-        BtnNuevo.Enabled = True
+        txtCtdad.Enabled = True
+        txtDoc.Enabled = True
+        'btnBuscarProveedor.Enabled = True
+        'TxtCodProducto.Enabled = True
+        'txtCantidad.Enabled = False
+        'txtLimite.Enabled = True
+        'TxtNombreProducto.Enabled = True
+        'TxtPrecioUnitario.Enabled = True
+        'txtSPrecioUnitario.Enabled = True
+        'BtnEditar.Enabled = False
+        BtnNuevo.Enabled = False
         BtnGuardar.Enabled = True
     End Sub
     Public Sub bloquear()
-        BtnEditar.Enabled = False
-        BtnGuardar.Enabled = False
+        'BtnEditar.Enabled = False
+        'BtnGuardar.Enabled = False
         BtnNuevo.Enabled = True
         btnBuscarProveedor.Enabled = False
         TxtCodProducto.Enabled = False
@@ -108,7 +110,7 @@
     End Sub
     Public Sub limpiar()
         BtnGuardar.Enabled = False
-        BtnEditar.Enabled = False
+        BtnNuevo.Enabled = False
         TxtCodProducto.Text = "0"
         TxtNombreProducto.Text = ""
         TxtCodProveedor.Text = "0"
@@ -118,6 +120,10 @@
         TxtPrecioUnitario.Text = "0"
         txtSPrecioUnitario.Text = "0"
         txtLimite.Text = "0"
+        txtCtdad.Text = "0"
+        txtCtdad.Enabled = False
+        txtDoc.Text = ""
+        txtDoc.Enabled = False
         cbeliminar.Checked = False
 
         imagen.Image = Nothing
@@ -155,11 +161,11 @@
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtSPrecioUnitario.Text & CChar(eventArgs.KeyChar))
     End Sub
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        limpiar()
-        mostrar()
+        'limpiar()
+        'mostrar()
         desbloquear()
-        BtnNuevo.Enabled = False
-        TxtCodProducto.Focus()
+        'BtnNuevo.Enabled = False
+        txtCtdad.Focus()
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
@@ -198,7 +204,7 @@
                     mostrar()
                     limpiar()
                     bloquear()
-                    BtnGuardar.Enabled = False
+                    ' BtnGuardar.Enabled = False
                     BtnNuevo.Enabled = True
                 Else
                     MessageBox.Show("Producto no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -220,7 +226,7 @@
     End Sub
 
     Private Sub datalistado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistadoProducto.CellClick
-        desbloquear()
+        'desbloquear()
 
         TxtCodProducto.Text = datalistadoProducto.SelectedCells.Item(1).Value
         TxtNombreProducto.Text = datalistadoProducto.SelectedCells.Item(2).Value
@@ -231,7 +237,7 @@
         TxtCodProveedor.Text = datalistadoProducto.SelectedCells.Item(6).Value
         txtLimite.Text = datalistadoProducto.SelectedCells.Item(8).Value
         TxtProveedor.Text = datalistadoProducto.SelectedCells.Item(9).Value
-        txtCantidad.Enabled = False
+        ' txtCantidad.Enabled = False
 
 
 
@@ -241,13 +247,14 @@
 
         imagen.Image = Image.FromStream(ms)
         imagen.SizeMode = PictureBoxSizeMode.StretchImage
+        BtnNuevo.Enabled = True
 
-        BtnEditar.Enabled = True
-        BtnGuardar.Enabled = False
+        '  BtnEditar.Enabled = True
+        '  BtnGuardar.Enabled = False
 
     End Sub
 
-    Private Sub BtnEditar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEditar.Click
+    Private Sub BtnEditar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim result As DialogResult
         result = MessageBox.Show("Realmente desea editar los datos del producto?", "Modificando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then
@@ -299,7 +306,7 @@
             End If
         End If
         bloquear()
-        BtnGuardar.Enabled = False
+        ' BtnGuardar.Enabled = False
 
     End Sub
 
@@ -425,7 +432,12 @@
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        limpiar()
         buscar()
 
+    End Sub
+
+    Public Sub TxtCtdad_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtCtdad.KeyPress
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtCtdad.Text & CChar(eventArgs.KeyChar))
     End Sub
 End Class

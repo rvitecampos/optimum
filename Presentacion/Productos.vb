@@ -330,19 +330,28 @@
                 Try
                     For Each row As DataGridViewRow In datalistadoProducto.Rows
                         Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
-
+                        Dim stock0 As Integer = Convert.ToInt32(row.Cells("Stock").Value)
+                        Dim Prod As String = row.Cells("Nombre_Producto").Value
+                        Dim CodProd As String = row.Cells("Cod_Producto").Value
                         If marcado Then
-                            'Dim onekey As Integer = Convert.ToInt32(row.Cells("Cod_producto").Value)
-                            Dim vdb As New vProducto
-                            Dim func As New fProductos
-                            vdb.gcod_Producto = TxtCodProducto.Text
+                            If stock0 > 0 Then
+                                MessageBox.Show(Prod, "Solo puede eliminar con Stock = 0", MessageBoxButtons.OK)
 
-                            If func.eliminar(vdb) Then
-                                MessageBox.Show("Producto eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                bloquear()
-                                limpiar()
+                            Else
+                                'Dim onekey As Integer = Convert.ToInt32(row.Cells("Cod_producto").Value)
+                                Dim vdb As New vProducto
+                                Dim func As New fProductos
+                                vdb.gcod_Producto = CodProd
+
+                                If func.eliminar(vdb) Then
+                                    MessageBox.Show(Prod, "Producto eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    bloquear()
+                                    limpiar()
+
+                                End If
 
                             End If
+
                         End If
                     Next
                     Call mostrar()

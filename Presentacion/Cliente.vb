@@ -37,10 +37,10 @@ Public Class Cliente
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtTelefono.Text & CChar(eventArgs.KeyChar))
     End Sub
     Public Sub TxtDNI_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtDNI.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtCelular.Text & CChar(eventArgs.KeyChar))
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtDNI.Text & CChar(eventArgs.KeyChar))
     End Sub
     Public Sub TxtRUC__KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtRUC.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtTelefono.Text & CChar(eventArgs.KeyChar))
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtRUC.Text & CChar(eventArgs.KeyChar))
     End Sub
 
 
