@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\fStockMovimiento.vb" />
     <Compile Include="Datos\FBackup.vb" />
     <Compile Include="Datos\FBloqueo.vb" />
     <Compile Include="Datos\FCaja.vb" />
@@ -141,6 +142,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Logica\vStockMovimiento.vb" />
     <Compile Include="Logica\VBloqueo.vb" />
     <Compile Include="Logica\VCaja.vb" />
     <Compile Include="Logica\VCambiarContraseña.vb" />
@@ -176,10 +178,16 @@
     <Compile Include="Presentacion\Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\Stock_Movimiento.designer.vb">
-      <DependentUpon>Stock_Movimiento.vb</DependentUpon>
+    <Compile Include="Presentacion\StockMovimiento.designer.vb">
+      <DependentUpon>StockMovimiento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\Stock_Movimiento.vb">
+    <Compile Include="Presentacion\StockMovimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Stock.designer.vb">
+      <DependentUpon>Stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Stock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Detalle_Compra.designer.vb">
@@ -343,8 +351,11 @@
     <EmbeddedResource Include="Presentacion\Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\Stock_Movimiento.resx">
-      <DependentUpon>Stock_Movimiento.vb</DependentUpon>
+    <EmbeddedResource Include="Presentacion\StockMovimiento.resx">
+      <DependentUpon>StockMovimiento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Stock.resx">
+      <DependentUpon>Stock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Detalle_Compra.resx">
       <DependentUpon>Detalle_Compra.vb</DependentUpon>
@@ -613,6 +624,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stock_Movimiento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

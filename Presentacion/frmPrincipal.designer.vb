@@ -138,7 +138,7 @@ Partial Class frmPrincipal
         Me.Stock_MovToolStripMenuItem2.Name = "Stock_MovToolStripMenuItem2"
         Me.Stock_MovToolStripMenuItem2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.K), System.Windows.Forms.Keys)
         Me.Stock_MovToolStripMenuItem2.Size = New System.Drawing.Size(179, 22)
-        Me.Stock_MovToolStripMenuItem2.Text = "Stoc&k Mov"
+        Me.Stock_MovToolStripMenuItem2.Text = "Stoc&k"
         '
         'VentaToolStripMenuItem
         '

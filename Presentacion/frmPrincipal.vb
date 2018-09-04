@@ -208,7 +208,7 @@ Public Class frmPrincipal
     Private Sub Stock_MovToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles Stock_MovToolStripMenuItem2.Click
         FrmBloqueo.ShowDialog()
         If FrmBloqueo.txtPermiso.Text = "1" Then
-            Stock_Movimiento.ShowDialog()
+            Stock.ShowDialog()
         End If
     End Sub
 End Class
