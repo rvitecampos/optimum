@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\fServicios.vb" />
     <Compile Include="Datos\fStockMovimiento.vb" />
     <Compile Include="Datos\FBackup.vb" />
     <Compile Include="Datos\FBloqueo.vb" />
@@ -142,6 +143,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Logica\vServicios.vb" />
     <Compile Include="Logica\vStockMovimiento.vb" />
     <Compile Include="Logica\VBloqueo.vb" />
     <Compile Include="Logica\VCaja.vb" />
@@ -176,6 +178,12 @@
       <DependentUpon>Cliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Servicios.designer.vb">
+      <DependentUpon>Servicios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Servicios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\StockMovimiento.designer.vb">
@@ -350,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Servicios.resx">
+      <DependentUpon>Servicios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\StockMovimiento.resx">
       <DependentUpon>StockMovimiento.vb</DependentUpon>
@@ -627,6 +638,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\servicios.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
