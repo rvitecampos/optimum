@@ -88,7 +88,7 @@
         'txtCantidad.Enabled = False
         'txtLimite.Enabled = True
         TxtNombreServicio.Enabled = True
-        txtItems.Enabled = True
+        txtItems.Enabled = False
         txtVenta.Enabled = True
         'TxtPrecioUnitario.Enabled = True
         'txtSPrecioUnitario.Enabled = True
@@ -103,6 +103,7 @@
         btnMovimientos.Enabled = False
         TxtCodServicio.Enabled = False
         TxtNombreServicio.Enabled = False
+        txtItems.Enabled = False
         'TxtCodProveedor.Enabled = False
         'TxtProveedor.Enabled = False
         'txtCantidad.Enabled = False
@@ -164,11 +165,12 @@
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtVenta.Text & CChar(eventArgs.KeyChar))
     End Sub
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        'limpiar()
-        'mostrar()
+        limpiar()
+        mostrar()
         desbloquear()
-        'BtnNuevo.Enabled = False
-        '   txtCtdad.Focus()
+        BtnNuevo.Enabled = False
+        BtnGuardar.Enabled = True
+        TxtNombreServicio.Focus()
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
@@ -190,14 +192,14 @@
 
 
                 If func.insertar(dts) Then
-                    MessageBox.Show("Producto registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Servicio registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     mostrar()
                     limpiar()
                     bloquear()
                     ' BtnGuardar.Enabled = False
                     BtnNuevo.Enabled = True
                 Else
-                    MessageBox.Show("Producto no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Servicio no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     mostrar()
 
 
@@ -232,8 +234,8 @@
 
 
         '     imagen.BackgroundImage = Nothing
-        Dim b() As Byte = datalistadoStock.SelectedCells.Item(7).Value
-        Dim ms As New IO.MemoryStream(b)
+        ' Dim b() As Byte = datalistadoStock.SelectedCells.Item(7).Value
+        ' Dim ms As New IO.MemoryStream(b)
 
         '    imagen.Image = Image.FromStream(ms)
         '    imagen.SizeMode = PictureBoxSizeMode.StretchImage

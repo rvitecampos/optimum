@@ -37,7 +37,9 @@ Partial Class Servicios
         Me.TxtCodServicio = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtNombreServicio = New System.Windows.Forms.TextBox()
+        Me.txtItems = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnMovimientos = New System.Windows.Forms.Button()
         Me.txtVenta = New System.Windows.Forms.TextBox()
@@ -50,8 +52,6 @@ Partial Class Servicios
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.BtnGuardar = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtItems = New System.Windows.Forms.TextBox()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistadoStock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -200,6 +200,15 @@ Partial Class Servicios
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registro de Servicio"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(67, 120)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(35, 13)
+        Me.Label5.TabIndex = 25
+        Me.Label5.Text = "Items:"
+        '
         'TxtNombreServicio
         '
         Me.TxtNombreServicio.Enabled = False
@@ -209,6 +218,16 @@ Partial Class Servicios
         Me.TxtNombreServicio.Name = "TxtNombreServicio"
         Me.TxtNombreServicio.Size = New System.Drawing.Size(486, 29)
         Me.TxtNombreServicio.TabIndex = 2
+        '
+        'txtItems
+        '
+        Me.txtItems.Enabled = False
+        Me.txtItems.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtItems.Location = New System.Drawing.Point(118, 112)
+        Me.txtItems.MaxLength = 18
+        Me.txtItems.Name = "txtItems"
+        Me.txtItems.Size = New System.Drawing.Size(141, 29)
+        Me.txtItems.TabIndex = 4
         '
         'Label2
         '
@@ -331,25 +350,6 @@ Partial Class Servicios
         Me.BtnGuardar.TabIndex = 12
         Me.BtnGuardar.Text = "&Guardar"
         Me.BtnGuardar.UseVisualStyleBackColor = False
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(67, 120)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(35, 13)
-        Me.Label5.TabIndex = 25
-        Me.Label5.Text = "Items:"
-        '
-        'txtItems
-        '
-        Me.txtItems.Enabled = False
-        Me.txtItems.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItems.Location = New System.Drawing.Point(118, 112)
-        Me.txtItems.MaxLength = 18
-        Me.txtItems.Name = "txtItems"
-        Me.txtItems.Size = New System.Drawing.Size(141, 29)
-        Me.txtItems.TabIndex = 4
         '
         'Servicios
         '
