@@ -191,6 +191,10 @@ SISVENTAS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.Stock_Servicio">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:SISVENTAS.My.Resources.Resources.user_84308">
 	<summary>
   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).

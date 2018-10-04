@@ -35,12 +35,9 @@ Public Class fServicios
             cmd = New SqlCommand("editar_servicios")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-
-            cmd.Parameters.AddWithValue("@cod_Servicio", dts.gcod_Servicio)
-            cmd.Parameters.AddWithValue("@nombre_Servicio", dts.gnombre_Servicio)
-            cmd.Parameters.AddWithValue("@costo", dts.gcosto)
-            cmd.Parameters.AddWithValue("@venta", dts.gventa)
-            cmd.Parameters.AddWithValue("@items", dts.gitems)
+            cmd.Parameters.AddWithValue("@Cod_Servicio", dts.gcod_Servicio)
+            cmd.Parameters.AddWithValue("@Nombre_Servicio", dts.gnombre_Servicio)
+            cmd.Parameters.AddWithValue("@Venta", dts.gventa)
             If cmd.ExecuteNonQuery Then
                 Return True
 

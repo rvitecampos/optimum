@@ -52,6 +52,7 @@ Partial Class Servicios
         Me.Label9 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.BtnGuardar = New System.Windows.Forms.Button()
+        Me.BtnEditar = New System.Windows.Forms.Button()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistadoStock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -344,12 +345,27 @@ Partial Class Servicios
         Me.BtnGuardar.FlatAppearance.BorderSize = 3
         Me.BtnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
         Me.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnGuardar.Location = New System.Drawing.Point(189, 433)
+        Me.BtnGuardar.Location = New System.Drawing.Point(291, 434)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(85, 45)
         Me.BtnGuardar.TabIndex = 12
         Me.BtnGuardar.Text = "&Guardar"
         Me.BtnGuardar.UseVisualStyleBackColor = False
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.Enabled = False
+        Me.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.BorderSize = 3
+        Me.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditar.Location = New System.Drawing.Point(167, 434)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(85, 46)
+        Me.BtnEditar.TabIndex = 31
+        Me.BtnEditar.Text = "&Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'Servicios
         '
@@ -357,6 +373,7 @@ Partial Class Servicios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1259, 682)
+        Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.txtflag)
@@ -409,4 +426,5 @@ Partial Class Servicios
     Friend WithEvents BtnGuardar As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtItems As System.Windows.Forms.TextBox
+    Friend WithEvents BtnEditar As System.Windows.Forms.Button
 End Class
