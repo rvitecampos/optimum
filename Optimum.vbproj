@@ -180,10 +180,10 @@
     <Compile Include="Presentacion\Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\StockServicio.designer.vb">
-      <DependentUpon>StockServicio.vb</DependentUpon>
+    <Compile Include="Presentacion\itemsServicios.designer.vb">
+      <DependentUpon>itemsServicios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Presentacion\StockServicio.vb">
+    <Compile Include="Presentacion\itemsServicios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Servicios.designer.vb">
@@ -365,8 +365,8 @@
     <EmbeddedResource Include="Presentacion\Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\StockServicio.resx">
-      <DependentUpon>StockServicio.vb</DependentUpon>
+    <EmbeddedResource Include="Presentacion\itemsServicios.resx">
+      <DependentUpon>itemsServicios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Servicios.resx">
       <DependentUpon>Servicios.vb</DependentUpon>
@@ -653,6 +653,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stock_Servicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Items_Servicios.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

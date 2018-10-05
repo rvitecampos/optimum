@@ -99,6 +99,10 @@ SISVENTAS
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:SISVENTAS.My.Resources.Resources.Items_Servicios">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:SISVENTAS.My.Resources.Resources.LOGIN">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

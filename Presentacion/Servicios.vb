@@ -100,6 +100,7 @@
         'BtnEditar.Enabled = False
         'BtnGuardar.Enabled = False
         BtnNuevo.Enabled = True
+        BtnEditar.Enabled = False
         btnMovimientos.Enabled = False
         TxtCodServicio.Enabled = False
         TxtNombreServicio.Enabled = False
@@ -113,10 +114,13 @@
     End Sub
     Public Sub limpiar()
         BtnGuardar.Enabled = False
+        BtnEditar.Enabled = False
         BtnNuevo.Enabled = False
         btnMovimientos.Enabled = False
         TxtCodServicio.Text = "0"
         TxtNombreServicio.Text = ""
+        TxtNombreServicio.Enabled = False
+        txtVenta.Enabled = False
         'TxtCodProveedor.Text = "0"
         'TxtProveedor.Text = ""
         'txtCantidad.Text = "0"
@@ -390,9 +394,10 @@
     End Sub
 
     Private Sub btnMovimientos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMovimientos.Click
-        StockServicio.txtflag.Text = "1"
+        itemsServicios.txtflag.Text = "1"
+        itemsServicios.lblTxtServicio.Text = TxtNombreServicio.Text
         ' StockServicio.TxtCodProducto = TxtCodServicio
-        StockServicio.ShowDialog()
+        itemsServicios.ShowDialog()
 
     End Sub
 

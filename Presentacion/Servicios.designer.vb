@@ -192,6 +192,7 @@ Partial Class Servicios
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.TxtNombreServicio)
+        Me.GroupBox1.Controls.Add(Me.btnMovimientos)
         Me.GroupBox1.Controls.Add(Me.txtItems)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(28, 150)
@@ -241,11 +242,11 @@ Partial Class Servicios
         '
         'btnMovimientos
         '
-        Me.btnMovimientos.Location = New System.Drawing.Point(440, 433)
+        Me.btnMovimientos.Location = New System.Drawing.Point(287, 112)
         Me.btnMovimientos.Name = "btnMovimientos"
         Me.btnMovimientos.Size = New System.Drawing.Size(75, 31)
         Me.btnMovimientos.TabIndex = 7
-        Me.btnMovimientos.Text = "Movimientos"
+        Me.btnMovimientos.Text = "Añadir Items"
         Me.btnMovimientos.UseVisualStyleBackColor = True
         '
         'txtVenta
@@ -377,7 +378,6 @@ Partial Class Servicios
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.txtflag)
-        Me.Controls.Add(Me.btnMovimientos)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.BtnNuevo)

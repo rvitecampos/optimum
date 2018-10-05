@@ -88,4 +88,4 @@ D:\optimum\optimum\obj\Debug\SISVENTAS.application
 D:\optimum\optimum\obj\Debug\SISVENTAS.Stock.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.StockMovimiento.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.Servicios.resources
-D:\optimum\optimum\obj\Debug\SISVENTAS.StockServicio.resources
+D:\optimum\optimum\obj\Debug\SISVENTAS.itemsServicios.resources
