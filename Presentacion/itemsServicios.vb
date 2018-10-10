@@ -103,7 +103,7 @@
         TxtNombreProducto.Enabled = False
         TxtCodProveedor.Enabled = False
         TxtProveedor.Enabled = False
-        txtCantidad.Enabled = False
+        txtStock.Enabled = False
         TxtPrecioUnitario.Enabled = False
         txtSPrecioUnitario.Enabled = False
         txtLimite.Enabled = False
@@ -116,8 +116,8 @@
         TxtNombreProducto.Text = ""
         TxtCodProveedor.Text = "0"
         TxtProveedor.Text = ""
-        txtCantidad.Text = "0"
-        txtCantidad.Enabled = False
+        txtStock.Text = "0"
+        txtStock.Enabled = False
         TxtPrecioUnitario.Text = "0"
         txtSPrecioUnitario.Text = "0"
         txtLimite.Text = "0"
@@ -149,8 +149,8 @@
         Return Fg_SoloNumeros
     End Function
     '-----------------------------------------------------------
-    Public Sub txtCantidad_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtCantidad.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtCantidad.Text & CChar(eventArgs.KeyChar))
+    Public Sub txtStock_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtStock.KeyPress
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtStock.Text & CChar(eventArgs.KeyChar))
     End Sub
     Public Sub txtLimite_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtLimite.KeyPress
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtLimite.Text & CChar(eventArgs.KeyChar))
@@ -171,39 +171,49 @@
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         Try
+            If txtStock.Text >= txtCtdad.Text Then
 
 
-            If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And TxtCodProducto.Text <> "" And TxtPrecioUnitario.Text <> "" And TxtCodProveedor.Text > 0 Then
+                If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And TxtCodProducto.Text <> "" And TxtPrecioUnitario.Text <> "" And TxtCodProveedor.Text > 0 Then
 
-                Dim dts As New vStockMovimiento
-                Dim func As New fStockMovimiento
+                    Dim dts As New vStockMovimiento
+                    Dim func As New fStockMovimiento
 
-                'INSERTAR PRODUCTO
-                dts.gCood_Producto = TxtCodProducto.Text
-                dts.gNombre_Producto = TxtNombreProducto.Text
-                dts.gcood_Proveedor = TxtCodProveedor.Text
-                dts.gCtdad = txtCtdad.Text
-                '  dts.gDocumento = txtDoc.Text
+                    'INSERTAR PRODUCTO
+                    dts.gCood_Producto = TxtCodProducto.Text
+                    dts.gNombre_Producto = TxtNombreProducto.Text
+                    dts.gCood_Proveedor = TxtCodProveedor.Text
+                    dts.gCtdad = txtCtdad.Text
+                    dts.gDocumento = ""
+                    dts.gCood_Servicio = lblCodServicio.Text
 
 
-                If func.insertar(dts) Then
-                    MessageBox.Show("Producto registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    mostrar()
-                    limpiar()
-                    bloquear()
-                    ' BtnGuardar.Enabled = False
-                    BtnNuevo.Enabled = True
+                    If func.insertar(dts) Then
+                        MessageBox.Show("Producto registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        mostrar()
+                        limpiar()
+                        bloquear()
+                        ' BtnGuardar.Enabled = False
+                        BtnNuevo.Enabled = True
+                    Else
+                        MessageBox.Show("Producto no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        mostrar()
+
+
+                    End If
+
+
                 Else
-                    MessageBox.Show("Producto no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    mostrar()
-
-
+                    MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
-
             Else
-                MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Cantidad Mayor a Stock", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
             End If
+
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -217,7 +227,7 @@
 
         TxtCodProducto.Text = datalistadoStockServicio.SelectedCells.Item(1).Value
         TxtNombreProducto.Text = datalistadoStockServicio.SelectedCells.Item(2).Value
-        txtCantidad.Text = datalistadoStockServicio.SelectedCells.Item(3).Value
+        txtStock.Text = datalistadoStockServicio.SelectedCells.Item(3).Value
 
         TxtPrecioUnitario.Text = datalistadoStockServicio.SelectedCells.Item(4).Value
         txtSPrecioUnitario.Text = datalistadoStockServicio.SelectedCells.Item(5).Value
@@ -258,7 +268,7 @@
                         dts.gcod_Producto = TxtCodProducto.Text
                         dts.gNombre_Producto = TxtNombreProducto.Text
                         dts.gcood_Proveedor = TxtCodProveedor.Text
-                        dts.gcantidad = txtCantidad.Text
+                        dts.gcantidad = txtStock.Text
                         dts.gPrecio_Unitario = TxtPrecioUnitario.Text
                         dts.gSPrecio_unitario = txtSPrecioUnitario.Text
                         dts.gLimite = txtLimite.Text
@@ -430,4 +440,7 @@
     Public Sub TxtCtdad_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtCtdad.KeyPress
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtCtdad.Text & CChar(eventArgs.KeyChar))
     End Sub
+
+
+
 End Class

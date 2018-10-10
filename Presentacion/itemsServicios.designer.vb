@@ -43,7 +43,7 @@ Partial Class itemsServicios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TxtNombreProducto = New System.Windows.Forms.TextBox()
         Me.txtLimite = New System.Windows.Forms.TextBox()
-        Me.txtCantidad = New System.Windows.Forms.TextBox()
+        Me.txtStock = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnMovimientos = New System.Windows.Forms.Button()
@@ -64,6 +64,7 @@ Partial Class itemsServicios
         Me.BtnGuardar = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.lblTxtServicio = New System.Windows.Forms.Label()
+        Me.lblCodServicio = New System.Windows.Forms.Label()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datalistadoStockServicio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -217,7 +218,7 @@ Partial Class itemsServicios
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.TxtNombreProducto)
         Me.GroupBox1.Controls.Add(Me.txtLimite)
-        Me.GroupBox1.Controls.Add(Me.txtCantidad)
+        Me.GroupBox1.Controls.Add(Me.txtStock)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(28, 215)
         Me.GroupBox1.Name = "GroupBox1"
@@ -283,15 +284,15 @@ Partial Class itemsServicios
         Me.txtLimite.Size = New System.Drawing.Size(141, 29)
         Me.txtLimite.TabIndex = 4
         '
-        'txtCantidad
+        'txtStock
         '
-        Me.txtCantidad.Enabled = False
-        Me.txtCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCantidad.Location = New System.Drawing.Point(118, 105)
-        Me.txtCantidad.MaxLength = 18
-        Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(141, 29)
-        Me.txtCantidad.TabIndex = 3
+        Me.txtStock.Enabled = False
+        Me.txtStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStock.Location = New System.Drawing.Point(118, 105)
+        Me.txtStock.MaxLength = 18
+        Me.txtStock.Name = "txtStock"
+        Me.txtStock.Size = New System.Drawing.Size(141, 29)
+        Me.txtStock.TabIndex = 3
         '
         'Label2
         '
@@ -491,11 +492,21 @@ Partial Class itemsServicios
         '
         Me.lblTxtServicio.AutoSize = True
         Me.lblTxtServicio.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTxtServicio.Location = New System.Drawing.Point(141, 170)
+        Me.lblTxtServicio.Location = New System.Drawing.Point(233, 169)
         Me.lblTxtServicio.Name = "lblTxtServicio"
         Me.lblTxtServicio.Size = New System.Drawing.Size(82, 22)
         Me.lblTxtServicio.TabIndex = 114
         Me.lblTxtServicio.Text = "Label13"
+        '
+        'lblCodServicio
+        '
+        Me.lblCodServicio.AutoSize = True
+        Me.lblCodServicio.Font = New System.Drawing.Font("Arial Rounded MT Bold", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCodServicio.Location = New System.Drawing.Point(138, 169)
+        Me.lblCodServicio.Name = "lblCodServicio"
+        Me.lblCodServicio.Size = New System.Drawing.Size(82, 22)
+        Me.lblCodServicio.TabIndex = 115
+        Me.lblCodServicio.Text = "Label13"
         '
         'itemsServicios
         '
@@ -503,6 +514,7 @@ Partial Class itemsServicios
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1253, 633)
+        Me.Controls.Add(Me.lblCodServicio)
         Me.Controls.Add(Me.lblTxtServicio)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.PictureBox3)
@@ -560,7 +572,7 @@ Partial Class itemsServicios
     Friend WithEvents txtflag As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txtCantidad As System.Windows.Forms.TextBox
+    Friend WithEvents txtStock As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
@@ -573,4 +585,5 @@ Partial Class itemsServicios
     Friend WithEvents txtCtdad As System.Windows.Forms.TextBox
     Friend WithEvents lblTxtServicio As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents lblCodServicio As System.Windows.Forms.Label
 End Class

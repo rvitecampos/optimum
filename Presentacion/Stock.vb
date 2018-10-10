@@ -173,7 +173,7 @@
         Try
 
 
-            If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And TxtCodProducto.Text <> "" And TxtPrecioUnitario.Text <> "" And TxtCodProveedor.Text > 0 Then
+            If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And txtDoc.Text <> "" And TxtPrecioUnitario.Text <> "" And TxtCodProveedor.Text > 0 Then
 
                 Dim dts As New vStockMovimiento
                 Dim func As New fStockMovimiento
@@ -181,9 +181,10 @@
                 'INSERTAR PRODUCTO
                 dts.gCood_Producto = TxtCodProducto.Text
                 dts.gNombre_Producto = TxtNombreProducto.Text
-                dts.gcood_Proveedor = TxtCodProveedor.Text
+                dts.gCood_Proveedor = TxtCodProveedor.Text
                 dts.gCtdad = txtCtdad.Text
                 dts.gDocumento = txtDoc.Text
+                dts.gCood_Servicio = 0
 
 
                 If func.insertar(dts) Then

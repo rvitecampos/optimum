@@ -88,7 +88,7 @@ Partial Class frmPrincipal
         '
         'CapturaToolStripMenuItem
         '
-        Me.CapturaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClienteToolStripMenuItem, Me.ProductoToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.ServiciosToolStripMenuItem1, Me.Stock_MovToolStripMenuItem2, Me.VentaToolStripMenuItem})
+        Me.CapturaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClienteToolStripMenuItem, Me.ProductoToolStripMenuItem, Me.ProveedorToolStripMenuItem, Me.Stock_MovToolStripMenuItem2, Me.ServiciosToolStripMenuItem1, Me.VentaToolStripMenuItem})
         Me.CapturaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CapturaToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.CapturaToolStripMenuItem.Name = "CapturaToolStripMenuItem"

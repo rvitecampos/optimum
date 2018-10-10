@@ -396,6 +396,7 @@
     Private Sub btnMovimientos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMovimientos.Click
         itemsServicios.txtflag.Text = "1"
         itemsServicios.lblTxtServicio.Text = TxtNombreServicio.Text
+        itemsServicios.lblCodServicio.Text = TxtCodServicio.Text
         ' StockServicio.TxtCodProducto = TxtCodServicio
         itemsServicios.ShowDialog()
 

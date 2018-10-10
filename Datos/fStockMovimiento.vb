@@ -72,6 +72,7 @@ Public Class fStockMovimiento
             cmd.Parameters.AddWithValue("@Ctdad", dts.gCtdad)
             cmd.Parameters.AddWithValue("@Cood_Proveedor", dts.gCood_Proveedor)
             cmd.Parameters.AddWithValue("@documento", dts.gDocumento)
+            cmd.Parameters.AddWithValue("@Cood_Servicio", dts.gCood_Servicio)
 
             If cmd.ExecuteNonQuery Then
                 Return True

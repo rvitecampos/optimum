@@ -45,6 +45,13 @@ GO
 
 
 
+/****** Object:  Table [dbo].[Proveedor]    Script Date: 3/09/2018 12:37:10 ******/
+DROP TABLE [dbo].[Servicios]
+GO
+
+
+
+
 
 /*------*/
 
@@ -320,6 +327,7 @@ CREATE TABLE [dbo].[Stock_Movimiento](
 	[Documento] [nchar](15) NOT NULL,
 	[Fecha] [date] NOT NULL,
 	[Cood_Proveedor] [int] NOT NULL,
+	[Cood_Servicio] [int] NOT NULL,
  CONSTRAINT [PK_Stock_Movimiento] PRIMARY KEY CLUSTERED 
 (
 	[Id_Stock] ASC
@@ -378,7 +386,33 @@ ALTER TABLE [dbo].[Detalle_Ganancia] NOCHECK CONSTRAINT [FK_Detalle_Ganancia_Pro
 GO
 
 
+/*-------*/
 
 
 
+USE [Despensa]
+GO
+
+/****** Object:  Table [dbo].[Servicios]    Script Date: 10/10/2018 18:04:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Servicios](
+	[Cod_Servicio] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre_Servicio] [nchar](30) NOT NULL,
+	[Costo] [decimal](18, 2) NULL,
+	[Venta] [decimal](18, 2) NULL,
+	[Items] [int] NULL,
+ CONSTRAINT [PK_Servicios] PRIMARY KEY CLUSTERED 
+(
+	[Cod_Servicio] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+/*-------*/
 
