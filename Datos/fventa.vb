@@ -40,9 +40,25 @@ Public Class fventa
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@cood_cliente", dts.gcod_Cliente)
+            cmd.Parameters.AddWithValue("@Cood_cliente", dts.gcood_Cliente)
+            cmd.Parameters.AddWithValue("@Serie", dts.gserie)
+            cmd.Parameters.AddWithValue("@Referencial", dts.greferencial)
+            cmd.Parameters.AddWithValue("@TC", dts.gTC)
+            cmd.Parameters.AddWithValue("@Fecha_Venta", dts.gfecha_venta)
+            cmd.Parameters.AddWithValue("@Hora_Emision", dts.ghora_emision)
+            cmd.Parameters.AddWithValue("@Fecha_Vence", dts.gfecha_vencimiento)
+            cmd.Parameters.AddWithValue("@Nro_doc", dts.gnro_doc)
+            cmd.Parameters.AddWithValue("@Cliente", dts.gcliente)
+            cmd.Parameters.AddWithValue("@Tip_Moneda", dts.gtip_moneda)
+            cmd.Parameters.AddWithValue("@IGV", dts.gigv)
+            cmd.Parameters.AddWithValue("@Venta", dts.gventa)
+            cmd.Parameters.AddWithValue("@Total", dts.gtotal)
+
+
+
+
             'cmd.Parameters.AddWithValue("@fecha_venta", dts.gFecha_venta)
-            cmd.Parameters.AddWithValue("@Total_a_pagar", dts.gtotal_a_pagar)
+            'cmd.Parameters.AddWithValue("@Total_a_pagar", dts.gtotal_a_pagar)
 
             If cmd.ExecuteNonQuery Then
                 Return True

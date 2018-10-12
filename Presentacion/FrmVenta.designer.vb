@@ -35,6 +35,7 @@ Partial Class FrmVenta
         Me.datalistadoVenta = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
         Me.cbocampos = New System.Windows.Forms.ComboBox()
@@ -44,7 +45,12 @@ Partial Class FrmVenta
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtRuc = New System.Windows.Forms.TextBox()
+        Me.cmbBoxOper = New System.Windows.Forms.ComboBox()
+        Me.cmbBoxMoneda = New System.Windows.Forms.ComboBox()
+        Me.dtpVence = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.datalistadoVenta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,7 +61,7 @@ Partial Class FrmVenta
         '
         'BtnBuscarCliente
         '
-        Me.BtnBuscarCliente.Location = New System.Drawing.Point(521, 19)
+        Me.BtnBuscarCliente.Location = New System.Drawing.Point(510, 58)
         Me.BtnBuscarCliente.Name = "BtnBuscarCliente"
         Me.BtnBuscarCliente.Size = New System.Drawing.Size(40, 30)
         Me.BtnBuscarCliente.TabIndex = 51
@@ -64,7 +70,7 @@ Partial Class FrmVenta
         '
         'BtnAgregar
         '
-        Me.BtnAgregar.Location = New System.Drawing.Point(468, 174)
+        Me.BtnAgregar.Location = New System.Drawing.Point(451, 341)
         Me.BtnAgregar.Name = "BtnAgregar"
         Me.BtnAgregar.Size = New System.Drawing.Size(122, 35)
         Me.BtnAgregar.TabIndex = 50
@@ -75,7 +81,7 @@ Partial Class FrmVenta
         '
         Me.TxtNombre.Enabled = False
         Me.TxtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNombre.Location = New System.Drawing.Point(197, 19)
+        Me.TxtNombre.Location = New System.Drawing.Point(197, 59)
         Me.TxtNombre.Name = "TxtNombre"
         Me.TxtNombre.Size = New System.Drawing.Size(307, 29)
         Me.TxtNombre.TabIndex = 45
@@ -83,16 +89,16 @@ Partial Class FrmVenta
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(52, 72)
+        Me.Label5.Location = New System.Drawing.Point(325, 34)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(40, 13)
+        Me.Label5.Size = New System.Drawing.Size(79, 13)
         Me.Label5.TabIndex = 43
-        Me.Label5.Text = "Fecha:"
+        Me.Label5.Text = "Fecha Emisión:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(149, 28)
+        Me.Label2.Location = New System.Drawing.Point(149, 67)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(42, 13)
         Me.Label2.TabIndex = 40
@@ -102,7 +108,7 @@ Partial Class FrmVenta
         '
         Me.txtCod_cliente.Enabled = False
         Me.txtCod_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCod_cliente.Location = New System.Drawing.Point(43, 19)
+        Me.txtCod_cliente.Location = New System.Drawing.Point(54, 17)
         Me.txtCod_cliente.Name = "txtCod_cliente"
         Me.txtCod_cliente.Size = New System.Drawing.Size(83, 29)
         Me.txtCod_cliente.TabIndex = 45
@@ -112,7 +118,7 @@ Partial Class FrmVenta
         Me.dtpFecha.Enabled = False
         Me.dtpFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFecha.Location = New System.Drawing.Point(98, 64)
+        Me.dtpFecha.Location = New System.Drawing.Point(427, 26)
         Me.dtpFecha.Name = "dtpFecha"
         Me.dtpFecha.Size = New System.Drawing.Size(133, 29)
         Me.dtpFecha.TabIndex = 57
@@ -120,7 +126,7 @@ Partial Class FrmVenta
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(52, 303)
+        Me.Label1.Location = New System.Drawing.Point(18, 28)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(19, 13)
         Me.Label1.TabIndex = 40
@@ -169,6 +175,15 @@ Partial Class FrmVenta
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Ventas"
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(288, 79)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(132, 37)
+        Me.Button2.TabIndex = 32
+        Me.Button2.Text = "IMPRIMIR"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(426, 79)
@@ -203,6 +218,10 @@ Partial Class FrmVenta
         '
         'Venta
         '
+        Me.Venta.Controls.Add(Me.dtpVence)
+        Me.Venta.Controls.Add(Me.Label6)
+        Me.Venta.Controls.Add(Me.cmbBoxMoneda)
+        Me.Venta.Controls.Add(Me.cmbBoxOper)
         Me.Venta.Controls.Add(Me.TxtCod_venta)
         Me.Venta.Controls.Add(Me.dtpFecha)
         Me.Venta.Controls.Add(Me.Label3)
@@ -211,7 +230,7 @@ Partial Class FrmVenta
         Me.Venta.Controls.Add(Me.GroupBox1)
         Me.Venta.Location = New System.Drawing.Point(21, 177)
         Me.Venta.Name = "Venta"
-        Me.Venta.Size = New System.Drawing.Size(607, 227)
+        Me.Venta.Size = New System.Drawing.Size(607, 405)
         Me.Venta.TabIndex = 59
         Me.Venta.TabStop = False
         Me.Venta.Text = "Registro de Venta"
@@ -236,13 +255,16 @@ Partial Class FrmVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.txtRuc)
         Me.GroupBox1.Controls.Add(Me.BtnBuscarCliente)
         Me.GroupBox1.Controls.Add(Me.TxtNombre)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtCod_cliente)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 98)
+        Me.GroupBox1.Location = New System.Drawing.Point(23, 110)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(578, 61)
+        Me.GroupBox1.Size = New System.Drawing.Size(578, 108)
         Me.GroupBox1.TabIndex = 72
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Clientes"
@@ -256,14 +278,64 @@ Partial Class FrmVenta
         Me.PictureBox1.TabIndex = 91
         Me.PictureBox1.TabStop = False
         '
-        'Button2
+        'Label4
         '
-        Me.Button2.Location = New System.Drawing.Point(288, 79)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(132, 37)
-        Me.Button2.TabIndex = 32
-        Me.Button2.Text = "IMPRIMIR"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(18, 68)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(30, 13)
+        Me.Label4.TabIndex = 52
+        Me.Label4.Text = "Ruc:"
+        '
+        'txtRuc
+        '
+        Me.txtRuc.Enabled = False
+        Me.txtRuc.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRuc.Location = New System.Drawing.Point(54, 59)
+        Me.txtRuc.Name = "txtRuc"
+        Me.txtRuc.Size = New System.Drawing.Size(83, 29)
+        Me.txtRuc.TabIndex = 53
+        '
+        'cmbBoxOper
+        '
+        Me.cmbBoxOper.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbBoxOper.FormattingEnabled = True
+        Me.cmbBoxOper.Items.AddRange(New Object() {"Venta Interna"})
+        Me.cmbBoxOper.Location = New System.Drawing.Point(116, 246)
+        Me.cmbBoxOper.Name = "cmbBoxOper"
+        Me.cmbBoxOper.Size = New System.Drawing.Size(152, 32)
+        Me.cmbBoxOper.TabIndex = 33
+        Me.cmbBoxOper.Text = "Venta Interna"
+        '
+        'cmbBoxMoneda
+        '
+        Me.cmbBoxMoneda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbBoxMoneda.FormattingEnabled = True
+        Me.cmbBoxMoneda.Items.AddRange(New Object() {"S/.", "$", "€"})
+        Me.cmbBoxMoneda.Location = New System.Drawing.Point(471, 246)
+        Me.cmbBoxMoneda.Name = "cmbBoxMoneda"
+        Me.cmbBoxMoneda.Size = New System.Drawing.Size(56, 32)
+        Me.cmbBoxMoneda.TabIndex = 73
+        Me.cmbBoxMoneda.Text = "S/."
+        '
+        'dtpVence
+        '
+        Me.dtpVence.Enabled = False
+        Me.dtpVence.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpVence.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpVence.Location = New System.Drawing.Point(225, 347)
+        Me.dtpVence.Name = "dtpVence"
+        Me.dtpVence.Size = New System.Drawing.Size(133, 29)
+        Me.dtpVence.TabIndex = 75
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(118, 355)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(101, 13)
+        Me.Label6.TabIndex = 74
+        Me.Label6.Text = "Fecha Vencimiento:"
         '
         'FrmVenta
         '
@@ -273,7 +345,6 @@ Partial Class FrmVenta
         Me.ClientSize = New System.Drawing.Size(1246, 644)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Venta)
         Me.Name = "FrmVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -288,7 +359,6 @@ Partial Class FrmVenta
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents BtnBuscarCliente As System.Windows.Forms.Button
@@ -313,4 +383,10 @@ Partial Class FrmVenta
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents dtpVence As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cmbBoxMoneda As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbBoxOper As System.Windows.Forms.ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents txtRuc As System.Windows.Forms.TextBox
 End Class

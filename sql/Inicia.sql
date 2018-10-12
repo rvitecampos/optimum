@@ -45,7 +45,7 @@ GO
 
 
 
-/****** Object:  Table [dbo].[Proveedor]    Script Date: 3/09/2018 12:37:10 ******/
+/****** Object:  Table [dbo].[Servicios]    Script Date: 3/09/2018 12:37:10 ******/
 DROP TABLE [dbo].[Servicios]
 GO
 
@@ -124,11 +124,11 @@ GO
 /*-------*/
 
 
-
 USE [Despensa]
 GO
 
-/****** Object:  Table [dbo].[Venta]    Script Date: 3/09/2018 12:36:01 ******/
+
+/****** Object:  Table [dbo].[Venta]    Script Date: 11/10/2018 16:05:25 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -137,13 +137,21 @@ GO
 
 CREATE TABLE [dbo].[Venta](
 	[Cod_Venta] [int] IDENTITY(1,1) NOT NULL,
-	[Cood_Cliente] [int] NULL,
-	[Fecha_Venta] [date] NULL,
-	[Total_a_pagar] [decimal](18, 2) NULL,
+	[Cood_Cliente] [int] NOT NULL,
+	[Serie] [nchar](4) NOT NULL,
+	[Referencial] [int] NOT NULL,
+	[TC] [decimal](15, 4) NOT NULL,
+	[Fecha_Venta] [nchar](10) NOT NULL,
+	[Hora_Emision] [nchar](8) NOT NULL,
+	[Fecha_Vence] [nchar](10) NOT NULL,
+	[Cod_Doc] [nchar](1) NOT NULL,
+	[Nro_Doc] [nchar](11) NOT NULL,
+	[Cliente] [nchar](30) NOT NULL,
+	[Tip_Moneda] [nchar](3) NOT NULL,
+	[IGV] [decimal](15, 2) NOT NULL,
+	[Venta] [decimal](15, 2) NOT NULL,
+	[Total] [decimal](15, 2) NOT NULL,
 	[Estado] [nchar](1) NULL,
-	[Pagando] [decimal](18, 2) NULL,
-	[Sobra]  AS ([Total_a_pagar]-[Pagando]),
-	[Vuelto] [decimal](18, 2) NULL,
  CONSTRAINT [PK_Venta] PRIMARY KEY CLUSTERED 
 (
 	[Cod_Venta] ASC
@@ -158,6 +166,8 @@ GO
 
 ALTER TABLE [dbo].[Venta] NOCHECK CONSTRAINT [FK_Venta_Cliente]
 GO
+
+
 
 
 
@@ -177,7 +187,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Detalle_venta](
-	[Cood_Producto] [nchar](13) NULL,
+	[Cood_Cliente] [int] NULL,
 	[Cood_Venta] [int] NULL,
 	[Cantidad] [decimal](18, 2) NULL,
 	[Total] [decimal](18, 2) NULL,
@@ -187,12 +197,12 @@ CREATE TABLE [dbo].[Detalle_venta](
 ) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Producto] FOREIGN KEY([Cood_Producto])
-REFERENCES [dbo].[Producto] ([Cod_Producto])
+ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Cliente] FOREIGN KEY([Cood_Cliente])
+REFERENCES [dbo].[Cliente] ([Cod_Cliente])
 NOT FOR REPLICATION 
 GO
 
-ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Producto]
+ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Cliente]
 GO
 
 ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Venta] FOREIGN KEY([Cood_Venta])
@@ -415,4 +425,96 @@ GO
 
 
 /*-------*/
+
+USE [Despensa]
+GO
+
+/****** Object:  Table [dbo].[Cat51]    Script Date: 11/10/2018 14:56:43 ******/
+DROP TABLE [dbo].[Cat51]
+GO
+
+/****** Object:  Table [dbo].[Cat51]    Script Date: 11/10/2018 14:56:43 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Cat51](
+	[Codigo] [nchar](4) NULL,
+	[Descripcion] [nchar](100) NULL
+) ON [PRIMARY]
+GO
+
+
+USE [Despensa]
+GO
+
+INSERT INTO [dbo].[Cat51]
+           ([Codigo]
+           ,[Descripcion])
+     VALUES
+           ('0101','Venta Interna')
+GO
+
+
+/*-------*/
+
+
+
+USE [Despensa]
+GO
+
+/****** Object:  Table [dbo].[Cat02]    Script Date: 11/10/2018 15:19:14 ******/
+DROP TABLE [dbo].[Cat02]
+GO
+
+/****** Object:  Table [dbo].[Cat02]    Script Date: 11/10/2018 15:19:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Cat02](
+	[Codigo] [nchar](3) NULL,
+	[Simbolo] [nchar](3) NULL,
+	[Descripcion] [nchar](15) NULL
+) ON [PRIMARY]
+GO
+
+
+USE [Despensa]
+GO
+
+
+
+INSERT INTO [dbo].[Cat02]
+           ([Codigo]
+           ,[Simbolo]
+           ,[Descripcion])
+     VALUES
+           ('PEN','S/.','NUEVOS SOLES')
+GO
+
+INSERT INTO [dbo].[Cat02]
+           ([Codigo]
+           ,[Simbolo]
+           ,[Descripcion])
+     VALUES
+           ('USD','$','DOLARES')
+GO
+INSERT INTO [dbo].[Cat02]
+           ([Codigo]
+           ,[Simbolo]
+           ,[Descripcion])
+     VALUES
+           ('EUR','€','EUROS')
+GO
+
+
+
+/*-------*/
+
+
 

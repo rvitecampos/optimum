@@ -136,10 +136,20 @@
 
             Dim dts As New vVenta
             Dim func As New fventa
-            dts.gcod_Cliente = txtCod_cliente.Text
-            'dts.gFecha_venta = DateString
-            dts.gtotal_a_pagar = "0"
-
+            dts.gcood_Cliente = txtCod_cliente.Text
+            dts.gserie = "F001"
+            dts.greferencial = 1
+            dts.gTC = 0.0
+            dts.gfecha_venta = dtpFecha.ToString
+            dts.ghora_emision = "18:39:00"
+            dts.gfecha_vencimiento = dtpVence.ToString
+            '  dts.gtotal_a_pagar = "0"
+            dts.gnro_doc = "1009798107"
+            dts.gcliente = TxtNombre.Text
+            dts.gtip_moneda = "PEN"
+            dts.gigv = 0
+            dts.gventa = 0
+            dts.gtotal = 0
 
 
             If func.insertar(dts) Then
