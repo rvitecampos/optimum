@@ -127,8 +127,7 @@ GO
 USE [Despensa]
 GO
 
-
-/****** Object:  Table [dbo].[Venta]    Script Date: 11/10/2018 16:05:25 ******/
+/****** Object:  Table [dbo].[Venta]    Script Date: 12/10/2018 11:34:12 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -141,6 +140,7 @@ CREATE TABLE [dbo].[Venta](
 	[Serie] [nchar](4) NOT NULL,
 	[Referencial] [int] NOT NULL,
 	[TC] [decimal](15, 4) NOT NULL,
+	[Tipo_oper] [nchar](4) NOT NULL,
 	[Fecha_Venta] [nchar](10) NOT NULL,
 	[Hora_Emision] [nchar](8) NOT NULL,
 	[Fecha_Vence] [nchar](10) NOT NULL,
@@ -166,6 +166,7 @@ GO
 
 ALTER TABLE [dbo].[Venta] NOCHECK CONSTRAINT [FK_Venta_Cliente]
 GO
+
 
 
 

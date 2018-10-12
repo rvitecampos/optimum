@@ -331,8 +331,11 @@ Public Class Cliente
 
     Private Sub datalistado_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If txtflag.Text = "1" Then
+            'Venta
             FrmVenta.txtCod_cliente.Text = datalistado.SelectedCells.Item(1).Value
             FrmVenta.TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
+            FrmVenta.txtRuc.Text = datalistado.SelectedCells.Item(3).Value
+            'CuentasACobrar
             FrmCuentasACobrar.txtCod_cliente.Text = datalistado.SelectedCells.Item(1).Value
             FrmCuentasACobrar.TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
             FrmCuentas.txtCod_cliente.Text = datalistado.SelectedCells.Item(1).Value

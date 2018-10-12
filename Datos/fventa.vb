@@ -31,7 +31,33 @@ Public Class fventa
         End Try
     End Function
 
-    
+
+    Public Function crearCabeceraFac(ByVal codVenta As String) As DataTable
+        Try
+            conectado()
+            cmd = New SqlCommand("crearCabeceraFac")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+            cmd.Parameters.AddWithValue("@Cod_Venta", codVenta)
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            desconectado()
+        End Try
+    End Function
 
     Public Function insertar(ByVal dts As vVenta) As Boolean
         Try
@@ -44,6 +70,7 @@ Public Class fventa
             cmd.Parameters.AddWithValue("@Serie", dts.gserie)
             cmd.Parameters.AddWithValue("@Referencial", dts.greferencial)
             cmd.Parameters.AddWithValue("@TC", dts.gTC)
+            cmd.Parameters.AddWithValue("@Tipo_oper", dts.gtipooper)
             cmd.Parameters.AddWithValue("@Fecha_Venta", dts.gfecha_venta)
             cmd.Parameters.AddWithValue("@Hora_Emision", dts.ghora_emision)
             cmd.Parameters.AddWithValue("@Fecha_Vence", dts.gfecha_vencimiento)
