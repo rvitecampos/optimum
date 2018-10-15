@@ -211,4 +211,5 @@ Public Class frmPrincipal
             Stock.ShowDialog()
         End If
     End Sub
+
 End Class

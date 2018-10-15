@@ -458,6 +458,14 @@ INSERT INTO [dbo].[Cat51]
            ('0101','Venta Interna')
 GO
 
+INSERT INTO [dbo].[Cat51]
+           ([Codigo]
+           ,[Descripcion])
+     VALUES
+           ('0102','Prueba')
+GO
+
+
 
 /*-------*/
 
@@ -516,6 +524,43 @@ GO
 
 
 /*-------*/
+
+
+
+USE [Despensa]
+GO
+
+/****** Object:  Table [dbo].[serieFac]    Script Date: 15/10/2018 17:48:42 ******/
+DROP TABLE [dbo].[serieFac]
+GO
+
+/****** Object:  Table [dbo].[serieFac]    Script Date: 15/10/2018 17:48:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[serieFac](
+	[Serie] [int] NULL
+) ON [PRIMARY]
+GO
+
+/*-------*/
+
+
+USE [Despensa]
+GO
+
+INSERT INTO [dbo].[serieFac]
+           ([Serie])
+     VALUES
+           (0)
+GO
+
+/*-------*/
+
+
 
 
 

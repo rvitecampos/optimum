@@ -31,6 +31,57 @@ Public Class fventa
         End Try
     End Function
 
+    Public Function mostrar_serieF() As DataTable
+        Try
+            conectado()
+            cmd = New SqlCommand("mostrar_serieFac")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            desconectado()
+        End Try
+    End Function
+
+    Public Function mostrarCat51() As DataTable
+        Try
+            conectado()
+            cmd = New SqlCommand("mostrarCat51")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            desconectado()
+        End Try
+    End Function
+
+
 
     Public Function crearCabeceraFac(ByVal codVenta As String) As DataTable
         Try
@@ -59,7 +110,7 @@ Public Class fventa
         End Try
     End Function
 
-    Public Function insertar(ByVal dts As vVenta) As Boolean
+    Public Function insertar(ByVal dts As vVenta, ByVal serief As Integer) As Boolean
         Try
             conectado()
             cmd = New SqlCommand("insertar_venta")
@@ -80,6 +131,7 @@ Public Class fventa
             cmd.Parameters.AddWithValue("@IGV", dts.gigv)
             cmd.Parameters.AddWithValue("@Venta", dts.gventa)
             cmd.Parameters.AddWithValue("@Total", dts.gtotal)
+            cmd.Parameters.AddWithValue("@serieF", serief)
 
 
 
@@ -101,6 +153,5 @@ Public Class fventa
 
         End Try
     End Function
-
-    
+ 
 End Class

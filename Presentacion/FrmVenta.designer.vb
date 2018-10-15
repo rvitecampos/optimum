@@ -43,6 +43,8 @@ Partial Class FrmVenta
         Me.cbocampos = New System.Windows.Forms.ComboBox()
         Me.Erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Venta = New System.Windows.Forms.GroupBox()
+        Me.txtRefer = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.txtTC = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -262,6 +264,8 @@ Partial Class FrmVenta
         '
         'Venta
         '
+        Me.Venta.Controls.Add(Me.txtRefer)
+        Me.Venta.Controls.Add(Me.Label10)
         Me.Venta.Controls.Add(Me.txtTC)
         Me.Venta.Controls.Add(Me.Label9)
         Me.Venta.Controls.Add(Me.Label8)
@@ -282,19 +286,39 @@ Partial Class FrmVenta
         Me.Venta.TabStop = False
         Me.Venta.Text = "Registro de Venta"
         '
+        'txtRefer
+        '
+        Me.txtRefer.Enabled = False
+        Me.txtRefer.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRefer.Location = New System.Drawing.Point(140, 191)
+        Me.txtRefer.MaxLength = 9
+        Me.txtRefer.Name = "txtRefer"
+        Me.txtRefer.Size = New System.Drawing.Size(128, 29)
+        Me.txtRefer.TabIndex = 80
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(20, 202)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(114, 13)
+        Me.Label10.TabIndex = 79
+        Me.Label10.Text = "Número de Referencia"
+        '
         'txtTC
         '
         Me.txtTC.Enabled = False
         Me.txtTC.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTC.Location = New System.Drawing.Point(457, 304)
+        Me.txtTC.Location = New System.Drawing.Point(457, 251)
+        Me.txtTC.MaxLength = 9
         Me.txtTC.Name = "txtTC"
         Me.txtTC.Size = New System.Drawing.Size(83, 29)
-        Me.txtTC.TabIndex = 54
+        Me.txtTC.TabIndex = 35
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(424, 311)
+        Me.Label9.Location = New System.Drawing.Point(424, 259)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(27, 13)
         Me.Label9.TabIndex = 78
@@ -303,7 +327,7 @@ Partial Class FrmVenta
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(294, 311)
+        Me.Label8.Location = New System.Drawing.Point(294, 259)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(46, 13)
         Me.Label8.TabIndex = 77
@@ -312,7 +336,7 @@ Partial Class FrmVenta
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(27, 312)
+        Me.Label7.Location = New System.Drawing.Point(27, 259)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 13)
         Me.Label7.TabIndex = 76
@@ -323,7 +347,7 @@ Partial Class FrmVenta
         Me.dtpVence.Enabled = False
         Me.dtpVence.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpVence.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpVence.Location = New System.Drawing.Point(262, 356)
+        Me.dtpVence.Location = New System.Drawing.Point(262, 303)
         Me.dtpVence.Name = "dtpVence"
         Me.dtpVence.Size = New System.Drawing.Size(133, 29)
         Me.dtpVence.TabIndex = 75
@@ -331,7 +355,7 @@ Partial Class FrmVenta
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(151, 364)
+        Me.Label6.Location = New System.Drawing.Point(151, 311)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(101, 13)
         Me.Label6.TabIndex = 74
@@ -343,19 +367,20 @@ Partial Class FrmVenta
         Me.cmbBoxMoneda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbBoxMoneda.FormattingEnabled = True
         Me.cmbBoxMoneda.Items.AddRange(New Object() {"S/.", "$", "€"})
-        Me.cmbBoxMoneda.Location = New System.Drawing.Point(346, 303)
+        Me.cmbBoxMoneda.Location = New System.Drawing.Point(346, 250)
         Me.cmbBoxMoneda.Name = "cmbBoxMoneda"
         Me.cmbBoxMoneda.Size = New System.Drawing.Size(56, 32)
-        Me.cmbBoxMoneda.TabIndex = 73
+        Me.cmbBoxMoneda.TabIndex = 34
         Me.cmbBoxMoneda.Text = "S/."
         '
         'cmbBoxOper
         '
+        Me.cmbBoxOper.DropDownWidth = 56
         Me.cmbBoxOper.Enabled = False
         Me.cmbBoxOper.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbBoxOper.FormattingEnabled = True
         Me.cmbBoxOper.Items.AddRange(New Object() {"Venta Interna"})
-        Me.cmbBoxOper.Location = New System.Drawing.Point(116, 303)
+        Me.cmbBoxOper.Location = New System.Drawing.Point(116, 250)
         Me.cmbBoxOper.Name = "cmbBoxOper"
         Me.cmbBoxOper.Size = New System.Drawing.Size(152, 32)
         Me.cmbBoxOper.TabIndex = 33
@@ -425,7 +450,7 @@ Partial Class FrmVenta
         Me.btnRegistrar.Name = "btnRegistrar"
         Me.btnRegistrar.Size = New System.Drawing.Size(122, 37)
         Me.btnRegistrar.TabIndex = 76
-        Me.btnRegistrar.Text = "R&egistrar"
+        Me.btnRegistrar.Text = "R&egistrar Cabecera"
         Me.btnRegistrar.UseVisualStyleBackColor = False
         '
         'PictureBox1
@@ -532,4 +557,6 @@ Partial Class FrmVenta
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents txtRefer As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

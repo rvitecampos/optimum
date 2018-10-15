@@ -6,6 +6,8 @@ Public Class FrmVenta
     Private Sub FrmVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
         limpiar()
         mostrar()
+        'cargarCat51()
+
 
     End Sub
     Public Sub mostrar()
@@ -198,7 +200,8 @@ Public Class FrmVenta
         txtCod_cliente.Text = ""
         txtRuc.Text = ""
         TxtNombre.Text = ""
-        txtTC.Text = ""
+        txtRefer.Text = 0
+        txtTC.Text = 0
 
     End Sub
 
@@ -217,6 +220,7 @@ Public Class FrmVenta
         cmbBoxMoneda.Enabled = False
         txtTC.Enabled = False
         dtpVence.Enabled = False
+        txtRefer.Enabled = False
 
     End Sub
 
@@ -227,8 +231,9 @@ Public Class FrmVenta
         BtnBuscarCliente.Enabled = True
         cmbBoxOper.Enabled = True
         cmbBoxMoneda.Enabled = True
-        txtTC.Enabled = True
+        'txtTC.Enabled = True
         dtpVence.Enabled = True
+        txtRefer.Enabled = True
 
     End Sub
 
@@ -260,6 +265,8 @@ Public Class FrmVenta
         limpiar()
         bloquear()
         mostrar()
+        'cargarCat51()
+
  
     End Sub
 
@@ -321,25 +328,51 @@ Public Class FrmVenta
             Dim fvto As String
             fvto = dtpVence.Value.ToString("yyyy/MM/dd")
             dts.gcood_Cliente = txtCod_cliente.Text
-            dts.gserie = "F001"
-            dts.greferencial = 1
-            dts.gTC = 0.0
+
+            Dim serieF As New fventa
+            dt = serieF.mostrar_serieF
+            Dim fac As String = Trim(dt.Rows(0)("Serie"))
+            Dim fac2 As String = Trim(dt.Rows(0)("Serie"))
+            If fac.Length <= 3 Then
+                If fac.Length = 2 Then
+                    fac = "0" + fac
+                Else
+                    If fac.Length = 1 Then
+                        fac = "00" + fac
+                    End If
+                End If
+            Else
+                fac = "xxx"
+                fac2 = "xxx"
+            End If
+            dts.gserie = "F" + fac
+
+            dts.greferencial = txtRefer.Text
+            dts.gTC = txtTC.Text
 
             dts.gtipooper = "0101"
             dts.gfecha_venta = Mid(fvta, 1, 4) + "-" + Mid(fvta, 6, 2) + "-" + Mid(fvta, 9, 2)
 
-            dts.ghora_emision = "18:39:00"
+            dts.ghora_emision = TimeOfDay
             dts.gfecha_vencimiento = Mid(fvto, 1, 4) + "-" + Mid(fvto, 6, 2) + "-" + Mid(fvto, 9, 2)
             '  dts.gtotal_a_pagar = "0"
             dts.gnro_doc = txtRuc.Text
             dts.gcliente = TxtNombre.Text
-            dts.gtip_moneda = "PEN"
+            If cmbBoxMoneda.Text = "S/." Then
+                dts.gtip_moneda = "PEN"
+            Else
+                If cmbBoxMoneda.Text = "$" Then
+                    dts.gtip_moneda = "USD"
+                Else
+                    dts.gtip_moneda = "EUR"
+                End If
+            End If
+
             dts.gigv = 0
             dts.gventa = 0
             dts.gtotal = 0
 
-
-            If func.insertar(dts) Then
+            If func.insertar(dts, fac2) Then
                 MessageBox.Show("Venta registrada correctamente, INGRESE PRODUCTOS", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 mostrar()
                 limpiar()
@@ -426,4 +459,68 @@ Public Class FrmVenta
         desbloquear()
 
     End Sub
+
+    Private Sub cargarCat51()
+        Dim func As New fventa
+        dt = func.mostrarCat51
+
+        'Dim strCmbTipo1 As String
+        'Dim strCmbTipo2 As String
+        'strCmbTipo1 = Trim(dt.Rows(0)("Codigo"))
+        'strCmbTipo2 = Trim(dt.Rows(0)("Descripcion"))
+
+        cmbBoxOper.DataSource = dt
+        cmbBoxOper.DisplayMember = "Descripcion"
+        cmbBoxOper.ValueMember = "Codigo"
+
+    End Sub
+
+    Private Sub cmbBoxMoneda_SelectedValueChanged(sender As Object, e As EventArgs) Handles cmbBoxMoneda.SelectedValueChanged
+        If cmbBoxMoneda.Text = "S/." Then
+            txtTC.Text = ""
+            txtTC.Enabled = False
+        Else
+            txtTC.Text = ""
+            txtTC.Enabled = True
+
+        End If
+    End Sub
+
+    Public Sub NumerosyDecimal(ByVal CajaTexto As Windows.Forms.TextBox, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf e.KeyChar = "." And Not CajaTexto.Text.IndexOf(".") Then
+            e.Handled = True
+        ElseIf e.KeyChar = "." Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtTC_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtTC.KeyPress
+        NumerosyDecimal(txtTC, e)
+    End Sub
+    Function Fg_SoloNumeros(ByVal Digito As String, ByVal Texto As String) As Boolean
+        Dim Dt_Entero As Integer = CInt(Asc(Digito))
+        If Dt_Entero = 8 Then
+            Fg_SoloNumeros = False
+        Else
+            If InStr("1234567890", Digito) = 0 Then
+                Fg_SoloNumeros = True
+            ElseIf IsNumeric(Texto) = True Then
+                Fg_SoloNumeros = False
+            ElseIf IsNumeric(Texto) = False Then
+                Fg_SoloNumeros = True
+            End If
+        End If
+        Return Fg_SoloNumeros
+    End Function
+    Public Sub txtRefer__KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtRefer.KeyPress
+        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtRefer.Text & CChar(eventArgs.KeyChar))
+    End Sub
+
+
 End Class
