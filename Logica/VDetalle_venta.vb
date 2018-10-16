@@ -1,8 +1,15 @@
 ﻿Public Class VDetalle_venta
-    Dim cood_venta, cood_cliente As Integer
-    Dim cood_producto, Estado As String
-    Dim cantidad, total_a_pagar, total, precio_unitario, Pagando As Double
-    Dim activar As String
+    Dim cood_venta, cood_cliente, cood_servicio As Integer
+    Dim uni_medida, nombre_servicio As String
+    Dim cantidad, venta, igv, venta_unitario, nombre_tributo, codigo_tributo, total As Double
+    Public Property gCood_venta
+        Get
+            Return cood_venta
+        End Get
+        Set(value)
+            cood_venta = value
+        End Set
+    End Property
     Public Property gCood_Cliente
         Get
             Return cood_cliente
@@ -11,78 +18,88 @@
             cood_cliente = value
         End Set
     End Property
-    Public Property gEstado
-        Get
-            Return Estado
-        End Get
-        Set(value)
-            Estado = value
-        End Set
-    End Property
-    Public Property gPagando
-        Get
-            Return Pagando
-        End Get
-        Set(value)
-            Pagando = value
-        End Set
-    End Property
-    Public Property gtotal
-        Get
-            Return total
-        End Get
-        Set(ByVal value)
-            total = value
-        End Set
-    End Property
-    Public Property gcood_Producto
-        Get
-            Return cood_producto
-        End Get
-        Set(ByVal value)
-            cood_producto = value
-        End Set
-    End Property
-    Public Property gcod_venta
-        Get
-            Return cood_venta
-        End Get
-        Set(ByVal value)
-            cood_venta = value
-        End Set
-    End Property
 
 
-    Public Property gcantidad
+    Public Property gCood_Servicio
+        Get
+            Return cood_servicio
+        End Get
+        Set(value)
+            cood_servicio = value
+        End Set
+    End Property
+    Public Property gUni_Medida
+        Get
+            Return uni_medida
+        End Get
+        Set(value)
+            uni_medida = value
+        End Set
+    End Property
+    Public Property gCantidad
         Get
             Return cantidad
         End Get
-        Set(ByVal value)
+        Set(value)
             cantidad = value
         End Set
     End Property
-    Public Property gtotal_a_pagar
+    Public Property gNombre_Servicio
         Get
-            Return total_a_pagar
+            Return nombre_servicio
         End Get
         Set(ByVal value)
-            total_a_pagar = value
+            nombre_servicio = value
         End Set
     End Property
-    Public Property gPrecio_Unitario
+    Public Property gVenta
         Get
-            Return precio_unitario
+            Return venta
         End Get
         Set(ByVal value)
-            precio_unitario = value
+            venta = value
         End Set
     End Property
-    Public Property gActivar
+    Public Property gIGV
         Get
-            Return activar
+            Return igv
+        End Get
+        Set(ByVal value)
+            igv = value
+        End Set
+    End Property
+
+
+    Public Property gVenta_unitario
+        Get
+            Return venta_unitario
+        End Get
+        Set(ByVal value)
+            venta_unitario = value
+        End Set
+    End Property
+    Public Property gNombre_tributo
+        Get
+            Return nombre_tributo
+        End Get
+        Set(ByVal value)
+            nombre_tributo = value
+        End Set
+    End Property
+    Public Property gCodigo_tributo
+        Get
+            Return codigo_tributo
+        End Get
+        Set(ByVal value)
+            codigo_tributo = value
+        End Set
+    End Property
+    Public Property gTotal
+        Get
+            Return total
         End Get
         Set(value)
-            activar = value
+            total = value
         End Set
     End Property
     Public Sub New()
@@ -90,11 +107,6 @@
     End Sub
 
     Public Sub New(ByVal cod_cliente As Integer, ByVal cod_producto As String, ByVal cod_venta As Integer, ByVal cantidad As Double, ByVal total_a_pagar As Double, ByVal precio_unitario As Double)
-        gcood_Producto = cod_producto
-        gcod_venta = cod_venta
-        gcantidad = cantidad
-        gtotal_a_pagar = total_a_pagar
-        gPrecio_Unitario = precio_unitario
 
     End Sub
 End Class

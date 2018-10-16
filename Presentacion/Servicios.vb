@@ -405,29 +405,30 @@
 
 
     Private Sub datalistadoStockMovimiento_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistadoStock.CellDoubleClick
-        ' If txtflag.Text = "1" Then
-        ' Detalle_Venta.txtPrecio.Items.Clear()
-        '
-        '        Detalle_Venta.txtcod_Producto.Text = datalistado.SelectedCells.Item(1).Value
-        '        Detalle_Venta.txtNombreProducto.Text = datalistado.SelectedCells.Item(2).Value
-        '        Detalle_Venta.txtStock.Text = datalistado.SelectedCells.Item(3).Value
-        '        Detalle_Venta.txtPrecio.Text = datalistado.SelectedCells.Item(4).Value
-        '        Detalle_Venta.txtPrecio.Items.Add(datalistado.SelectedCells.Item(4).Value)
-        '        Detalle_Venta.txtPrecio.Items.Add(datalistado.SelectedCells.Item(5).Value)
+        If txtflag.Text = "1" Then
+            ' Detalle_Venta.txtPrecio.Items.Clear()
+            '
+            Detalle_Venta.txtcod_Servicio.Text = datalistadoStock.SelectedCells.Item(1).Value
+            Detalle_Venta.txtNombreServicio.Text = datalistadoStock.SelectedCells.Item(2).Value
+            Detalle_Venta.txtPVenta.Text = datalistadoStock.SelectedCells.Item(4).Value
+            '        Detalle_Venta.txtStock.Text = datalistado.SelectedCells.Item(3).Value
+            '        Detalle_Venta.txtPrecio.Text = datalistado.SelectedCells.Item(4).Value
+            '        Detalle_Venta.txtPrecio.Items.Add(datalistado.SelectedCells.Item(4).Value)
+            '        Detalle_Venta.txtPrecio.Items.Add(datalistado.SelectedCells.Item(5).Value)
 
 
 
-        '        Detalle_Compra.txtcod_Producto.Text = datalistado.SelectedCells.Item(1).Value
-        '        Detalle_Compra.txtNombreProducto.Text = datalistado.SelectedCells.Item(2).Value
-        '        Detalle_Compra.txtStock.Text = datalistado.SelectedCells.Item(3).Value
-        '        Detalle_Compra.TxtPrecio1.Text = datalistado.SelectedCells.Item(4).Value
-        '        Detalle_Compra.TxtPrecio2.Text = datalistado.SelectedCells.Item(5).Value
+            '        Detalle_Compra.txtcod_Producto.Text = datalistado.SelectedCells.Item(1).Value
+            '        Detalle_Compra.txtNombreProducto.Text = datalistado.SelectedCells.Item(2).Value
+            '        Detalle_Compra.txtStock.Text = datalistado.SelectedCells.Item(3).Value
+            '        Detalle_Compra.TxtPrecio1.Text = datalistado.SelectedCells.Item(4).Value
+            '        Detalle_Compra.TxtPrecio2.Text = datalistado.SelectedCells.Item(5).Value
 
 
-        '        Me.Close()
+            Me.Close()
 
 
-        'End If
+        End If
     End Sub
 
     Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -447,7 +448,23 @@
     '  Public Sub TxtCtdad_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs)
     '      eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtCtdad.Text & CChar(eventArgs.KeyChar))
     '  End Sub
+    Public Sub NumerosyDecimal(ByVal CajaTexto As Windows.Forms.TextBox, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf e.KeyChar = "." And Not CajaTexto.Text.IndexOf(".") Then
+            e.Handled = True
+        ElseIf e.KeyChar = "." Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
 
+    Private Sub txtTC_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtVenta.KeyPress
+        NumerosyDecimal(txtVenta, e)
+    End Sub
 
  
 End Class

@@ -62,6 +62,12 @@ Partial Class FrmVenta
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnNuevo = New System.Windows.Forms.Button()
         Me.btnAñadir = New System.Windows.Forms.Button()
+        Me.txtSerie = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.txtTotal = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblEstado = New System.Windows.Forms.Label()
         CType(Me.datalistadoVenta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -264,6 +270,12 @@ Partial Class FrmVenta
         '
         'Venta
         '
+        Me.Venta.Controls.Add(Me.lblEstado)
+        Me.Venta.Controls.Add(Me.Label13)
+        Me.Venta.Controls.Add(Me.txtTotal)
+        Me.Venta.Controls.Add(Me.Label12)
+        Me.Venta.Controls.Add(Me.txtSerie)
+        Me.Venta.Controls.Add(Me.Label11)
         Me.Venta.Controls.Add(Me.txtRefer)
         Me.Venta.Controls.Add(Me.Label10)
         Me.Venta.Controls.Add(Me.txtTC)
@@ -290,7 +302,7 @@ Partial Class FrmVenta
         '
         Me.txtRefer.Enabled = False
         Me.txtRefer.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRefer.Location = New System.Drawing.Point(140, 191)
+        Me.txtRefer.Location = New System.Drawing.Point(416, 191)
         Me.txtRefer.MaxLength = 9
         Me.txtRefer.Name = "txtRefer"
         Me.txtRefer.Size = New System.Drawing.Size(128, 29)
@@ -299,7 +311,7 @@ Partial Class FrmVenta
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(20, 202)
+        Me.Label10.Location = New System.Drawing.Point(294, 202)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(114, 13)
         Me.Label10.TabIndex = 79
@@ -309,7 +321,7 @@ Partial Class FrmVenta
         '
         Me.txtTC.Enabled = False
         Me.txtTC.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTC.Location = New System.Drawing.Point(457, 251)
+        Me.txtTC.Location = New System.Drawing.Point(457, 239)
         Me.txtTC.MaxLength = 9
         Me.txtTC.Name = "txtTC"
         Me.txtTC.Size = New System.Drawing.Size(83, 29)
@@ -318,7 +330,7 @@ Partial Class FrmVenta
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(424, 259)
+        Me.Label9.Location = New System.Drawing.Point(424, 247)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(27, 13)
         Me.Label9.TabIndex = 78
@@ -327,7 +339,7 @@ Partial Class FrmVenta
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(294, 259)
+        Me.Label8.Location = New System.Drawing.Point(294, 247)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(46, 13)
         Me.Label8.TabIndex = 77
@@ -336,7 +348,7 @@ Partial Class FrmVenta
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(27, 259)
+        Me.Label7.Location = New System.Drawing.Point(27, 247)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(80, 13)
         Me.Label7.TabIndex = 76
@@ -347,7 +359,7 @@ Partial Class FrmVenta
         Me.dtpVence.Enabled = False
         Me.dtpVence.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpVence.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpVence.Location = New System.Drawing.Point(262, 303)
+        Me.dtpVence.Location = New System.Drawing.Point(268, 284)
         Me.dtpVence.Name = "dtpVence"
         Me.dtpVence.Size = New System.Drawing.Size(133, 29)
         Me.dtpVence.TabIndex = 75
@@ -355,7 +367,7 @@ Partial Class FrmVenta
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(151, 311)
+        Me.Label6.Location = New System.Drawing.Point(157, 292)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(101, 13)
         Me.Label6.TabIndex = 74
@@ -367,7 +379,7 @@ Partial Class FrmVenta
         Me.cmbBoxMoneda.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbBoxMoneda.FormattingEnabled = True
         Me.cmbBoxMoneda.Items.AddRange(New Object() {"S/.", "$", "€"})
-        Me.cmbBoxMoneda.Location = New System.Drawing.Point(346, 250)
+        Me.cmbBoxMoneda.Location = New System.Drawing.Point(346, 238)
         Me.cmbBoxMoneda.Name = "cmbBoxMoneda"
         Me.cmbBoxMoneda.Size = New System.Drawing.Size(56, 32)
         Me.cmbBoxMoneda.TabIndex = 34
@@ -380,7 +392,7 @@ Partial Class FrmVenta
         Me.cmbBoxOper.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbBoxOper.FormattingEnabled = True
         Me.cmbBoxOper.Items.AddRange(New Object() {"Venta Interna"})
-        Me.cmbBoxOper.Location = New System.Drawing.Point(116, 250)
+        Me.cmbBoxOper.Location = New System.Drawing.Point(116, 238)
         Me.cmbBoxOper.Name = "cmbBoxOper"
         Me.cmbBoxOper.Size = New System.Drawing.Size(152, 32)
         Me.cmbBoxOper.TabIndex = 33
@@ -492,6 +504,63 @@ Partial Class FrmVenta
         Me.btnAñadir.Text = "&Añadir Detalle"
         Me.btnAñadir.UseVisualStyleBackColor = False
         '
+        'txtSerie
+        '
+        Me.txtSerie.Enabled = False
+        Me.txtSerie.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSerie.Location = New System.Drawing.Point(85, 191)
+        Me.txtSerie.MaxLength = 9
+        Me.txtSerie.Name = "txtSerie"
+        Me.txtSerie.Size = New System.Drawing.Size(128, 29)
+        Me.txtSerie.TabIndex = 82
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(34, 202)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(31, 13)
+        Me.Label11.TabIndex = 81
+        Me.Label11.Text = "Serie"
+        '
+        'txtTotal
+        '
+        Me.txtTotal.Enabled = False
+        Me.txtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotal.Location = New System.Drawing.Point(75, 343)
+        Me.txtTotal.MaxLength = 9
+        Me.txtTotal.Name = "txtTotal"
+        Me.txtTotal.Size = New System.Drawing.Size(128, 29)
+        Me.txtTotal.TabIndex = 84
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(24, 354)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(31, 13)
+        Me.Label12.TabIndex = 83
+        Me.Label12.Text = "Total"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(343, 354)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(40, 13)
+        Me.Label13.TabIndex = 85
+        Me.Label13.Text = "Estado"
+        '
+        'lblEstado
+        '
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Location = New System.Drawing.Point(424, 349)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(66, 20)
+        Me.lblEstado.TabIndex = 86
+        Me.lblEstado.Text = "Estado"
+        '
         'FrmVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -559,4 +628,10 @@ Partial Class FrmVenta
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtRefer As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtSerie As System.Windows.Forms.TextBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents lblEstado As System.Windows.Forms.Label
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents txtTotal As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

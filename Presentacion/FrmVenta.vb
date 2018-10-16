@@ -200,8 +200,11 @@ Public Class FrmVenta
         txtCod_cliente.Text = ""
         txtRuc.Text = ""
         TxtNombre.Text = ""
+        txtSerie.Text = ""
         txtRefer.Text = 0
         txtTC.Text = 0
+        dtpFecha.Value = Date.Today
+        dtpVence.Value = Date.Today
 
     End Sub
 
@@ -280,26 +283,46 @@ Public Class FrmVenta
         btnAñadir.Enabled = True
         BtnCerrar.Enabled = True
         TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
-        TxtNombre.Text = datalistadoVenta.SelectedCells.Item(2).Value
-        Dim fechaVta As String = datalistadoVenta.SelectedCells.Item(3).Value
+        Dim fechaVta As String = datalistadoVenta.SelectedCells.Item(2).Value
         Dim fecha As String = ""
         fecha = Mid(fechaVta, 9, 2) + "/" + Mid(fechaVta, 6, 2) + "/" + Mid(fechaVta, 1, 4)
-        'DateTime data = DateTime.ParseExact("04/18/2013","dd/MM/yyyy",CultureInfo.InvariantCulture);
-
         dtpFecha.Value = Convert.ToDateTime(fecha)
+        txtCod_cliente.Text = datalistadoVenta.SelectedCells.Item(3).Value
+        txtRuc.Text = datalistadoVenta.SelectedCells.Item(4).Value
+        TxtNombre.Text = datalistadoVenta.SelectedCells.Item(5).Value
+        txtSerie.Text = datalistadoVenta.SelectedCells.Item(6).Value
+        txtRefer.Text = datalistadoVenta.SelectedCells.Item(7).Value
+        cmbBoxOper.Text = "Venta Interna"
+        Dim moneda As String = datalistadoVenta.SelectedCells.Item(9).Value
+        If moneda = "PEN" Then
+            cmbBoxMoneda.Text = "S/."
+        Else
+            If moneda = "USD" Then
+                cmbBoxMoneda.Text = "$"
+            Else
+                cmbBoxMoneda.Text = "€"
+            End If
+        End If
+
+        txtTC.Text = datalistadoVenta.SelectedCells.Item(10).Value
+        txtTC.Enabled = False
+
+        Dim fechaVce As String = datalistadoVenta.SelectedCells.Item(11).Value
+        Dim fecha2 As String = ""
+        fecha2 = Mid(fechaVce, 9, 2) + "/" + Mid(fechaVce, 6, 2) + "/" + Mid(fechaVce, 1, 4)
+        dtpVence.Value = Convert.ToDateTime(fecha2)
+        txtTotal.Text = datalistadoVenta.SelectedCells.Item(14).Value
+        Dim estado As String = datalistadoVenta.SelectedCells.Item(15).Value
+        If estado = "0" Then
+            lblEstado.Text = "Open"
+            lblEstado.ForeColor = Color.Red
+        Else
+            lblEstado.Text = "Close"
+            lblEstado.ForeColor = Color.Black
+        End If
 
 
 
-        txtCod_cliente.Text = datalistadoVenta.SelectedCells.Item(6).Value
-        txtRuc.Text = datalistadoVenta.SelectedCells.Item(7).Value
-        ' TxtNombreProducto.Text = datalistadoStock.SelectedCells.Item(2).Value
-        ' txtCantidad.Text = datalistadoStock.SelectedCells.Item(3).Value
-
-        '        TxtPrecioUnitario.Text = datalistadoStock.SelectedCells.Item(4).Value
-        '        txtSPrecioUnitario.Text = datalistadoStock.SelectedCells.Item(5).Value
-        '        TxtCodProveedor.Text = datalistadoStock.SelectedCells.Item(6).Value
-        '        txtLimite.Text = datalistadoStock.SelectedCells.Item(8).Value
-        '        TxtProveedor.Text = datalistadoStock.SelectedCells.Item(9).Value
     End Sub
 
 
@@ -399,6 +422,9 @@ Public Class FrmVenta
 
 
     Private Sub btnAñadir_Click(sender As Object, e As EventArgs) Handles btnAñadir.Click
+        Detalle_Venta.TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
+        Detalle_Venta.txtSerie.Text = datalistadoVenta.SelectedCells.Item(6).Value
+        Detalle_Venta.txtCliente.Text = datalistadoVenta.SelectedCells.Item(5).Value
         Detalle_Venta.ShowDialog()
     End Sub
 

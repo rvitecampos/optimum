@@ -44,7 +44,7 @@
 
 
                 dts.gCood_Cliente = txtCod_cliente.Text
-                dts.gPagando = TxtMontoACobrar.Text
+                '    dts.gPagando = TxtMontoACobrar.Text
 
                 If fun.Actualizar_Pagando(dts) Then
                     mostrar()

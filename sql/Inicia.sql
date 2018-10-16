@@ -560,7 +560,70 @@ GO
 
 /*-------*/
 
+USE [Despensa]
+GO
+
+ALTER TABLE [dbo].[Detalle_venta] DROP CONSTRAINT [FK_Detalle_venta_Venta]
+GO
+
+ALTER TABLE [dbo].[Detalle_venta] DROP CONSTRAINT [FK_Detalle_venta_Servicios]
+GO
+
+ALTER TABLE [dbo].[Detalle_venta] DROP CONSTRAINT [FK_Detalle_venta_Cliente]
+GO
+
+/****** Object:  Table [dbo].[Detalle_venta]    Script Date: 16/10/2018 15:20:03 ******/
+DROP TABLE [dbo].[Detalle_venta]
+GO
+
+/****** Object:  Table [dbo].[Detalle_venta]    Script Date: 16/10/2018 15:20:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Detalle_venta](
+	[Cood_Venta] [int] NULL,
+	[Cood_Cliente] [int] NULL,
+	[Cood_Servicio] [int] NULL,
+	[Uni_Medida] [nchar](3) NOT NULL,
+	[Cantidad] [decimal](12, 2) NULL,
+	[Nombre_Servicio] [nchar](30) NOT NULL,
+	[Venta_unitario] [decimal](18, 2) NULL,
+	[Venta] [decimal](18, 2) NULL,
+	[IGV] [decimal](18, 2) NULL,
+	[Nombre_tributo] [nchar](3) NOT NULL,
+	[Codigo_tributo] [nchar](3) NOT NULL,
+	[Total] [decimal](18, 2) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Cliente] FOREIGN KEY([Cood_Cliente])
+REFERENCES [dbo].[Cliente] ([Cod_Cliente])
+NOT FOR REPLICATION 
+GO
+
+ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Cliente]
+GO
+
+ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Servicios] FOREIGN KEY([Cood_Servicio])
+REFERENCES [dbo].[Servicios] ([Cod_Servicio])
+NOT FOR REPLICATION 
+GO
+
+ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Servicios]
+GO
+
+ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Venta] FOREIGN KEY([Cood_Venta])
+REFERENCES [dbo].[Venta] ([Cod_Venta])
+NOT FOR REPLICATION 
+GO
+
+ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Venta]
+GO
 
 
 
 
+/*-------*/

@@ -7,11 +7,11 @@ Public Class fDetalle_Venta
     Public Function mostrar(ByVal dts As VDetalle_venta) As DataTable
         Try
             conectado()
-            cmd = New SqlCommand("mostrar_venta")
+            cmd = New SqlCommand("mostrar_detalleVenta")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-
-            cmd.Parameters.AddWithValue("@cod_venta", dts.gcod_venta)
+            '
+            cmd.Parameters.AddWithValue("@cood_venta", dts.gCood_venta)
 
 
             If cmd.ExecuteNonQuery Then
@@ -37,8 +37,8 @@ Public Class fDetalle_Venta
             cmd = New SqlCommand("actualizar_totalventa")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@cod_venta", dtsActualizar.gcod_venta)
-            cmd.Parameters.AddWithValue("@total_a_pagar", dtsActualizar.gtotal_a_pagar)
+            cmd.Parameters.AddWithValue("@cod_venta", dtsActualizar.gCood_venta)
+            ' cmd.Parameters.AddWithValue("@total_a_pagar", dtsActualizar.gtotal_a_pagar)
 
 
             If cmd.ExecuteNonQuery Then
@@ -61,7 +61,7 @@ Public Class fDetalle_Venta
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@total_a_pagarVenta", dtsSumarFondo.gtotal_a_pagar)
+            '  cmd.Parameters.AddWithValue("@total_a_pagarVenta", dtsSumarFondo.gtotal_a_pagar)
 
 
             If cmd.ExecuteNonQuery Then
@@ -85,11 +85,11 @@ Public Class fDetalle_Venta
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@cood_venta", dts.gcod_venta)
-            cmd.Parameters.AddWithValue("@cood_producto", dts.gcood_Producto)
-            cmd.Parameters.AddWithValue("@cantidad", dts.gcantidad)
+            cmd.Parameters.AddWithValue("@cood_venta", dts.gCood_venta)
+            '   cmd.Parameters.AddWithValue("@cood_producto", dts.gcood_Producto)
+            ' cmd.Parameters.AddWithValue("@cantidad", dts.gcantidad)
             cmd.Parameters.AddWithValue("@Total", dts.gtotal)
-            cmd.Parameters.AddWithValue("@Precio_unitario", dts.gPrecio_Unitario)
+            'cmd.Parameters.AddWithValue("@Precio_unitario", dts.gPrecio_Unitario)
 
 
             If cmd.ExecuteNonQuery Then
@@ -113,8 +113,8 @@ Public Class fDetalle_Venta
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@cood_venta", dts.gcod_venta)
-            cmd.Parameters.AddWithValue("@Estado", dts.gEstado)
+            '  cmd.Parameters.AddWithValue("@cood_venta", dts.gcod_venta)
+            '    cmd.Parameters.AddWithValue("@Estado", dts.gEstado)
 
 
             If cmd.ExecuteNonQuery Then
@@ -139,8 +139,8 @@ Public Class fDetalle_Venta
             cmd.Connection = cnn
 
 
-            cmd.Parameters.AddWithValue("@cod_producto", dtsAumentar.gcood_Producto)
-            cmd.Parameters.AddWithValue("@cantidad", dtsAumentar.gcantidad)
+            '    cmd.Parameters.AddWithValue("@cod_producto", dtsAumentar.gcood_Producto)
+            '    cmd.Parameters.AddWithValue("@cantidad", dtsAumentar.gcantidad)
 
 
             If cmd.ExecuteNonQuery Then
@@ -166,8 +166,8 @@ Public Class fDetalle_Venta
             cmd.Connection = cnn
 
 
-            cmd.Parameters.AddWithValue("@cood_producto", dt.gcood_Producto)
-            cmd.Parameters.AddWithValue("@cood_venta", dt.gcod_venta)
+            '       cmd.Parameters.AddWithValue("@cood_producto", dt.gcood_Producto)
+            '       cmd.Parameters.AddWithValue("@cood_venta", dt.gcod_venta)
 
 
             If cmd.ExecuteNonQuery Then
@@ -192,7 +192,7 @@ Public Class fDetalle_Venta
             cmd.Connection = cnn
 
 
-            cmd.Parameters.AddWithValue("@cod_producto", dtdisminuir.gcood_Producto)
+            '     cmd.Parameters.AddWithValue("@cod_producto", dtdisminuir.gcood_Producto)
 
             cmd.Parameters.AddWithValue("@cantidad", dtdisminuir.gcantidad)
 
@@ -220,7 +220,7 @@ Public Class fDetalle_Venta
 
 
             cmd.Parameters.AddWithValue("@cood_cliente", dts.gCood_Cliente)
-            cmd.Parameters.AddWithValue("@Pagando", dts.gPagando)
+            '      cmd.Parameters.AddWithValue("@Pagando", dts.gPagando)
 
 
 

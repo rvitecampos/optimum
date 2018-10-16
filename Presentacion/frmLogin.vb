@@ -36,7 +36,7 @@
                 If funcC.validar_caja(dt) = True Then
 
                 Else
-                    FrmInicioCaja.ShowDialog()
+                    '  FrmInicioCaja.ShowDialog()
                 End If
 
             Else

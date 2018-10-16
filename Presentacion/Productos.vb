@@ -402,14 +402,14 @@
     
     Private Sub datalistadoProducto_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistadoProducto.CellDoubleClick
         If txtflag.Text = "1" Then
-            Detalle_Venta.txtPrecio.Items.Clear()
+            '   Detalle_Venta.txtPrecio.Items.Clear()
 
-            Detalle_Venta.txtcod_Producto.Text = datalistadoProducto.SelectedCells.Item(1).Value
-            Detalle_Venta.txtNombreProducto.Text = datalistadoProducto.SelectedCells.Item(2).Value
-            Detalle_Venta.txtStock.Text = datalistadoProducto.SelectedCells.Item(3).Value
-            Detalle_Venta.txtPrecio.Text = datalistadoProducto.SelectedCells.Item(4).Value
-            Detalle_Venta.txtPrecio.Items.Add(datalistadoProducto.SelectedCells.Item(4).Value)
-            Detalle_Venta.txtPrecio.Items.Add(datalistadoProducto.SelectedCells.Item(5).Value)
+            Detalle_Venta.txtcod_Servicio.Text = datalistadoProducto.SelectedCells.Item(1).Value
+            Detalle_Venta.txtNombreServicio.Text = datalistadoProducto.SelectedCells.Item(2).Value
+            '  Detalle_Venta.txtStock.Text = datalistadoProducto.SelectedCells.Item(3).Value
+            '    Detalle_Venta.txtPrecio.Text = datalistadoProducto.SelectedCells.Item(4).Value
+            '    Detalle_Venta.txtPrecio.Items.Add(datalistadoProducto.SelectedCells.Item(4).Value)
+            '   Detalle_Venta.txtPrecio.Items.Add(datalistadoProducto.SelectedCells.Item(5).Value)
 
         
 
