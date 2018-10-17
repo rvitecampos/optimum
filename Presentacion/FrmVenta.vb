@@ -425,6 +425,12 @@ Public Class FrmVenta
         Detalle_Venta.TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
         Detalle_Venta.txtSerie.Text = datalistadoVenta.SelectedCells.Item(6).Value
         Detalle_Venta.txtCliente.Text = datalistadoVenta.SelectedCells.Item(5).Value
+        Detalle_Venta.txtcantidad.Text = ""
+        Detalle_Venta.txtPVenta.Text = ""
+        Detalle_Venta.txtPTotal.Text = ""
+        Detalle_Venta.txtIGV.Text = ""
+        Detalle_Venta.txtPUnitario.Text = ""
+
         Detalle_Venta.ShowDialog()
     End Sub
 

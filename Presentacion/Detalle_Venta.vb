@@ -467,18 +467,15 @@
 
     Private Sub txtcantidad_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtcantidad.KeyPress
         NumerosyDecimal(txtcantidad, e)
-
-    End Sub
+     End Sub
 
     Private Sub txtcantidad_LostFocus(sender As Object, e As EventArgs) Handles txtcantidad.LostFocus
-        If txtcantidad.Text <> "" Then
-            txtPTotal.Text = txtcantidad.Text * txtPVenta.Text
-            txtPUnitario.Text = txtPVenta.Text / 1.18
-            txtIGV.Text = txtPTotal.Text / 1.18
-        Else
-            txtPTotal.Text = "0.00"
-            txtPUnitario.Text = "0.00"
-            txtIGV.Text = "0.00"
+        If txtcantidad.Text <> "" And txtcantidad.Text <> "." Then
+            If txtPVenta.Text <> "" And txtPVenta.Text <> "." Then
+                txtPTotal.Text = txtcantidad.Text * txtPVenta.Text
+                txtPUnitario.Text = txtPVenta.Text / 1.18
+                txtIGV.Text = txtPTotal.Text - (txtPTotal.Text / 1.18)
+            End If
         End If
 
         Dim val As Decimal = 0
@@ -490,21 +487,48 @@
 
         Dim val2 As Decimal = 0
         If Decimal.TryParse(txtPUnitario.Text, val2) Then
-            txtPUnitario.Text = val.ToString("N2")
+            txtPUnitario.Text = val2.ToString("N2")
         Else
             txtPUnitario.Text = ""
         End If
 
         Dim val3 As Decimal = 0
         If Decimal.TryParse(txtIGV.Text, val3) Then
-            txtIGV.Text = val.ToString("N2")
+            txtIGV.Text = val3.ToString("N2")
         Else
             txtIGV.Text = ""
         End If
 
+    End Sub
 
+    Private Sub txtPVenta_LostFocus(sender As Object, e As EventArgs) Handles txtPVenta.LostFocus
+        If txtPVenta.Text <> "" And txtPVenta.Text <> "." Then
+            If txtcantidad.Text <> "" And txtcantidad.Text <> "." Then
+                txtPTotal.Text = txtcantidad.Text * txtPVenta.Text
+                txtPUnitario.Text = txtPVenta.Text / 1.18
+                txtIGV.Text = txtPTotal.Text - (txtPTotal.Text / 1.18)
+            End If
+        End If
 
+        Dim val As Decimal = 0
+        If Decimal.TryParse(txtPTotal.Text, val) Then
+            txtPTotal.Text = val.ToString("N2")
+        Else
+            txtPTotal.Text = ""
+        End If
 
+        Dim val2 As Decimal = 0
+        If Decimal.TryParse(txtPUnitario.Text, val2) Then
+            txtPUnitario.Text = val2.ToString("N2")
+        Else
+            txtPUnitario.Text = ""
+        End If
 
+        Dim val3 As Decimal = 0
+        If Decimal.TryParse(txtIGV.Text, val3) Then
+            txtIGV.Text = val3.ToString("N2")
+        Else
+            txtIGV.Text = ""
+        End If
     End Sub
 End Class

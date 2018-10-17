@@ -148,9 +148,9 @@ CREATE TABLE [dbo].[Venta](
 	[Nro_Doc] [nchar](11) NOT NULL,
 	[Cliente] [nchar](30) NOT NULL,
 	[Tip_Moneda] [nchar](3) NOT NULL,
-	[IGV] [decimal](15, 2) NOT NULL,
-	[Venta] [decimal](15, 2) NOT NULL,
-	[Total] [decimal](15, 2) NOT NULL,
+	[Venta] [decimal](18, 2) NOT NULL,
+	[IGV] [decimal](18, 2) NOT NULL,
+	[Total] [decimal](18, 2) NOT NULL,
 	[Estado] [nchar](1) NULL,
  CONSTRAINT [PK_Venta] PRIMARY KEY CLUSTERED 
 (
@@ -173,49 +173,6 @@ GO
 
 
 /*-------*/
-
-
-
-
-USE [Despensa]
-GO
-
-/****** Object:  Table [dbo].[Detalle_venta]    Script Date: 3/09/2018 12:35:00 ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE TABLE [dbo].[Detalle_venta](
-	[Cood_Cliente] [int] NULL,
-	[Cood_Venta] [int] NULL,
-	[Cantidad] [decimal](18, 2) NULL,
-	[Total] [decimal](18, 2) NULL,
-	[Id_ganancias] [int] NULL,
-	[Ganancia] [decimal](18, 2) NULL,
-	[Precio_Unitario] [decimal](18, 2) NULL
-) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Cliente] FOREIGN KEY([Cood_Cliente])
-REFERENCES [dbo].[Cliente] ([Cod_Cliente])
-NOT FOR REPLICATION 
-GO
-
-ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Cliente]
-GO
-
-ALTER TABLE [dbo].[Detalle_venta]  WITH NOCHECK ADD  CONSTRAINT [FK_Detalle_venta_Venta] FOREIGN KEY([Cood_Venta])
-REFERENCES [dbo].[Venta] ([Cod_Venta])
-NOT FOR REPLICATION 
-GO
-
-ALTER TABLE [dbo].[Detalle_venta] NOCHECK CONSTRAINT [FK_Detalle_venta_Venta]
-GO
-
-
-/*------*/
 
 
 USE [Despensa]
@@ -563,20 +520,6 @@ GO
 USE [Despensa]
 GO
 
-ALTER TABLE [dbo].[Detalle_venta] DROP CONSTRAINT [FK_Detalle_venta_Venta]
-GO
-
-ALTER TABLE [dbo].[Detalle_venta] DROP CONSTRAINT [FK_Detalle_venta_Servicios]
-GO
-
-ALTER TABLE [dbo].[Detalle_venta] DROP CONSTRAINT [FK_Detalle_venta_Cliente]
-GO
-
-/****** Object:  Table [dbo].[Detalle_venta]    Script Date: 16/10/2018 15:20:03 ******/
-DROP TABLE [dbo].[Detalle_venta]
-GO
-
-/****** Object:  Table [dbo].[Detalle_venta]    Script Date: 16/10/2018 15:20:03 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -593,9 +536,10 @@ CREATE TABLE [dbo].[Detalle_venta](
 	[Venta_unitario] [decimal](18, 2) NULL,
 	[Venta] [decimal](18, 2) NULL,
 	[IGV] [decimal](18, 2) NULL,
+	[Total] [decimal](18, 2) NULL,
 	[Nombre_tributo] [nchar](3) NOT NULL,
-	[Codigo_tributo] [nchar](3) NOT NULL,
-	[Total] [decimal](18, 2) NULL
+	[Codigo_tributo] [nchar](3) NOT NULL
+
 ) ON [PRIMARY]
 GO
 
