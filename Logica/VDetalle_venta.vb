@@ -1,7 +1,7 @@
 ﻿Public Class VDetalle_venta
     Dim cood_venta, cood_cliente, cood_servicio As Integer
-    Dim uni_medida, nombre_servicio As String
-    Dim cantidad, venta, igv, venta_unitario, nombre_tributo, codigo_tributo, total As Double
+    Dim uni_medida, nombre_servicio, nombre_tributo, codigo_tributo As String
+    Dim cantidad, venta, igv, venta_unitario, total As Double
     Public Property gCood_venta
         Get
             Return cood_venta

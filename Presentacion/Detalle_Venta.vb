@@ -7,8 +7,8 @@
         Dim func As New fDetalle_Venta
         Dim dts As New VDetalle_venta
 
-        '   dts.gcod_venta = TxtCod_venta.Text
-   
+        dts.gCood_venta = TxtCod_venta.Text
+        dts.gCood_Cliente = txtCodCliente.Text
         dt = func.mostrar(dts)
         datalistadoDetalleVenta.Columns.Item("Eliminar").Visible = False
 
@@ -117,6 +117,9 @@
         txtcod_Servicio.Text = "0"
         txtNombreServicio.Text = ""
         txtcantidad.Text = "0"
+        txtPVenta.Text = "0"
+        txtPUnitario.Text = "0"
+        txtPTotal.Text = "0"
         '    Txt_Efectivo.Text = "0"
         '    txt_total_a_pagar.Text = "0"
 
@@ -299,54 +302,34 @@
         Try
 
 
-            Dim cantidad As Double
-            cantidad = txtcantidad.Text
-            'stock = txtStock.Text
-            '  precio = txtPrecio.Text
-            '    total = txtTotal_a_pagar.Text
-
-            '  If txtPrecio.Text = txtPrecio.Items(0) Or txtPrecio.Text = txtPrecio.Items(1) Then
+            If txtcantidad.Text > 0 Then
 
 
-            If cantidad > 0 Then
-
-
-                If Me.ValidateChildren = True And TxtCod_venta.Text <> "" And txtcod_Servicio.Text <> "" And txtcantidad.Text <> "0" Then
+                If Me.ValidateChildren = True And txtcod_Servicio.Text <> "" And txtcantidad.Text <> "0" And txtPVenta.Text <> "0" Then
 
                     Dim dts As New VDetalle_venta
                     Dim func As New fDetalle_Venta
-                    Dim Dtdisminuir As New VDetalle_venta
-                    Dim dtsG As New VDetalle_Ganancia
-                    Dim funcG As New FDetalle_Ganancia
 
-                    '      dts.gTotal = txtcantidad.Text * txtPrecio.Text
-                    'Insertar Detalle_Venta
-                    '      dts.gcod_venta = TxtCod_venta.Text
-                    '      dts.gcood_Producto = txtcod_Servicio.Text
-                    '      dts.gcantidad = txtcantidad.Text
-                    '      dts.gPrecio_Unitario = txtPrecio.Text
-                    '      dts.gActivar = 0
-
-                    'Calculo del total
-
-
-                    ' Dtdisminuir.gcood_Producto = txtcod_Servicio.Text
-                    Dtdisminuir.gCantidad = txtcantidad.Text
-
-
-                    'Aumentar ganancia
-                    dtsG.gCod_Producto = txtcod_Servicio.Text
-                    dtsG.gCantidad = txtcantidad.Text
-                    '   dtsG.gPrecio1 = txtPrecio.Text
-
+                    dts.gCood_venta = TxtCod_venta.Text
+                    dts.gCood_Cliente = txtCodCliente.Text
+                    dts.gCood_Servicio = txtcod_Servicio.Text
+                    dts.gUni_Medida = "NIU"
+                    dts.gCantidad = txtcantidad.Text
+                    dts.gNombre_Servicio = txtNombreServicio.Text
+                    dts.gVenta_unitario = txtPUnitario.Text
+                    dts.gVenta = txtPVenta.Text
+                    dts.gIGV = txtIGV.Text
+                    dts.gTotal = txtPTotal.Text
+                    dts.gNombre_tributo = "IGV"
+                    dts.gCodigo_tributo = "VAT"
 
 
 
                     If func.insertar_detalleVenta(dts) Then
                         '         txtTotal_a_pagar.Text = precio * cantidad + total
-                        If func.disminuir(Dtdisminuir) Then
+                        ' If func.disminuir(Dtdisminuir) Then
 
-                        End If
+                        '                    End If
 
                         MessageBox.Show("Producto ingresado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         mostrar()
@@ -359,9 +342,6 @@
                     End If
 
 
-                    If funcG.aumentar_ganancia(dtsG) Then
-
-                    End If
                 Else
                     MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If

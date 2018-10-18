@@ -11,7 +11,8 @@ Public Class fDetalle_Venta
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             '
-            cmd.Parameters.AddWithValue("@cood_venta", dts.gCood_venta)
+            cmd.Parameters.AddWithValue("@Cood_Venta", dts.gCood_venta)
+            cmd.Parameters.AddWithValue("@Cood_Cliente", dts.gCood_Cliente)
 
 
             If cmd.ExecuteNonQuery Then
@@ -85,12 +86,18 @@ Public Class fDetalle_Venta
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-            cmd.Parameters.AddWithValue("@cood_venta", dts.gCood_venta)
-            '   cmd.Parameters.AddWithValue("@cood_producto", dts.gcood_Producto)
-            ' cmd.Parameters.AddWithValue("@cantidad", dts.gcantidad)
-            cmd.Parameters.AddWithValue("@Total", dts.gtotal)
-            'cmd.Parameters.AddWithValue("@Precio_unitario", dts.gPrecio_Unitario)
-
+            cmd.Parameters.AddWithValue("@Cood_venta", dts.gCood_venta)
+            cmd.Parameters.AddWithValue("@Cood_Cliente", dts.gCood_Cliente)
+            cmd.Parameters.AddWithValue("@Cood_Servicio", dts.gCood_Servicio)
+            cmd.Parameters.AddWithValue("@Uni_Medida", dts.gUni_Medida)
+            cmd.Parameters.AddWithValue("@Cantidad", dts.gCantidad)
+            cmd.Parameters.AddWithValue("@Nombre_Servicio", dts.gNombre_Servicio)
+            cmd.Parameters.AddWithValue("@Venta_unitario", dts.gVenta_unitario)
+            cmd.Parameters.AddWithValue("@Venta", dts.gVenta)
+            cmd.Parameters.AddWithValue("@IGV", dts.gIGV)
+            cmd.Parameters.AddWithValue("@Total", dts.gTotal)
+            cmd.Parameters.AddWithValue("@Nombre_tributo", dts.gNombre_tributo)
+            cmd.Parameters.AddWithValue("@Codigo_tributo", dts.gCodigo_tributo)
 
             If cmd.ExecuteNonQuery Then
                 Return True

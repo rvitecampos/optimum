@@ -110,6 +110,38 @@ Public Class fventa
         End Try
     End Function
 
+    Public Function crearDetalleFac(ByVal codVenta As String, ByVal codCli As String) As DataTable
+        Try
+            conectado()
+            cmd = New SqlCommand("crearDetalleFac")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+            cmd.Parameters.AddWithValue("@Cod_Venta", codVenta)
+            cmd.Parameters.AddWithValue("@Cod_Cliente", codCli)
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            desconectado()
+        End Try
+    End Function
+
+
+
+
+
     Public Function insertar(ByVal dts As vVenta, ByVal serief As Integer) As Boolean
         Try
             conectado()
