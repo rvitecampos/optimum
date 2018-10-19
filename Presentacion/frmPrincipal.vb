@@ -157,12 +157,21 @@ Public Class frmPrincipal
         Else
             LblCategoria.Text = "Operador"
         End If
+
+
         imagen.BackgroundImage = Nothing
         Dim b() As Byte = datalistado.SelectedCells.Item(4).Value
-        Dim ms As New IO.MemoryStream(b)
 
-        imagen.Image = Image.FromStream(ms)
-        imagen.SizeMode = PictureBoxSizeMode.StretchImage
+        If b.Length <> 0 Then
+            Dim ms As New IO.MemoryStream(b)
+            imagen.Image = Image.FromStream(ms)
+            imagen.SizeMode = PictureBoxSizeMode.StretchImage
+        Else
+            imagen.Image = Nothing
+            imagen.BackgroundImage = My.Resources.NOIMAGEN
+            imagen.SizeMode = PictureBoxSizeMode.StretchImage
+        End If
+
     End Sub
 
     Private Sub PreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreciosToolStripMenuItem.Click

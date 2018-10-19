@@ -531,7 +531,7 @@ CREATE TABLE [dbo].[Detalle_venta](
 	[Cood_Cliente] [int] NULL,
 	[Cood_Servicio] [int] NULL,
 	[Uni_Medida] [nchar](3) NOT NULL,
-	[Cantidad] [decimal](12, 2) NULL,
+	[Cantidad] [decimal](12, 4) NULL,
 	[Nombre_Servicio] [nchar](30) NOT NULL,
 	[Venta_unitario] [decimal](18, 2) NULL,
 	[Venta] [decimal](18, 2) NULL,

@@ -1,7 +1,12 @@
 ﻿Imports System.IO
+Imports System.Globalization
 
 Public Class FrmVenta
     Private dt As DataTable
+    Public U, D, C, M As String
+    Public Cl, Dl, Ul As String
+    Public letra As String
+    Private Property dtlle As String
 
     Private Sub FrmVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
         limpiar()
@@ -86,8 +91,11 @@ Public Class FrmVenta
 
         Dim archivo As StreamWriter
         Dim nombre As String
+        Dim nombre2 As String
         nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
+        nombre2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
         nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".cab"
+        dtlle = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
         Dim linea As String = Nothing
         'archivo = New StreamWriter("D:\idea\FACTURADOR\Facturas\prueba.txt")
         archivo = New StreamWriter(nombre)
@@ -110,7 +118,7 @@ Public Class FrmVenta
                 campo15 & "|" & _
                 campo16 & "|" & _
                 campo17 & "|" & _
-                campo18
+                campo18 & "|"
         ' If linea.Substring(0, 1) = "|" Then
 
         '            Else
@@ -240,12 +248,6 @@ Public Class FrmVenta
 
     End Sub
 
-
-
-
-
-
-
     Private Sub BtnBuscarCliente_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnBuscarCliente.Click
         Cliente.txtflag.Text = "1"
         Cliente.ShowDialog()
@@ -261,9 +263,15 @@ Public Class FrmVenta
         Dim codCli As String
         'Dim codSer As String
         codVta = datalistadoVenta.SelectedCells.Item(1).Value
-        codCli = datalistadoVenta.SelectedCells.Item(2).Value
+        codCli = datalistadoVenta.SelectedCells.Item(3).Value
         crearCabeceraFac(codVta)
         crearDetalleFac(codVta, codCli)
+        'Dim letras As String
+        letras(txtTotal.Text)
+
+        '  txtLetras.Text = txtTotal.Text(CultureInfo.CurrentCulture)
+        'Num2Text(txtTotal.Text)
+
     End Sub
 
 
@@ -274,7 +282,7 @@ Public Class FrmVenta
         mostrar()
         'cargarCat51()
 
- 
+
     End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
@@ -332,7 +340,7 @@ Public Class FrmVenta
 
     Private Sub datalistadoVenta_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistadoVenta.CellDoubleClick
 
- 
+
 
         'Detalle_Venta.TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
         '    Detalle_Venta.ShowDialog()
@@ -629,12 +637,12 @@ Public Class FrmVenta
 
 
         Dim archivo As StreamWriter
-        Dim nombre As String
-        nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
-        nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
+        'Dim nombre As String
+        'nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
+        'nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
         Dim linea As String = Nothing
         'archivo = New StreamWriter("D:\idea\FACTURADOR\Facturas\prueba.txt")
-        archivo = New StreamWriter(nombre)
+        archivo = New StreamWriter(dtlle)
         'Dim escoge As Integer
 
         linea = campo1 & "|" & _
@@ -666,7 +674,7 @@ Public Class FrmVenta
                 campo27 & "|" & _
                 campo28 & "|" & _
                 campo29 & "|" & _
-                campo30
+                campo30 & "|"
 
 
 
@@ -682,6 +690,110 @@ Public Class FrmVenta
         '           End If
         archivo.Close()
     End Sub
+    Public Sub letras(ByVal numero As String)
+        Dim ctdadEntera As String = Int(numero)
+        Dim vColeccion() As String = numero.Split(".")
+        Dim ctdadDecimal As String = vColeccion(vColeccion.Length - 1)
+        Dim arr(ctdadEntera.Length) As String
+        For i = 0 To ctdadEntera.Length - 1
+            arr(i) = ctdadEntera(i)
+        Next
+        C = arr(0)
+        D = arr(1)
+        U = arr(2)
 
+        centenas()
+        If D = 1 And U = 1 Then
+            Dl = "Once"
+        ElseIf D = 1 And U = 2 Then
+            Dl = "Doce"
+        ElseIf D = 1 And U = 3 Then
+            Dl = "Trece"
+        ElseIf D = 1 And U = 4 Then
+            Dl = "Catorce"
+        ElseIf D = 1 And U = 5 Then
+            Dl = "Quince"
+        ElseIf D = 1 And U <= 5 Then
+            Decenas()
+            unidades()
+        Else
+            Decenas()
+            unidades()
+        End If
+        letra = Cl + " " + Dl + " " + Ul + " y " + ctdadDecimal + "/100 Nuevos Soles"
+        txtLetras.Text = letra
 
+    End Sub
+
+    Private Sub centenas()
+        If C > 0 Then
+            If C = 1 Then
+                Cl = "Ciento"
+            ElseIf C = 2 Then
+                Cl = "Doscientos"
+            ElseIf C = 3 Then
+                Cl = "Trescientos"
+            ElseIf C = 4 Then
+                Cl = "Cuatrocientos"
+            ElseIf C = 5 Then
+                Cl = "Quinientos"
+            ElseIf C = 6 Then
+                Cl = "Seiscientos"
+            ElseIf C = 7 Then
+                Cl = "Setecientos"
+            ElseIf C = 8 Then
+                Cl = "Ochocientos"
+            ElseIf C = 9 Then
+                Cl = "Novecientos"
+            End If
+        End If
+    End Sub
+
+    Private Sub Decenas()
+        If D > 0 Then
+            If D = 1 Then
+                Dl = "Diez y"
+            ElseIf D = 2 Then
+                Dl = "Veinti"
+            ElseIf D = 3 Then
+                Dl = "Treinta y"
+            ElseIf D = 4 Then
+                Dl = "Cuarenta y "
+            ElseIf D = 5 Then
+                Dl = "Cincuenta y"
+            ElseIf D = 6 Then
+                Dl = "Sesenta y"
+            ElseIf D = 7 Then
+                Dl = "Setenta y"
+            ElseIf D = 8 Then
+                Dl = "Ochenta y"
+            ElseIf D = 9 Then
+                Dl = "Noventa y"
+            End If
+        End If
+    End Sub
+
+    Private Sub unidades()
+        If U > 0 Then
+            If U = 1 Then
+                Ul = "Uno"
+            ElseIf U = 2 Then
+                Ul = "Dos"
+            ElseIf U = 3 Then
+                Ul = "Tres"
+            ElseIf U = 4 Then
+                Ul = "Cuatro"
+            ElseIf U = 5 Then
+                Ul = "Cinco"
+            ElseIf U = 6 Then
+                Ul = "Seis"
+            ElseIf U = 7 Then
+                Ul = "Siete"
+            ElseIf U = 8 Then
+                Ul = "Ocho"
+            ElseIf U = 9 Then
+                Ul = "Nueve"
+            End If
+        End If
+    End Sub
 End Class
