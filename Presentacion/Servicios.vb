@@ -155,19 +155,12 @@
         End If
         Return Fg_SoloNumeros
     End Function
-    '-----------------------------------------------------------
-    '  Public Sub txtCantidad_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs)
-    '      eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtCantidad.Text & CChar(eventArgs.KeyChar))
-    '  End Sub
-    Public Sub txtLimite_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtItems.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtItems.Text & CChar(eventArgs.KeyChar))
-    End Sub
-    Public Sub TxtPrecioUnitario_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtCosto.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtCosto.Text & CChar(eventArgs.KeyChar))
-    End Sub
-    Public Sub txttxtSPrecioUnitario_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtVenta.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtVenta.Text & CChar(eventArgs.KeyChar))
-    End Sub
+ 
+
+    '    Public Sub txtVenta_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtVenta.KeyPress
+    'eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtVenta.Text & CChar(eventArgs.KeyChar))
+
+    'End Sub
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         limpiar()
         mostrar()
@@ -462,9 +455,11 @@
         End If
     End Sub
 
-    Private Sub txtTC_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtVenta.KeyPress
+    Private Sub txtVenta_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtVenta.KeyPress
         NumerosyDecimal(txtVenta, e)
     End Sub
+    Private Sub txtCosto_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtCosto.KeyPress
+        NumerosyDecimal(TxtCosto, e)
+    End Sub
 
- 
 End Class

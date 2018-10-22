@@ -43,6 +43,7 @@ Partial Class FrmVenta
         Me.cbocampos = New System.Windows.Forms.ComboBox()
         Me.Erroricono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Venta = New System.Windows.Forms.GroupBox()
+        Me.txtLetras = New System.Windows.Forms.TextBox()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtTotal = New System.Windows.Forms.TextBox()
@@ -68,7 +69,6 @@ Partial Class FrmVenta
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BtnNuevo = New System.Windows.Forms.Button()
         Me.btnAñadir = New System.Windows.Forms.Button()
-        Me.txtLetras = New System.Windows.Forms.TextBox()
         CType(Me.datalistadoVenta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -299,6 +299,15 @@ Partial Class FrmVenta
         Me.Venta.TabIndex = 59
         Me.Venta.TabStop = False
         Me.Venta.Text = "Registro de Venta"
+        '
+        'txtLetras
+        '
+        Me.txtLetras.Enabled = False
+        Me.txtLetras.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLetras.Location = New System.Drawing.Point(75, 362)
+        Me.txtLetras.Name = "txtLetras"
+        Me.txtLetras.Size = New System.Drawing.Size(515, 29)
+        Me.txtLetras.TabIndex = 54
         '
         'lblEstado
         '
@@ -562,15 +571,6 @@ Partial Class FrmVenta
         Me.btnAñadir.TabIndex = 93
         Me.btnAñadir.Text = "&Añadir Detalle"
         Me.btnAñadir.UseVisualStyleBackColor = False
-        '
-        'txtLetras
-        '
-        Me.txtLetras.Enabled = False
-        Me.txtLetras.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLetras.Location = New System.Drawing.Point(75, 362)
-        Me.txtLetras.Name = "txtLetras"
-        Me.txtLetras.Size = New System.Drawing.Size(376, 29)
-        Me.txtLetras.TabIndex = 54
         '
         'FrmVenta
         '

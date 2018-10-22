@@ -3,8 +3,8 @@ Imports System.Globalization
 
 Public Class FrmVenta
     Private dt As DataTable
-    Public U, D, C, M As String
-    Public Cl, Dl, Ul As String
+    Public U, D, C, M, DM, CM As String
+    Public CMl, DMl, Ml, Cl, Dl, Ul As String
     Public letra As String
     Private Property dtlle As String
 
@@ -211,6 +211,7 @@ Public Class FrmVenta
         txtSerie.Text = ""
         txtRefer.Text = 0
         txtTC.Text = 0
+        txtSerie.Text = "F001"
         dtpFecha.Value = Date.Today
         dtpVence.Value = Date.Today
 
@@ -244,7 +245,7 @@ Public Class FrmVenta
         cmbBoxMoneda.Enabled = True
         'txtTC.Enabled = True
         dtpVence.Enabled = True
-        txtRefer.Enabled = True
+        'txtRefer.Enabled = True
 
     End Sub
 
@@ -267,7 +268,7 @@ Public Class FrmVenta
         crearCabeceraFac(codVta)
         crearDetalleFac(codVta, codCli)
         'Dim letras As String
-        letras(txtTotal.Text)
+
 
         '  txtLetras.Text = txtTotal.Text(CultureInfo.CurrentCulture)
         'Num2Text(txtTotal.Text)
@@ -324,6 +325,7 @@ Public Class FrmVenta
         fecha2 = Mid(fechaVce, 9, 2) + "/" + Mid(fechaVce, 6, 2) + "/" + Mid(fechaVce, 1, 4)
         dtpVence.Value = Convert.ToDateTime(fecha2)
         txtTotal.Text = datalistadoVenta.SelectedCells.Item(14).Value
+        letras(txtTotal.Text)
         Dim estado As String = datalistadoVenta.SelectedCells.Item(15).Value
         If estado = "0" Then
             lblEstado.Text = "Open"
@@ -356,6 +358,7 @@ Public Class FrmVenta
         If Me.ValidateChildren = True And txtCod_cliente.Text <> "" And TxtNombre.Text <> "" Then
 
 
+
             Dim dts As New vVenta
             Dim func As New fventa
             Dim fvta As String
@@ -380,9 +383,11 @@ Public Class FrmVenta
                 fac = "xxx"
                 fac2 = "xxx"
             End If
-            dts.gserie = "F" + fac
+            dts.gserie = "F001"
+            '+ fac
 
-            dts.greferencial = txtRefer.Text
+            dts.greferencial = fac
+            'txtRefer.Text
             dts.gTC = txtTC.Text
 
             dts.gtipooper = "0101"
@@ -406,6 +411,7 @@ Public Class FrmVenta
             dts.gigv = 0
             dts.gventa = 0
             dts.gtotal = 0
+            dts.gletras = txtLetras.Text
 
             If func.insertar(dts, fac2) Then
                 MessageBox.Show("Venta registrada correctamente, INGRESE PRODUCTOS", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -564,7 +570,7 @@ Public Class FrmVenta
         Return Fg_SoloNumeros
     End Function
     Public Sub txtRefer__KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtRefer.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtRefer.Text & CChar(eventArgs.KeyChar))
+        'eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtRefer.Text & CChar(eventArgs.KeyChar))
     End Sub
 
     Private Sub crearDetalleFac(codVenta As String, codCli As String)
@@ -690,37 +696,80 @@ Public Class FrmVenta
         '           End If
         archivo.Close()
     End Sub
+
     Public Sub letras(ByVal numero As String)
         Dim ctdadEntera As String = Int(numero)
         Dim vColeccion() As String = numero.Split(".")
         Dim ctdadDecimal As String = vColeccion(vColeccion.Length - 1)
-        Dim arr(ctdadEntera.Length) As String
-        For i = 0 To ctdadEntera.Length - 1
-            arr(i) = ctdadEntera(i)
-        Next
-        C = arr(0)
-        D = arr(1)
-        U = arr(2)
+        Dim arr(ctdadEntera.Length - 1) As String
+        Dim inicia As Integer = 0
+        Ul = ""
+        Dl = ""
+        Cl = ""
+        Ml = ""
+        DMl = ""
+        CMl = ""
 
-        centenas()
-        If D = 1 And U = 1 Then
-            Dl = "Once"
-        ElseIf D = 1 And U = 2 Then
-            Dl = "Doce"
-        ElseIf D = 1 And U = 3 Then
-            Dl = "Trece"
-        ElseIf D = 1 And U = 4 Then
-            Dl = "Catorce"
-        ElseIf D = 1 And U = 5 Then
-            Dl = "Quince"
-        ElseIf D = 1 And U <= 5 Then
-            Decenas()
+        For i = 0 To ctdadEntera.Length - 1
+            arr(inicia) = ctdadEntera(inicia)
+            inicia = inicia + 1
+        Next
+        If ctdadEntera.Length = 1 Then
+            U = arr(0)
             unidades()
-        Else
+            Ml = ""
+            Cl = ""
+            Dl = ""
+        ElseIf ctdadEntera.Length = 2 Then
+            D = arr(0)
+            U = arr(1)
             Decenas()
-            unidades()
+            Ml = ""
+            Cl = ""
+        ElseIf ctdadEntera.Length = 3 Then
+            C = arr(0)
+            D = arr(1)
+            U = arr(2)
+            centenas()
+            Decenas()
+            Ml = ""
+            DMl = ""
+            CMl = ""
+        ElseIf ctdadEntera.Length = 4 Then
+            M = arr(0)
+            C = arr(1)
+            D = arr(2)
+            U = arr(3)
+            unMil()
+            centenas()
+            Decenas()
+            DMl = ""
+            CMl = ""
+        ElseIf ctdadEntera.Length = 5 Then
+            DM = arr(0)
+            M = arr(1)
+            C = arr(2)
+            D = arr(3)
+            U = arr(4)
+            DecMil()
+            centenas()
+            Decenas()
+            CMl = ""
+        ElseIf ctdadEntera.Length = 6 Then
+            CM = arr(0)
+            DM = arr(1)
+            M = arr(2)
+            C = arr(3)
+            D = arr(4)
+            U = arr(5)
+            cenMil()
+            DecMil()
+            centenas()
+            Decenas()
         End If
-        letra = Cl + " " + Dl + " " + Ul + " y " + ctdadDecimal + "/100 Nuevos Soles"
+
+
+        letra = CMl + " " + DMl + Ml + " " + Cl + " " + Dl + Ul + " y " + ctdadDecimal + "/100 Nuevos Soles"
         txtLetras.Text = letra
 
     End Sub
@@ -746,54 +795,215 @@ Public Class FrmVenta
             ElseIf C = 9 Then
                 Cl = "Novecientos"
             End If
+
+        Else
+            Cl = ""
         End If
     End Sub
 
     Private Sub Decenas()
-        If D > 0 Then
-            If D = 1 Then
-                Dl = "Diez y"
-            ElseIf D = 2 Then
-                Dl = "Veinti"
-            ElseIf D = 3 Then
-                Dl = "Treinta y"
-            ElseIf D = 4 Then
-                Dl = "Cuarenta y "
-            ElseIf D = 5 Then
-                Dl = "Cincuenta y"
-            ElseIf D = 6 Then
-                Dl = "Sesenta y"
-            ElseIf D = 7 Then
-                Dl = "Setenta y"
-            ElseIf D = 8 Then
-                Dl = "Ochenta y"
-            ElseIf D = 9 Then
-                Dl = "Noventa y"
+        If D = 0 Then
+            Dl = ""
+            unidades()
+        Else
+            If D = 1 And U = 0 Then
+                Dl = "Diez"
+                Ul = ""
+            ElseIf D = 1 And U = 1 Then
+                Dl = "Once"
+            ElseIf D = 1 And U = 2 Then
+                Dl = "Doce"
+            ElseIf D = 1 And U = 3 Then
+                Dl = "Trece"
+            ElseIf D = 1 And U = 4 Then
+                Dl = "Catorce"
+            ElseIf D = 1 And U = 5 Then
+                Dl = "Quince"
+            ElseIf D = 1 And U > 5 Then
+                Dl = "Diez y "
+                unidades()
+            ElseIf D > 1 And U > 0 Then
+                If D = 2 Then
+                    Dl = "Veinti"
+                ElseIf D = 3 Then
+                    Dl = "Treinta y "
+                ElseIf D = 4 Then
+                    Dl = "Cuarenta y "
+                ElseIf D = 5 Then
+                    Dl = "Cincuenta y "
+                ElseIf D = 6 Then
+                    Dl = "Sesenta y "
+                ElseIf D = 7 Then
+                    Dl = "Setenta y "
+                ElseIf D = 8 Then
+                    Dl = "Ochenta y "
+                ElseIf D = 9 Then
+                    Dl = "Noventa y "
+                End If
+                unidades()
+            Else
+                If D = 2 Then
+                    Dl = "Veinte"
+                ElseIf D = 3 Then
+                    Dl = "Treinta"
+                ElseIf D = 4 Then
+                    Dl = "Cuarenta"
+                ElseIf D = 5 Then
+                    Dl = "Cincuenta"
+                ElseIf D = 6 Then
+                    Dl = "Sesenta"
+                ElseIf D = 7 Then
+                    Dl = "Setenta"
+                ElseIf D = 8 Then
+                    Dl = "Ochenta"
+                ElseIf D = 9 Then
+                    Dl = "Noventa"
+                End If
+                Ul = ""
+
             End If
-        End If
+            End If
     End Sub
 
     Private Sub unidades()
         If U > 0 Then
             If U = 1 Then
-                Ul = "Uno"
+                Ul = "uno"
             ElseIf U = 2 Then
-                Ul = "Dos"
+                Ul = "dos"
             ElseIf U = 3 Then
-                Ul = "Tres"
+                Ul = "tres"
             ElseIf U = 4 Then
-                Ul = "Cuatro"
+                Ul = "cuatro"
             ElseIf U = 5 Then
-                Ul = "Cinco"
+                Ul = "cinco"
             ElseIf U = 6 Then
-                Ul = "Seis"
+                Ul = "seis"
             ElseIf U = 7 Then
-                Ul = "Siete"
+                Ul = "siete"
             ElseIf U = 8 Then
-                Ul = "Ocho"
+                Ul = "ocho"
             ElseIf U = 9 Then
-                Ul = "Nueve"
+                Ul = "nueve"
             End If
         End If
     End Sub
+
+    Private Sub cenMil()
+        If CM > 0 Then
+            If CM = 1 Then
+                CMl = "Ciento"
+            ElseIf CM = 2 Then
+                CMl = "Doscientos"
+            ElseIf CM = 3 Then
+                CMl = "Trescientos"
+            ElseIf CM = 4 Then
+                CMl = "Cuatrocientos"
+            ElseIf CM = 5 Then
+                CMl = "Quinientos"
+            ElseIf CM = 6 Then
+                CMl = "Seiscientos"
+            ElseIf CM = 7 Then
+                CMl = "Setecientos"
+            ElseIf CM = 8 Then
+                CMl = "Ochocientos"
+            ElseIf CM = 9 Then
+                CMl = "Novecientos"
+            End If
+        Else
+            CMl = ""
+        End If
+    End Sub
+
+
+    Private Sub DecMil()
+        If DM = 0 Then
+            DMl = ""
+            unMil()
+        Else
+            If DM = 1 And M = 0 Then
+                DMl = "Diez Mil"
+                Ml = ""
+            ElseIf DM = 1 And M = 1 Then
+                DMl = "Once Mil"
+            ElseIf DM = 1 And M = 2 Then
+                DMl = "Doce Mil"
+            ElseIf DM = 1 And M = 3 Then
+                DMl = "Trece Mil"
+            ElseIf DM = 1 And M = 4 Then
+                DMl = "Catorce Mil"
+            ElseIf DM = 1 And M = 5 Then
+                DMl = "Quince Mil"
+            ElseIf DM = 1 And M > 5 Then
+                DMl = "Diez y "
+                unMil()
+            ElseIf DM > 1 And M > 0 Then
+                If DM = 2 Then
+                    DMl = "Veinti"
+                ElseIf DM = 3 Then
+                    DMl = "Treinta y "
+                ElseIf DM = 4 Then
+                    DMl = "Cuarenta y "
+                ElseIf DM = 5 Then
+                    DMl = "Cincuenta y "
+                ElseIf DM = 6 Then
+                    DMl = "Sesenta y "
+                ElseIf DM = 7 Then
+                    DMl = "Setenta y "
+                ElseIf DM = 8 Then
+                    DMl = "Ochenta y "
+                ElseIf DM = 9 Then
+                    DMl = "Noventa y "
+                End If
+                unMil()
+            Else
+                If DM = 2 Then
+                    DMl = "Veinte Mil"
+                ElseIf DM = 3 Then
+                    DMl = "Treinta Mil"
+                ElseIf DM = 4 Then
+                    DMl = "Cuarenta Mil"
+                ElseIf DM = 5 Then
+                    DMl = "Cincuenta Mil"
+                ElseIf DM = 6 Then
+                    DMl = "Sesenta Mil"
+                ElseIf DM = 7 Then
+                    DMl = "Setenta Mil"
+                ElseIf DM = 8 Then
+                    DMl = "Ochenta Mil"
+                ElseIf DM = 9 Then
+                    DMl = "Noventa Mil"
+                End If
+                Ml = ""
+
+            End If
+        End If
+    End Sub
+
+    Private Sub unMil()
+        If M > 0 Then
+            If M = 1 Then
+                Ml = "Mil"
+            ElseIf M = 2 Then
+                Ml = "Dos Mil"
+            ElseIf M = 3 Then
+                Ml = "Tres Mil"
+            ElseIf M = 4 Then
+                Ml = "Cuatro Mil"
+            ElseIf M = 5 Then
+                Ml = "Cinco Mil"
+            ElseIf M = 6 Then
+                Ml = "Seis Mil"
+            ElseIf M = 7 Then
+                Ml = "Siete Mil"
+            ElseIf M = 8 Then
+                Ml = "Ocho Mil"
+            ElseIf M = 9 Then
+                Ml = "Nueve Mil"
+            End If
+        End If
+    End Sub
+
+
+
 End Class

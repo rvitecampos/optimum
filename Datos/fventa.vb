@@ -163,6 +163,7 @@ Public Class fventa
             cmd.Parameters.AddWithValue("@IGV", dts.gigv)
             cmd.Parameters.AddWithValue("@Venta", dts.gventa)
             cmd.Parameters.AddWithValue("@Total", dts.gtotal)
+            cmd.Parameters.AddWithValue("@Letras", dts.gletras)
             cmd.Parameters.AddWithValue("@serieF", serief)
 
 

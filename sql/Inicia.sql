@@ -151,6 +151,7 @@ CREATE TABLE [dbo].[Venta](
 	[Venta] [decimal](18, 2) NOT NULL,
 	[IGV] [decimal](18, 2) NOT NULL,
 	[Total] [decimal](18, 2) NOT NULL,
+	[Letras] [nchar](100) NOT NULL,
 	[Estado] [nchar](1) NULL,
  CONSTRAINT [PK_Venta] PRIMARY KEY CLUSTERED 
 (
