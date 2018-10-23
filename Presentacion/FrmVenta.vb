@@ -200,7 +200,7 @@ Public Class FrmVenta
     End Sub
 
     Public Sub limpiar()
-        btnRegistrar.Enabled = True
+        btnRegistrar.Enabled = False
         btnAñadir.Enabled = False
         BtnCerrar.Enabled = False
         BtnNuevo.Enabled = True
@@ -214,6 +214,9 @@ Public Class FrmVenta
         txtSerie.Text = "F001"
         dtpFecha.Value = Date.Today
         dtpVence.Value = Date.Today
+        cmbBoxOper.Text = "Venta Interna"
+        cmbBoxMoneda.Text = "S/."
+        txtTC.Enabled = False
 
     End Sub
 
@@ -243,6 +246,8 @@ Public Class FrmVenta
         BtnBuscarCliente.Enabled = True
         cmbBoxOper.Enabled = True
         cmbBoxMoneda.Enabled = True
+        btnRegistrar.Enabled = True
+        '' 'btnAñadir.Enabled = True
         'txtTC.Enabled = True
         dtpVence.Enabled = True
         'txtRefer.Enabled = True
@@ -260,18 +265,44 @@ Public Class FrmVenta
 
 
     Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCerrar.Click
-        Dim codVta As String
-        Dim codCli As String
-        'Dim codSer As String
-        codVta = datalistadoVenta.SelectedCells.Item(1).Value
-        codCli = datalistadoVenta.SelectedCells.Item(3).Value
-        crearCabeceraFac(codVta)
-        crearDetalleFac(codVta, codCli)
-        'Dim letras As String
+
+        If txtTotal.Text > 0 Then
+            Dim codVta As String
+            Dim codCli As String
 
 
-        '  txtLetras.Text = txtTotal.Text(CultureInfo.CurrentCulture)
-        'Num2Text(txtTotal.Text)
+
+            codVta = datalistadoVenta.SelectedCells.Item(1).Value
+            codCli = datalistadoVenta.SelectedCells.Item(3).Value
+            crearCabeceraFac(codVta)
+            crearDetalleFac(codVta, codCli)
+
+            Dim dtsCerrar As New vVenta
+            Dim funcCerrar As New fventa
+
+
+            dtsCerrar.gcod_Venta = TxtCod_venta.Text
+            dtsCerrar.gcood_Cliente = txtCod_cliente.Text
+            dtsCerrar.gletras = txtLetras.Text
+            dtsCerrar.greferencial = txtRefer.Text
+
+
+
+            If funcCerrar.cierraFac(dtsCerrar) Then
+                MessageBox.Show("Factura cerrada ", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                limpiar()
+                mostrar()
+                bloquear()
+            Else
+                MessageBox.Show("NO SE cerrar la Factura", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                limpiar()
+                mostrar()
+                bloquear()
+            End If
+
+        Else
+            MessageBox.Show("Añadir Detalle", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
 
     End Sub
 
@@ -357,6 +388,13 @@ Public Class FrmVenta
     Private Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
         If Me.ValidateChildren = True And txtCod_cliente.Text <> "" And TxtNombre.Text <> "" Then
 
+            If cmbBoxMoneda.Text <> "S/." Then
+                If txtTC.Text = "" Then
+                    MessageBox.Show("Falta ingresar Tipo Cambio", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    txtTC.Focus()
+                    Return
+                End If
+            End If
 
 
             Dim dts As New vVenta
@@ -388,7 +426,7 @@ Public Class FrmVenta
 
             dts.greferencial = fac
             'txtRefer.Text
-            dts.gTC = txtTC.Text
+
 
             dts.gtipooper = "0101"
             dts.gfecha_venta = Mid(fvta, 1, 4) + "-" + Mid(fvta, 6, 2) + "-" + Mid(fvta, 9, 2)
@@ -400,12 +438,14 @@ Public Class FrmVenta
             dts.gcliente = TxtNombre.Text
             If cmbBoxMoneda.Text = "S/." Then
                 dts.gtip_moneda = "PEN"
+                dts.gTC = 0.0
             Else
                 If cmbBoxMoneda.Text = "$" Then
                     dts.gtip_moneda = "USD"
                 Else
                     dts.gtip_moneda = "EUR"
                 End If
+                dts.gTC = txtTC.Text
             End If
 
             dts.gigv = 0
@@ -415,13 +455,14 @@ Public Class FrmVenta
 
             If func.insertar(dts, fac2) Then
                 MessageBox.Show("Venta registrada correctamente, INGRESE PRODUCTOS", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                mostrar()
                 limpiar()
+                mostrar()
+                bloquear()
             Else
                 MessageBox.Show("NO SE PUDO REGISTRAR LA VENTA", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                mostrar()
                 limpiar()
-
+                mostrar()
+                bloquear()
             End If
 
 
