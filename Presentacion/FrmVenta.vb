@@ -8,6 +8,12 @@ Public Class FrmVenta
     Public letra As String
     Private Property dtlle As String
 
+    Private Property tri As String
+
+    Private Property ley As String
+
+    Private Property aca As String
+
     Private Sub FrmVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
         limpiar()
         mostrar()
@@ -96,6 +102,10 @@ Public Class FrmVenta
         nombre2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
         nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".cab"
         dtlle = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
+        tri = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".tri"
+        ley = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".ley"
+        aca = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".aca"
+
         Dim linea As String = Nothing
         'archivo = New StreamWriter("D:\idea\FACTURADOR\Facturas\prueba.txt")
         archivo = New StreamWriter(nombre)
@@ -217,6 +227,9 @@ Public Class FrmVenta
         cmbBoxOper.Text = "Venta Interna"
         cmbBoxMoneda.Text = "S/."
         txtTC.Enabled = False
+        txtTotal.Text = ""
+        txtLetras.Text = ""
+        lblEstado.Text = ""
 
     End Sub
 
@@ -265,45 +278,50 @@ Public Class FrmVenta
 
 
     Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCerrar.Click
-
-        If txtTotal.Text > 0 Then
-            Dim codVta As String
-            Dim codCli As String
-
-
-
-            codVta = datalistadoVenta.SelectedCells.Item(1).Value
-            codCli = datalistadoVenta.SelectedCells.Item(3).Value
-            crearCabeceraFac(codVta)
-            crearDetalleFac(codVta, codCli)
-
-            Dim dtsCerrar As New vVenta
-            Dim funcCerrar As New fventa
-
-
-            dtsCerrar.gcod_Venta = TxtCod_venta.Text
-            dtsCerrar.gcood_Cliente = txtCod_cliente.Text
-            dtsCerrar.gletras = txtLetras.Text
-            dtsCerrar.greferencial = txtRefer.Text
+        If datalistadoVenta.SelectedCells.Item(15).Value = 0 Then
+            If txtTotal.Text > 0 Then
+                Dim codVta As String
+                Dim codCli As String
 
 
 
-            If funcCerrar.cierraFac(dtsCerrar) Then
-                MessageBox.Show("Factura cerrada ", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                limpiar()
-                mostrar()
-                bloquear()
+                codVta = datalistadoVenta.SelectedCells.Item(1).Value
+                codCli = datalistadoVenta.SelectedCells.Item(3).Value
+                crearCabeceraFac(codVta)
+                crearDetalleFac(codVta, codCli)
+                crearTri(codVta, codCli)
+                crearLey(codVta, codCli, Trim(txtLetras.Text))
+                'crearAca(codVta, codCli)
+                Dim dtsCerrar As New vVenta
+                Dim funcCerrar As New fventa
+
+
+                dtsCerrar.gcod_Venta = TxtCod_venta.Text
+                dtsCerrar.gcood_Cliente = txtCod_cliente.Text
+                dtsCerrar.gletras = txtLetras.Text
+                dtsCerrar.greferencial = txtRefer.Text
+
+
+
+                If funcCerrar.cierraFac(dtsCerrar) Then
+                    MessageBox.Show("Factura cerrada ", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    limpiar()
+                    mostrar()
+                    bloquear()
+                Else
+                    MessageBox.Show("NO SE pudo cerrar la Factura", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    limpiar()
+                    mostrar()
+                    bloquear()
+                End If
+
             Else
-                MessageBox.Show("NO SE cerrar la Factura", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                limpiar()
-                mostrar()
-                bloquear()
+                MessageBox.Show("Añadir Detalle", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-
         Else
-            MessageBox.Show("Añadir Detalle", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+            MessageBox.Show("Factura Cerrada", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
+        End If
     End Sub
 
 
@@ -356,7 +374,7 @@ Public Class FrmVenta
         fecha2 = Mid(fechaVce, 9, 2) + "/" + Mid(fechaVce, 6, 2) + "/" + Mid(fechaVce, 1, 4)
         dtpVence.Value = Convert.ToDateTime(fecha2)
         txtTotal.Text = datalistadoVenta.SelectedCells.Item(14).Value
-        letras(txtTotal.Text)
+        letras(txtTotal.Text, moneda)
         Dim estado As String = datalistadoVenta.SelectedCells.Item(15).Value
         If estado = "0" Then
             lblEstado.Text = "Open"
@@ -481,17 +499,21 @@ Public Class FrmVenta
 
 
     Private Sub btnAñadir_Click(sender As Object, e As EventArgs) Handles btnAñadir.Click
-        Detalle_Venta.TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
-        Detalle_Venta.txtSerie.Text = datalistadoVenta.SelectedCells.Item(6).Value
-        Detalle_Venta.txtCliente.Text = datalistadoVenta.SelectedCells.Item(5).Value
-        Detalle_Venta.txtCodCliente.Text = datalistadoVenta.SelectedCells.Item(3).Value
-        Detalle_Venta.txtcantidad.Text = ""
-        Detalle_Venta.txtPVenta.Text = ""
-        Detalle_Venta.txtPTotal.Text = ""
-        Detalle_Venta.txtIGV.Text = ""
-        Detalle_Venta.txtPUnitario.Text = ""
+        If datalistadoVenta.SelectedCells.Item(15).Value = 0 Then
+            Detalle_Venta.TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
+            Detalle_Venta.txtSerie.Text = datalistadoVenta.SelectedCells.Item(6).Value
+            Detalle_Venta.txtCliente.Text = datalistadoVenta.SelectedCells.Item(5).Value
+            Detalle_Venta.txtCodCliente.Text = datalistadoVenta.SelectedCells.Item(3).Value
+            Detalle_Venta.txtcantidad.Text = ""
+            Detalle_Venta.txtPVenta.Text = ""
+            Detalle_Venta.txtPTotal.Text = ""
+            Detalle_Venta.txtIGV.Text = ""
+            Detalle_Venta.txtPUnitario.Text = ""
 
-        Detalle_Venta.ShowDialog()
+            Detalle_Venta.ShowDialog()
+        Else
+            MessageBox.Show("Factura Cerrada", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     Private Sub cbeliminar_CheckedChanged(sender As Object, e As EventArgs) Handles cbeliminar.CheckedChanged
@@ -617,37 +639,222 @@ Public Class FrmVenta
     Private Sub crearDetalleFac(codVenta As String, codCli As String)
         Dim func As New fventa
         dt = func.crearDetalleFac(codVenta, codCli)
+        Dim archivo As StreamWriter
+        Dim linea As String = Nothing
+        archivo = New StreamWriter(dtlle)
+        Dim con As Integer = dt.Rows.Count - 1
+        For i = 0 To con
+            Dim campo1 As String
+            Dim campo2 As String
+            Dim campo3 As String
+            Dim campo4 As String
+            Dim campo5 As String
+            Dim campo6 As String
+            Dim campo7 As String
+            Dim campo8 As String
+            Dim campo9 As String
+            Dim campo10 As String
+            Dim campo11 As String
+            Dim campo12 As String
+            Dim campo13 As String
+            Dim campo14 As String
+            Dim campo15 As String
+            Dim campo16 As String
+            Dim campo17 As String
+            Dim campo18 As String
+            Dim campo19 As String
+            Dim campo20 As String
+            Dim campo21 As String
+            Dim campo22 As String
+            Dim campo23 As String
+            Dim campo24 As String
+            Dim campo25 As String
+            Dim campo26 As String
+            Dim campo27 As String
+            Dim campo28 As String
+            Dim campo29 As String
+            Dim campo30 As String
+
+
+
+            campo1 = Trim(dt.Rows(i)("campo1"))
+            campo2 = Trim(dt.Rows(i)("campo2"))
+            campo3 = Trim(dt.Rows(i)("campo3"))
+            campo4 = Trim(dt.Rows(i)("campo4"))
+            campo5 = Trim(dt.Rows(i)("campo5"))
+            campo6 = Trim(dt.Rows(i)("campo6"))
+            campo7 = Trim(dt.Rows(i)("campo7"))
+            campo8 = Trim(dt.Rows(i)("campo8"))
+            campo9 = Trim(dt.Rows(i)("campo9"))
+            campo10 = Trim(dt.Rows(i)("campo10"))
+            campo11 = Trim(dt.Rows(i)("campo11"))
+            campo12 = Trim(dt.Rows(i)("campo12"))
+            campo13 = Trim(dt.Rows(i)("campo13"))
+            campo14 = Trim(dt.Rows(i)("campo14"))
+            campo15 = Trim(dt.Rows(i)("campo15"))
+            campo16 = Trim(dt.Rows(i)("campo16"))
+            campo17 = Trim(dt.Rows(i)("campo17"))
+            campo18 = Trim(dt.Rows(i)("campo18"))
+            campo19 = Trim(dt.Rows(i)("campo19"))
+            campo20 = Trim(dt.Rows(i)("campo20"))
+            campo21 = Trim(dt.Rows(i)("campo21"))
+            campo22 = Trim(dt.Rows(i)("campo22"))
+            campo23 = Trim(dt.Rows(i)("campo23"))
+            campo24 = Trim(dt.Rows(i)("campo24"))
+            campo25 = Trim(dt.Rows(i)("campo25"))
+            campo26 = Trim(dt.Rows(i)("campo26"))
+            campo27 = Trim(dt.Rows(i)("campo27"))
+            campo28 = Trim(dt.Rows(i)("campo28"))
+            campo29 = Trim(dt.Rows(i)("campo29"))
+            campo30 = Trim(dt.Rows(i)("campo30"))
+
+
+
+
+            linea = campo1 & "|" & _
+                    campo2 & "|" & _
+                    campo3 & "|" & _
+                    campo4 & "|" & _
+                    campo5 & "|" & _
+                    campo6 & "|" & _
+                    campo7 & "|" & _
+                    campo8 & "|" & _
+                    campo9 & "|" & _
+                    campo10 & "|" & _
+                    campo11 & "|" & _
+                    campo12 & "|" & _
+                    campo13 & "|" & _
+                    campo14 & "|" & _
+                    campo15 & "|" & _
+                    campo16 & "|" & _
+                    campo17 & "|" & _
+                    campo18 & "|" & _
+                    campo19 & "|" & _
+                    campo20 & "|" & _
+                    campo21 & "|" & _
+                    campo22 & "|" & _
+                    campo23 & "|" & _
+                    campo24 & "|" & _
+                    campo25 & "|" & _
+                    campo26 & "|" & _
+                    campo27 & "|" & _
+                    campo28 & "|" & _
+                    campo29 & "|" & _
+                    campo30 & "|"
+
+
+
+
+
+
+
+            ' If linea.Substring(0, 1) = "|" Then
+
+            '            Else
+            archivo.WriteLine(linea)
+        Next
+        MsgBox("txt creado")
+        '           End If
+        archivo.Close()
+    End Sub
+
+    Private Sub crearTri(codVenta As String, codCli As String)
+        Dim func As New fventa
+        dt = func.crearTri(codVenta, codCli)
+        Dim archivo As StreamWriter
+        Dim linea As String = Nothing
+        archivo = New StreamWriter(tri)
+        Dim con As Integer = dt.Rows.Count - 1
+        For i = 0 To con
+            Dim campo1 As String
+            Dim campo2 As String
+            Dim campo3 As String
+            Dim campo4 As String
+            Dim campo5 As String
+
+
+
+            campo1 = Trim(dt.Rows(i)("campo1"))
+            campo2 = Trim(dt.Rows(i)("campo2"))
+            campo3 = Trim(dt.Rows(i)("campo3"))
+            campo4 = Trim(dt.Rows(i)("campo4"))
+            campo5 = Trim(dt.Rows(i)("campo5"))
+
+
+
+            linea = campo1 & "|" & _
+                    campo2 & "|" & _
+                    campo3 & "|" & _
+                    campo4 & "|" & _
+                    campo5 & "|"
+
+
+            ' If linea.Substring(0, 1) = "|" Then
+
+            '            Else
+            archivo.WriteLine(linea)
+        Next
+        MsgBox("txt creado")
+        '           End If
+        archivo.Close()
+    End Sub
+
+
+
+    Private Sub crearLey(codVenta As String, codCli As String, letras As String)
+        Dim func As New fventa
+        dt = func.crearLeyAca(codVenta, codCli)
+        Dim archivo As StreamWriter
+        Dim linea As String = Nothing
+        archivo = New StreamWriter(ley)
+        ' Dim con As Integer = dt.Rows.Count - 1
+        '  For i = 0 To con
         Dim campo1 As String
         Dim campo2 As String
         Dim campo3 As String
         Dim campo4 As String
         Dim campo5 As String
         Dim campo6 As String
-        Dim campo7 As String
-        Dim campo8 As String
-        Dim campo9 As String
-        Dim campo10 As String
-        Dim campo11 As String
-        Dim campo12 As String
-        Dim campo13 As String
-        Dim campo14 As String
-        Dim campo15 As String
-        Dim campo16 As String
-        Dim campo17 As String
-        Dim campo18 As String
-        Dim campo19 As String
-        Dim campo20 As String
-        Dim campo21 As String
-        Dim campo22 As String
-        Dim campo23 As String
-        Dim campo24 As String
-        Dim campo25 As String
-        Dim campo26 As String
-        Dim campo27 As String
-        Dim campo28 As String
-        Dim campo29 As String
-        Dim campo30 As String
 
+
+
+        campo1 = Trim(dt.Rows(0)("campo1"))
+        campo2 = Trim(letras)
+        campo3 = Trim(dt.Rows(0)("campo3"))
+        campo4 = Trim(dt.Rows(0)("campo4"))
+        campo5 = Trim(dt.Rows(0)("campo5"))
+        campo6 = Trim(dt.Rows(0)("campo6"))
+
+
+
+        linea = campo1 & "|" & _
+                campo2 & "|"
+
+
+        ' If linea.Substring(0, 1) = "|" Then
+
+        '            Else
+        archivo.WriteLine(linea)
+        '   Next
+        MsgBox("txt creado")
+        '           End If
+        archivo.Close()
+    End Sub
+
+    Private Sub crearAca(codVenta As String, codCli As String)
+        Dim func As New fventa
+        dt = func.crearLeyAca(codVenta, codCli)
+        Dim archivo As StreamWriter
+        Dim linea As String = Nothing
+        archivo = New StreamWriter(aca)
+        'Dim con As Integer = dt.Rows.Count - 1
+        'For i = 0 To con
+        Dim campo1 As String
+        Dim campo2 As String
+        Dim campo3 As String
+        Dim campo4 As String
+        Dim campo5 As String
+        Dim campo6 As String
 
 
         campo1 = Trim(dt.Rows(0)("campo1"))
@@ -656,89 +863,46 @@ Public Class FrmVenta
         campo4 = Trim(dt.Rows(0)("campo4"))
         campo5 = Trim(dt.Rows(0)("campo5"))
         campo6 = Trim(dt.Rows(0)("campo6"))
-        campo7 = Trim(dt.Rows(0)("campo7"))
-        campo8 = Trim(dt.Rows(0)("campo8"))
-        campo9 = Trim(dt.Rows(0)("campo9"))
-        campo10 = Trim(dt.Rows(0)("campo10"))
-        campo11 = Trim(dt.Rows(0)("campo11"))
-        campo12 = Trim(dt.Rows(0)("campo12"))
-        campo13 = Trim(dt.Rows(0)("campo13"))
-        campo14 = Trim(dt.Rows(0)("campo14"))
-        campo15 = Trim(dt.Rows(0)("campo15"))
-        campo16 = Trim(dt.Rows(0)("campo16"))
-        campo17 = Trim(dt.Rows(0)("campo17"))
-        campo18 = Trim(dt.Rows(0)("campo18"))
-        campo19 = Trim(dt.Rows(0)("campo19"))
-        campo20 = Trim(dt.Rows(0)("campo20"))
-        campo21 = Trim(dt.Rows(0)("campo21"))
-        campo22 = Trim(dt.Rows(0)("campo22"))
-        campo23 = Trim(dt.Rows(0)("campo23"))
-        campo24 = Trim(dt.Rows(0)("campo24"))
-        campo25 = Trim(dt.Rows(0)("campo25"))
-        campo26 = Trim(dt.Rows(0)("campo26"))
-        campo27 = Trim(dt.Rows(0)("campo27"))
-        campo28 = Trim(dt.Rows(0)("campo28"))
-        campo29 = Trim(dt.Rows(0)("campo29"))
-        campo30 = Trim(dt.Rows(0)("campo30"))
 
 
 
-        Dim archivo As StreamWriter
-        'Dim nombre As String
-        'nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
-        'nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
-        Dim linea As String = Nothing
-        'archivo = New StreamWriter("D:\idea\FACTURADOR\Facturas\prueba.txt")
-        archivo = New StreamWriter(dtlle)
-        'Dim escoge As Integer
-
-        linea = campo1 & "|" & _
-                campo2 & "|" & _
+        linea = campo6 & "|" & _
+                campo6 & "|" & _
+                campo6 & "|" & _
+                campo6 & "|" & _
+                campo6 & "|" & _
                 campo3 & "|" & _
                 campo4 & "|" & _
                 campo5 & "|" & _
                 campo6 & "|" & _
-                campo7 & "|" & _
-                campo8 & "|" & _
-                campo9 & "|" & _
-                campo10 & "|" & _
-                campo11 & "|" & _
-                campo12 & "|" & _
-                campo13 & "|" & _
-                campo14 & "|" & _
-                campo15 & "|" & _
-                campo16 & "|" & _
-                campo17 & "|" & _
-                campo18 & "|" & _
-                campo19 & "|" & _
-                campo20 & "|" & _
-                campo21 & "|" & _
-                campo22 & "|" & _
-                campo23 & "|" & _
-                campo24 & "|" & _
-                campo25 & "|" & _
-                campo26 & "|" & _
-                campo27 & "|" & _
-                campo28 & "|" & _
-                campo29 & "|" & _
-                campo30 & "|"
-
-
-
-
-
+                campo6 & "|" & _
+                campo6 & "|"
 
 
         ' If linea.Substring(0, 1) = "|" Then
 
         '            Else
         archivo.WriteLine(linea)
+        ' Next
         MsgBox("txt creado")
         '           End If
         archivo.Close()
     End Sub
 
-    Public Sub letras(ByVal numero As String)
+
+
+
+    Public Sub letras(ByVal numero As String, ByVal moneda As String)
+        Dim final As String
+        If moneda = "PEN" Then
+            final = "SOLES"
+        Else
+            If moneda = "USD" Then
+                final = "DOLARES AMERICANOS"
+            Else
+                final = "EUROS"
+            End If
+        End If
         Dim ctdadEntera As String = Int(numero)
         Dim vColeccion() As String = numero.Split(".")
         Dim ctdadDecimal As String = vColeccion(vColeccion.Length - 1)
@@ -810,7 +974,7 @@ Public Class FrmVenta
         End If
 
 
-        letra = CMl + " " + DMl + Ml + " " + Cl + " " + Dl + Ul + " y " + ctdadDecimal + "/100 Nuevos Soles"
+        letra = CMl + " " + DMl + Ml + " " + Cl + " " + Dl + Ul + " y " + ctdadDecimal + "/100 " + final
         txtLetras.Text = letra
 
     End Sub

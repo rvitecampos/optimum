@@ -117,6 +117,7 @@
         txtcod_Servicio.Text = "0"
         txtNombreServicio.Text = ""
         txtcantidad.Text = "0"
+        txtIGV.Text = "0"
         txtPVenta.Text = "0"
         txtPUnitario.Text = "0"
         txtPTotal.Text = "0"
@@ -129,32 +130,43 @@
 
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnVender.Click
+
+
+
         '   Try
 
 
         '     If cbSinPagar.Checked = True Then
-        'Dim dtsActualizar As New VDetalle_venta
+        Dim dtsTotalActual As New vVenta
+        Dim funcTotalActual As New fventa
 
-        '            Dim func As New fDetalle_Venta
-
-        '         dtsActualizar.gcod_venta = TxtCod_venta.Text
+        dtsTotalActual.gcod_Venta = TxtCod_venta.Text
+        dtsTotalActual.gcood_Cliente = txtCodCliente.Text
 
         ' dtsActualizar.gtotal_a_pagar = txtTotal_a_pagar.Text
         ' dtsActualizar.gEstado = "1"
         ' dtsActualizar.gPagando = 0
-        ' If func.editar_Pagos(dtsActualizar) Then
+        'If func.editar_Pagos(dtsActualizar) Then
 
-        '            End If
-        '            If func.actualizar_total(dtsActualizar) Then
+        'End If
+        dt = funcTotalActual.totalActual(dtsTotalActual)
 
-        ' End If
+        If (dt.Rows.Count) <> 0 Then
+            FrmVenta.txtTotal.Text = Trim(dt.Rows(0)("Total"))
+            FrmVenta.txtLetras.Text = Trim(dt.Rows(0)("Letras"))
+        End If
+
+        Dim func As New fventa
+        dt = func.mostrar
+        FrmVenta.datalistadoVenta.DataSource = dt
 
 
         ' If inexistente.Visible <> True Then
         ' MsgBox("Vendido")
         ' If MsgBox("¿Desea crear otra venta?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Venta") = vbYes Then
 
-        FrmVenta.mostrar()
+        'FrmVenta.mostrar()
+
         FrmVenta.Show()
         '  cbSinPagar.Checked = False
         '  Txt_Efectivo.Enabled = True
@@ -347,7 +359,7 @@
                 End If
 
             Else
-                MessageBox.Show("La cantidad que intenta vender supera stock", "No puede vender", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("No ingreso Cantidad", "No puede vender", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
             End If
             '   Else
