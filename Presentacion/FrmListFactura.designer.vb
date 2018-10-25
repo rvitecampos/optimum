@@ -39,6 +39,7 @@ Partial Class FrmListFactura
         Me.btnPdf = New System.Windows.Forms.Button()
         Me.lblCDR = New System.Windows.Forms.Label()
         Me.btnEnviar = New System.Windows.Forms.Button()
+        Me.lblFactura = New System.Windows.Forms.Label()
         CType(Me.datalistadoFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,7 +211,7 @@ Partial Class FrmListFactura
         Me.btnEnviar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
         Me.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEnviar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEnviar.Location = New System.Drawing.Point(756, 573)
+        Me.btnEnviar.Location = New System.Drawing.Point(734, 564)
         Me.btnEnviar.Name = "btnEnviar"
         Me.btnEnviar.Size = New System.Drawing.Size(123, 46)
         Me.btnEnviar.TabIndex = 98
@@ -218,12 +219,23 @@ Partial Class FrmListFactura
         Me.btnEnviar.UseVisualStyleBackColor = True
         Me.btnEnviar.Visible = False
         '
+        'lblFactura
+        '
+        Me.lblFactura.AutoSize = True
+        Me.lblFactura.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFactura.Location = New System.Drawing.Point(1004, 573)
+        Me.lblFactura.Name = "lblFactura"
+        Me.lblFactura.Size = New System.Drawing.Size(20, 20)
+        Me.lblFactura.TabIndex = 99
+        Me.lblFactura.Text = "F"
+        '
         'FrmListFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1246, 649)
+        Me.Controls.Add(Me.lblFactura)
         Me.Controls.Add(Me.btnEnviar)
         Me.Controls.Add(Me.lblCDR)
         Me.Controls.Add(Me.btnPdf)
@@ -259,4 +271,5 @@ Partial Class FrmListFactura
     Friend WithEvents btnPdf As System.Windows.Forms.Button
     Friend WithEvents lblCDR As System.Windows.Forms.Label
     Friend WithEvents btnEnviar As System.Windows.Forms.Button
+    Friend WithEvents lblFactura As System.Windows.Forms.Label
 End Class

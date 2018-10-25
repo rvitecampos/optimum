@@ -78,7 +78,7 @@ Public Class frmPrincipal
         MessageBox.Show("Cualquier problema de SisOptimum, Consultas al 920523590", "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub ExistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaToolStripMenuItem.Click
+    Private Sub ExistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         'ReporteInventario.Show()
 
     End Sub
@@ -211,12 +211,14 @@ Public Class frmPrincipal
         End If
     End Sub
 
-    Private Sub ServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ServiciosToolStripMenuItem.Click
+    Private Sub ServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ListaFacturasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaFacturasToolStripMenuItem.Click
+
+    Private Sub ListaFacturasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ListaFacturasToolStripMenuItem.Click
         FrmListFactura.ShowDialog()
-
     End Sub
+
+ 
 End Class

@@ -215,6 +215,7 @@ Public Class FrmListFactura
         lblXml.Text = ""
         lblPdf.Text = ""
         lblCDR.Text = ""
+        lblFactura.Text = ""
         btnPdf.Visible = False
         btnEnviar.Visible = False
 
@@ -265,6 +266,7 @@ Public Class FrmListFactura
 
     Private Sub datalistadoVenta_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistadoFactura.CellClick
         limpiar()
+        lblFactura.Text = "Factura : " + Trim(datalistadoFactura.SelectedCells.Item(5).Value) + "-" + Trim(datalistadoFactura.SelectedCells.Item(6).Value)
         Xml()
         Pdf()
         Cdr()
@@ -761,22 +763,55 @@ Public Class FrmListFactura
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
-        Return
+        'Return
         'Dim Emisor As String = "ventas@optimum.com.pe"
         Dim Emisor As String = "rvitecampos@hotmail.com"
         Dim Password As String = "VCR97911"
-        Dim Mensaje As String = "prueba Mensaje Sunat"
-        Dim Asunto As String = "prueba Asunto Sunat"
-        Dim Receptor As String = "rvite@miatech.net"
-        Dim ruta As String
-        Dim archivoFinal As String
-        ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
-        archivoFinal = ruta + Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".pdf"
-        Dim RutaArchivo As String = archivoFinal
+        Dim Mensaje As String = "SFS Sunat Emision Factura Electronica"
+
+        Dim Asunto As String = "Factura " + Mid(Trim(datalistadoFactura.SelectedCells.Item(13).Value), 17, Trim(datalistadoFactura.SelectedCells.Item(13).Value).Length - 1)
+        '"prueba Asunto Sunat"
+        Dim Receptor As String = Trim(datalistadoFactura.SelectedCells.Item(14).Value)
+        Dim ruta1 As String
+        Dim archivoFinal1 As String
+        ruta1 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
+        archivoFinal1 = ruta1 + Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".pdf"
+        Dim RutaArchivo1 As String = archivoFinal1
+        Dim ruta2 As String
+        Dim archivoFinal2 As String
+        ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA\"
+        archivoFinal2 = ruta2 + "R" + Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".zip"
+        Dim RutaArchivo2 As String = archivoFinal2
 
 
-        enviarCorreo(Emisor, Password, Mensaje, Asunto, Receptor, RutaArchivo)
+
+        enviarCorreo(Emisor, Password, Mensaje, Asunto, Receptor, RutaArchivo1, RutaArchivo2)
 
 
     End Sub
+
+    Private Sub configSTMP()
+
+
+        ' Usando el cliente como nuevo Imap ()
+        ''client.ConnectSSL("imap-mail.outlook.com")
+        ''client.UseBestLogin("pat@hotmail.com", "contraseña")
+
+        ' Terminar de usar
+
+        'Usando el cliente como nuevo Pop3 ()
+        ''client.ConnectSSL("pop-mail.outlook.com")
+        ''client.UseBestLogin("pat@hotmail.com", "contraseña")
+
+        'Terminar de usar
+
+        'Usando el cliente como nuevo smtp ()
+        ''client.Connect("smtp-mail.outlook.com")
+        ''Cliente.StartTLS()
+        ''client.UseBestLogin("pat@hotmail.com", "contraseña")
+
+        'Terminar de usar
+    End Sub
+
+
 End Class

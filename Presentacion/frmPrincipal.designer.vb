@@ -32,10 +32,8 @@ Partial Class frmPrincipal
         Me.Stock_MovToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ServiciosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComprobantesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListaFacturasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HerramientasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopiaDeSeguridadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,6 +64,9 @@ Partial Class frmPrincipal
         Me.BtnProducto = New System.Windows.Forms.Button()
         Me.BtnCliente = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -75,7 +76,7 @@ Partial Class frmPrincipal
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CapturaToolStripMenuItem, Me.ComprobantesToolStripMenuItem, Me.ToolStripMenuItem1, Me.HerramientasToolStripMenuItem, Me.UtileriasToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(7, 2, 0, 2)
@@ -146,40 +147,21 @@ Partial Class frmPrincipal
         Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.VentaToolStripMenuItem.Text = "&Ventas"
         '
-        'ReportesToolStripMenuItem
+        'ComprobantesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListaFacturasToolStripMenuItem, Me.ExistenciaToolStripMenuItem, Me.ServiciosToolStripMenuItem})
-        Me.ReportesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
-        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        Me.ComprobantesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListaFacturasToolStripMenuItem})
+        Me.ComprobantesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.ComprobantesToolStripMenuItem.ForeColor = System.Drawing.Color.DarkRed
+        Me.ComprobantesToolStripMenuItem.Name = "ComprobantesToolStripMenuItem"
+        Me.ComprobantesToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
+        Me.ComprobantesToolStripMenuItem.Text = "Comprobantes"
         '
         'ListaFacturasToolStripMenuItem
         '
-        Me.ListaFacturasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListaFacturasToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.ListaFacturasToolStripMenuItem.Name = "ListaFacturasToolStripMenuItem"
         Me.ListaFacturasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ListaFacturasToolStripMenuItem.Text = "&Lista Facturas"
-        '
-        'ExistenciaToolStripMenuItem
-        '
-        Me.ExistenciaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExistenciaToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.ExistenciaToolStripMenuItem.Name = "ExistenciaToolStripMenuItem"
-        Me.ExistenciaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.ExistenciaToolStripMenuItem.ShowShortcutKeys = False
-        Me.ExistenciaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExistenciaToolStripMenuItem.Text = "&Existencia"
-        '
-        'ServiciosToolStripMenuItem
-        '
-        Me.ServiciosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiciosToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
-        Me.ServiciosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ServiciosToolStripMenuItem.Text = "&Servicios"
+        Me.ListaFacturasToolStripMenuItem.Text = "Lista Facturas"
         '
         'HerramientasToolStripMenuItem
         '
@@ -459,6 +441,7 @@ Partial Class frmPrincipal
         Me.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnStock.Font = New System.Drawing.Font("Calibri", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStock.ForeColor = System.Drawing.Color.White
+        Me.btnStock.Image = CType(resources.GetObject("btnStock.Image"), System.Drawing.Image)
         Me.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnStock.Location = New System.Drawing.Point(324, 399)
         Me.btnStock.Name = "btnStock"
@@ -539,6 +522,33 @@ Partial Class frmPrincipal
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3})
+        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.Maroon
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(70, 20)
+        Me.ToolStripMenuItem1.Text = "Reportes"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem2.ForeColor = System.Drawing.Color.Maroon
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
+        Me.ToolStripMenuItem2.ShowShortcutKeys = False
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem2.Text = "&Existencia"
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem3.ForeColor = System.Drawing.Color.Maroon
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Text = "&Servicios"
+        '
         'frmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
@@ -586,9 +596,7 @@ Partial Class frmPrincipal
     Friend WithEvents ProductoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProveedorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VentaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ExistenciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AcercaDeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UtileriasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnCliente As System.Windows.Forms.Button
@@ -598,8 +606,6 @@ Partial Class frmPrincipal
     Friend WithEvents BtnVentas As System.Windows.Forms.Button
     Friend WithEvents btnStock As System.Windows.Forms.Button
     Friend WithEvents btnFondo As System.Windows.Forms.Button
-    Friend WithEvents ServiciosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ListaFacturasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnCuentasACobrar As System.Windows.Forms.Button
     Friend WithEvents HerramientasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CopiaDeSeguridadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -621,5 +627,10 @@ Partial Class frmPrincipal
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ServiciosToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Stock_MovToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ComprobantesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListaFacturasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

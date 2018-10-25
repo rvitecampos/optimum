@@ -137,7 +137,7 @@ Public Class FrmVenta
 
         '            Else
         archivo.WriteLine(linea)
-        MsgBox("txt creado")
+        ' MsgBox("txt creado")
         '           End If
         archivo.Close()
 
@@ -775,7 +775,7 @@ Public Class FrmVenta
             '            Else
             archivo.WriteLine(linea)
         Next
-        MsgBox("txt creado")
+        'MsgBox("txt creado")
         '           End If
         archivo.Close()
     End Sub
@@ -816,7 +816,7 @@ Public Class FrmVenta
             '            Else
             archivo.WriteLine(linea)
         Next
-        MsgBox("txt creado")
+        'MsgBox("txt creado")
         '           End If
         archivo.Close()
     End Sub
@@ -858,7 +858,7 @@ Public Class FrmVenta
         '            Else
         archivo.WriteLine(linea)
         '   Next
-        MsgBox("txt creado")
+        MsgBox("txt generados")
         '           End If
         archivo.Close()
     End Sub
@@ -1210,7 +1210,7 @@ Public Class FrmVenta
     Private Sub unMil()
         If M > 0 Then
             If M = 1 Then
-                Ml = "Mil"
+                Ml = "Un Mil"
             ElseIf M = 2 Then
                 Ml = "Dos Mil"
             ElseIf M = 3 Then

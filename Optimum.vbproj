@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\Correo2.vb" />
     <Compile Include="Datos\Correo.vb" />
     <Compile Include="Datos\fServicios.vb" />
     <Compile Include="Datos\fStockMovimiento.vb" />
@@ -669,6 +670,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\listaFacturas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock-fondo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

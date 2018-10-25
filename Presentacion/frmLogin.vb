@@ -33,11 +33,11 @@
                 
 
                 Me.Hide()
-                If funcC.validar_caja(dt) = True Then
+                '            If funcC.validar_caja(dt) = True Then
 
-                Else
-                    '  FrmInicioCaja.ShowDialog()
-                End If
+                ' Else
+                '  FrmInicioCaja.ShowDialog()
+                ' End If
 
             Else
                 MsgBox("Datos incorrectos", MsgBoxStyle.Critical, "Acceso Denegado")

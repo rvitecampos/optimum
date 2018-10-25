@@ -3,6 +3,7 @@
 
     Private Sub Productos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         limpiar()
+        bloquear()
         mostrar()
 
     End Sub

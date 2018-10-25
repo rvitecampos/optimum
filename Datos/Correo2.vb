@@ -1,14 +1,13 @@
-﻿
-Imports System.Net
+﻿Imports System.Net
 Imports System.Net.Mail
 
-Module Correo
+Module Correo2
 
     Private correos As New MailMessage
     Private envios As New SmtpClient
 
 
-    Sub enviarCorreo(ByVal emisor As String, ByVal password As String, ByVal mensaje As String, ByVal asunto As String, ByVal destinatario As String, ByVal ruta1 As String, ByVal ruta2 As String)
+    Sub enviarCorreo2(ByVal emisor As String, ByVal password As String, ByVal mensaje As String, ByVal asunto As String, ByVal destinatario As String, ByVal ruta As String)
         Try
             correos.To.Clear()
             correos.Body = ""
@@ -17,16 +16,10 @@ Module Correo
             correos.Subject = asunto
             correos.IsBodyHtml = True
             correos.To.Add(Trim(destinatario))
-            correos.Priority = System.Net.Mail.MailPriority.Normal
 
-            If ruta1 <> "" Then
-                Dim archivo1 As Net.Mail.Attachment = New Net.Mail.Attachment(ruta1)
-                correos.Attachments.Add(archivo1)
-            End If
-
-            If ruta2 <> "" Then
-                Dim archivo2 As Net.Mail.Attachment = New Net.Mail.Attachment(ruta2)
-                correos.Attachments.Add(archivo2)
+            If ruta <> "" Then
+                Dim archivo As Net.Mail.Attachment = New Net.Mail.Attachment(ruta)
+                correos.Attachments.Add(archivo)
             End If
 
             correos.From = New MailAddress(emisor)
@@ -34,8 +27,8 @@ Module Correo
 
             'Datos importantes no modificables para tener acceso a las cuentas
 
-            envios.Host = "smtp-mail.outlook.com"
-            envios.Port = 587
+            envios.Host = "smtp.live.com"
+            envios.Port = 465
             envios.EnableSsl = True
 
             envios.Send(correos)
