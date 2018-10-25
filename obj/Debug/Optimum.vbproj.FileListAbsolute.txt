@@ -89,3 +89,4 @@ D:\optimum\optimum\obj\Debug\SISVENTAS.Stock.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.StockMovimiento.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.Servicios.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.itemsServicios.resources
+D:\optimum\optimum\obj\Debug\SISVENTAS.FrmListFactura.resources

@@ -27,7 +27,6 @@ Partial Class Detalle_Venta
         Me.cbeliminar = New System.Windows.Forms.CheckBox()
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
         Me.cbocampos = New System.Windows.Forms.ComboBox()
-        Me.btnQuitar = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.BtnSalir = New System.Windows.Forms.Button()
@@ -49,6 +48,7 @@ Partial Class Detalle_Venta
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.txtcantidad = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtCodCliente = New System.Windows.Forms.TextBox()
         Me.txtCliente = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtSerie = New System.Windows.Forms.TextBox()
@@ -63,7 +63,6 @@ Partial Class Detalle_Venta
         Me.txtPVenta = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.txtCodCliente = New System.Windows.Forms.TextBox()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistadoDetalleVenta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,15 +103,6 @@ Partial Class Detalle_Venta
         Me.cbocampos.TabIndex = 1
         Me.cbocampos.Text = "Cood_Producto"
         '
-        'btnQuitar
-        '
-        Me.btnQuitar.Location = New System.Drawing.Point(100, 60)
-        Me.btnQuitar.Name = "btnQuitar"
-        Me.btnQuitar.Size = New System.Drawing.Size(85, 35)
-        Me.btnQuitar.TabIndex = 37
-        Me.btnQuitar.Text = "&Quitar Articulo"
-        Me.btnQuitar.UseVisualStyleBackColor = True
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Button1)
@@ -121,7 +111,6 @@ Partial Class Detalle_Venta
         Me.GroupBox2.Controls.Add(Me.inexistente)
         Me.GroupBox2.Controls.Add(Me.Txtbuscar)
         Me.GroupBox2.Controls.Add(Me.cbocampos)
-        Me.GroupBox2.Controls.Add(Me.btnQuitar)
         Me.GroupBox2.Controls.Add(Me.datalistadoDetalleVenta)
         Me.GroupBox2.Location = New System.Drawing.Point(654, 145)
         Me.GroupBox2.Name = "GroupBox2"
@@ -320,6 +309,15 @@ Partial Class Detalle_Venta
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detalle de Venta"
         '
+        'txtCodCliente
+        '
+        Me.txtCodCliente.Enabled = False
+        Me.txtCodCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCodCliente.Location = New System.Drawing.Point(312, 17)
+        Me.txtCodCliente.Name = "txtCodCliente"
+        Me.txtCodCliente.Size = New System.Drawing.Size(63, 29)
+        Me.txtCodCliente.TabIndex = 93
+        '
         'txtCliente
         '
         Me.txtCliente.Enabled = False
@@ -459,15 +457,6 @@ Partial Class Detalle_Venta
         Me.PictureBox1.TabIndex = 89
         Me.PictureBox1.TabStop = False
         '
-        'txtCodCliente
-        '
-        Me.txtCodCliente.Enabled = False
-        Me.txtCodCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCodCliente.Location = New System.Drawing.Point(312, 17)
-        Me.txtCodCliente.Name = "txtCodCliente"
-        Me.txtCodCliente.Size = New System.Drawing.Size(63, 29)
-        Me.txtCodCliente.TabIndex = 93
-        '
         'Detalle_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -505,7 +494,6 @@ Partial Class Detalle_Venta
     Friend WithEvents inexistente As System.Windows.Forms.Label
     Friend WithEvents Txtbuscar As System.Windows.Forms.TextBox
     Friend WithEvents cbocampos As System.Windows.Forms.ComboBox
-    Friend WithEvents btnQuitar As System.Windows.Forms.Button
     Friend WithEvents datalistadoDetalleVenta As System.Windows.Forms.DataGridView
     Friend WithEvents Eliminar As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents btnbuscarProducto As System.Windows.Forms.Button

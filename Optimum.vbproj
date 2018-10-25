@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\Correo.vb" />
     <Compile Include="Datos\fServicios.vb" />
     <Compile Include="Datos\fStockMovimiento.vb" />
     <Compile Include="Datos\FBackup.vb" />
@@ -178,6 +179,12 @@
       <DependentUpon>Cliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\FrmListFactura.designer.vb">
+      <DependentUpon>FrmListFactura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\FrmListFactura.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\itemsServicios.designer.vb">
@@ -364,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\FrmListFactura.resx">
+      <DependentUpon>FrmListFactura.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\itemsServicios.resx">
       <DependentUpon>itemsServicios.vb</DependentUpon>

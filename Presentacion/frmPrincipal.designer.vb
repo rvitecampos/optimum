@@ -33,12 +33,9 @@ Partial Class frmPrincipal
         Me.ServiciosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentaDelDiaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ListaFacturasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentaDeMesesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.IngresosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PreciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CuentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ServiciosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HerramientasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopiaDeSeguridadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,7 +61,7 @@ Partial Class frmPrincipal
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.btnFondo = New System.Windows.Forms.Button()
         Me.BtnProveedor = New System.Windows.Forms.Button()
-        Me.btnComprar = New System.Windows.Forms.Button()
+        Me.btnStock = New System.Windows.Forms.Button()
         Me.BtnVentas = New System.Windows.Forms.Button()
         Me.BtnProducto = New System.Windows.Forms.Button()
         Me.BtnCliente = New System.Windows.Forms.Button()
@@ -151,21 +148,20 @@ Partial Class frmPrincipal
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaDelDiaToolStripMenuItem, Me.ExistenciaToolStripMenuItem, Me.VentaDeMesesToolStripMenuItem, Me.IngresosToolStripMenuItem, Me.PreciosToolStripMenuItem, Me.CuentasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListaFacturasToolStripMenuItem, Me.ExistenciaToolStripMenuItem, Me.ServiciosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ReportesToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(70, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
-        'VentaDelDiaToolStripMenuItem
+        'ListaFacturasToolStripMenuItem
         '
-        Me.VentaDelDiaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VentaDelDiaToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.VentaDelDiaToolStripMenuItem.Name = "VentaDelDiaToolStripMenuItem"
-        Me.VentaDelDiaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.VentaDelDiaToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.VentaDelDiaToolStripMenuItem.Text = "&Venta del dia"
+        Me.ListaFacturasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListaFacturasToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
+        Me.ListaFacturasToolStripMenuItem.Name = "ListaFacturasToolStripMenuItem"
+        Me.ListaFacturasToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ListaFacturasToolStripMenuItem.Text = "&Lista Facturas"
         '
         'ExistenciaToolStripMenuItem
         '
@@ -173,40 +169,17 @@ Partial Class frmPrincipal
         Me.ExistenciaToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.ExistenciaToolStripMenuItem.Name = "ExistenciaToolStripMenuItem"
         Me.ExistenciaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
-        Me.ExistenciaToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.ExistenciaToolStripMenuItem.ShowShortcutKeys = False
+        Me.ExistenciaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExistenciaToolStripMenuItem.Text = "&Existencia"
         '
-        'VentaDeMesesToolStripMenuItem
+        'ServiciosToolStripMenuItem
         '
-        Me.VentaDeMesesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VentaDeMesesToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.VentaDeMesesToolStripMenuItem.Name = "VentaDeMesesToolStripMenuItem"
-        Me.VentaDeMesesToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.VentaDeMesesToolStripMenuItem.Text = "Venta de Meses"
-        '
-        'IngresosToolStripMenuItem
-        '
-        Me.IngresosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IngresosToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.IngresosToolStripMenuItem.Name = "IngresosToolStripMenuItem"
-        Me.IngresosToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.IngresosToolStripMenuItem.Text = "Ingresos"
-        '
-        'PreciosToolStripMenuItem
-        '
-        Me.PreciosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PreciosToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.PreciosToolStripMenuItem.Name = "PreciosToolStripMenuItem"
-        Me.PreciosToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.PreciosToolStripMenuItem.Text = "Precios"
-        '
-        'CuentasToolStripMenuItem
-        '
-        Me.CuentasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CuentasToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
-        Me.CuentasToolStripMenuItem.Name = "CuentasToolStripMenuItem"
-        Me.CuentasToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.CuentasToolStripMenuItem.Text = "Cuentas"
+        Me.ServiciosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiciosToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
+        Me.ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
+        Me.ServiciosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ServiciosToolStripMenuItem.Text = "&Servicios"
         '
         'HerramientasToolStripMenuItem
         '
@@ -283,14 +256,14 @@ Partial Class frmPrincipal
         Me.BtnCuentasACobrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White
         Me.BtnCuentasACobrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
         Me.BtnCuentasACobrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCuentasACobrar.Font = New System.Drawing.Font("Calibri", 20.0!)
+        Me.BtnCuentasACobrar.Font = New System.Drawing.Font("Calibri", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCuentasACobrar.ForeColor = System.Drawing.Color.White
         Me.BtnCuentasACobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnCuentasACobrar.Location = New System.Drawing.Point(932, 399)
+        Me.BtnCuentasACobrar.Location = New System.Drawing.Point(618, 399)
         Me.BtnCuentasACobrar.Name = "BtnCuentasACobrar"
-        Me.BtnCuentasACobrar.Size = New System.Drawing.Size(304, 104)
+        Me.BtnCuentasACobrar.Size = New System.Drawing.Size(287, 104)
         Me.BtnCuentasACobrar.TabIndex = 3
-        Me.BtnCuentasACobrar.Text = "CUENTAS A COBRAR"
+        Me.BtnCuentasACobrar.Text = "SERVICIOS"
         Me.BtnCuentasACobrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnCuentasACobrar.UseVisualStyleBackColor = False
         '
@@ -476,25 +449,24 @@ Partial Class frmPrincipal
         Me.BtnProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnProveedor.UseVisualStyleBackColor = False
         '
-        'btnComprar
+        'btnStock
         '
-        Me.btnComprar.BackColor = System.Drawing.Color.Transparent
-        Me.btnComprar.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnComprar.FlatAppearance.BorderSize = 0
-        Me.btnComprar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White
-        Me.btnComprar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
-        Me.btnComprar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnComprar.Font = New System.Drawing.Font("Calibri", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnComprar.ForeColor = System.Drawing.Color.White
-        Me.btnComprar.Image = Global.SISVENTAS.My.Resources.Resources.COMPRA
-        Me.btnComprar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnComprar.Location = New System.Drawing.Point(618, 399)
-        Me.btnComprar.Name = "btnComprar"
-        Me.btnComprar.Size = New System.Drawing.Size(287, 104)
-        Me.btnComprar.TabIndex = 3
-        Me.btnComprar.Text = "COMPRAS"
-        Me.btnComprar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnComprar.UseVisualStyleBackColor = False
+        Me.btnStock.BackColor = System.Drawing.Color.Transparent
+        Me.btnStock.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnStock.FlatAppearance.BorderSize = 0
+        Me.btnStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White
+        Me.btnStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.btnStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnStock.Font = New System.Drawing.Font("Calibri", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStock.ForeColor = System.Drawing.Color.White
+        Me.btnStock.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnStock.Location = New System.Drawing.Point(324, 399)
+        Me.btnStock.Name = "btnStock"
+        Me.btnStock.Size = New System.Drawing.Size(265, 104)
+        Me.btnStock.TabIndex = 3
+        Me.btnStock.Text = "STOCK"
+        Me.btnStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnStock.UseVisualStyleBackColor = False
         '
         'BtnVentas
         '
@@ -508,9 +480,9 @@ Partial Class frmPrincipal
         Me.BtnVentas.ForeColor = System.Drawing.Color.White
         Me.BtnVentas.Image = Global.SISVENTAS.My.Resources.Resources.VENTA
         Me.BtnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnVentas.Location = New System.Drawing.Point(324, 399)
+        Me.BtnVentas.Location = New System.Drawing.Point(932, 398)
         Me.BtnVentas.Name = "BtnVentas"
-        Me.BtnVentas.Size = New System.Drawing.Size(265, 104)
+        Me.BtnVentas.Size = New System.Drawing.Size(304, 104)
         Me.BtnVentas.TabIndex = 3
         Me.BtnVentas.Text = "VENTAS"
         Me.BtnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -579,7 +551,7 @@ Partial Class frmPrincipal
         Me.Controls.Add(Me.btnFondo)
         Me.Controls.Add(Me.BtnCuentasACobrar)
         Me.Controls.Add(Me.BtnProveedor)
-        Me.Controls.Add(Me.btnComprar)
+        Me.Controls.Add(Me.btnStock)
         Me.Controls.Add(Me.BtnVentas)
         Me.Controls.Add(Me.BtnProducto)
         Me.Controls.Add(Me.BtnCliente)
@@ -616,7 +588,6 @@ Partial Class frmPrincipal
     Friend WithEvents VentaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents VentaDelDiaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExistenciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AcercaDeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UtileriasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -625,15 +596,13 @@ Partial Class frmPrincipal
     Friend WithEvents BtnProducto As System.Windows.Forms.Button
     Friend WithEvents BtnProveedor As System.Windows.Forms.Button
     Friend WithEvents BtnVentas As System.Windows.Forms.Button
-    Friend WithEvents btnComprar As System.Windows.Forms.Button
+    Friend WithEvents btnStock As System.Windows.Forms.Button
     Friend WithEvents btnFondo As System.Windows.Forms.Button
-    Friend WithEvents VentaDeMesesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents IngresosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PreciosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ServiciosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ListaFacturasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnCuentasACobrar As System.Windows.Forms.Button
     Friend WithEvents HerramientasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CopiaDeSeguridadToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CuentasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CalculadoraToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents datalistado As System.Windows.Forms.DataGridView

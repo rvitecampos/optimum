@@ -50,8 +50,11 @@ Public Class frmPrincipal
     End Sub
 
 
-    Private Sub btnComprar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnComprar.Click
-        frmCompra.ShowDialog()
+    Private Sub btnComprar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnStock.Click
+        FrmBloqueo.ShowDialog()
+        If FrmBloqueo.txtPermiso.Text = "1" Then
+            Stock.ShowDialog()
+        End If
     End Sub
 
     Private Sub btnFondo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFondo.Click
@@ -76,7 +79,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub ExistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExistenciaToolStripMenuItem.Click
-        ReporteInventario.Show()
+        'ReporteInventario.Show()
 
     End Sub
 
@@ -98,28 +101,15 @@ Public Class frmPrincipal
 
     'End Sub
 
-    Private Sub VentaDelDiaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentaDelDiaToolStripMenuItem.Click
+    Private Sub VentaDelDiaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FrmBloqueo.ShowDialog()
         If FrmBloqueo.txtPermiso.Text = "1" Then
             ReporteVentaDia.ShowDialog()
         End If
     End Sub
 
-    Private Sub VentaDeMesesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentaDeMesesToolStripMenuItem.Click
-        FrmBloqueo.ShowDialog()
-        If FrmBloqueo.txtPermiso.Text = "1" Then
-            FrmReporteMeses.Show()
-        End If
-    End Sub
 
-    Private Sub IngresosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IngresosToolStripMenuItem.Click
-        FrmBloqueo.ShowDialog()
-        If FrmBloqueo.txtPermiso.Text = "1" Then
-
-            Reporte_Ingresos.ShowDialog()
-        End If
-
-    End Sub
+ 
     Sub mostrar()
 
         Dim func As New fUsuario
@@ -174,7 +164,7 @@ Public Class frmPrincipal
 
     End Sub
 
-    Private Sub PreciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PreciosToolStripMenuItem.Click
+    Private Sub PreciosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FrmBloqueo.ShowDialog()
         If FrmBloqueo.txtPermiso.Text = "1" Then
             ReportePrecios.ShowDialog()
@@ -182,14 +172,14 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub BtnCuentasACobrar_Click(sender As Object, e As EventArgs) Handles BtnCuentasACobrar.Click
-        FrmCuentas.ShowDialog()
+        Servicios.ShowDialog()
     End Sub
 
     Private Sub CopiaDeSeguridadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopiaDeSeguridadToolStripMenuItem.Click
         frmBackup.ShowDialog()
     End Sub
 
-    Private Sub CuentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CuentasToolStripMenuItem.Click
+    Private Sub CuentasToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FrmBloqueo.ShowDialog()
         If FrmBloqueo.txtPermiso.Text = "1" Then
             ReportePersonasConCuentas.ShowDialog()
@@ -221,4 +211,12 @@ Public Class frmPrincipal
         End If
     End Sub
 
+    Private Sub ServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ServiciosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub ListaFacturasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListaFacturasToolStripMenuItem.Click
+        FrmListFactura.ShowDialog()
+
+    End Sub
 End Class

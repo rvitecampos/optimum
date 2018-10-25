@@ -240,7 +240,7 @@
     End Sub
 
 
-    Private Sub BtnEliminar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
+    Private Sub BtnEliminar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim result As DialogResult
         result = MessageBox.Show("Realmente desea quitar estos articulos", "Quitar articulos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then

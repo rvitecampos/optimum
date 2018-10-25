@@ -36,7 +36,6 @@ Partial Class FrmVenta
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cbeliminar = New System.Windows.Forms.CheckBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
@@ -188,7 +187,6 @@ Partial Class FrmVenta
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.cbeliminar)
-        Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.BtnEliminar)
         Me.GroupBox2.Controls.Add(Me.btnBuscar)
         Me.GroupBox2.Controls.Add(Me.inexistente)
@@ -212,16 +210,6 @@ Partial Class FrmVenta
         Me.cbeliminar.Text = "Eliminar"
         Me.cbeliminar.UseVisualStyleBackColor = True
         Me.cbeliminar.Visible = False
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(288, 79)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(132, 37)
-        Me.Button2.TabIndex = 32
-        Me.Button2.Text = "IMPRIMIR"
-        Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
         '
         'BtnEliminar
         '
@@ -621,7 +609,6 @@ Partial Class FrmVenta
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents dtpVence As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cmbBoxMoneda As System.Windows.Forms.ComboBox

@@ -14,6 +14,8 @@ Public Class FrmVenta
 
     Private Property aca As String
 
+    Private Property nombre2 As String
+
     Private Sub FrmVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
         limpiar()
         mostrar()
@@ -97,14 +99,16 @@ Public Class FrmVenta
 
         Dim archivo As StreamWriter
         Dim nombre As String
-        Dim nombre2 As String
+        Dim nombreGral As String
         nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
-        nombre2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
+        nombreGral = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
+        nombre2 = ""
+        nombre2 = campo7 + "-01-" + campo19 + "-" + campo20
         nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".cab"
-        dtlle = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
-        tri = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".tri"
-        ley = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".ley"
-        aca = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".aca"
+        dtlle = nombreGral + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
+        tri = nombreGral + campo7 + "-01-" + campo19 + "-" + campo20 + ".tri"
+        ley = nombreGral + campo7 + "-01-" + campo19 + "-" + campo20 + ".ley"
+        aca = nombreGral + campo7 + "-01-" + campo19 + "-" + campo20 + ".aca"
 
         Dim linea As String = Nothing
         'archivo = New StreamWriter("D:\idea\FACTURADOR\Facturas\prueba.txt")
@@ -138,13 +142,29 @@ Public Class FrmVenta
         archivo.Close()
 
 
+        grabaArchivo(nombre2)
 
 
         ' MessageBox.Show(msg, "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
+    Private Sub grabaArchivo(gArchivo As String)
+        Dim dtsGrabaArchivo As New vVenta
+        Dim funcGrabaArchivo As New fventa
 
+        dtsGrabaArchivo.gcod_Venta = TxtCod_venta.Text
+        dtsGrabaArchivo.gcood_Cliente = txtCod_cliente.Text
+        dtsGrabaArchivo.garchivo = gArchivo
+
+
+        If funcGrabaArchivo.grabaArchivo(dtsGrabaArchivo) Then
+
+        Else
+
+        End If
+
+    End Sub
 
     Private Sub buscar()
         Try
@@ -288,6 +308,7 @@ Public Class FrmVenta
                 codVta = datalistadoVenta.SelectedCells.Item(1).Value
                 codCli = datalistadoVenta.SelectedCells.Item(3).Value
                 crearCabeceraFac(codVta)
+
                 crearDetalleFac(codVta, codCli)
                 crearTri(codVta, codCli)
                 crearLey(codVta, codCli, Trim(txtLetras.Text))
@@ -399,7 +420,7 @@ Public Class FrmVenta
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         ReporteComprasCliente.ShowDialog()
     End Sub
 
@@ -527,6 +548,7 @@ Public Class FrmVenta
     End Sub
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+        Return
         Dim result As DialogResult
         result = MessageBox.Show("Realmente desea eliminar estos productos", "Eliminar productos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then

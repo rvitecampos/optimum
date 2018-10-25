@@ -1,7 +1,7 @@
 ﻿Public Class vVenta
     Dim cood_cliente, cod_venta, referencial As Integer
     Dim TC, igv, venta, total As Double
-    Dim serie, tipo_oper, fecha_venta, hora_emision, fecha_vencimiento, cod_doc, nro_doc, cliente, tip_moneda, letras, estado As String
+    Dim serie, tipo_oper, fecha_venta, hora_emision, fecha_vencimiento, cod_doc, nro_doc, cliente, tip_moneda, letras, estado, archivo As String
 
     Public Property gcood_Cliente
         Get
@@ -177,6 +177,15 @@
     End Property
 
 
+    Public Property garchivo
+        Get
+            Return archivo
+        End Get
+        Set(ByVal value)
+            archivo = value
+        End Set
+
+    End Property
 
 
 
