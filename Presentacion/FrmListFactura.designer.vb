@@ -148,7 +148,7 @@ Partial Class FrmListFactura
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.REGISTRO_VENTA
+        Me.PictureBox1.Image = Global.SISVENTAS.My.Resources.Resources.listaFacturas
         Me.PictureBox1.Location = New System.Drawing.Point(196, 33)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(871, 126)
