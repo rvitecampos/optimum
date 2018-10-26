@@ -35,8 +35,8 @@ Partial Class FrmVenta
         Me.datalistadoVenta = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cbeliminar = New System.Windows.Forms.CheckBox()
-        Me.BtnEliminar = New System.Windows.Forms.Button()
+        Me.btnGrabar = New System.Windows.Forms.Button()
+        Me.BtnEditar = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
         Me.cbocampos = New System.Windows.Forms.ComboBox()
@@ -186,8 +186,8 @@ Partial Class FrmVenta
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.cbeliminar)
-        Me.GroupBox2.Controls.Add(Me.BtnEliminar)
+        Me.GroupBox2.Controls.Add(Me.btnGrabar)
+        Me.GroupBox2.Controls.Add(Me.BtnEditar)
         Me.GroupBox2.Controls.Add(Me.btnBuscar)
         Me.GroupBox2.Controls.Add(Me.inexistente)
         Me.GroupBox2.Controls.Add(Me.Txtbuscar)
@@ -200,30 +200,34 @@ Partial Class FrmVenta
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Ventas"
         '
-        'cbeliminar
+        'btnGrabar
         '
-        Me.cbeliminar.AutoSize = True
-        Me.cbeliminar.Location = New System.Drawing.Point(19, 94)
-        Me.cbeliminar.Name = "cbeliminar"
-        Me.cbeliminar.Size = New System.Drawing.Size(62, 17)
-        Me.cbeliminar.TabIndex = 94
-        Me.cbeliminar.Text = "Eliminar"
-        Me.cbeliminar.UseVisualStyleBackColor = True
-        Me.cbeliminar.Visible = False
+        Me.btnGrabar.BackColor = System.Drawing.Color.DarkGray
+        Me.btnGrabar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnGrabar.FlatAppearance.BorderSize = 3
+        Me.btnGrabar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.btnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnGrabar.Location = New System.Drawing.Point(185, 83)
+        Me.btnGrabar.Name = "btnGrabar"
+        Me.btnGrabar.Size = New System.Drawing.Size(91, 33)
+        Me.btnGrabar.TabIndex = 94
+        Me.btnGrabar.Text = "G&rabar"
+        Me.btnGrabar.UseVisualStyleBackColor = False
+        Me.btnGrabar.Visible = False
         '
-        'BtnEliminar
+        'BtnEditar
         '
-        Me.BtnEliminar.BackColor = System.Drawing.Color.DarkGray
-        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
-        Me.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEliminar.Location = New System.Drawing.Point(98, 84)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
-        Me.BtnEliminar.TabIndex = 95
-        Me.BtnEliminar.Text = "&Eliminar"
-        Me.BtnEliminar.UseVisualStyleBackColor = False
-        Me.BtnEliminar.Visible = False
+        Me.BtnEditar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.Enabled = False
+        Me.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEditar.Location = New System.Drawing.Point(17, 81)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(85, 35)
+        Me.BtnEditar.TabIndex = 95
+        Me.BtnEditar.Text = "&Editar"
+        Me.BtnEditar.UseVisualStyleBackColor = False
         '
         'btnBuscar
         '
@@ -296,6 +300,7 @@ Partial Class FrmVenta
         Me.txtLetras.Name = "txtLetras"
         Me.txtLetras.Size = New System.Drawing.Size(515, 29)
         Me.txtLetras.TabIndex = 54
+        Me.txtLetras.Visible = False
         '
         'lblEstado
         '
@@ -562,7 +567,7 @@ Partial Class FrmVenta
         '
         'FrmVenta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1246, 644)
@@ -576,18 +581,18 @@ Partial Class FrmVenta
         Me.Name = "FrmVenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "VENTA"
-        CType(Me.datalistadoVenta, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Venta.ResumeLayout(False)
-        Me.Venta.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        CType(Me.datalistadoVenta,System.ComponentModel.ISupportInitialize).EndInit
+        Me.GroupBox2.ResumeLayout(false)
+        Me.GroupBox2.PerformLayout
+        CType(Me.Erroricono,System.ComponentModel.ISupportInitialize).EndInit
+        Me.Venta.ResumeLayout(false)
+        Me.Venta.PerformLayout
+        Me.GroupBox1.ResumeLayout(false)
+        Me.GroupBox1.PerformLayout
+        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents BtnBuscarCliente As System.Windows.Forms.Button
     Friend WithEvents BtnCerrar As System.Windows.Forms.Button
     Friend WithEvents TxtNombre As System.Windows.Forms.TextBox
@@ -618,8 +623,7 @@ Partial Class FrmVenta
     Friend WithEvents btnRegistrar As System.Windows.Forms.Button
     Friend WithEvents btnAñadir As System.Windows.Forms.Button
     Friend WithEvents BtnNuevo As System.Windows.Forms.Button
-    Friend WithEvents cbeliminar As System.Windows.Forms.CheckBox
-    Friend WithEvents BtnEliminar As System.Windows.Forms.Button
+    Friend WithEvents BtnEditar As System.Windows.Forms.Button
     Friend WithEvents txtTC As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -633,4 +637,5 @@ Partial Class FrmVenta
     Friend WithEvents txtTotal As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents txtLetras As System.Windows.Forms.TextBox
+    Friend WithEvents btnGrabar As System.Windows.Forms.Button
 End Class

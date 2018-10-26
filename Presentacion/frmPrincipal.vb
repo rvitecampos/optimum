@@ -218,6 +218,7 @@ Public Class frmPrincipal
 
     Private Sub ListaFacturasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ListaFacturasToolStripMenuItem.Click
         FrmListFactura.ShowDialog()
+        FrmListFactura.Dispose()
     End Sub
 
  

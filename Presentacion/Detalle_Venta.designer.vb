@@ -28,8 +28,9 @@ Partial Class Detalle_Venta
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
         Me.cbocampos = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BtnSalir = New System.Windows.Forms.Button()
         Me.inexistente = New System.Windows.Forms.Label()
         Me.datalistadoDetalleVenta = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -96,17 +97,18 @@ Partial Class Detalle_Venta
         'cbocampos
         '
         Me.cbocampos.FormattingEnabled = True
-        Me.cbocampos.Items.AddRange(New Object() {"Cood_Producto"})
+        Me.cbocampos.Items.AddRange(New Object() {"Cood_Servicio"})
         Me.cbocampos.Location = New System.Drawing.Point(22, 26)
         Me.cbocampos.Name = "cbocampos"
         Me.cbocampos.Size = New System.Drawing.Size(121, 21)
         Me.cbocampos.TabIndex = 1
-        Me.cbocampos.Text = "Cood_Producto"
+        Me.cbocampos.Text = "Cood_Servicio"
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnBuscar)
+        Me.GroupBox2.Controls.Add(Me.BtnEliminar)
         Me.GroupBox2.Controls.Add(Me.Button1)
-        Me.GroupBox2.Controls.Add(Me.BtnSalir)
         Me.GroupBox2.Controls.Add(Me.cbeliminar)
         Me.GroupBox2.Controls.Add(Me.inexistente)
         Me.GroupBox2.Controls.Add(Me.Txtbuscar)
@@ -119,23 +121,41 @@ Partial Class Detalle_Venta
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Detalle"
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.Color.DarkGray
+        Me.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBuscar.Location = New System.Drawing.Point(457, 60)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(85, 35)
+        Me.btnBuscar.TabIndex = 114
+        Me.btnBuscar.Text = "&Buscar"
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.BackColor = System.Drawing.Color.DarkGray
+        Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
+        Me.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEliminar.Location = New System.Drawing.Point(90, 60)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
+        Me.BtnEliminar.TabIndex = 113
+        Me.BtnEliminar.Text = "&Eliminar"
+        Me.BtnEliminar.UseVisualStyleBackColor = False
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(195, 60)
+        Me.Button1.Location = New System.Drawing.Point(227, 60)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(147, 34)
         Me.Button1.TabIndex = 112
         Me.Button1.Text = "CALCULADORA"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'BtnSalir
-        '
-        Me.BtnSalir.Location = New System.Drawing.Point(441, 418)
-        Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(112, 33)
-        Me.BtnSalir.TabIndex = 39
-        Me.BtnSalir.Text = "Salir"
-        Me.BtnSalir.UseVisualStyleBackColor = True
         '
         'inexistente
         '
@@ -509,7 +529,6 @@ Partial Class Detalle_Venta
     Friend WithEvents txtflag As System.Windows.Forms.TextBox
     Friend WithEvents txt_total_a_pagar As System.Windows.Forms.TextBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents BtnSalir As System.Windows.Forms.Button
     Friend WithEvents txtcantidad As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
@@ -528,4 +547,6 @@ Partial Class Detalle_Venta
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents txtPVenta As System.Windows.Forms.TextBox
     Friend WithEvents txtCodCliente As System.Windows.Forms.TextBox
+    Friend WithEvents btnBuscar As System.Windows.Forms.Button
+    Friend WithEvents BtnEliminar As System.Windows.Forms.Button
 End Class

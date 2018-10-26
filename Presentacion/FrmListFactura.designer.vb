@@ -25,10 +25,10 @@ Partial Class FrmListFactura
         Me.components = New System.ComponentModel.Container()
         Me.inexistente = New System.Windows.Forms.Label()
         Me.datalistadoFactura = New System.Windows.Forms.DataGridView()
-        Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.dtfacLblXML = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dtfacLblPdf = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dtfacLblSUNAT = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cbeliminar = New System.Windows.Forms.CheckBox()
-        Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
         Me.cbocampos = New System.Windows.Forms.ComboBox()
@@ -40,6 +40,7 @@ Partial Class FrmListFactura
         Me.lblCDR = New System.Windows.Forms.Label()
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.lblFactura = New System.Windows.Forms.Label()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         CType(Me.datalistadoFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,7 +61,7 @@ Partial Class FrmListFactura
         Me.datalistadoFactura.AllowUserToAddRows = False
         Me.datalistadoFactura.AllowUserToDeleteRows = False
         Me.datalistadoFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.datalistadoFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar})
+        Me.datalistadoFactura.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dtfacLblXML, Me.dtfacLblPdf, Me.dtfacLblSUNAT})
         Me.datalistadoFactura.Location = New System.Drawing.Point(16, 108)
         Me.datalistadoFactura.Name = "datalistadoFactura"
         Me.datalistadoFactura.ReadOnly = True
@@ -68,16 +69,27 @@ Partial Class FrmListFactura
         Me.datalistadoFactura.Size = New System.Drawing.Size(1119, 245)
         Me.datalistadoFactura.TabIndex = 0
         '
-        'Eliminar
+        'dtfacLblXML
         '
-        Me.Eliminar.HeaderText = "Eliminar"
-        Me.Eliminar.Name = "Eliminar"
-        Me.Eliminar.ReadOnly = True
+        Me.dtfacLblXML.HeaderText = "XML"
+        Me.dtfacLblXML.Name = "dtfacLblXML"
+        Me.dtfacLblXML.ReadOnly = True
+        '
+        'dtfacLblPdf
+        '
+        Me.dtfacLblPdf.HeaderText = "PDF"
+        Me.dtfacLblPdf.Name = "dtfacLblPdf"
+        Me.dtfacLblPdf.ReadOnly = True
+        '
+        'dtfacLblSUNAT
+        '
+        Me.dtfacLblSUNAT.HeaderText = "SUNAT"
+        Me.dtfacLblSUNAT.Name = "dtfacLblSUNAT"
+        Me.dtfacLblSUNAT.ReadOnly = True
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.cbeliminar)
-        Me.GroupBox2.Controls.Add(Me.BtnEliminar)
+        Me.GroupBox2.Controls.Add(Me.btnRefresh)
         Me.GroupBox2.Controls.Add(Me.btnBuscar)
         Me.GroupBox2.Controls.Add(Me.inexistente)
         Me.GroupBox2.Controls.Add(Me.Txtbuscar)
@@ -90,34 +102,9 @@ Partial Class FrmListFactura
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Facturas"
         '
-        'cbeliminar
-        '
-        Me.cbeliminar.AutoSize = True
-        Me.cbeliminar.Location = New System.Drawing.Point(16, 75)
-        Me.cbeliminar.Name = "cbeliminar"
-        Me.cbeliminar.Size = New System.Drawing.Size(62, 17)
-        Me.cbeliminar.TabIndex = 94
-        Me.cbeliminar.Text = "Eliminar"
-        Me.cbeliminar.UseVisualStyleBackColor = True
-        Me.cbeliminar.Visible = False
-        '
-        'BtnEliminar
-        '
-        Me.BtnEliminar.BackColor = System.Drawing.Color.DarkGray
-        Me.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PeachPuff
-        Me.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEliminar.Location = New System.Drawing.Point(84, 57)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
-        Me.BtnEliminar.TabIndex = 95
-        Me.BtnEliminar.Text = "&Eliminar"
-        Me.BtnEliminar.UseVisualStyleBackColor = False
-        Me.BtnEliminar.Visible = False
-        '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(426, 55)
+        Me.btnBuscar.Location = New System.Drawing.Point(566, 18)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(121, 37)
         Me.btnBuscar.TabIndex = 31
@@ -141,7 +128,7 @@ Partial Class FrmListFactura
         Me.cbocampos.Name = "cbocampos"
         Me.cbocampos.Size = New System.Drawing.Size(152, 32)
         Me.cbocampos.TabIndex = 1
-        Me.cbocampos.Text = "Cod_Venta"
+        Me.cbocampos.Text = "Cliente"
         '
         'Erroricono
         '
@@ -161,7 +148,7 @@ Partial Class FrmListFactura
         Me.lblXml.AutoSize = True
         Me.lblXml.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblXml.ForeColor = System.Drawing.Color.Black
-        Me.lblXml.Location = New System.Drawing.Point(56, 573)
+        Me.lblXml.Location = New System.Drawing.Point(404, 564)
         Me.lblXml.Name = "lblXml"
         Me.lblXml.Size = New System.Drawing.Size(50, 24)
         Me.lblXml.TabIndex = 94
@@ -172,7 +159,7 @@ Partial Class FrmListFactura
         Me.lblPdf.AutoSize = True
         Me.lblPdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPdf.ForeColor = System.Drawing.Color.Black
-        Me.lblPdf.Location = New System.Drawing.Point(237, 573)
+        Me.lblPdf.Location = New System.Drawing.Point(585, 564)
         Me.lblPdf.Name = "lblPdf"
         Me.lblPdf.Size = New System.Drawing.Size(47, 24)
         Me.lblPdf.TabIndex = 95
@@ -185,7 +172,7 @@ Partial Class FrmListFactura
         Me.btnPdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
         Me.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPdf.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPdf.Location = New System.Drawing.Point(241, 600)
+        Me.btnPdf.Location = New System.Drawing.Point(589, 591)
         Me.btnPdf.Name = "btnPdf"
         Me.btnPdf.Size = New System.Drawing.Size(87, 37)
         Me.btnPdf.TabIndex = 96
@@ -198,7 +185,7 @@ Partial Class FrmListFactura
         Me.lblCDR.AutoSize = True
         Me.lblCDR.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCDR.ForeColor = System.Drawing.Color.Black
-        Me.lblCDR.Location = New System.Drawing.Point(422, 573)
+        Me.lblCDR.Location = New System.Drawing.Point(770, 564)
         Me.lblCDR.Name = "lblCDR"
         Me.lblCDR.Size = New System.Drawing.Size(49, 24)
         Me.lblCDR.TabIndex = 97
@@ -211,7 +198,7 @@ Partial Class FrmListFactura
         Me.btnEnviar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
         Me.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEnviar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEnviar.Location = New System.Drawing.Point(734, 564)
+        Me.btnEnviar.Location = New System.Drawing.Point(1082, 555)
         Me.btnEnviar.Name = "btnEnviar"
         Me.btnEnviar.Size = New System.Drawing.Size(123, 46)
         Me.btnEnviar.TabIndex = 98
@@ -222,12 +209,21 @@ Partial Class FrmListFactura
         'lblFactura
         '
         Me.lblFactura.AutoSize = True
-        Me.lblFactura.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFactura.Location = New System.Drawing.Point(1004, 573)
+        Me.lblFactura.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFactura.Location = New System.Drawing.Point(56, 568)
         Me.lblFactura.Name = "lblFactura"
-        Me.lblFactura.Size = New System.Drawing.Size(20, 20)
+        Me.lblFactura.Size = New System.Drawing.Size(23, 24)
         Me.lblFactura.TabIndex = 99
         Me.lblFactura.Text = "F"
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(16, 63)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(89, 28)
+        Me.btnRefresh.TabIndex = 32
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'FrmListFactura
         '
@@ -257,19 +253,20 @@ Partial Class FrmListFactura
     End Sub
     Friend WithEvents inexistente As System.Windows.Forms.Label
     Friend WithEvents datalistadoFactura As System.Windows.Forms.DataGridView
-    Friend WithEvents Eliminar As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Txtbuscar As System.Windows.Forms.TextBox
     Friend WithEvents cbocampos As System.Windows.Forms.ComboBox
     Friend WithEvents Erroricono As System.Windows.Forms.ErrorProvider
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents cbeliminar As System.Windows.Forms.CheckBox
-    Friend WithEvents BtnEliminar As System.Windows.Forms.Button
     Friend WithEvents lblXml As System.Windows.Forms.Label
     Friend WithEvents lblPdf As System.Windows.Forms.Label
     Friend WithEvents btnPdf As System.Windows.Forms.Button
     Friend WithEvents lblCDR As System.Windows.Forms.Label
     Friend WithEvents btnEnviar As System.Windows.Forms.Button
     Friend WithEvents lblFactura As System.Windows.Forms.Label
+    Friend WithEvents dtfacLblXML As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dtfacLblPdf As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents dtfacLblSUNAT As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnRefresh As System.Windows.Forms.Button
 End Class

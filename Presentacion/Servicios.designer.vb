@@ -39,9 +39,9 @@ Partial Class Servicios
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtNombreServicio = New System.Windows.Forms.TextBox()
+        Me.btnMovimientos = New System.Windows.Forms.Button()
         Me.txtItems = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnMovimientos = New System.Windows.Forms.Button()
         Me.txtVenta = New System.Windows.Forms.TextBox()
         Me.TxtCosto = New System.Windows.Forms.TextBox()
         Me.BtnNuevo = New System.Windows.Forms.Button()
@@ -80,7 +80,7 @@ Partial Class Servicios
         Me.Txtbuscar.Location = New System.Drawing.Point(199, 26)
         Me.Txtbuscar.Name = "Txtbuscar"
         Me.Txtbuscar.Size = New System.Drawing.Size(361, 29)
-        Me.Txtbuscar.TabIndex = 13
+        Me.Txtbuscar.TabIndex = 11
         '
         'cbocampos
         '
@@ -90,7 +90,7 @@ Partial Class Servicios
         Me.cbocampos.Location = New System.Drawing.Point(29, 26)
         Me.cbocampos.Name = "cbocampos"
         Me.cbocampos.Size = New System.Drawing.Size(164, 32)
-        Me.cbocampos.TabIndex = 1
+        Me.cbocampos.TabIndex = 10
         Me.cbocampos.Text = "Cod_Servicio"
         '
         'datalistadoStock
@@ -104,7 +104,7 @@ Partial Class Servicios
         Me.datalistadoStock.ReadOnly = True
         Me.datalistadoStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.datalistadoStock.Size = New System.Drawing.Size(531, 368)
-        Me.datalistadoStock.TabIndex = 0
+        Me.datalistadoStock.TabIndex = 15
         '
         'Eliminar
         '
@@ -118,10 +118,9 @@ Partial Class Servicios
         Me.cbeliminar.Location = New System.Drawing.Point(29, 71)
         Me.cbeliminar.Name = "cbeliminar"
         Me.cbeliminar.Size = New System.Drawing.Size(62, 17)
-        Me.cbeliminar.TabIndex = 14
+        Me.cbeliminar.TabIndex = 12
         Me.cbeliminar.Text = "Eliminar"
         Me.cbeliminar.UseVisualStyleBackColor = True
-        Me.cbeliminar.Visible = False
         '
         'GroupBox2
         '
@@ -148,7 +147,7 @@ Partial Class Servicios
         Me.Button1.Location = New System.Drawing.Point(475, 61)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(85, 35)
-        Me.Button1.TabIndex = 16
+        Me.Button1.TabIndex = 14
         Me.Button1.Text = "&Buscar"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -162,10 +161,9 @@ Partial Class Servicios
         Me.BtnEliminar.Location = New System.Drawing.Point(108, 61)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(85, 35)
-        Me.BtnEliminar.TabIndex = 15
+        Me.BtnEliminar.TabIndex = 13
         Me.BtnEliminar.Text = "&Eliminar"
         Me.BtnEliminar.UseVisualStyleBackColor = False
-        Me.BtnEliminar.Visible = False
         '
         'TxtCodServicio
         '
@@ -175,7 +173,7 @@ Partial Class Servicios
         Me.TxtCodServicio.MaxLength = 13
         Me.TxtCodServicio.Name = "TxtCodServicio"
         Me.TxtCodServicio.Size = New System.Drawing.Size(486, 29)
-        Me.TxtCodServicio.TabIndex = 1
+        Me.TxtCodServicio.TabIndex = 100
         '
         'Label1
         '
@@ -219,7 +217,16 @@ Partial Class Servicios
         Me.TxtNombreServicio.MaxLength = 20
         Me.TxtNombreServicio.Name = "TxtNombreServicio"
         Me.TxtNombreServicio.Size = New System.Drawing.Size(486, 29)
-        Me.TxtNombreServicio.TabIndex = 2
+        Me.TxtNombreServicio.TabIndex = 1
+        '
+        'btnMovimientos
+        '
+        Me.btnMovimientos.Location = New System.Drawing.Point(287, 112)
+        Me.btnMovimientos.Name = "btnMovimientos"
+        Me.btnMovimientos.Size = New System.Drawing.Size(75, 31)
+        Me.btnMovimientos.TabIndex = 4
+        Me.btnMovimientos.Text = "Añadir Items"
+        Me.btnMovimientos.UseVisualStyleBackColor = True
         '
         'txtItems
         '
@@ -229,7 +236,7 @@ Partial Class Servicios
         Me.txtItems.MaxLength = 18
         Me.txtItems.Name = "txtItems"
         Me.txtItems.Size = New System.Drawing.Size(141, 29)
-        Me.txtItems.TabIndex = 4
+        Me.txtItems.TabIndex = 3
         '
         'Label2
         '
@@ -240,15 +247,6 @@ Partial Class Servicios
         Me.Label2.TabIndex = 24
         Me.Label2.Text = "Nombre:"
         '
-        'btnMovimientos
-        '
-        Me.btnMovimientos.Location = New System.Drawing.Point(287, 112)
-        Me.btnMovimientos.Name = "btnMovimientos"
-        Me.btnMovimientos.Size = New System.Drawing.Size(75, 31)
-        Me.btnMovimientos.TabIndex = 7
-        Me.btnMovimientos.Text = "Añadir Items"
-        Me.btnMovimientos.UseVisualStyleBackColor = True
-        '
         'txtVenta
         '
         Me.txtVenta.Enabled = False
@@ -257,7 +255,7 @@ Partial Class Servicios
         Me.txtVenta.MaxLength = 18
         Me.txtVenta.Name = "txtVenta"
         Me.txtVenta.Size = New System.Drawing.Size(185, 29)
-        Me.txtVenta.TabIndex = 9
+        Me.txtVenta.TabIndex = 6
         '
         'TxtCosto
         '
@@ -267,7 +265,7 @@ Partial Class Servicios
         Me.TxtCosto.MaxLength = 18
         Me.TxtCosto.Name = "TxtCosto"
         Me.TxtCosto.Size = New System.Drawing.Size(171, 29)
-        Me.TxtCosto.TabIndex = 8
+        Me.TxtCosto.TabIndex = 5
         '
         'BtnNuevo
         '
@@ -280,7 +278,7 @@ Partial Class Servicios
         Me.BtnNuevo.Location = New System.Drawing.Point(54, 433)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(85, 46)
-        Me.BtnNuevo.TabIndex = 10
+        Me.BtnNuevo.TabIndex = 7
         Me.BtnNuevo.Text = "&Nuevo"
         Me.BtnNuevo.UseVisualStyleBackColor = False
         '
@@ -349,7 +347,7 @@ Partial Class Servicios
         Me.BtnGuardar.Location = New System.Drawing.Point(291, 434)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(85, 45)
-        Me.BtnGuardar.TabIndex = 12
+        Me.BtnGuardar.TabIndex = 9
         Me.BtnGuardar.Text = "&Guardar"
         Me.BtnGuardar.UseVisualStyleBackColor = False
         '
@@ -364,7 +362,7 @@ Partial Class Servicios
         Me.BtnEditar.Location = New System.Drawing.Point(167, 434)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(85, 46)
-        Me.BtnEditar.TabIndex = 31
+        Me.BtnEditar.TabIndex = 8
         Me.BtnEditar.Text = "&Editar"
         Me.BtnEditar.UseVisualStyleBackColor = False
         '

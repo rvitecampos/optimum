@@ -83,7 +83,7 @@ Public Class fServicios
     Public Function eliminar(ByVal dts As vServicios) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("eliminar_servicios")
+            cmd = New SqlCommand("eliminar_Servicio")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 

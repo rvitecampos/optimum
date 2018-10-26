@@ -174,36 +174,41 @@
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         Try
 
-
-            If Me.ValidateChildren = True And TxtNombreServicio.Text <> "" And TxtCodServicio.Text <> "" And txtVenta.Text <> "" Then
-                ' And TxtCodProveedor.Text > 0 Then
-
-                Dim dts As New vServicios
-                Dim func As New fServicios
-
-                'INSERTAR PRODUCTO
-                dts.gcod_Servicio = TxtCodServicio.Text
-                dts.gnombre_Servicio = TxtNombreServicio.Text
-                dts.gventa = txtVenta.Text
-                '       dts.gCtdad = txtCtdad.Text
-                '       dts.gDocumento = txtDoc.Text
+            If TxtCodServicio.Text <> "" Then
 
 
-                If func.insertar(dts) Then
-                    MessageBox.Show("Servicio registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    mostrar()
-                    limpiar()
-                    bloquear()
-                    ' BtnGuardar.Enabled = False
-                    BtnNuevo.Enabled = True
+                If txtVenta.Text <> 0 Then
+                    ' And TxtCodProveedor.Text > 0 Then
+
+                    Dim dts As New vServicios
+                    Dim func As New fServicios
+
+                    'INSERTAR PRODUCTO
+                    dts.gcod_Servicio = TxtCodServicio.Text
+                    dts.gnombre_Servicio = TxtNombreServicio.Text
+                    dts.gventa = txtVenta.Text
+                    '       dts.gCtdad = txtCtdad.Text
+                    '       dts.gDocumento = txtDoc.Text
+
+
+                    If func.insertar(dts) Then
+                        MessageBox.Show("Servicio registrado correctamente", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        mostrar()
+                        limpiar()
+                        bloquear()
+                        ' BtnGuardar.Enabled = False
+                        BtnNuevo.Enabled = True
+                    Else
+                        MessageBox.Show("Servicio no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        mostrar()
+
+
+                    End If
+
+
                 Else
-                    MessageBox.Show("Servicio no registrado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    mostrar()
-
-
+                    MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-
-
             Else
                 MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
@@ -326,34 +331,43 @@
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea eliminar estos productos", "Eliminar productos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Realmente desea eliminar estos Servicios", "Eliminar Servicios", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
         If result = DialogResult.OK Then
             FrmBloqueo.ShowDialog()
             If FrmBloqueo.txtPermiso.Text = "1" Then
-                Try
-                    For Each row As DataGridViewRow In datalistadoStock.Rows
-                        Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
 
-                        If marcado Then
-                            'Dim onekey As Integer = Convert.ToInt32(row.Cells("Cod_producto").Value)
-                            Dim vdb As New vServicios
-                            Dim func As New fServicios
-                            vdb.gcod_Servicio = TxtCodServicio.Text
-
-                            If func.eliminar(vdb) Then
-                                MessageBox.Show("Servicio eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                bloquear()
-                                limpiar()
-
-                            End If
-                        End If
-                    Next
+                If txtItems.Text > 0 Then
+                    MessageBox.Show("Servicio con Items", "Eliminacion incompleta", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Call mostrar()
+                Else
 
 
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+                    Try
+                        For Each row As DataGridViewRow In datalistadoStock.Rows
+                            Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
+
+                            If marcado Then
+                                'Dim onekey As Integer = Convert.ToInt32(row.Cells("Cod_producto").Value)
+                                Dim vdb As New vServicios
+                                Dim func As New fServicios
+                                vdb.gcod_Servicio = TxtCodServicio.Text
+
+                                If func.eliminar(vdb) Then
+                                    MessageBox.Show("Servicio eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    bloquear()
+                                    limpiar()
+
+                                End If
+                            End If
+                        Next
+                        Call mostrar()
+
+
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                    End Try
+
+                End If
 
             Else
                 MessageBox.Show("Cancelando eliminacion", "Eliminacion incompleta", MessageBoxButtons.OK, MessageBoxIcon.Information)

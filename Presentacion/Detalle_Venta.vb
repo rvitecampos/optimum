@@ -170,7 +170,8 @@
         FrmVenta.Show()
         '  cbSinPagar.Checked = False
         '  Txt_Efectivo.Enabled = True
-        Me.Close()
+        Me.Dispose()
+        '''''Me.Close()
         '  Else
         ' FrmVenta.Close()
         ' cbSinPagar.Checked = False
@@ -381,8 +382,10 @@
     Private Sub cbeliminar_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbeliminar.CheckedChanged
         If cbeliminar.CheckState = CheckState.Checked Then
             datalistadoDetalleVenta.Columns.Item("eliminar").Visible = True
+            BtnEliminar.Enabled = True
         Else
             datalistadoDetalleVenta.Columns.Item("eliminar").Visible = False
+            BtnEliminar.Enabled = False
         End If
     End Sub
 
@@ -394,7 +397,7 @@
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         '     If txtTotal_a_pagar.Text <> "0" Then
         'MsgBox("Aún no vendio esos articulos debe quitarlos de la venta o venderlos")
         '     Else
@@ -522,5 +525,62 @@
         Else
             txtIGV.Text = ""
         End If
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+        Dim result As DialogResult
+        result = MessageBox.Show("Realmente desea eliminar estos Detalles", "Eliminar Detalles", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        If result = DialogResult.OK Then
+            FrmBloqueo.ShowDialog()
+            If FrmBloqueo.txtPermiso.Text = "1" Then
+
+
+                Try
+                    For Each row As DataGridViewRow In datalistadoDetalleVenta.Rows
+                        Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
+
+                        If marcado Then
+                            'Dim onekey As Integer = Convert.ToInt32(row.Cells("Cod_producto").Value)
+                            Dim dts As New VDetalle_venta
+                            Dim func As New fDetalle_Venta
+
+                            dts.gCood_venta = datalistadoDetalleVenta.SelectedCells.Item(1).Value
+                            dts.gCood_Cliente = datalistadoDetalleVenta.SelectedCells.Item(2).Value
+                            dts.gCood_Servicio = datalistadoDetalleVenta.SelectedCells.Item(5).Value
+                            dts.gVenta = datalistadoDetalleVenta.SelectedCells.Item(9).Value
+                            dts.gIGV = datalistadoDetalleVenta.SelectedCells.Item(8).Value
+                            dts.gTotal = datalistadoDetalleVenta.SelectedCells.Item(10).Value
+
+                            If func.eliminar(dts) Then
+                                MessageBox.Show("Detalle eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                'bloquear()
+                                limpiar()
+
+                            End If
+                        End If
+                    Next
+                    Call mostrar()
+
+
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+
+
+            Else
+                MessageBox.Show("Cancelando eliminacion", "Eliminacion incompleta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Call mostrar()
+
+            End If
+        End If
+        Call limpiar()
+
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Return
+        limpiar()
+        'bloquear()
+        buscar()
     End Sub
 End Class

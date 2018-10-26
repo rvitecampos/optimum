@@ -31,20 +31,22 @@ Public Class FrmVenta
         dt = func.mostrar
         datalistadoVenta.Columns.Item("Eliminar").Visible = False
 
+
+
         If dt.Rows.Count <> 0 Then
             datalistadoVenta.DataSource = dt
             Txtbuscar.Enabled = True
             datalistadoVenta.ColumnHeadersVisible = True
             inexistente.Visible = False
-            cbeliminar.Visible = True
-            BtnEliminar.Visible = True
+            'cbeliminar.Visible = True
+            BtnEditar.Visible = True
         Else
             datalistadoVenta.DataSource = Nothing
             Txtbuscar.Enabled = False
             datalistadoVenta.ColumnHeadersVisible = False
             inexistente.Visible = True
-            cbeliminar.Visible = False
-            BtnEliminar.Visible = False
+            'cbeliminar.Visible = False
+            BtnEditar.Visible = False
         End If
 
     End Sub
@@ -230,6 +232,8 @@ Public Class FrmVenta
     End Sub
 
     Public Sub limpiar()
+        btnGrabar.Visible = False
+        BtnEditar.Enabled = False
         btnRegistrar.Enabled = False
         btnAñadir.Enabled = False
         BtnCerrar.Enabled = False
@@ -280,12 +284,19 @@ Public Class FrmVenta
         cmbBoxOper.Enabled = True
         cmbBoxMoneda.Enabled = True
         btnRegistrar.Enabled = True
-        '' 'btnAñadir.Enabled = True
-        'txtTC.Enabled = True
         dtpVence.Enabled = True
-        'txtRefer.Enabled = True
-
     End Sub
+    Public Sub desbloquear2()
+        dtpFecha.Enabled = True
+        BtnBuscarCliente.Enabled = True
+        cmbBoxOper.Enabled = True
+        cmbBoxMoneda.Enabled = True
+        'btnRegistrar.Enabled = True
+        dtpVence.Enabled = True
+    End Sub
+
+
+
 
     Private Sub BtnBuscarCliente_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnBuscarCliente.Click
         Cliente.txtflag.Text = "1"
@@ -312,7 +323,7 @@ Public Class FrmVenta
                 crearDetalleFac(codVta, codCli)
                 crearTri(codVta, codCli)
                 crearLey(codVta, codCli, Trim(txtLetras.Text))
-                'crearAca(codVta, codCli)
+                crearAca(codVta, codCli)
                 Dim dtsCerrar As New vVenta
                 Dim funcCerrar As New fventa
 
@@ -365,6 +376,7 @@ Public Class FrmVenta
         bloquear()
         btnAñadir.Enabled = True
         BtnCerrar.Enabled = True
+        BtnEditar.Enabled = True
         TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
         Dim fechaVta As String = datalistadoVenta.SelectedCells.Item(2).Value
         Dim fecha As String = ""
@@ -490,7 +502,7 @@ Public Class FrmVenta
             dts.gigv = 0
             dts.gventa = 0
             dts.gtotal = 0
-            dts.gletras = txtLetras.Text
+            dts.gletras = ""
 
             If func.insertar(dts, fac2) Then
                 MessageBox.Show("Venta registrada correctamente, INGRESE PRODUCTOS", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -537,56 +549,14 @@ Public Class FrmVenta
         End If
     End Sub
 
-    Private Sub cbeliminar_CheckedChanged(sender As Object, e As EventArgs) Handles cbeliminar.CheckedChanged
-        If cbeliminar.CheckState = CheckState.Checked Then
-            datalistadoVenta.Columns.Item("eliminar").Visible = True
-            BtnEliminar.Enabled = True
-        Else
-            datalistadoVenta.Columns.Item("eliminar").Visible = False
-            BtnEliminar.Enabled = False
-        End If
-    End Sub
-
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-        Return
-        Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea eliminar estos productos", "Eliminar productos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-        If result = DialogResult.OK Then
-            FrmBloqueo.ShowDialog()
-            If FrmBloqueo.txtPermiso.Text = "1" Then
-                Try
-                    For Each row As DataGridViewRow In datalistadoVenta.Rows
-                        Dim marcado As Boolean = Convert.ToBoolean(row.Cells("Eliminar").Value)
-
-                        If marcado Then
-
-                            Dim vdb As New vProducto
-                            Dim func As New fProductos
-                            '  vdb.gcod_Producto = TxtCodProducto.Text
-
-                            If func.eliminar(vdb) Then
-                                MessageBox.Show("Producto eliminado", "Eliminacion completa", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                ' bloquear()
-                                limpiar()
-
-                            End If
-                        End If
-                    Next
-                    Call mostrar()
-
-
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-
-            Else
-                MessageBox.Show("Cancelando eliminacion", "Eliminacion incompleta", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Call mostrar()
-
-            End If
-        End If
-        Call limpiar()
-
+    Private Sub cbeliminar_CheckedChanged(sender As Object, e As EventArgs)
+        ' If cbeliminar.CheckState = CheckState.Checked Then
+        ' datalistadoVenta.Columns.Item("eliminar").Visible = True
+        ' BtnEditar.Enabled = True
+        ' Else
+        ' datalistadoVenta.Columns.Item("eliminar").Visible = False
+        ' BtnEditar.Enabled = False
+        ' End If
     End Sub
 
 
@@ -877,7 +847,7 @@ Public Class FrmVenta
         Dim campo4 As String
         Dim campo5 As String
         Dim campo6 As String
-
+        Dim campo7 As String
 
         campo1 = Trim(dt.Rows(0)("campo1"))
         campo2 = Trim(dt.Rows(0)("campo2"))
@@ -885,7 +855,7 @@ Public Class FrmVenta
         campo4 = Trim(dt.Rows(0)("campo4"))
         campo5 = Trim(dt.Rows(0)("campo5"))
         campo6 = Trim(dt.Rows(0)("campo6"))
-
+        campo7 = Trim(dt.Rows(0)("campo7"))
 
 
         linea = campo6 & "|" & _
@@ -895,10 +865,10 @@ Public Class FrmVenta
                 campo6 & "|" & _
                 campo3 & "|" & _
                 campo4 & "|" & _
-                campo5 & "|" & _
-                campo6 & "|" & _
-                campo6 & "|" & _
-                campo6 & "|"
+                campo7 & "|" & _
+                campo3 & "|" & _
+                campo4 & "|" & _
+                campo7 & "|"
 
 
         ' If linea.Substring(0, 1) = "|" Then
@@ -1233,4 +1203,89 @@ Public Class FrmVenta
 
 
 
+    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
+        If lblEstado.Text = "Open" Then
+            If txtTotal.Text = 0 Then
+                btnGrabar.Visible = True
+                BtnNuevo.Enabled = False
+                btnRegistrar.Enabled = False
+                btnAñadir.Enabled = False
+                BtnCerrar.Enabled = False
+                BtnEditar.Enabled = False
+                desbloquear2()
+            Else
+                MessageBox.Show("No puede editarse", "Elimine Detalle", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Else
+            MessageBox.Show("No puede editarse", "Factura Cerrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub btnGrabar_Click(sender As Object, e As EventArgs) Handles btnGrabar.Click
+        If Me.ValidateChildren = True And txtCod_cliente.Text <> "" And TxtNombre.Text <> "" Then
+
+
+            If cmbBoxMoneda.Text <> "S/." Then
+                If txtTC.Text = "" Then
+                    MessageBox.Show("Falta ingresar Tipo Cambio", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    txtTC.Focus()
+                    Return
+                End If
+            End If
+
+
+            Dim dts As New vVenta
+            Dim func As New fventa
+            dts.gcod_Venta = TxtCod_venta.Text
+
+            Dim fvta As String
+            fvta = dtpFecha.Value.ToString("yyyy/MM/dd")
+            Dim fvto As String
+            fvto = dtpVence.Value.ToString("yyyy/MM/dd")
+
+            dts.gcood_Cliente = txtCod_cliente.Text
+            dts.gtipooper = "0101"
+            dts.gfecha_venta = Mid(fvta, 1, 4) + "-" + Mid(fvta, 6, 2) + "-" + Mid(fvta, 9, 2)
+
+            dts.ghora_emision = TimeOfDay
+            dts.gfecha_vencimiento = Mid(fvto, 1, 4) + "-" + Mid(fvto, 6, 2) + "-" + Mid(fvto, 9, 2)
+            dts.gnro_doc = txtRuc.Text
+            dts.gcliente = TxtNombre.Text
+            If cmbBoxMoneda.Text = "S/." Then
+                dts.gtip_moneda = "PEN"
+                dts.gTC = 0.0
+            Else
+                If cmbBoxMoneda.Text = "$" Then
+                    dts.gtip_moneda = "USD"
+                Else
+                    dts.gtip_moneda = "EUR"
+                End If
+                dts.gTC = txtTC.Text
+            End If
+
+            dts.gigv = 0
+            dts.gventa = 0
+            dts.gtotal = 0
+            dts.gletras = ""
+
+            If func.editar(dts) Then
+                MessageBox.Show("Venta actualizada correctamente, INGRESE Detalle", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                limpiar()
+                mostrar()
+                bloquear()
+            Else
+                MessageBox.Show("NO SE PUDO ACTUALIZAR LA VENTA", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                limpiar()
+                mostrar()
+                bloquear()
+            End If
+
+
+            Detalle_Venta.TxtCod_venta.Text = datalistadoVenta.SelectedCells.Item(1).Value
+
+        Else
+            MessageBox.Show("Falta ingresar algunos datos", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
+    End Sub
 End Class

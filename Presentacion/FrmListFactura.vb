@@ -14,35 +14,33 @@ Public Class FrmListFactura
 
     Private Property aca As String
 
-    Private Sub FrmVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        limpiar()
-        mostrar()
-        'cargarCat51()
 
-
-    End Sub
     Public Sub mostrar()
-        limpiar()
+        'limpiar()
+        datalistadoFactura.DataSource = Nothing
         Dim func As New fventa
 
 
         dt = func.mostrar_ListaFac
-        datalistadoFactura.Columns.Item("Eliminar").Visible = False
+        ' datalistadoFactura.Columns.Item("Eliminar").Visible = False
+
+
 
         If dt.Rows.Count <> 0 Then
             datalistadoFactura.DataSource = dt
+            addSFS(datalistadoFactura)
             Txtbuscar.Enabled = True
             datalistadoFactura.ColumnHeadersVisible = True
             inexistente.Visible = False
-            cbeliminar.Visible = True
-            BtnEliminar.Visible = True
+            '     cbeliminar.Visible = True
+            '     BtnEliminar.Visible = True
         Else
             datalistadoFactura.DataSource = Nothing
             Txtbuscar.Enabled = False
             datalistadoFactura.ColumnHeadersVisible = False
             inexistente.Visible = True
-            cbeliminar.Visible = False
-            BtnEliminar.Visible = False
+            '   cbeliminar.Visible = False
+            '   BtnEliminar.Visible = False
         End If
         Txtbuscar.Focus()
 
@@ -162,7 +160,8 @@ Public Class FrmListFactura
                 If dv.Count <> 0 Then
                     inexistente.Visible = False
                     datalistadoFactura.DataSource = dv
-
+                    addSFS(datalistadoFactura)
+ 
                 Else
                     inexistente.Visible = True
                     datalistadoFactura.DataSource = Nothing
@@ -186,6 +185,7 @@ Public Class FrmListFactura
                 If dv.Count <> 0 Then
                     inexistente.Visible = False
                     datalistadoFactura.DataSource = dv
+                    addSFS(datalistadoFactura)
 
                 Else
                     inexistente.Visible = True
@@ -212,12 +212,15 @@ Public Class FrmListFactura
     End Sub
 
     Public Sub limpiar()
+        ' cbocampos.Text = "Cliente"
+        ' Txtbuscar.Text = ""
         lblXml.Text = ""
         lblPdf.Text = ""
         lblCDR.Text = ""
         lblFactura.Text = ""
         btnPdf.Visible = False
         btnEnviar.Visible = False
+
 
     End Sub
 
@@ -250,23 +253,16 @@ Public Class FrmListFactura
 
 
 
-    Private Sub FrmVenta_Load_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        limpiar()
-        bloquear()
-        mostrar()
-        'cargarCat51()
-
-
-    End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+        ' limpiar()
         buscar()
 
     End Sub
 
     Private Sub datalistadoVenta_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistadoFactura.CellClick
         limpiar()
-        lblFactura.Text = "Factura : " + Trim(datalistadoFactura.SelectedCells.Item(5).Value) + "-" + Trim(datalistadoFactura.SelectedCells.Item(6).Value)
+        lblFactura.Text = "Factura : " + Trim(datalistadoFactura.SelectedCells.Item(6).Value) + "-" + Trim(datalistadoFactura.SelectedCells.Item(7).Value)
         Xml()
         Pdf()
         Cdr()
@@ -310,17 +306,17 @@ Public Class FrmListFactura
         End If
     End Sub
 
-    Private Sub cbeliminar_CheckedChanged(sender As Object, e As EventArgs) Handles cbeliminar.CheckedChanged
-        If cbeliminar.CheckState = CheckState.Checked Then
-            datalistadoFactura.Columns.Item("eliminar").Visible = True
-            BtnEliminar.Enabled = True
-        Else
-            datalistadoFactura.Columns.Item("eliminar").Visible = False
-            BtnEliminar.Enabled = False
-        End If
+    Private Sub cbeliminar_CheckedChanged(sender As Object, e As EventArgs)
+        '   If cbeliminar.CheckState = CheckState.Checked Then
+        ' datalistadoFactura.Columns.Item("eliminar").Visible = True
+        ' BtnEliminar.Enabled = True
+        ' Else
+        ' datalistadoFactura.Columns.Item("eliminar").Visible = False
+        ' BtnEliminar.Enabled = False
+        ' End If
     End Sub
 
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs)
         Return
         Dim result As DialogResult
         result = MessageBox.Show("Realmente desea eliminar estos productos", "Eliminar productos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
@@ -674,23 +670,34 @@ Public Class FrmListFactura
             Dim ruta As String
             Dim archivoFinal As String
             ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ENVIO"
-            archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".zip"
-            ' ruta = ruta + archivoFinal
-
-            'Dim Total = My.Computer.FileSystem.GetFiles("C:\Tutoriales", FileIO.SearchOption.SearchAllSubDirectories, "*.txt")
-            'LblTotal.Text = "Total Archivos de Texto: " + CStr(Total.Count)
+            archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
                 lblXml.ForeColor = Color.Green
                 lblXml.Text = "XML generado"
-                'ListBox1.Items.Add(archivos)
+
             Next
         Catch ex As Exception
 
             'MsgBox("No se realizó la operación por: " & ex.Message)
         End Try
     End Sub
+    Public Function dtFacXml(ByVal iRows As Integer) As Boolean
+        Try
+            ':::Contamos cuanto archivos de texto hay en la carpeta
+            Dim ruta As String
+            Dim archivoFinal As String
+            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ENVIO"
+            archivoFinal = Trim(datalistadoFactura.Rows(iRows).Cells(15).Value) + ".zip"
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
+                Return True
+            Next
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 
     Private Sub Pdf()
         Try
@@ -698,32 +705,42 @@ Public Class FrmListFactura
             Dim ruta As String
             Dim archivoFinal As String
             ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO"
-            archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".pdf"
-            ' ruta = ruta + archivoFinal
-
-            'Dim Total = My.Computer.FileSystem.GetFiles("C:\Tutoriales", FileIO.SearchOption.SearchAllSubDirectories, "*.txt")
-            'LblTotal.Text = "Total Archivos de Texto: " + CStr(Total.Count)
+            archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
                 lblPdf.ForeColor = Color.Green
                 lblPdf.Text = "PDF generado"
                 btnPdf.Visible = True
-                'ListBox1.Items.Add(archivos)
+
             Next
         Catch ex As Exception
 
-            'MsgBox("No se realizó la operación por: " & ex.Message)
+
         End Try
     End Sub
+    Function dtFacPdf(ByVal irows As Integer) As Boolean
+        Try
+            ':::Contamos cuanto archivos de texto hay en la carpeta
+            Dim ruta As String
+            Dim archivoFinal As String
+            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO"
+            archivoFinal = Trim(datalistadoFactura.Rows(irows).Cells(15).Value) + ".pdf"
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
+                Return True
+            Next
+        Catch ex As Exception
+            Return False
 
+        End Try
+    End Function
     Private Sub Cdr()
         Try
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
             ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA"
-            archivoFinal = "R" + Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".zip"
+            archivoFinal = "R" + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
             ' ruta = ruta + archivoFinal
 
             'Dim Total = My.Computer.FileSystem.GetFiles("C:\Tutoriales", FileIO.SearchOption.SearchAllSubDirectories, "*.txt")
@@ -743,14 +760,31 @@ Public Class FrmListFactura
         End Try
 
     End Sub
+    Public Function dtFacCdr(ByVal irows As Integer) As Boolean
 
+        Try
+            ':::Contamos cuanto archivos de texto hay en la carpeta
+            Dim ruta As String
+            Dim archivoFinal As String
+            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA"
+            archivoFinal = "R" + Trim(datalistadoFactura.Rows(irows).Cells(15).Value) + ".zip"
 
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
+                Return True
+
+            Next
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Private Sub btnPdf_Click(sender As Object, e As EventArgs) Handles btnPdf.Click
         Dim ruta As String
         Dim archivoFinal As String
         ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
-        archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".pdf"
+        archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
         With New Process
             '.StartInfo.Verb = "print"
             .StartInfo.CreateNoWindow = False
@@ -762,25 +796,25 @@ Public Class FrmListFactura
         End With
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
+    Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
         'Return
         'Dim Emisor As String = "ventas@optimum.com.pe"
         Dim Emisor As String = "rvitecampos@hotmail.com"
         Dim Password As String = "VCR97911"
         Dim Mensaje As String = "SFS Sunat Emision Factura Electronica"
 
-        Dim Asunto As String = "Factura " + Mid(Trim(datalistadoFactura.SelectedCells.Item(13).Value), 17, Trim(datalistadoFactura.SelectedCells.Item(13).Value).Length - 1)
+        Dim Asunto As String = "Factura " + Mid(Trim(datalistadoFactura.SelectedCells.Item(15).Value), 17, Trim(datalistadoFactura.SelectedCells.Item(15).Value).Length - 1)
         '"prueba Asunto Sunat"
-        Dim Receptor As String = Trim(datalistadoFactura.SelectedCells.Item(14).Value)
+        Dim Receptor As String = Trim(datalistadoFactura.SelectedCells.Item(16).Value)
         Dim ruta1 As String
         Dim archivoFinal1 As String
         ruta1 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
-        archivoFinal1 = ruta1 + Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".pdf"
+        archivoFinal1 = ruta1 + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
         Dim RutaArchivo1 As String = archivoFinal1
         Dim ruta2 As String
         Dim archivoFinal2 As String
         ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA\"
-        archivoFinal2 = ruta2 + "R" + Trim(datalistadoFactura.SelectedCells.Item(13).Value) + ".zip"
+        archivoFinal2 = ruta2 + "R" + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
         Dim RutaArchivo2 As String = archivoFinal2
 
 
@@ -813,5 +847,46 @@ Public Class FrmListFactura
         'Terminar de usar
     End Sub
 
+    Private Sub addSFS(dataGridView As DataGridView)
+        For i As Integer = 0 To dataGridView.Rows.Count - 1
 
+            If dtFacXml(i) Then
+                dataGridView.Rows(i).Cells(0).Value = "Generado"
+            Else
+                dataGridView.Rows(i).Cells(0).Value = ""
+            End If
+
+            If dtFacPdf(i) Then
+                dataGridView.Rows(i).Cells(1).Value = "Generado"
+            Else
+                dataGridView.Rows(i).Cells(1).Value = ""
+            End If
+
+            If dtFacCdr(i) Then
+                dataGridView.Rows(i).Cells(2).Value = "Aceptado"
+            Else
+                dataGridView.Rows(i).Cells(2).Value = ""
+            End If
+
+
+
+
+        Next i
+    End Sub
+
+
+
+    Private Sub FrmListFactura_Load(sender As Object, e As EventArgs) Handles Me.Load
+        limpiar()
+        bloquear()
+        mostrar()
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        limpiar()
+        cbocampos.Text = "Cliente"
+        Txtbuscar.Text = ""
+        bloquear()
+        mostrar()
+    End Sub
 End Class

@@ -165,17 +165,19 @@ Public Class fDetalle_Venta
         End Try
     End Function
 
-    Public Function eliminar(ByVal dt As VDetalle_venta) As Boolean
+    Public Function eliminar(ByVal dts As VDetalle_venta) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("Eliminar_DetalleVenta")
+            cmd = New SqlCommand("eliminar_detalleVenta")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
 
-
-            '       cmd.Parameters.AddWithValue("@cood_producto", dt.gcood_Producto)
-            '       cmd.Parameters.AddWithValue("@cood_venta", dt.gcod_venta)
-
+            cmd.Parameters.AddWithValue("@Cood_venta", dts.gCood_venta)
+            cmd.Parameters.AddWithValue("@Cood_Cliente", dts.gCood_Cliente)
+            cmd.Parameters.AddWithValue("@Cood_Servicio", dts.gCood_Servicio)
+            cmd.Parameters.AddWithValue("@Venta", dts.gVenta)
+            cmd.Parameters.AddWithValue("@IGV", dts.gIGV)
+            cmd.Parameters.AddWithValue("@Total", dts.gTotal)
 
             If cmd.ExecuteNonQuery Then
                 Return True
