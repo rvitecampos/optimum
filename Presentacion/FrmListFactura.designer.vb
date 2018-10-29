@@ -29,6 +29,7 @@ Partial Class FrmListFactura
         Me.dtfacLblPdf = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dtfacLblSUNAT = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.Txtbuscar = New System.Windows.Forms.TextBox()
         Me.cbocampos = New System.Windows.Forms.ComboBox()
@@ -40,7 +41,7 @@ Partial Class FrmListFactura
         Me.lblCDR = New System.Windows.Forms.Label()
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.lblFactura = New System.Windows.Forms.Label()
-        Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.btnEstado = New System.Windows.Forms.Button()
         CType(Me.datalistadoFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,6 +102,15 @@ Partial Class FrmListFactura
         Me.GroupBox2.TabIndex = 58
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Listado de Facturas"
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(16, 63)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(89, 28)
+        Me.btnRefresh.TabIndex = 32
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'btnBuscar
         '
@@ -216,14 +226,20 @@ Partial Class FrmListFactura
         Me.lblFactura.TabIndex = 99
         Me.lblFactura.Text = "F"
         '
-        'btnRefresh
+        'btnEstado
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(16, 63)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(89, 28)
-        Me.btnRefresh.TabIndex = 32
-        Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.btnEstado.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.btnEstado.FlatAppearance.BorderSize = 3
+        Me.btnEstado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon
+        Me.btnEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEstado.Location = New System.Drawing.Point(60, 600)
+        Me.btnEstado.Name = "btnEstado"
+        Me.btnEstado.Size = New System.Drawing.Size(87, 37)
+        Me.btnEstado.TabIndex = 100
+        Me.btnEstado.Text = "Estado"
+        Me.btnEstado.UseVisualStyleBackColor = True
+        Me.btnEstado.Visible = False
         '
         'FrmListFactura
         '
@@ -231,6 +247,7 @@ Partial Class FrmListFactura
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1246, 649)
+        Me.Controls.Add(Me.btnEstado)
         Me.Controls.Add(Me.lblFactura)
         Me.Controls.Add(Me.btnEnviar)
         Me.Controls.Add(Me.lblCDR)
@@ -269,4 +286,5 @@ Partial Class FrmListFactura
     Friend WithEvents dtfacLblPdf As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dtfacLblSUNAT As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnRefresh As System.Windows.Forms.Button
+    Friend WithEvents btnEstado As System.Windows.Forms.Button
 End Class

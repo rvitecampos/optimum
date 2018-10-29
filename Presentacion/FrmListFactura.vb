@@ -220,6 +220,7 @@ Public Class FrmListFactura
         lblFactura.Text = ""
         btnPdf.Visible = False
         btnEnviar.Visible = False
+        btnEstado.Visible = False
 
 
     End Sub
@@ -255,7 +256,7 @@ Public Class FrmListFactura
 
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        ' limpiar()
+        limpiar()
         buscar()
 
     End Sub
@@ -263,6 +264,7 @@ Public Class FrmListFactura
     Private Sub datalistadoVenta_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistadoFactura.CellClick
         limpiar()
         lblFactura.Text = "Factura : " + Trim(datalistadoFactura.SelectedCells.Item(6).Value) + "-" + Trim(datalistadoFactura.SelectedCells.Item(7).Value)
+        btnEstado.Visible = True
         Xml()
         Pdf()
         Cdr()
@@ -751,11 +753,11 @@ Public Class FrmListFactura
                 lblCDR.ForeColor = Color.Green
                 lblCDR.Text = "Enviado y Aceptado SUNAT"
                 btnEnviar.Visible = True
-
+                btnEstado.Visible = False
                 'ListBox1.Items.Add(archivos)
             Next
         Catch ex As Exception
-
+            btnEstado.Visible = True
             'MsgBox("No se realizó la operación por: " & ex.Message)
         End Try
 
@@ -889,4 +891,113 @@ Public Class FrmListFactura
         bloquear()
         mostrar()
     End Sub
+
+    Private Sub btnEstado_Click(sender As Object, e As EventArgs) Handles btnEstado.Click
+        Dim result As DialogResult
+        result = MessageBox.Show("Realmente desea Cambiar de Estado?", "Modificando Estado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        If result = DialogResult.OK Then
+            FrmBloqueo.ShowDialog()
+            If FrmBloqueo.txtPermiso.Text = "1" Then
+                Dim dtsAbrir As New vVenta
+                Dim funcAbrir As New fventa
+
+
+                dtsAbrir.gcod_Venta = Trim(datalistadoFactura.SelectedCells.Item(10).Value)
+
+
+                If funcAbrir.abrirFac(dtsAbrir) Then
+                    borrarSFS()
+                    MessageBox.Show("Cambio de Estado", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    limpiar()
+                    bloquear()
+                    mostrar()
+                Else
+                    MessageBox.Show("Estado no fue modificado", "Intente de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    limpiar()
+                    bloquear()
+                    mostrar()
+                End If
+
+            End If
+        End If
+        bloquear()
+        ' BtnGuardar.Enabled = False
+    End Sub
+
+    Private Sub borrarSFS()
+        borrarXML()
+        borrarPDF()
+        borrarDOCS()
+    End Sub
+
+    Function borrarXML()
+        Try
+            ':::Contamos cuanto archivos de texto hay en la carpeta
+            Dim ruta As String
+            Dim archivoFinal As String
+            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ENVIO"
+            archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
+
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
+                My.Computer.FileSystem.DeleteFile(archivoFinal)
+
+            Next
+        Catch ex As Exception
+
+            'MsgBox("No se realizó la operación por: " & ex.Message)
+        End Try
+    End Function
+
+    Function borrarPDF()
+        Try
+            ':::Contamos cuanto archivos de texto hay en la carpeta
+            Dim ruta As String
+            Dim archivoFinal As String
+            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO"
+            archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
+
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
+               My.Computer.FileSystem.DeleteFile(archivoFinal)
+
+            Next
+        Catch ex As Exception
+
+
+        End Try
+    End Function
+
+    Function borrarDOCS()
+        Try
+            ':::Contamos cuanto archivos de texto hay en la carpeta
+            Dim ruta As String
+            Dim archivo1 As String
+            Dim archivo2 As String
+            Dim archivo3 As String
+            Dim archivo4 As String
+            Dim archivo5 As String
+            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA"
+            archivo1 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".cab"
+            archivo2 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".det"
+            archivo3 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".ley"
+            archivo4 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".tri"
+            archivo5 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".aca"
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivo1)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivo1)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivo2)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivo3)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivo4)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivo5)
+
+            Next
+        Catch ex As Exception
+
+
+        End Try
+
+    End Function
+
+
 End Class

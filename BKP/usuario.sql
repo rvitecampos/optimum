@@ -10,9 +10,10 @@ INSERT INTO [dbo].[Usuario]
            ,[Login]
            ,[Password]
            ,[Acceso]
-           ,[Categoria])
-      VALUES
-           ('Ricardo'
+           ,[Categoria]
+       ,[imagen])
+     select
+           'Ricardo'
            ,'Vite'
            ,'09798107'
            ,'Av Chorrillos'
@@ -20,6 +21,8 @@ INSERT INTO [dbo].[Usuario]
            ,'RVITE'
            ,'RVITE'
            ,'1'
-           ,'A')
+       ,'A',
+       *from OpenRowset(Bulk 'E:\optimum\optimum\Resources\ric.jpg', Single_Blob) As imagen
+           
  
 GO

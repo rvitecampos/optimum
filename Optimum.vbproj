@@ -86,7 +86,12 @@
       <HintPath>..\..\..\Program Files (x86)\Microsoft Visual Studio 11.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\System.Data.SQLite.Core.MSIL.1.0.109.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
@@ -113,6 +118,7 @@
     <Compile Include="Datos\Conexion.vb" />
     <Compile Include="Datos\Correo2.vb" />
     <Compile Include="Datos\Correo.vb" />
+    <Compile Include="Datos\crud.vb" />
     <Compile Include="Datos\fServicios.vb" />
     <Compile Include="Datos\fStockMovimiento.vb" />
     <Compile Include="Datos\FBackup.vb" />
@@ -180,6 +186,12 @@
       <DependentUpon>Cliente.vb</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\Cliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\crudDB.Designer.vb">
+      <DependentUpon>crudDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\crudDB.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\FrmListFactura.designer.vb">
@@ -373,6 +385,9 @@
     <EmbeddedResource Include="Presentacion\Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\crudDB.resx">
+      <DependentUpon>crudDB.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmListFactura.resx">
       <DependentUpon>FrmListFactura.vb</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +511,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\AgregarImagen.png" />
   </ItemGroup>
   <ItemGroup>

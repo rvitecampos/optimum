@@ -258,6 +258,8 @@ Public Class FrmVenta
     End Sub
 
     Public Sub bloquear()
+        btnGrabar.Visible = False
+        BtnEditar.Enabled = False
         btnRegistrar.Enabled = False
         btnAñadir.Enabled = False
         BtnCerrar.Enabled = False
@@ -828,7 +830,7 @@ Public Class FrmVenta
         '            Else
         archivo.WriteLine(linea)
         '   Next
-        MsgBox("txt generados")
+        ' MsgBox("txt generados")
         '           End If
         archivo.Close()
     End Sub
@@ -876,7 +878,7 @@ Public Class FrmVenta
         '            Else
         archivo.WriteLine(linea)
         ' Next
-        MsgBox("txt creado")
+        MsgBox("txt generados")
         '           End If
         archivo.Close()
     End Sub

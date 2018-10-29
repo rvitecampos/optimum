@@ -344,6 +344,30 @@ Public Class fventa
     End Function
 
 
+    Public Function abrirFac(ByVal dts As vVenta) As Boolean
+        Try
+            conectado()
+            cmd = New SqlCommand("abrirFactura")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+            cmd.Parameters.AddWithValue("@Cod_venta", dts.gcod_Venta)
+            '           cmd.Parameters.AddWithValue("@Letras", dts.gletras)
+            '           cmd.Parameters.AddWithValue("@Referencial", dts.greferencial)
+
+            If cmd.ExecuteNonQuery Then
+                Return True
+
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            desconectado()
+
+        End Try
+    End Function
     Public Function totalActual(ByVal dts As vVenta) As DataTable
         Try
             conectado()
