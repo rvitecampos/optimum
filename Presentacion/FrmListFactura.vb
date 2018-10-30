@@ -940,7 +940,7 @@ Public Class FrmListFactura
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
-                My.Computer.FileSystem.DeleteFile(archivoFinal)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivoFinal)
 
             Next
         Catch ex As Exception
@@ -959,7 +959,7 @@ Public Class FrmListFactura
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
-               My.Computer.FileSystem.DeleteFile(archivoFinal)
+                My.Computer.FileSystem.DeleteFile(ruta + "\" + archivoFinal)
 
             Next
         Catch ex As Exception
