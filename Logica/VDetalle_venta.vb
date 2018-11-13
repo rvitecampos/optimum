@@ -1,6 +1,6 @@
 ﻿Public Class VDetalle_venta
     Dim cood_venta, cood_cliente, cood_servicio As Integer
-    Dim uni_medida, nombre_servicio, nombre_tributo, codigo_tributo As String
+    Dim uni_medida, nombre_servicio, nombre_tributo, codigo_tributo, detalle1, detalle2, detalle3 As String
     Dim cantidad, venta, igv, venta_unitario, total As Double
     Public Property gCood_venta
         Get
@@ -100,6 +100,30 @@
         End Get
         Set(value)
             total = value
+        End Set
+    End Property
+    Public Property gDetalle1
+        Get
+            Return detalle1
+        End Get
+        Set(ByVal value)
+            detalle1 = value
+        End Set
+    End Property
+    Public Property gDetalle2
+        Get
+            Return detalle2
+        End Get
+        Set(ByVal value)
+            detalle2 = value
+        End Set
+    End Property
+    Public Property gDetalle3
+        Get
+            Return detalle3
+        End Get
+        Set(ByVal value)
+            detalle3 = value
         End Set
     End Property
     Public Sub New()

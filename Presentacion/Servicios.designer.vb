@@ -214,7 +214,7 @@ Partial Class Servicios
         Me.TxtNombreServicio.Enabled = False
         Me.TxtNombreServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNombreServicio.Location = New System.Drawing.Point(118, 67)
-        Me.TxtNombreServicio.MaxLength = 20
+        Me.TxtNombreServicio.MaxLength = 49
         Me.TxtNombreServicio.Name = "TxtNombreServicio"
         Me.TxtNombreServicio.Size = New System.Drawing.Size(486, 29)
         Me.TxtNombreServicio.TabIndex = 1
@@ -313,18 +313,18 @@ Partial Class Servicios
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(307, 28)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(41, 13)
+        Me.Label10.Size = New System.Drawing.Size(78, 13)
         Me.Label10.TabIndex = 32
-        Me.Label10.Text = "(Venta)"
+        Me.Label10.Text = "(Venta) sin IGV"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(23, 28)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(40, 13)
+        Me.Label9.Size = New System.Drawing.Size(77, 13)
         Me.Label9.TabIndex = 31
-        Me.Label9.Text = "(Costo)"
+        Me.Label9.Text = "(Costo) sin IGV"
         '
         'PictureBox3
         '

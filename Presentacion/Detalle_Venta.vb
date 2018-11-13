@@ -335,6 +335,9 @@
                     dts.gTotal = txtPTotal.Text
                     dts.gNombre_tributo = "IGV"
                     dts.gCodigo_tributo = "VAT"
+                    dts.gDetalle1 = txtDetalle1.Text
+                    dts.gDetalle2 = txtDetalle2.Text
+                    dts.gDetalle3 = txtDetalle3.Text
 
 
 
@@ -466,66 +469,53 @@
 
     Private Sub txtcantidad_LostFocus(sender As Object, e As EventArgs) Handles txtcantidad.LostFocus
         If txtcantidad.Text <> "" And txtcantidad.Text <> "." Then
-            If txtPVenta.Text <> "" And txtPVenta.Text <> "." Then
-                txtPTotal.Text = txtcantidad.Text * txtPVenta.Text
-                txtPUnitario.Text = txtPVenta.Text / 1.18
-                txtIGV.Text = txtPTotal.Text - (txtPTotal.Text / 1.18)
+            If txtPUnitario.Text <> "" And txtPUnitario.Text <> "." Then
+                txtIGV.Text = txtcantidad.Text * (txtPUnitario.Text * 0.18)
+                txtPVenta.Text = txtPUnitario.Text + (txtPUnitario.Text * 0.18)
+
+
             End If
         End If
 
-        Dim val As Decimal = 0
-        If Decimal.TryParse(txtPTotal.Text, val) Then
-            txtPTotal.Text = val.ToString("N2")
-        Else
-            txtPTotal.Text = ""
-        End If
 
-        Dim val2 As Decimal = 0
-        If Decimal.TryParse(txtPUnitario.Text, val2) Then
-            txtPUnitario.Text = val2.ToString("N2")
+        Dim val1 As Decimal = 0
+        If Decimal.TryParse(txtPUnitario.Text, val1) Then
+            txtPUnitario.Text = val1.ToString("N2")
         Else
             txtPUnitario.Text = ""
         End If
 
-        Dim val3 As Decimal = 0
-        If Decimal.TryParse(txtIGV.Text, val3) Then
-            txtIGV.Text = val3.ToString("N2")
+
+        Dim val2 As Decimal = 0
+        If Decimal.TryParse(txtIGV.Text, val2) Then
+            txtIGV.Text = val2.ToString("N2")
         Else
             txtIGV.Text = ""
         End If
 
-    End Sub
-
-    Private Sub txtPVenta_LostFocus(sender As Object, e As EventArgs) Handles txtPVenta.LostFocus
-        If txtPVenta.Text <> "" And txtPVenta.Text <> "." Then
-            If txtcantidad.Text <> "" And txtcantidad.Text <> "." Then
-                txtPTotal.Text = txtcantidad.Text * txtPVenta.Text
-                txtPUnitario.Text = txtPVenta.Text / 1.18
-                txtIGV.Text = txtPTotal.Text - (txtPTotal.Text / 1.18)
-            End If
+        Dim val3 As Decimal = 0
+        If Decimal.TryParse(txtPVenta.Text, val3) Then
+            txtPVenta.Text = val3.ToString("N2")
+        Else
+            txtPVenta.Text = ""
         End If
 
-        Dim val As Decimal = 0
-        If Decimal.TryParse(txtPTotal.Text, val) Then
-            txtPTotal.Text = val.ToString("N2")
+        txtPTotal.Text = txtcantidad.Text * txtPVenta.Text
+
+        Dim val5 As Decimal = 0
+        If Decimal.TryParse(txtPTotal.Text, val5) Then
+            txtPTotal.Text = val5.ToString("N2")
         Else
             txtPTotal.Text = ""
         End If
 
-        Dim val2 As Decimal = 0
-        If Decimal.TryParse(txtPUnitario.Text, val2) Then
-            txtPUnitario.Text = val2.ToString("N2")
-        Else
-            txtPUnitario.Text = ""
-        End If
+ 
 
-        Dim val3 As Decimal = 0
-        If Decimal.TryParse(txtIGV.Text, val3) Then
-            txtIGV.Text = val3.ToString("N2")
-        Else
-            txtIGV.Text = ""
-        End If
+
+
     End Sub
+
+  
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
         Dim result As DialogResult
@@ -583,4 +573,5 @@
         'bloquear()
         buscar()
     End Sub
+
 End Class

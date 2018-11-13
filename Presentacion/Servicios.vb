@@ -185,7 +185,7 @@
 
                     'INSERTAR PRODUCTO
                     dts.gcod_Servicio = TxtCodServicio.Text
-                    dts.gnombre_Servicio = TxtNombreServicio.Text
+                    dts.gnombre_Servicio = TxtNombreServicio.Text + ","
                     dts.gventa = txtVenta.Text
                     '       dts.gCtdad = txtCtdad.Text
                     '       dts.gDocumento = txtDoc.Text
@@ -417,7 +417,8 @@
             '
             Detalle_Venta.txtcod_Servicio.Text = datalistadoStock.SelectedCells.Item(1).Value
             Detalle_Venta.txtNombreServicio.Text = datalistadoStock.SelectedCells.Item(2).Value
-            Detalle_Venta.txtPVenta.Text = datalistadoStock.SelectedCells.Item(4).Value
+            Detalle_Venta.txtPUnitario.Text = datalistadoStock.SelectedCells.Item(4).Value
+            Detalle_Venta.txtcantidad.Focus()
             '        Detalle_Venta.txtStock.Text = datalistado.SelectedCells.Item(3).Value
             '        Detalle_Venta.txtPrecio.Text = datalistado.SelectedCells.Item(4).Value
             '        Detalle_Venta.txtPrecio.Items.Add(datalistado.SelectedCells.Item(4).Value)

@@ -32,6 +32,7 @@ Partial Class Detalle_Venta
         Me.BtnEliminar = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.inexistente = New System.Windows.Forms.Label()
+        Me.BtnVender = New System.Windows.Forms.Button()
         Me.datalistadoDetalleVenta = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.btnbuscarProducto = New System.Windows.Forms.Button()
@@ -43,12 +44,17 @@ Partial Class Detalle_Venta
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtCod_venta = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.BtnVender = New System.Windows.Forms.Button()
         Me.txtflag = New System.Windows.Forms.TextBox()
         Me.txt_total_a_pagar = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.txtcantidad = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtDetalle3 = New System.Windows.Forms.TextBox()
+        Me.txtDetalle2 = New System.Windows.Forms.TextBox()
+        Me.txtDetalle1 = New System.Windows.Forms.TextBox()
         Me.txtCodCliente = New System.Windows.Forms.TextBox()
         Me.txtCliente = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -111,6 +117,7 @@ Partial Class Detalle_Venta
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.cbeliminar)
         Me.GroupBox2.Controls.Add(Me.inexistente)
+        Me.GroupBox2.Controls.Add(Me.BtnVender)
         Me.GroupBox2.Controls.Add(Me.Txtbuscar)
         Me.GroupBox2.Controls.Add(Me.cbocampos)
         Me.GroupBox2.Controls.Add(Me.datalistadoDetalleVenta)
@@ -166,6 +173,15 @@ Partial Class Detalle_Venta
         Me.inexistente.TabIndex = 30
         Me.inexistente.Text = "Datos inexistentes"
         '
+        'BtnVender
+        '
+        Me.BtnVender.Location = New System.Drawing.Point(257, 418)
+        Me.BtnVender.Name = "BtnVender"
+        Me.BtnVender.Size = New System.Drawing.Size(85, 35)
+        Me.BtnVender.TabIndex = 5
+        Me.BtnVender.Text = "&Salir"
+        Me.BtnVender.UseVisualStyleBackColor = True
+        '
         'datalistadoDetalleVenta
         '
         Me.datalistadoDetalleVenta.AllowUserToAddRows = False
@@ -190,16 +206,16 @@ Partial Class Detalle_Venta
         Me.btnbuscarProducto.Location = New System.Drawing.Point(518, 26)
         Me.btnbuscarProducto.Name = "btnbuscarProducto"
         Me.btnbuscarProducto.Size = New System.Drawing.Size(40, 20)
-        Me.btnbuscarProducto.TabIndex = 6
+        Me.btnbuscarProducto.TabIndex = 7
         Me.btnbuscarProducto.Text = "..."
         Me.btnbuscarProducto.UseVisualStyleBackColor = True
         '
         'BtnAgregar
         '
-        Me.BtnAgregar.Location = New System.Drawing.Point(13, 315)
+        Me.BtnAgregar.Location = New System.Drawing.Point(13, 361)
         Me.BtnAgregar.Name = "BtnAgregar"
         Me.BtnAgregar.Size = New System.Drawing.Size(584, 35)
-        Me.BtnAgregar.TabIndex = 3
+        Me.BtnAgregar.TabIndex = 16
         Me.BtnAgregar.Text = "&Agregar Articulo"
         Me.BtnAgregar.UseVisualStyleBackColor = True
         '
@@ -208,9 +224,10 @@ Partial Class Detalle_Venta
         Me.txtNombreServicio.Enabled = False
         Me.txtNombreServicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombreServicio.Location = New System.Drawing.Point(209, 19)
+        Me.txtNombreServicio.MaxLength = 49
         Me.txtNombreServicio.Name = "txtNombreServicio"
         Me.txtNombreServicio.Size = New System.Drawing.Size(289, 29)
-        Me.txtNombreServicio.TabIndex = 5
+        Me.txtNombreServicio.TabIndex = 6
         '
         'txtcod_Servicio
         '
@@ -219,12 +236,12 @@ Partial Class Detalle_Venta
         Me.txtcod_Servicio.Location = New System.Drawing.Point(77, 19)
         Me.txtcod_Servicio.Name = "txtcod_Servicio"
         Me.txtcod_Servicio.Size = New System.Drawing.Size(99, 29)
-        Me.txtcod_Servicio.TabIndex = 4
+        Me.txtcod_Servicio.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 27)
+        Me.Label3.Location = New System.Drawing.Point(10, 63)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 67
@@ -260,20 +277,11 @@ Partial Class Detalle_Venta
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(172, 27)
+        Me.Label6.Location = New System.Drawing.Point(184, 64)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 13)
         Me.Label6.TabIndex = 63
         Me.Label6.Text = "Precio Venta"
-        '
-        'BtnVender
-        '
-        Me.BtnVender.Location = New System.Drawing.Point(512, 356)
-        Me.BtnVender.Name = "BtnVender"
-        Me.BtnVender.Size = New System.Drawing.Size(85, 35)
-        Me.BtnVender.TabIndex = 5
-        Me.BtnVender.Text = "&Actualizar"
-        Me.BtnVender.UseVisualStyleBackColor = True
         '
         'txtflag
         '
@@ -304,19 +312,24 @@ Partial Class Detalle_Venta
         'txtcantidad
         '
         Me.txtcantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcantidad.Location = New System.Drawing.Point(77, 19)
+        Me.txtcantidad.Location = New System.Drawing.Point(81, 55)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(74, 29)
-        Me.txtcantidad.TabIndex = 7
+        Me.txtcantidad.TabIndex = 13
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.txtDetalle3)
+        Me.GroupBox1.Controls.Add(Me.txtDetalle2)
+        Me.GroupBox1.Controls.Add(Me.txtDetalle1)
         Me.GroupBox1.Controls.Add(Me.txtCodCliente)
         Me.GroupBox1.Controls.Add(Me.txtCliente)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtSerie)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.BtnVender)
         Me.GroupBox1.Controls.Add(Me.BtnAgregar)
         Me.GroupBox1.Controls.Add(Me.TxtCod_venta)
         Me.GroupBox1.Controls.Add(Me.GroupBox5)
@@ -329,6 +342,60 @@ Partial Class Detalle_Venta
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Detalle de Venta"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(141, 206)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(46, 13)
+        Me.Label12.TabIndex = 97
+        Me.Label12.Text = "Detalle3"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(141, 173)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(46, 13)
+        Me.Label4.TabIndex = 96
+        Me.Label4.Text = "Detalle2"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(141, 138)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 65
+        Me.Label2.Text = "Detalle1"
+        '
+        'txtDetalle3
+        '
+        Me.txtDetalle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDetalle3.Location = New System.Drawing.Point(223, 197)
+        Me.txtDetalle3.MaxLength = 49
+        Me.txtDetalle3.Name = "txtDetalle3"
+        Me.txtDetalle3.Size = New System.Drawing.Size(289, 29)
+        Me.txtDetalle3.TabIndex = 10
+        '
+        'txtDetalle2
+        '
+        Me.txtDetalle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDetalle2.Location = New System.Drawing.Point(222, 162)
+        Me.txtDetalle2.MaxLength = 49
+        Me.txtDetalle2.Name = "txtDetalle2"
+        Me.txtDetalle2.Size = New System.Drawing.Size(289, 29)
+        Me.txtDetalle2.TabIndex = 9
+        '
+        'txtDetalle1
+        '
+        Me.txtDetalle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDetalle1.Location = New System.Drawing.Point(222, 127)
+        Me.txtDetalle1.MaxLength = 49
+        Me.txtDetalle1.Name = "txtDetalle1"
+        Me.txtDetalle1.Size = New System.Drawing.Size(289, 29)
+        Me.txtDetalle1.TabIndex = 8
+        '
         'txtCodCliente
         '
         Me.txtCodCliente.Enabled = False
@@ -336,7 +403,7 @@ Partial Class Detalle_Venta
         Me.txtCodCliente.Location = New System.Drawing.Point(312, 17)
         Me.txtCodCliente.Name = "txtCodCliente"
         Me.txtCodCliente.Size = New System.Drawing.Size(63, 29)
-        Me.txtCodCliente.TabIndex = 93
+        Me.txtCodCliente.TabIndex = 3
         '
         'txtCliente
         '
@@ -345,7 +412,7 @@ Partial Class Detalle_Venta
         Me.txtCliente.Location = New System.Drawing.Point(381, 17)
         Me.txtCliente.Name = "txtCliente"
         Me.txtCliente.Size = New System.Drawing.Size(216, 29)
-        Me.txtCliente.TabIndex = 3
+        Me.txtCliente.TabIndex = 4
         '
         'Label8
         '
@@ -386,7 +453,7 @@ Partial Class Detalle_Venta
         Me.GroupBox5.Controls.Add(Me.Label6)
         Me.GroupBox5.Controls.Add(Me.txtcantidad)
         Me.GroupBox5.Controls.Add(Me.Label3)
-        Me.GroupBox5.Location = New System.Drawing.Point(13, 127)
+        Me.GroupBox5.Location = New System.Drawing.Point(13, 241)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(584, 103)
         Me.GroupBox5.TabIndex = 89
@@ -397,7 +464,7 @@ Partial Class Detalle_Venta
         '
         Me.txtPUnitario.Enabled = False
         Me.txtPUnitario.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPUnitario.Location = New System.Drawing.Point(246, 51)
+        Me.txtPUnitario.Location = New System.Drawing.Point(80, 16)
         Me.txtPUnitario.Name = "txtPUnitario"
         Me.txtPUnitario.Size = New System.Drawing.Size(105, 29)
         Me.txtPUnitario.TabIndex = 11
@@ -405,7 +472,7 @@ Partial Class Detalle_Venta
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(172, 62)
+        Me.Label10.Location = New System.Drawing.Point(6, 27)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(76, 13)
         Me.Label10.TabIndex = 73
@@ -415,15 +482,15 @@ Partial Class Detalle_Venta
         '
         Me.txtIGV.Enabled = False
         Me.txtIGV.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIGV.Location = New System.Drawing.Point(77, 54)
+        Me.txtIGV.Location = New System.Drawing.Point(258, 16)
         Me.txtIGV.Name = "txtIGV"
         Me.txtIGV.Size = New System.Drawing.Size(74, 29)
-        Me.txtIGV.TabIndex = 10
+        Me.txtIGV.TabIndex = 12
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(26, 62)
+        Me.Label11.Location = New System.Drawing.Point(207, 24)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(28, 13)
         Me.Label11.TabIndex = 74
@@ -433,15 +500,15 @@ Partial Class Detalle_Venta
         '
         Me.txtPTotal.Enabled = False
         Me.txtPTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPTotal.Location = New System.Drawing.Point(454, 16)
+        Me.txtPTotal.Location = New System.Drawing.Point(454, 54)
         Me.txtPTotal.Name = "txtPTotal"
         Me.txtPTotal.Size = New System.Drawing.Size(104, 29)
-        Me.txtPTotal.TabIndex = 9
+        Me.txtPTotal.TabIndex = 15
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(371, 27)
+        Me.Label9.Location = New System.Drawing.Point(371, 65)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(64, 13)
         Me.Label9.TabIndex = 71
@@ -449,11 +516,12 @@ Partial Class Detalle_Venta
         '
         'txtPVenta
         '
+        Me.txtPVenta.Enabled = False
         Me.txtPVenta.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPVenta.Location = New System.Drawing.Point(246, 16)
+        Me.txtPVenta.Location = New System.Drawing.Point(258, 53)
         Me.txtPVenta.Name = "txtPVenta"
         Me.txtPVenta.Size = New System.Drawing.Size(105, 29)
-        Me.txtPVenta.TabIndex = 8
+        Me.txtPVenta.TabIndex = 14
         '
         'GroupBox4
         '
@@ -549,4 +617,10 @@ Partial Class Detalle_Venta
     Friend WithEvents txtCodCliente As System.Windows.Forms.TextBox
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents BtnEliminar As System.Windows.Forms.Button
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txtDetalle3 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDetalle2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtDetalle1 As System.Windows.Forms.TextBox
 End Class

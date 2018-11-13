@@ -372,7 +372,7 @@ GO
 
 CREATE TABLE [dbo].[Servicios](
 	[Cod_Servicio] [int] IDENTITY(1,1) NOT NULL,
-	[Nombre_Servicio] [nchar](30) NOT NULL,
+	[Nombre_Servicio] [nchar](70) NOT NULL,
 	[Costo] [decimal](18, 2) NULL,
 	[Venta] [decimal](18, 2) NULL,
 	[Items] [int] NULL,
@@ -534,13 +534,17 @@ CREATE TABLE [dbo].[Detalle_venta](
 	[Cood_Servicio] [int] NULL,
 	[Uni_Medida] [nchar](3) NOT NULL,
 	[Cantidad] [decimal](12, 4) NULL,
-	[Nombre_Servicio] [nchar](30) NOT NULL,
+	[Nombre_Servicio] [nchar](70) NOT NULL,
 	[Venta_unitario] [decimal](18, 2) NULL,
 	[Venta] [decimal](18, 2) NULL,
 	[IGV] [decimal](18, 2) NULL,
 	[Total] [decimal](18, 2) NULL,
 	[Nombre_tributo] [nchar](3) NOT NULL,
-	[Codigo_tributo] [nchar](3) NOT NULL
+	[Codigo_tributo] [nchar](3) NOT NULL,
+	[Detalle1] [nchar](70) NOT NULL,
+	[Detalle2] [nchar](70) NOT NULL,
+	[Detalle3] [nchar](70) NOT NULL
+
 
 ) ON [PRIMARY]
 GO

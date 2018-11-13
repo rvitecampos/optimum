@@ -98,6 +98,10 @@ Public Class fDetalle_Venta
             cmd.Parameters.AddWithValue("@Total", dts.gTotal)
             cmd.Parameters.AddWithValue("@Nombre_tributo", dts.gNombre_tributo)
             cmd.Parameters.AddWithValue("@Codigo_tributo", dts.gCodigo_tributo)
+            cmd.Parameters.AddWithValue("@Detalle1", dts.gDetalle1)
+            cmd.Parameters.AddWithValue("@Detalle2", dts.gDetalle2)
+            cmd.Parameters.AddWithValue("@Detalle3", dts.gDetalle3)
+
 
             If cmd.ExecuteNonQuery Then
                 Return True
