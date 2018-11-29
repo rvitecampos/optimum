@@ -83,7 +83,7 @@
 
     Public Sub desbloquear()
         btnBuscarProveedor.Enabled = True
-        TxtCodProducto.Enabled = True
+        TxtCodProducto.Enabled = False
         txtCantidad.Enabled = False
         txtLimite.Enabled = True
         TxtNombreProducto.Enabled = True
@@ -167,7 +167,7 @@
         Try
 
        
-            If Me.ValidateChildren = True And TxtNombreProducto.Text <> "" And TxtCodProducto.Text <> "" And TxtPrecioUnitario.Text <> "" And TxtCodProveedor.Text > 0 Then
+            If Me.ValidateChildren = True And TxtNombreProducto.Text <> " " And TxtCodProducto.Text <> " " And TxtPrecioUnitario.Text <> " " And TxtCodProveedor.Text > 0 Then
 
                 Dim dts As New vProducto
                 Dim func As New fProductos
@@ -438,4 +438,27 @@
         buscar()
 
     End Sub
+
+    Public Sub NumerosyDecimal(ByVal CajaTexto As Windows.Forms.TextBox, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        ElseIf e.KeyChar = "." And Not CajaTexto.Text.IndexOf(".") Then
+            e.Handled = True
+        ElseIf e.KeyChar = "." Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtVenta_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPrecioUnitario.KeyPress
+        NumerosyDecimal(TxtPrecioUnitario, e)
+    End Sub
+    Private Sub txtCosto_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSPrecioUnitario.KeyPress
+        NumerosyDecimal(txtSPrecioUnitario, e)
+    End Sub
+
+
 End Class

@@ -221,5 +221,10 @@ Public Class frmPrincipal
         FrmListFactura.Dispose()
     End Sub
 
- 
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        Form1.Show()
+        ' Form1.Dispose()
+
+    End Sub
 End Class

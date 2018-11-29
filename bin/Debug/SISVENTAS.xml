@@ -375,6 +375,58 @@ Represents the strongly named DataTable class.
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat02DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat06DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat51DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.serieFacDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearcabeceraFacDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearDetalleFacDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearLeyAcaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearTriDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_ListaFacDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_serieFacDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_serviciosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_TotalActualDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrarCat51DataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:SISVENTAS.DespensaDataSet.CajaRow">
 	<summary>
 Represents strongly named DataRow class.
@@ -527,6 +579,58 @@ Represents strongly named DataRow class.
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat02Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat06Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat51Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.serieFacRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearcabeceraFacRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearDetalleFacRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearLeyAcaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearTriRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_ListaFacRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_serieFacRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_serviciosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_TotalActualRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrarCat51Row">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:SISVENTAS.DespensaDataSet.CajaRowChangeEvent">
 	<summary>
 Row event argument class
@@ -676,6 +780,58 @@ Row event argument class
 Row event argument class
 </summary>
 </member><member name="T:SISVENTAS.DespensaDataSet.mostrar_StockMovimientoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat02RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat06RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.Cat51RowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.serieFacRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearcabeceraFacRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearDetalleFacRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearLeyAcaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.crearTriRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_ListaFacRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_serieFacRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_serviciosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrar_TotalActualRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSet.mostrarCat51RowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -832,6 +988,58 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.mostrar_StockMovimientoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.Cat02TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.Cat06TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.Cat51TableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.serieFacTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.crearcabeceraFacTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.crearDetalleFacTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.crearLeyAcaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.crearTriTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.mostrar_ListaFacTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.mostrar_serieFacTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.mostrar_serviciosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.mostrar_TotalActualTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:SISVENTAS.DespensaDataSetTableAdapters.mostrarCat51TableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

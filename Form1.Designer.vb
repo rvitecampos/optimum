@@ -22,9 +22,73 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.Reporte_InventarioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DespensaDataSet = New SISVENTAS.DespensaDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Mostrar_ClienesConCuentasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Mostrar_ClienesConCuentasTableAdapter = New SISVENTAS.DespensaDataSetTableAdapters.Mostrar_ClienesConCuentasTableAdapter()
+        Me.Reporte_InventarioTableAdapter = New SISVENTAS.DespensaDataSetTableAdapters.Reporte_InventarioTableAdapter()
+        CType(Me.Reporte_InventarioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DespensaDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Mostrar_ClienesConCuentasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'Reporte_InventarioBindingSource
+        '
+        Me.Reporte_InventarioBindingSource.DataMember = "Reporte_Inventario"
+        Me.Reporte_InventarioBindingSource.DataSource = Me.DespensaDataSet
+        '
+        'DespensaDataSet
+        '
+        Me.DespensaDataSet.DataSetName = "DespensaDataSet"
+        Me.DespensaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.Reporte_InventarioBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "SISVENTAS.Report4.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(816, 379)
+        Me.ReportViewer1.TabIndex = 0
+        '
+        'Mostrar_ClienesConCuentasBindingSource
+        '
+        Me.Mostrar_ClienesConCuentasBindingSource.DataMember = "Mostrar_ClienesConCuentas"
+        Me.Mostrar_ClienesConCuentasBindingSource.DataSource = Me.DespensaDataSet
+        '
+        'Mostrar_ClienesConCuentasTableAdapter
+        '
+        Me.Mostrar_ClienesConCuentasTableAdapter.ClearBeforeFill = True
+        '
+        'Reporte_InventarioTableAdapter
+        '
+        Me.Reporte_InventarioTableAdapter.ClearBeforeFill = True
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(816, 379)
+        Me.Controls.Add(Me.ReportViewer1)
+        Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.Reporte_InventarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DespensaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Mostrar_ClienesConCuentasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
     End Sub
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents Mostrar_ClienesConCuentasBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DespensaDataSet As SISVENTAS.DespensaDataSet
+    Friend WithEvents Mostrar_ClienesConCuentasTableAdapter As SISVENTAS.DespensaDataSetTableAdapters.Mostrar_ClienesConCuentasTableAdapter
+    Friend WithEvents Reporte_InventarioBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Reporte_InventarioTableAdapter As SISVENTAS.DespensaDataSetTableAdapters.Reporte_InventarioTableAdapter
 
 End Class
