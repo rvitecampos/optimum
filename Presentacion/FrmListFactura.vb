@@ -943,6 +943,55 @@ Public Class FrmListFactura
                 My.Computer.FileSystem.DeleteFile(ruta + "\" + archivoFinal)
 
             Next
+
+            Dim ruta2 As String
+            Dim archivoFinal2 As String
+            ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\FIRMA"
+            archivoFinal2 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
+
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta2, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal2)
+                My.Computer.FileSystem.DeleteFile(ruta2 + "\" + archivoFinal2)
+
+            Next
+
+            Dim ruta3 As String
+            Dim archivoFinal3 As String
+            ruta3 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ORIDAT"
+            archivoFinal3 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
+
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta3, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal3)
+                My.Computer.FileSystem.DeleteFile(ruta3 + "\" + archivoFinal3)
+
+            Next
+
+            Dim ruta4 As String
+            Dim archivoFinal4 As String
+            ruta4 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\PARSE"
+            archivoFinal4 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
+
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta4, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal4)
+                My.Computer.FileSystem.DeleteFile(ruta4 + "\" + archivoFinal4)
+
+            Next
+
+            Dim ruta5 As String
+            Dim archivoFinal5 As String
+            ruta5 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\TEMP"
+            archivoFinal5 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
+
+            ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
+            For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta5, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal5)
+                My.Computer.FileSystem.DeleteFile(ruta5 + "\" + archivoFinal5)
+
+            Next
+
+
+
+
+
         Catch ex As Exception
 
             'MsgBox("No se realizó la operación por: " & ex.Message)

@@ -187,14 +187,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SISVENTAS.exe" size="2853376">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SISVENTAS.exe" size="2854912">
       <assemblyIdentity name="SISVENTAS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sG3i1/0WN9gwmuB5MMb+ZhqocXeJyKkWAw+LNdBDydw=</dsig:DigestValue>
+        <dsig:DigestValue>/Uj2UUhts2E7XgeD37JjHJMSzJaOjNdzKqzp3u9S5N8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
