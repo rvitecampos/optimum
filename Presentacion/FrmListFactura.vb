@@ -906,7 +906,9 @@ Public Class FrmListFactura
 
 
                 If funcAbrir.abrirFac(dtsAbrir) Then
+                    borrarDB()
                     borrarSFS()
+
                     MessageBox.Show("Cambio de Estado", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     limpiar()
                     bloquear()
@@ -923,6 +925,18 @@ Public Class FrmListFactura
         bloquear()
         ' BtnGuardar.Enabled = False
     End Sub
+
+    Private Sub borrarDB()
+        Dim func As New crud
+        Dim ARCH As String = Trim(datalistadoFactura.SelectedCells.Item(15).Value)
+
+        If func.eliminar(ARCH) Then
+        Else
+            MessageBox.Show("Error", "No se Elimino DB SFS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        End If
+    End Sub
+
 
     Private Sub borrarSFS()
         borrarXML()
