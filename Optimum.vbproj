@@ -189,6 +189,12 @@
     <Compile Include="Presentacion\Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Presentacion\credencialesCorreo.Designer.vb">
+      <DependentUpon>credencialesCorreo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\credencialesCorreo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Presentacion\crudDB.Designer.vb">
       <DependentUpon>crudDB.vb</DependentUpon>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Cliente.resx">
       <DependentUpon>Cliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\credencialesCorreo.resx">
+      <DependentUpon>credencialesCorreo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\crudDB.resx">
       <DependentUpon>crudDB.vb</DependentUpon>

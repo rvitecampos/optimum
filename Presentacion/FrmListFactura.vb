@@ -15,6 +15,7 @@ Public Class FrmListFactura
     Private Property aca As String
 
 
+
     Public Sub mostrar()
         'limpiar()
         datalistadoFactura.DataSource = Nothing
@@ -799,30 +800,36 @@ Public Class FrmListFactura
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
-        'Return
-        'Dim Emisor As String = "ventas@optimum.com.pe"
-        Dim Emisor As String = "rvitecampos@hotmail.com"
-        Dim Password As String = "VCR97911"
-        Dim Mensaje As String = "SFS Sunat Emision Factura Electronica"
-
-        Dim Asunto As String = "Factura " + Mid(Trim(datalistadoFactura.SelectedCells.Item(15).Value), 17, Trim(datalistadoFactura.SelectedCells.Item(15).Value).Length - 1)
-        '"prueba Asunto Sunat"
-        Dim Receptor As String = Trim(datalistadoFactura.SelectedCells.Item(16).Value)
-        Dim ruta1 As String
-        Dim archivoFinal1 As String
-        ruta1 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
-        archivoFinal1 = ruta1 + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
-        Dim RutaArchivo1 As String = archivoFinal1
-        Dim ruta2 As String
-        Dim archivoFinal2 As String
-        ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA\"
-        archivoFinal2 = ruta2 + "R" + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
-        Dim RutaArchivo2 As String = archivoFinal2
 
 
+        credencialesCorreo.txtflag.Text = "1"
+        credencialesCorreo.ShowDialog()
+        
+        If credencialesCorreo.txtflag.Text = "1" Then
+            Dim Emisor As String = txtEmisor.Text
 
-        enviarCorreo(Emisor, Password, Mensaje, Asunto, Receptor, RutaArchivo1, RutaArchivo2)
+            Dim Password As String = txtPassword.Text
 
+            Dim Mensaje As String = "SFS Sunat Emision Factura Electronica"
+
+            Dim Asunto As String = "Factura " + Mid(Trim(datalistadoFactura.SelectedCells.Item(15).Value), 17, Trim(datalistadoFactura.SelectedCells.Item(15).Value).Length - 1)
+
+            Dim Receptor As String = Trim(datalistadoFactura.SelectedCells.Item(16).Value)
+            Dim ruta1 As String
+            Dim archivoFinal1 As String
+            ruta1 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
+            archivoFinal1 = ruta1 + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
+            Dim RutaArchivo1 As String = archivoFinal1
+            Dim ruta2 As String
+            Dim archivoFinal2 As String
+            ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA\"
+            archivoFinal2 = ruta2 + "R" + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
+            Dim RutaArchivo2 As String = archivoFinal2
+            enviarCorreo(Emisor, Password, Mensaje, Asunto, Receptor, RutaArchivo1, RutaArchivo2)
+
+        Else
+            MessageBox.Show("No ingresó Credenciales", "Correo no enviado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
 
     End Sub
 

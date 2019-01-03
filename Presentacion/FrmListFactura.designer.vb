@@ -42,6 +42,8 @@ Partial Class FrmListFactura
         Me.btnEnviar = New System.Windows.Forms.Button()
         Me.lblFactura = New System.Windows.Forms.Label()
         Me.btnEstado = New System.Windows.Forms.Button()
+        Me.txtEmisor = New System.Windows.Forms.TextBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         CType(Me.datalistadoFactura, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Erroricono, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -241,12 +243,30 @@ Partial Class FrmListFactura
         Me.btnEstado.UseVisualStyleBackColor = True
         Me.btnEstado.Visible = False
         '
+        'txtEmisor
+        '
+        Me.txtEmisor.Location = New System.Drawing.Point(1030, 619)
+        Me.txtEmisor.Name = "txtEmisor"
+        Me.txtEmisor.Size = New System.Drawing.Size(63, 20)
+        Me.txtEmisor.TabIndex = 101
+        Me.txtEmisor.Visible = False
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Location = New System.Drawing.Point(1124, 620)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(80, 20)
+        Me.txtPassword.TabIndex = 102
+        Me.txtPassword.Visible = False
+        '
         'FrmListFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1246, 649)
+        Me.Controls.Add(Me.txtPassword)
+        Me.Controls.Add(Me.txtEmisor)
         Me.Controls.Add(Me.btnEstado)
         Me.Controls.Add(Me.lblFactura)
         Me.Controls.Add(Me.btnEnviar)
@@ -287,4 +307,6 @@ Partial Class FrmListFactura
     Friend WithEvents dtfacLblSUNAT As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnRefresh As System.Windows.Forms.Button
     Friend WithEvents btnEstado As System.Windows.Forms.Button
+    Friend WithEvents txtPassword As System.Windows.Forms.TextBox
+    Friend WithEvents txtEmisor As System.Windows.Forms.TextBox
 End Class

@@ -11,6 +11,7 @@ Module Correo
     Sub enviarCorreo(ByVal emisor As String, ByVal password As String, ByVal mensaje As String, ByVal asunto As String, ByVal destinatario As String, ByVal ruta1 As String, ByVal ruta2 As String)
         Try
             correos.To.Clear()
+            correos.Attachments.Clear()
             correos.Body = ""
             correos.Subject = ""
             correos.Body = mensaje
@@ -42,7 +43,7 @@ Module Correo
             MsgBox("El mensaje fue enviado correctamente. ", MsgBoxStyle.Information, "Mensaje")
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Mensajeria 1.0 vb.net ®", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "Error en Envio, Intente nuevamente...", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub

@@ -13,16 +13,16 @@ INSERT INTO [dbo].[Usuario]
            ,[Categoria]
        ,[imagen])
      select
-           'Ricardo'
-           ,'Vite'
-           ,'09798107'
+           'Nombre'
+           ,'Apellido'
+           ,'09797977'
            ,'Av Chorrillos'
            ,'4673030'
-           ,'RVITE'
-           ,'RVITE'
+           ,'nape'
+           ,'nape'
            ,'1'
        ,'A',
-       *from OpenRowset(Bulk 'E:\optimum\optimum\Resources\ric.jpg', Single_Blob) As imagen
+       *from OpenRowset(Bulk 'D:\optimum\optimum\Resources\avatar1.png', Single_Blob) As imagen
            
  
 GO
