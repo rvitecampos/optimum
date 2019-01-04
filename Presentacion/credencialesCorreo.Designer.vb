@@ -98,9 +98,9 @@ Partial Class credencialesCorreo
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.Location = New System.Drawing.Point(24, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 20)
+        Me.Label1.Size = New System.Drawing.Size(62, 20)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Correo:"
+        Me.Label1.Text = "Emisor:"
         '
         'txtCorreo
         '
