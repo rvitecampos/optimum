@@ -118,6 +118,7 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Datos\Conexion.vb" />
+    <Compile Include="Datos\fRutaSFS.vb" />
     <Compile Include="Datos\Correo2.vb" />
     <Compile Include="Datos\Correo.vb" />
     <Compile Include="Datos\crud.vb" />
@@ -153,6 +154,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Logica\vRutaSFS.vb" />
     <Compile Include="Logica\vServicios.vb" />
     <Compile Include="Logica\vStockMovimiento.vb" />
     <Compile Include="Logica\VBloqueo.vb" />
@@ -212,6 +214,12 @@
       <DependentUpon>itemsServicios.vb</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\itemsServicios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\RutaSFS.Designer.vb">
+      <DependentUpon>RutaSFS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\RutaSFS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Servicios.designer.vb">
@@ -407,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\itemsServicios.resx">
       <DependentUpon>itemsServicios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\RutaSFS.resx">
+      <DependentUpon>RutaSFS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Servicios.resx">
       <DependentUpon>Servicios.vb</DependentUpon>

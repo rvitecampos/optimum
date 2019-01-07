@@ -519,8 +519,15 @@ GO
 
 /*-------*/
 
+
+
 USE [Despensa]
 GO
+
+/****** Object:  Table [dbo].[Detalle_venta]    Script Date: 15/10/2018 17:48:42 ******/
+DROP TABLE [dbo].[Detalle_venta]
+GO
+
 
 SET ANSI_NULLS ON
 GO
@@ -577,3 +584,35 @@ GO
 
 
 /*-------*/
+
+USE [Despensa]
+GO
+
+/****** Object:  Table [dbo].[rutaSFS]    Script Date: 7/01/2019 16:46:53 ******/
+DROP TABLE [dbo].[rutaSFS]
+GO
+
+/****** Object:  Table [dbo].[rutaSFS]    Script Date: 7/01/2019 16:46:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[rutaSFS](
+	[rutasfs] [nchar](70) NULL
+) ON [PRIMARY]
+GO
+
+
+USE [Despensa]
+GO
+
+INSERT INTO [dbo].[rutaSFS]
+           ([rutasfs])
+     VALUES
+           (' ')
+GO
+
+
+

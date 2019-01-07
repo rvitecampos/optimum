@@ -227,4 +227,9 @@ Public Class frmPrincipal
         ' Form1.Dispose()
 
     End Sub
+
+    Private Sub RutaSFSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaSFSToolStripMenuItem.Click
+        RutaSFS.ShowDialog()
+        RutaSFS.Dispose()
+    End Sub
 End Class

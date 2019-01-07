@@ -95,3 +95,4 @@ D:\optimum\optimum\bin\Debug\System.Data.SQLite.dll
 D:\optimum\optimum\obj\Debug\SISVENTAS.Form1.resources
 D:\optimum\optimum\bin\Debug\System.Data.SQLite.pdb
 D:\optimum\optimum\obj\Debug\SISVENTAS.credencialesCorreo.resources
+D:\optimum\optimum\obj\Debug\SISVENTAS.RutaSFS.resources

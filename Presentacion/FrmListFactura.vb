@@ -1,11 +1,13 @@
 ﻿Imports System.IO
 Imports System.Globalization
 
+
 Public Class FrmListFactura
     Private dt As DataTable
     Public U, D, C, M, DM, CM As String
     Public CMl, DMl, Ml, Cl, Dl, Ul As String
     Public letra As String
+
     Private Property dtlle As String
 
     Private Property tri As String
