@@ -525,9 +525,6 @@ USE [Despensa]
 GO
 
 /****** Object:  Table [dbo].[Detalle_venta]    Script Date: 15/10/2018 17:48:42 ******/
-DROP TABLE [dbo].[Detalle_venta]
-GO
-
 
 SET ANSI_NULLS ON
 GO

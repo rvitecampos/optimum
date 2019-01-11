@@ -2,7 +2,20 @@
 Imports System.Data.SQLite
 
 Public Class crud
-    Dim cs As String = "Data Source=D:\FACTURADOR\SFS_v1.2\bd\BDFacturador.db;"
+    Private dt As DataTable
+    Public Function SFS() As String
+        Dim func As New fRutaSFS
+        dt = func.mostrar
+        Dim row As DataRow = dt.Rows(dt.Rows.Count - 1)
+        Dim raiz As String
+        raiz = row.Item("rutasfs")
+
+
+        Return Trim(raiz)
+    End Function
+
+
+    Dim cs As String = "Data Source=" + SFS() + "\bd\BDFacturador.db;"
     ' Dim con As New SQLiteConnection(connectionString)
     ':::Creamos nuestra conexión a la base de Datos
     '    Dim con As New SQLiteConnection("Data Source=D:\FACTURADOR\SFS_v1.2\bd\BDFacturador.db;")

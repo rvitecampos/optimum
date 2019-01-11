@@ -83,7 +83,7 @@
 
     Public Sub desbloquear()
         btnBuscarProveedor.Enabled = True
-        TxtCodProducto.Enabled = False
+        TxtCodProducto.Enabled = True
         txtCantidad.Enabled = False
         txtLimite.Enabled = True
         TxtNombreProducto.Enabled = True
@@ -92,6 +92,7 @@
         BtnEditar.Enabled = False
         BtnNuevo.Enabled = True
         BtnGuardar.Enabled = True
+        PictureBox1.Enabled = True
     End Sub
     Public Sub bloquear()
         BtnEditar.Enabled = False
@@ -106,6 +107,7 @@
         TxtPrecioUnitario.Enabled = False
         txtSPrecioUnitario.Enabled = False
         txtLimite.Enabled = False
+        PictureBox1.Enabled = False
     End Sub
     Public Sub limpiar()
         BtnGuardar.Enabled = False
@@ -149,12 +151,12 @@
     Public Sub txtLimite_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtLimite.KeyPress
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtLimite.Text & CChar(eventArgs.KeyChar))
     End Sub
-    Public Sub TxtPrecioUnitario_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtPrecioUnitario.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtPrecioUnitario.Text & CChar(eventArgs.KeyChar))
-    End Sub
-    Public Sub txttxtSPrecioUnitario_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtSPrecioUnitario.KeyPress
-        eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtSPrecioUnitario.Text & CChar(eventArgs.KeyChar))
-    End Sub
+    '  Public Sub TxtPrecioUnitario_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles TxtPrecioUnitario.KeyPress
+    '      eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, TxtPrecioUnitario.Text & CChar(eventArgs.KeyChar))
+    '  End Sub
+    '  Public Sub txttxtSPrecioUnitario_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtSPrecioUnitario.KeyPress
+    '      eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtSPrecioUnitario.Text & CChar(eventArgs.KeyChar))
+    '  End Sub
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         limpiar()
         mostrar()
@@ -166,7 +168,7 @@
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         Try
 
-       
+
             If Me.ValidateChildren = True And TxtNombreProducto.Text <> " " And TxtCodProducto.Text <> " " And TxtPrecioUnitario.Text <> " " And TxtCodProveedor.Text > 0 Then
 
                 Dim dts As New vProducto
@@ -217,7 +219,7 @@
 
         End Try
 
-        
+
     End Sub
 
     Private Sub datalistado_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistadoProducto.CellClick
@@ -299,8 +301,8 @@
             Else
             End If
         End If
-            bloquear()
-            BtnGuardar.Enabled = False
+        bloquear()
+        BtnGuardar.Enabled = False
 
     End Sub
 
@@ -368,7 +370,7 @@
 
             End If
         End If
-            Call limpiar()
+        Call limpiar()
 
     End Sub
 
@@ -400,7 +402,7 @@
     End Sub
 
 
-    
+
     Private Sub datalistadoProducto_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistadoProducto.CellDoubleClick
         If txtflag.Text = "1" Then
             '   Detalle_Venta.txtPrecio.Items.Clear()
@@ -412,7 +414,7 @@
             '    Detalle_Venta.txtPrecio.Items.Add(datalistadoProducto.SelectedCells.Item(4).Value)
             '   Detalle_Venta.txtPrecio.Items.Add(datalistadoProducto.SelectedCells.Item(5).Value)
 
-        
+
 
             Detalle_Compra.txtcod_Producto.Text = datalistadoProducto.SelectedCells.Item(1).Value
             Detalle_Compra.txtNombreProducto.Text = datalistadoProducto.SelectedCells.Item(2).Value
@@ -453,10 +455,10 @@
         End If
     End Sub
 
-    Private Sub txtVenta_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPrecioUnitario.KeyPress
+    Private Sub TxtPrecioUnitario_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TxtPrecioUnitario.KeyPress
         NumerosyDecimal(TxtPrecioUnitario, e)
     End Sub
-    Private Sub txtCosto_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSPrecioUnitario.KeyPress
+    Private Sub txtSPrecioUnitario_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSPrecioUnitario.KeyPress
         NumerosyDecimal(txtSPrecioUnitario, e)
     End Sub
 

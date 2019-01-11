@@ -36,54 +36,56 @@
         If Trim(ruta) <> "" Then
             If Trim(ruta) <> Trim(lblRuta.Text) Then
                 Dim cadena As String = Trim(ruta)
-                If (cadena.Contains("SFS")) Then
-
-                    Dim result As DialogResult
-                    result = MessageBox.Show("Realmente desea cambiar la Ruta?", "Modificando ...", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-                    If result = DialogResult.OK Then
-
-                        Try
-                            Dim dts As New vRutaSFS
-                            Dim func As New fRutaSFS
-                            dts.grutasfs = Trim(ruta)
-
-                            If func.editar(dts) Then
-                                MessageBox.Show("Ruta editada correctamente", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                '        mostrar()
-                                '        limpiar()
-                                '        bloquear()
-                            Else
-                                MessageBox.Show("Ruta no modificado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                '       mostrar()
-                                '       limpiar()
-                                '       bloquear()
-                            End If
-                        Catch ex As Exception
-                            MsgBox(ex.Message)
-
-                        End Try
+                Dim buscaSFS As String = "SFS"
+                Dim buscaBarra As String = "\"
+                Dim POS1 As Integer
+                Dim POS2 As Integer
+                POS1 = InStr(1, cadena, buscaSFS, CompareMethod.Text)
 
 
-                        mostrar()
+                If (POS1 > 0) Then
+                    'If (cadena.Contains("SFS")) Then
+                    POS2 = InStr(POS1, cadena, buscaBarra, CompareMethod.Text)
+                    If (POS2 > 0) Then
+                        MessageBox.Show("Ruta no modificado", "Carpeta no válida", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        Dim result As DialogResult
+                        result = MessageBox.Show("Realmente desea cambiar la Ruta?", "Modificando ...", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                        If result = DialogResult.OK Then
+
+                            Try
+                                Dim dts As New vRutaSFS
+                                Dim func As New fRutaSFS
+                                dts.grutasfs = Trim(ruta)
+
+                                If func.editar(dts) Then
+                                    MessageBox.Show("Ruta editada correctamente", "Modificado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Else
+                                    MessageBox.Show("Ruta no modificado", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                End If
+                            Catch ex As Exception
+                                MsgBox(ex.Message)
+
+                            End Try
 
 
+                            mostrar()
 
-
+                        End If
                     End If
- 
                 Else
 
-                    MessageBox.Show("Ruta no modificado", "Carpeta no válida", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Ruta no modificado", "Carpeta SFS no encontrada", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 End If
+                Else
+                    MessageBox.Show("Ruta no modificado", "Ruta antigua y nueva son iguales", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
             Else
-                MessageBox.Show("Ruta no modificado", "Ruta antigua y nueva son iguales", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Ruta no modificado", "NO ESCOGIO FOLDER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
             End If
-
-        Else
-            MessageBox.Show("Ruta no modificado", "NO ESCOGIO FOLDER", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        End If
 
         '        MessageBox.Show(ruta)
     End Sub

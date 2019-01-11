@@ -16,6 +16,8 @@ Public Class FrmListFactura
 
     Private Property aca As String
 
+    Public raizSFS As String
+
 
 
     Public Sub mostrar()
@@ -101,8 +103,8 @@ Public Class FrmListFactura
         Dim archivo As StreamWriter
         Dim nombre As String
         Dim nombre2 As String
-        nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
-        nombre2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
+        nombre = SFS() + "\sunat_archivos\sfs\DATA\"
+        nombre2 = SFS() + "\sunat_archivos\sfs\DATA\"
         nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".cab"
         dtlle = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".det"
         tri = nombre2 + campo7 + "-01-" + campo19 + "-" + campo20 + ".tri"
@@ -674,7 +676,8 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ENVIO"
+
+            ruta = SFS() + "\sunat_archivos\sfs\ENVIO"
             archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -693,7 +696,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ENVIO"
+            ruta = SFS() + "\sunat_archivos\sfs\ENVIO"
             archivoFinal = Trim(datalistadoFactura.Rows(iRows).Cells(15).Value) + ".zip"
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
@@ -709,7 +712,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO"
+            ruta = SFS() + "\sunat_archivos\sfs\REPO"
             archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -729,7 +732,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO"
+            ruta = SFS() + "\sunat_archivos\sfs\REPO"
             archivoFinal = Trim(datalistadoFactura.Rows(irows).Cells(15).Value) + ".pdf"
             For Each archivos As String In My.Computer.FileSystem.GetFiles(ruta, FileIO.SearchOption.SearchAllSubDirectories, archivoFinal)
                 Return True
@@ -744,7 +747,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA"
+            ruta = SFS() + "\sunat_archivos\sfs\RPTA"
             archivoFinal = "R" + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
             ' ruta = ruta + archivoFinal
 
@@ -771,7 +774,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA"
+            ruta = SFS() + "\sunat_archivos\sfs\RPTA"
             archivoFinal = "R" + Trim(datalistadoFactura.Rows(irows).Cells(15).Value) + ".zip"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -788,7 +791,7 @@ Public Class FrmListFactura
     Private Sub btnPdf_Click(sender As Object, e As EventArgs) Handles btnPdf.Click
         Dim ruta As String
         Dim archivoFinal As String
-        ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
+        ruta = SFS() + "\sunat_archivos\sfs\REPO\"
         archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
         With New Process
             '.StartInfo.Verb = "print"
@@ -819,12 +822,12 @@ Public Class FrmListFactura
             Dim Receptor As String = Trim(datalistadoFactura.SelectedCells.Item(16).Value)
             Dim ruta1 As String
             Dim archivoFinal1 As String
-            ruta1 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO\"
+            ruta1 = SFS() + "\sunat_archivos\sfs\REPO\"
             archivoFinal1 = ruta1 + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
             Dim RutaArchivo1 As String = archivoFinal1
             Dim ruta2 As String
             Dim archivoFinal2 As String
-            ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\RPTA\"
+            ruta2 = SFS() + "\sunat_archivos\sfs\RPTA\"
             archivoFinal2 = ruta2 + "R" + Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
             Dim RutaArchivo2 As String = archivoFinal2
             enviarCorreo(Emisor, Password, Mensaje, Asunto, Receptor, RutaArchivo1, RutaArchivo2)
@@ -888,9 +891,15 @@ Public Class FrmListFactura
 
 
     Private Sub FrmListFactura_Load(sender As Object, e As EventArgs) Handles Me.Load
-        limpiar()
-        bloquear()
-        mostrar()
+        Dim inicio As String = SFS()
+        If (inicio <> "") Then
+            limpiar()
+            bloquear()
+            mostrar()
+        Else
+            MessageBox.Show("Actualizar ruta SFS", "No se ingreso ruta SFS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dispose()
+        End If
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
@@ -958,7 +967,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ENVIO"
+            ruta = SFS() + "\sunat_archivos\sfs\ENVIO"
             archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".zip"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -969,7 +978,7 @@ Public Class FrmListFactura
 
             Dim ruta2 As String
             Dim archivoFinal2 As String
-            ruta2 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\FIRMA"
+            ruta2 = SFS() + "\sunat_archivos\sfs\FIRMA"
             archivoFinal2 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -980,7 +989,7 @@ Public Class FrmListFactura
 
             Dim ruta3 As String
             Dim archivoFinal3 As String
-            ruta3 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\ORIDAT"
+            ruta3 = SFS() + "\sunat_archivos\sfs\ORIDAT"
             archivoFinal3 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -991,7 +1000,7 @@ Public Class FrmListFactura
 
             Dim ruta4 As String
             Dim archivoFinal4 As String
-            ruta4 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\PARSE"
+            ruta4 = SFS() + "\sunat_archivos\sfs\PARSE"
             archivoFinal4 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -1002,7 +1011,7 @@ Public Class FrmListFactura
 
             Dim ruta5 As String
             Dim archivoFinal5 As String
-            ruta5 = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\TEMP"
+            ruta5 = SFS() + "\sunat_archivos\sfs\TEMP"
             archivoFinal5 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".xml"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -1026,7 +1035,7 @@ Public Class FrmListFactura
             ':::Contamos cuanto archivos de texto hay en la carpeta
             Dim ruta As String
             Dim archivoFinal As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\REPO"
+            ruta = SFS() + "\sunat_archivos\sfs\REPO"
             archivoFinal = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".pdf"
 
             ':::Realizamos la búsqueda de la ruta de cada archivo de texto y los agregamos al ListBox
@@ -1049,7 +1058,7 @@ Public Class FrmListFactura
             Dim archivo3 As String
             Dim archivo4 As String
             Dim archivo5 As String
-            ruta = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA"
+            ruta = SFS() + "\sunat_archivos\sfs\DATA"
             archivo1 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".cab"
             archivo2 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".det"
             archivo3 = Trim(datalistadoFactura.SelectedCells.Item(15).Value) + ".ley"
@@ -1069,6 +1078,17 @@ Public Class FrmListFactura
 
         End Try
 
+    End Function
+
+    Public Function SFS() As String
+        Dim func As New fRutaSFS
+        dt = func.mostrar
+        Dim row As DataRow = dt.Rows(dt.Rows.Count - 1)
+        Dim raiz As String
+        raiz = row.Item("rutasfs")
+
+  
+        Return Trim(raiz)
     End Function
 
 

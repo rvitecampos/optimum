@@ -2,9 +2,9 @@
     Private dt As New DataTable
 
     Private Sub FrmProveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        limpiar()
         mostrar()
-
+        limpiar()
+        bloquear()
     End Sub
     Private Shared Function EmailValido(strEmail As String) As Boolean
         ' Retorna verdadero si strEmail es un formato de E-mail valido.

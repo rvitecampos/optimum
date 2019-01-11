@@ -15,6 +15,7 @@ Public Class FrmVenta
     Private Property aca As String
 
     Private Property nombre2 As String
+    Public raizSFS As String
 
     Private Sub FrmVenta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs)
         limpiar()
@@ -102,8 +103,8 @@ Public Class FrmVenta
         Dim archivo As StreamWriter
         Dim nombre As String
         Dim nombreGral As String
-        nombre = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
-        nombreGral = "D:\FACTURADOR\SFS_v1.2\sunat_archivos\sfs\DATA\"
+        nombre = SFS() + "\sunat_archivos\sfs\DATA\"
+        nombreGral = SFS() + "\sunat_archivos\sfs\DATA\"
         nombre2 = ""
         nombre2 = campo7 + "-01-" + campo19 + "-" + campo20
         nombre = nombre + campo7 + "-01-" + campo19 + "-" + campo20 + ".cab"
@@ -313,49 +314,51 @@ Public Class FrmVenta
     Private Sub BtnCerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCerrar.Click
         If datalistadoVenta.SelectedCells.Item(15).Value = 0 Then
             If txtTotal.Text > 0 Then
-                Dim codVta As String
-                Dim codCli As String
+                Dim raiz = SFS()
+                If (raiz <> "") Then
+                    Dim codVta As String
+                    Dim codCli As String
+
+                    codVta = datalistadoVenta.SelectedCells.Item(1).Value
+                    codCli = datalistadoVenta.SelectedCells.Item(3).Value
+                    crearCabeceraFac(codVta)
+
+                    crearDetalleFac(codVta, codCli)
+                    crearTri(codVta, codCli)
+                    crearLey(codVta, codCli, Trim(txtLetras.Text))
+                    crearAca(codVta, codCli)
+                    Dim dtsCerrar As New vVenta
+                    Dim funcCerrar As New fventa
+
+
+                    dtsCerrar.gcod_Venta = TxtCod_venta.Text
+                    dtsCerrar.gcood_Cliente = txtCod_cliente.Text
+                    dtsCerrar.gletras = txtLetras.Text
+                    dtsCerrar.greferencial = txtRefer.Text
 
 
 
-                codVta = datalistadoVenta.SelectedCells.Item(1).Value
-                codCli = datalistadoVenta.SelectedCells.Item(3).Value
-                crearCabeceraFac(codVta)
-
-                crearDetalleFac(codVta, codCli)
-                crearTri(codVta, codCli)
-                crearLey(codVta, codCli, Trim(txtLetras.Text))
-                crearAca(codVta, codCli)
-                Dim dtsCerrar As New vVenta
-                Dim funcCerrar As New fventa
-
-
-                dtsCerrar.gcod_Venta = TxtCod_venta.Text
-                dtsCerrar.gcood_Cliente = txtCod_cliente.Text
-                dtsCerrar.gletras = txtLetras.Text
-                dtsCerrar.greferencial = txtRefer.Text
-
-
-
-                If funcCerrar.cierraFac(dtsCerrar) Then
-                    MessageBox.Show("Factura cerrada ", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    limpiar()
-                    mostrar()
-                    bloquear()
+                    If funcCerrar.cierraFac(dtsCerrar) Then
+                        MessageBox.Show("Factura cerrada ", "Guardado correctamente", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        limpiar()
+                        mostrar()
+                        bloquear()
+                    Else
+                        MessageBox.Show("NO SE pudo cerrar la Factura", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        limpiar()
+                        mostrar()
+                        bloquear()
+                    End If
                 Else
-                    MessageBox.Show("NO SE pudo cerrar la Factura", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    limpiar()
-                    mostrar()
-                    bloquear()
+                    MessageBox.Show("Actualizar ruta SFS", "No se ingreso ruta SFS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-
             Else
                 MessageBox.Show("Añadir Detalle", "Ingrese de nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-        Else
-            MessageBox.Show("Factura Cerrada", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Factura Cerrada", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-        End If
+            End If
     End Sub
 
 
@@ -1290,4 +1293,17 @@ Public Class FrmVenta
         End If
 
     End Sub
+
+
+    Public Function SFS() As String
+        Dim func As New fRutaSFS
+        dt = func.mostrar
+        Dim row As DataRow = dt.Rows(dt.Rows.Count - 1)
+        Dim raiz As String
+        raiz = row.Item("rutasfs")
+
+
+        Return Trim(raiz)
+    End Function
+
 End Class
