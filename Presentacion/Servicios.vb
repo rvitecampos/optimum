@@ -1,11 +1,13 @@
 ﻿Public Class Servicios
     Private dt As New DataTable
 
+ 
+
     Private Sub Servicios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         limpiar()
         mostrar()
     End Sub
-    Private Sub mostrar()
+    Public Sub mostrar()
         Try
             Dim func As New fServicios
             dt = func.mostrar

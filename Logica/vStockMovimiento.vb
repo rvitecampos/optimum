@@ -1,5 +1,5 @@
 ﻿Public Class vStockMovimiento
-    Dim Id_Stock, Ctdad, Cood_Proveedor, Cood_Servicio As Integer
+    Dim Id_Stock, Ctdad, Cood_Proveedor, Cood_Servicio, Costo As Integer
     Dim Cood_Producto, Nombre_Producto, Tipo, Documento, Fecha As String
     Public Property gId_Stock
         Get
@@ -75,6 +75,15 @@
         End Set
     End Property
 
+    Public Property gCosto
+        Get
+            Return Costo
+        End Get
+        Set(ByVal value)
+            Costo = value
+        End Set
+    End Property
+
     Public Sub New()
 
     End Sub
@@ -89,6 +98,7 @@
         gFecha = Fecha
         gCood_Proveedor = cood_Proveedor
         gCood_Servicio = Cood_Servicio
+        gCosto = Costo
 
     End Sub
 End Class

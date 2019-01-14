@@ -1,6 +1,14 @@
 ﻿Public Class itemsServicios
     Private dt As New DataTable
 
+    Private Sub itemsServicios_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Servicios.limpiar()
+        Servicios.mostrar()
+    End Sub
+
+
+ 
+
     Private Sub itemsServicios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         limpiar()
         mostrar()
@@ -181,6 +189,7 @@
 
                     'INSERTAR PRODUCTO
                     dts.gCood_Producto = TxtCodProducto.Text
+                    dts.gCosto = TxtPrecioUnitario.Text
                     dts.gNombre_Producto = TxtNombreProducto.Text
                     dts.gCood_Proveedor = TxtCodProveedor.Text
                     dts.gCtdad = txtCtdad.Text
@@ -440,7 +449,4 @@
     Public Sub TxtCtdad_KeyPress(ByVal eventSender As System.Object, ByVal eventArgs As System.Windows.Forms.KeyPressEventArgs) Handles txtCtdad.KeyPress
         eventArgs.Handled = Fg_SoloNumeros(eventArgs.KeyChar, txtCtdad.Text & CChar(eventArgs.KeyChar))
     End Sub
-
-
-
 End Class

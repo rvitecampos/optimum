@@ -68,6 +68,7 @@ Public Class fStockMovimiento
             cmd.Connection = cnn
 
             cmd.Parameters.AddWithValue("@Cood_Producto", dts.gCood_Producto)
+            cmd.Parameters.AddWithValue("@Costo", dts.gCosto)
             cmd.Parameters.AddWithValue("@Nombre_producto", dts.gNombre_Producto)
             cmd.Parameters.AddWithValue("@Ctdad", dts.gCtdad)
             cmd.Parameters.AddWithValue("@Cood_Proveedor", dts.gCood_Proveedor)
