@@ -71,7 +71,6 @@ D:\optimum\optimum\obj\Debug\SISVENTAS.FrmReporteMeses.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.FrmUsuarios.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.FrmVenta.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.Productos.resources
-D:\optimum\optimum\obj\Debug\SISVENTAS.Reporte_Ingresos.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.ReporteComprasCliente.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.ReporteCuentaPersona.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.ReporteInventario.resources
@@ -96,3 +95,4 @@ D:\optimum\optimum\obj\Debug\SISVENTAS.Form1.resources
 D:\optimum\optimum\bin\Debug\System.Data.SQLite.pdb
 D:\optimum\optimum\obj\Debug\SISVENTAS.credencialesCorreo.resources
 D:\optimum\optimum\obj\Debug\SISVENTAS.RutaSFS.resources
+D:\optimum\optimum\obj\Debug\SISVENTAS.ReporteServicios.resources

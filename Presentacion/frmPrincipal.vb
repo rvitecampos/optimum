@@ -223,7 +223,7 @@ Public Class frmPrincipal
 
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        Form1.Show()
+        ReporteInventario.Show()
         ' Form1.Dispose()
 
     End Sub
@@ -231,5 +231,9 @@ Public Class frmPrincipal
     Private Sub RutaSFSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaSFSToolStripMenuItem.Click
         RutaSFS.ShowDialog()
         RutaSFS.Dispose()
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        ReporteServicios.Show()
     End Sub
 End Class

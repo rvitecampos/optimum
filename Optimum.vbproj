@@ -342,10 +342,10 @@
     <Compile Include="Presentacion\Productos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\Reporte Ingresos.designer.vb">
-      <DependentUpon>Reporte Ingresos.vb</DependentUpon>
+    <Compile Include="Reportes\ReporteServicios.designer.vb">
+      <DependentUpon>ReporteServicios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Reporte Ingresos.vb">
+    <Compile Include="Reportes\ReporteServicios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\ReporteComprasCliente.designer.vb">
@@ -486,8 +486,9 @@
     <EmbeddedResource Include="Reportes\Report5.rdlc" />
     <EmbeddedResource Include="Reportes\Report6.rdlc" />
     <EmbeddedResource Include="Reportes\Report7.rdlc" />
-    <EmbeddedResource Include="Reportes\Reporte Ingresos.resx">
-      <DependentUpon>Reporte Ingresos.vb</DependentUpon>
+    <EmbeddedResource Include="Reportes\Report8.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteServicios.resx">
+      <DependentUpon>ReporteServicios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteComprasCliente.resx">
       <DependentUpon>ReporteComprasCliente.vb</DependentUpon>

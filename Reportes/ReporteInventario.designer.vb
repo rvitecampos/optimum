@@ -77,7 +77,7 @@ Partial Class ReporteInventario
         Me.ClientSize = New System.Drawing.Size(771, 392)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "ReporteInventario"
-        Me.Text = "REPORTE DE INVENTARIO"
+        Me.Text = "INVENTARIO"
         CType(Me.Reporte_InventarioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DespensaDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Reporte_PreciosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

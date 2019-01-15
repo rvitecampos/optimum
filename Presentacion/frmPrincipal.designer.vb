@@ -42,6 +42,7 @@ Partial Class frmPrincipal
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtileriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CalculadoraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RutaSFSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,7 +68,6 @@ Partial Class frmPrincipal
         Me.BtnProducto = New System.Windows.Forms.Button()
         Me.BtnCliente = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RutaSFSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -180,7 +180,7 @@ Partial Class frmPrincipal
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.E), System.Windows.Forms.Keys)
         Me.ToolStripMenuItem2.ShowShortcutKeys = False
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(121, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem2.Text = "&Existencia"
         '
         'ToolStripMenuItem3
@@ -188,7 +188,7 @@ Partial Class frmPrincipal
         Me.ToolStripMenuItem3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem3.ForeColor = System.Drawing.Color.Maroon
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(121, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem3.Text = "&Servicios"
         '
         'HerramientasToolStripMenuItem
@@ -230,8 +230,14 @@ Partial Class frmPrincipal
         Me.CalculadoraToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CalculadoraToolStripMenuItem.ForeColor = System.Drawing.Color.Maroon
         Me.CalculadoraToolStripMenuItem.Name = "CalculadoraToolStripMenuItem"
-        Me.CalculadoraToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CalculadoraToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.CalculadoraToolStripMenuItem.Text = "Calculadora"
+        '
+        'RutaSFSToolStripMenuItem
+        '
+        Me.RutaSFSToolStripMenuItem.Name = "RutaSFSToolStripMenuItem"
+        Me.RutaSFSToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.RutaSFSToolStripMenuItem.Text = "Ruta SFS"
         '
         'AyudaToolStripMenuItem
         '
@@ -549,12 +555,6 @@ Partial Class frmPrincipal
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
-        '
-        'RutaSFSToolStripMenuItem
-        '
-        Me.RutaSFSToolStripMenuItem.Name = "RutaSFSToolStripMenuItem"
-        Me.RutaSFSToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RutaSFSToolStripMenuItem.Text = "Ruta SFS"
         '
         'frmPrincipal
         '
