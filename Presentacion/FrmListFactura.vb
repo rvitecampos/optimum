@@ -289,12 +289,6 @@ Public Class FrmListFactura
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        ReporteComprasCliente.ShowDialog()
-    End Sub
-
-
-
     Private Sub btnAñadir_Click(sender As Object, e As EventArgs)
         If datalistadoFactura.SelectedCells.Item(15).Value = 0 Then
             Detalle_Venta.TxtCod_venta.Text = datalistadoFactura.SelectedCells.Item(1).Value

@@ -336,8 +336,7 @@ Public Class Cliente
             FrmVenta.TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
             FrmVenta.txtRuc.Text = datalistado.SelectedCells.Item(3).Value
             'CuentasACobrar
-            FrmCuentasACobrar.txtCod_cliente.Text = datalistado.SelectedCells.Item(1).Value
-            FrmCuentasACobrar.TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
+  
             FrmCuentas.txtCod_cliente.Text = datalistado.SelectedCells.Item(1).Value
             FrmCuentas.TxtNombre.Text = datalistado.SelectedCells.Item(2).Value
             Me.Close()

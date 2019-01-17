@@ -29,6 +29,31 @@ Public Class fServicios
         End Try
     End Function
 
+    Public Function mostrar2() As DataTable
+        Try
+            conectado()
+            cmd = New SqlCommand("mostrar_servicios2")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = cnn
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            desconectado()
+        End Try
+    End Function
+
     Public Function editar(ByVal dts As vServicios) As Boolean
         Try
             conectado()

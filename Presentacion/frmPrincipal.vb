@@ -101,12 +101,6 @@ Public Class frmPrincipal
 
     'End Sub
 
-    Private Sub VentaDelDiaToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FrmBloqueo.ShowDialog()
-        If FrmBloqueo.txtPermiso.Text = "1" Then
-            ReporteVentaDia.ShowDialog()
-        End If
-    End Sub
 
 
  
@@ -164,12 +158,7 @@ Public Class frmPrincipal
 
     End Sub
 
-    Private Sub PreciosToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FrmBloqueo.ShowDialog()
-        If FrmBloqueo.txtPermiso.Text = "1" Then
-            ReportePrecios.ShowDialog()
-        End If
-    End Sub
+
 
     Private Sub BtnCuentasACobrar_Click(sender As Object, e As EventArgs) Handles BtnCuentasACobrar.Click
         Servicios.ShowDialog()
@@ -179,12 +168,6 @@ Public Class frmPrincipal
         frmBackup.ShowDialog()
     End Sub
 
-    Private Sub CuentasToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        FrmBloqueo.ShowDialog()
-        If FrmBloqueo.txtPermiso.Text = "1" Then
-            ReportePersonasConCuentas.ShowDialog()
-        End If
-    End Sub
 
     Private Sub CalculadoraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CalculadoraToolStripMenuItem.Click
         Shell("C:\Windows\System32\calc.exe", AppWinStyle.NormalFocus)
@@ -222,18 +205,17 @@ Public Class frmPrincipal
     End Sub
 
 
-    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        ReporteInventario.Show()
-        ' Form1.Dispose()
-
-    End Sub
-
     Private Sub RutaSFSToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RutaSFSToolStripMenuItem.Click
         RutaSFS.ShowDialog()
         RutaSFS.Dispose()
     End Sub
 
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+
+    End Sub
+
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
-        ReporteServicios.Show()
+        ReporteServicios.ShowDialog()
     End Sub
 End Class

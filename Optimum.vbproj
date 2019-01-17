@@ -147,13 +147,6 @@
     <Compile Include="DespensaDataSet.vb">
       <DependentUpon>DespensaDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Logica\vRutaSFS.vb" />
     <Compile Include="Logica\vServicios.vb" />
     <Compile Include="Logica\vStockMovimiento.vb" />
@@ -282,12 +275,6 @@
     <Compile Include="Presentacion\FrmCuentas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FrmCuentasACobrar.designer.vb">
-      <DependentUpon>FrmCuentasACobrar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Presentacion\FrmCuentasACobrar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Presentacion\FrmFondo.designer.vb">
       <DependentUpon>FrmFondo.vb</DependentUpon>
     </Compile>
@@ -318,12 +305,6 @@
     <Compile Include="Presentacion\FrmProveedor.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentacion\FrmReporteMeses.designer.vb">
-      <DependentUpon>FrmReporteMeses.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Presentacion\FrmReporteMeses.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Presentacion\FrmUsuarios.designer.vb">
       <DependentUpon>FrmUsuarios.vb</DependentUpon>
     </Compile>
@@ -342,59 +323,14 @@
     <Compile Include="Presentacion\Productos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteServicios.designer.vb">
+    <Compile Include="Reportes\ReporteServicios.Designer.vb">
       <DependentUpon>ReporteServicios.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ReporteServicios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteComprasCliente.designer.vb">
-      <DependentUpon>ReporteComprasCliente.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReporteComprasCliente.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReporteCuentaPersona.designer.vb">
-      <DependentUpon>ReporteCuentaPersona.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReporteCuentaPersona.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReporteInventario.designer.vb">
-      <DependentUpon>ReporteInventario.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReporteInventario.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReporteMeses.designer.vb">
-      <DependentUpon>ReporteMeses.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReporteMeses.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReportePersonasConCuentas.designer.vb">
-      <DependentUpon>ReportePersonasConCuentas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReportePersonasConCuentas.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReportePrecios.designer.vb">
-      <DependentUpon>ReportePrecios.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReportePrecios.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\ReporteVentaDia.designer.vb">
-      <DependentUpon>ReporteVentaDia.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\ReporteVentaDia.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -449,9 +385,6 @@
     <EmbeddedResource Include="Presentacion\FrmCuentas.resx">
       <DependentUpon>FrmCuentas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmCuentasACobrar.resx">
-      <DependentUpon>FrmCuentasACobrar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmFondo.resx">
       <DependentUpon>FrmFondo.vb</DependentUpon>
     </EmbeddedResource>
@@ -466,9 +399,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmProveedor.resx">
       <DependentUpon>FrmProveedor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Presentacion\FrmReporteMeses.resx">
-      <DependentUpon>FrmReporteMeses.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.vb</DependentUpon>
@@ -489,27 +419,6 @@
     <EmbeddedResource Include="Reportes\Report8.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteServicios.resx">
       <DependentUpon>ReporteServicios.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteComprasCliente.resx">
-      <DependentUpon>ReporteComprasCliente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteCuentaPersona.resx">
-      <DependentUpon>ReporteCuentaPersona.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteInventario.resx">
-      <DependentUpon>ReporteInventario.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteMeses.resx">
-      <DependentUpon>ReporteMeses.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReportePersonasConCuentas.resx">
-      <DependentUpon>ReportePersonasConCuentas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReportePrecios.resx">
-      <DependentUpon>ReportePrecios.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteVentaDia.resx">
-      <DependentUpon>ReporteVentaDia.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

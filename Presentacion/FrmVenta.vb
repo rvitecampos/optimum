@@ -437,9 +437,7 @@ Public Class FrmVenta
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        ReporteComprasCliente.ShowDialog()
-    End Sub
+ 
 
     Private Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
         If Me.ValidateChildren = True And txtCod_cliente.Text <> "" And TxtNombre.Text <> "" Then
